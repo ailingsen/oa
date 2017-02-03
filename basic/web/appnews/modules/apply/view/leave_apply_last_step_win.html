@@ -1,0 +1,25 @@
+<!-- 请假申请最后一步同意显示窗口 开始 -->
+<div class="ui-widget-winbor refusewin agreeAddwork  block  " ng-if="leave_apply.isLeaveLastStepWin">
+    <div class="toptitle">
+        同意
+    </div>
+    <div class="tipstitle pbc mt30">
+        打卡时间：
+
+        <div class="selecttimebor porela inblock">{{leave_apply.last_begin_time}}</div>
+        <span class="timeline inblock">—</span>
+        <div class="selecttimebor porela inblock">{{leave_apply.last_end_time}}</div>
+
+    </div>
+    <div class="tipstitle pbc mt30">
+        请假天数：
+        <input type="text" class="inputtext noborder totallength" ng-model="apply_param.leave_sum"/> 天
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="leave_apply.verifyBtn()">同意</button>
+            <button class="btns gray" ng-click="leave_apply.isLeaveLastStepWin=false">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 请假申请最后一步同意显示窗口 结束 -->

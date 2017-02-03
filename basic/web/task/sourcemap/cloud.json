@@ -1,0 +1,7 @@
+[
+	"appnews/modules/nanoCloud/controller/nanoCloudSectionCtrl.js",
+	"appnews/modules/nanoCloud/controller/nanoCloudRecycleCtrl.js",
+	"appnews/modules/nanoCloud/models/NanoCloudModel.js",
+	"appnews/modules/nanoCloud/route.js",
+	"appnews/lib/angular/ng-context-menu.min.js"
+]

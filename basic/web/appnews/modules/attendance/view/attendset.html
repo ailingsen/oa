@@ -1,0 +1,70 @@
+<div class="ui-widget-fixed-winbor holiday-set attend-set f16">
+    <div class="top-part">
+        <div class="holiday-set-header">
+            <span>考勤设置</span>
+        </div>
+        <div class="holiday-set-common length1">
+            上班时间：<input type="text" ng-model="attend.begin_time"/>
+        </div>
+        <div class="holiday-set-common length1">
+            下班时间：<input type="text" ng-model="attend.end_time"/>
+        </div>
+        <div class="holiday-set-common length2">
+            工作日加班起算时间：<input type="text" ng-model="attend.workday_time"/>
+        </div>
+        <div class="holiday-set-common length3">
+            工作日加班调休失效时间：<input type="text" ng-model="attend.workday_lose"/> 天
+        </div>
+        <p class="holiday-disable">非工作日设置</p>
+        <div class="holiday-set-common holiday-disable length4">
+            <div>
+                非工作日加班休息时间：<input type="text" ng-model="attend.unworkday_time"/> 小时
+            </div>
+        </div>
+    </div>
+    <div class="bottom-part">
+        <div class="holiday-save">
+            <button class="btns" ng-click="saveAttenSet()">保存</button>&nbsp;
+            <button class="btns gray" ng-click="resetButton()">重置</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<input type="text" ng-model="attend.begin_time" /><br>-->
+<!--<input type="text" ng-model="attend.end_time" /><br>-->
+<!--<input type="text" ng-model="attend.workday_time" /><br>-->
+<!--<input type="text" ng-model="attend.workday_lose" /><br>-->
+<!--<input type="text" ng-model="attend.unworkday_time" /><br>-->
+<!--<input type="button" value="保存" ng-click="saveAttenSet()" />-->

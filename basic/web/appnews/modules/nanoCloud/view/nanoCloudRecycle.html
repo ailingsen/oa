@@ -1,0 +1,124 @@
+<!--顶部开始-->
+<div class="nanoCloud-head">
+    <div class="fr search porela">
+        <i class="nanoicon col-a9 f16">&#xe623;</i>
+        <input type="text" placeholder="请输入关键字" maxlength="40"/>
+        <button class="btn fr">搜索</button>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--内容主体开始-->
+<div class="nanoCloud-content">
+    <!--面包屑开始-->
+    <div class="bread">
+        <span class="cp" ng-click="nanocloud.backToNanocloudSection()">
+            纳米云
+            <i class="col-a9">></i>
+        </span>
+        <span class="col-a9">
+            回收站
+        </span>
+    </div>
+    <!--面包屑结束-->
+    <!--列表内容开始-->
+    <div>
+        <!--列表头部开始-->
+        <div class="list-head col-a9">
+            <div class="fl width1" >
+                <i class="checkbox cd allcheck" ng-click="nanocloud.selected($index,0)"><i class="nanoicon col-bl" ng-if="nanocloud.isAllSelected">&#xe625;</i></i>
+                <span ng-if="!nanocloud.isShowOperatorMenu">
+                    <span>名称</span>
+                    <i class="nanoicon col-a9">&#xe627;</i>
+                </span>
+                <span ng-if="nanocloud.isShowOperatorMenu">
+                    <span class="head-btn"><i class="nanoicon col-a9">&#xe62a;</i>恢复</span>
+                    <span class="head-btn"><i class="nanoicon col-a9">&#xe610;</i>彻底删除</span>
+                </span>
+            </div>
+            <div class="fl width2">
+                <span>删除时间</span>
+                <i class="nanoicon col-a9">&#xe627;</i>
+            </div>
+            <div class="fl width2">
+                <span>大小</span>
+                <i class="nanoicon col-a9">&#xe627;</i>
+            </div>
+        </div>
+        <!--列表头部结束-->
+        <ul class="list">
+            <li context-menu="getindex($index)" context-Menu-Close="nanocloud.contextMenuClose()" data-target="{{item.fileType=='wenjianjia'?'recycle-context-menu-folder':'recycle-context-menu-file'}}" class="list-content hodb clear" ng-click="nanocloud.selected($index,1)" ng-repeat="item in nanocloud.recycleContent">
+                <div class="fl width1 bs porela">
+                    <i class="checkbox cd"><i class="nanoicon col-bl" ng-if="item.isSelected">&#xe625;</i></i>
+                    <i class="file-type icon-{{item.fileType}}"></i>
+                    <span>
+                        {{item.fileName}}
+                    </span>
+                    <span class="operate fr none">
+                        <i class="nanoicon col-a9 f18 hocb">&#xe62a;</i>
+                        <i class="nanoicon col-a9 f18 hocb">&#xe614;</i>
+                        <i class="nanoicon col-a9 f18 hocb more" ng-click="nanocloud.showDiaMore($event)">&#xe610;</i>
+                    </span>
+                </div>
+                <div class="fl width2 col-a9">
+                    <span>{{item.modifyTime}}</span>
+                </div>
+                <div class="fl width2 col-a9">
+                    <span ng-if="item.size>0">{{item.size}}kb</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--列表内容结束-->
+
+</div>
+<!--内容主体结束-->
+
+
+
+
+
+<!--鼠标右键弹出框-文件夹 开始-->
+<div class="right-click none" id="recycle-context-menu-folder">
+    <ul>
+        <li>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe62a;</i>
+                <span>恢复</span>
+            </p>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe614;</i>
+                <span>查看历史版本</span>
+            </p>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe610;</i>
+                <span>粉碎</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<!--鼠标右键弹出框-文件夹 结束-->
+
+<!--鼠标右键弹出框-文件 开始-->
+<div class="right-click none" id="recycle-context-menu-file">
+    <ul>
+        <li>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe62a;</i>
+                <span>恢复</span>
+            </p>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe610;</i>
+                <span>粉碎</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<!--鼠标右键弹出框-文件 结束-->
+
+
+
+
+
+
+

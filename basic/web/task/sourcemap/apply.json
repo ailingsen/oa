@@ -1,0 +1,22 @@
+[
+    "appnews/modules/apply/controller/ApplyController.js",
+    "appnews/modules/apply/controller/ApplyFlowController.js",
+    "appnews/modules/apply/controller/ApplyshowController.js",
+    "appnews/modules/apply/controller/ApplyeditshowController.js",
+    "appnews/modules/apply/controller/ApplyshowdataController.js",
+    "appnews/modules/apply/controller/MyApplyListController.js",
+    "appnews/modules/apply/controller/RankApplyController.js",
+    "appnews/modules/apply/controller/DrainPunchController.js",
+    "appnews/modules/apply/controller/ApplyAppController.js",
+    "appnews/modules/apply/controller/ApplyModelListController.js",
+    "appnews/modules/apply/controller/LeaveApplyCreateController.js",
+    "appnews/modules/apply/controller/AgentApplyListController.js",
+    "appnews/modules/apply/controller/ApplyModelCreateCtrl.js",
+    "appnews/modules/apply/controller/FlexibleWorkController.js",
+    "appnews/modules/apply/controller/OvertimeApplyCreateCtrl.js",
+    "appnews/modules/apply/controller/CustomApplyCreateCtrl.js",
+    "appnews/modules/apply/models/ApplyModel.js",
+    "appnews/modules/apply/models/ApplySetModel.js",
+    "appnews/modules/apply/models/LeaveApplyModel.js",
+    "appnews/modules/apply/route.js"
+]

@@ -1,0 +1,7 @@
+[
+    "appnews/modules/personalInfo/controller/personalInfoController.js",
+    "appnews/modules/personalInfo/controller/SkillScoreController.js",
+    "appnews/modules/personalInfo/controller/VacationController.js",
+    "appnews/modules/personalInfo/route.js",
+    "appnews/modules/personalInfo/models/userModel.js"
+]

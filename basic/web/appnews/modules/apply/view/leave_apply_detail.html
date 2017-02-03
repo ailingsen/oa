@@ -1,0 +1,138 @@
+ 
+<div class="ui-widget-winbor uiwinabs publicwin pfixed formzindex of readwin block" ng-if="apply.isLeaveDetailApplyWin">
+    <div class="toptitle porela">
+        请假申请
+        <i class="pbiconfont poabso closebtn pointer" ng-click="leave_apply.closeEditLeaveApplyBtn();">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor of porela xlefttitlebor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">请假类型：</span>
+            <span class="sp fl">{{leave_apply.typestr}}</span>
+               <!--<span class="ml10">
+                    当前可用调休 <span>1</span> 小时
+               </span>-->
+            <!--<div class="ml10 fl" ng-if="apply_param.type==1">
+                当前可用年假 <span>{{apply.typeSum.sum1}}</span> 天，顺延年假 <span>{{apply.typeSum.sum2}}</span> 天，共 <span>{{apply.typeSum.sum3}}</span> 天
+            </div>
+            <div class="ml10 fl" ng-if="apply_param.type==2">
+                当前可用调休 <span>{{apply.typeSum.sum1}}</span> 天
+            </div>
+            <div class="ml10 fl" ng-if="apply_param.type==3">
+                本年度带薪病假还剩 <span>{{apply.typeSum.sum1}}</span> 天
+            </div>-->
+        </div>
+
+        <div class="borderbor porela timesbor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">休假时间 :</span>
+            <div class="porela inblock fl ml5 pbc">{{apply_param.begin_time}}</div>
+            <span class="fl">——</span>
+            <div class="porela inblock fl pbc">{{apply_param.end_time}}</div>
+            <span class="clear">&nbsp;</span>
+        </div>
+
+        <div class="borderbor porela timesbor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">合计时长 :</span>
+            <div class="porela inblock fl ml5 pbc">{{apply_param.leave_sum}} 天</div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>{{apply_param.content}}</textarea>
+        </div>
+
+        <div class="borderbor porela taskfilebor read hauto">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='itematt in att'>
+                    <i class="poabso icon-{{itematt.file_type}}"></i>
+                    <!--<a target="_blank" href="{{apply.file_root}}/{{itematt.file_path}}/{{itematt.real_name}}">
+                        <i class="poabso icon-{{itematt.file_type}}"></i></a>-->
+                    <div class="filename fl omit">{{itematt.file_name}}</div>
+                    <div class="filesize fl omit">{{itematt.file_size/1024 | number:2}}kb</div>
+                    <!--<div class="time fl ml10">2016-12-12</div>
+                    <div class="name fl ml10 omit">张三李四</div>-->
+                    <div class="btn blue fr poabso" ng-click="apply.downFileBtn(itematt)">下载</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="borderbor porela">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">请 假 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{leave_apply.leaveApplyInfo.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{leave_apply.leaveApplyInfo.applyer_name}}</div>
+            </div>
+        </div>
+
+        <!--当前审批人-->
+        <div class="borderbor porela" ng-if="leave_apply.leaveApplyInfo.handler_name">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">当前审批人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{leave_apply.leaveApplyInfo.handler_head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{leave_apply.leaveApplyInfo.handler_name}}</div>
+            </div>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor">
+            <i class="pbiconfont poabso mt2">&#xe614;</i>
+            <span class="fl ml23">申请时间：</span>
+            <span class="sp">{{leave_apply.leaveApplyInfo.create_time}}</span>
+        </div>
+
+        <div class="borderbor porela nomb applyprogress hauto" ng-if="leave_apply.leaveApplyInfo.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+
+            <ul>
+                <!--同意-->
+                <li class="porela" ng-repeat="itemVerRed in leave_apply.leaveApplyInfo.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img ng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.isDetailBtn && (leave_apply.leaveApplyInfo.current_handler == 1)">
+        <div class="btnsbor">
+            <!-- 未审批按钮 -->
+            <button class="btns " ng-click="leave_apply.showAgreeWin()">同意</button>
+            <button class="btns gray" ng-click="leave_apply.openRefuseWin()">拒绝</button>
+        </div>
+    </div>
+
+    <div class="btnbor poabso nobor" ng-if="!apply.isDetailBtn">
+        <div class="btnsbor">
+            <button ng-if="leave_apply.leaveApplyInfo.status == 0" class="btns " ng-click="apply.revoke(leave_apply.leaveApplyInfo.apply_id)">撤回</button>
+            <button ng-if="leave_apply.leaveApplyInfo.status == 0 && leave_apply.leaveApplyInfo.is_press == 0" class="btns" ng-click="apply.press(leave_apply.leaveApplyInfo.apply_id)">催办</button>
+            <button ng-if="leave_apply.leaveApplyInfo.status == 3 || leave_apply.leaveApplyInfo.status == 2" class="btns " ng-click="apply.editApply(leave_apply.leaveApplyInfo.apply_id,leave_apply.leaveApplyInfo.model_id)">编辑</button>
+            <button ng-if="leave_apply.leaveApplyInfo.status == 3 || leave_apply.leaveApplyInfo.status == 2" class="btns gray" ng-click="apply.delApply(leave_apply.leaveApplyInfo.apply_id)">删除</button>
+        </div>
+    </div>
+
+</div>
+<!--请假未审批 详情 结束

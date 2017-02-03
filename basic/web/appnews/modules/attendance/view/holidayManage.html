@@ -1,0 +1,183 @@
+<!--顶部开始-->
+<div class="w100">
+    <div class="pbsearchbor">
+       <!-- <div class="inblock pronames minscroll porela">
+            <input class="allattend-department" type="text" placeholder="{{vacationMgn.orgName}}" ng-keyup="vacationMgn.searchOrg()" data-ng-model="vacationMgn.searchOrgName"/>
+            <i class="pbiconfont poabso down-arrow" ng-click="vacationMgn.departmentSelectPopup()" >&#xe60f;</i>
+            <ul class="department f16" style="display: block" ng-show="vacationMgn.statusCtr" ng-mouseleave="vacationMgn.statusCtr=false">
+                <li ng-repeat="item in department" data-ng-click="vacationMgn.selectOrgName(item.org_name,item.org_id)"><a href="javascript:void(0);" class="omit">{{item.org_name}}</a></li>
+            </ul>
+        </div>&nbsp;
+        <div class="inblock minscroll porela">
+            <input class="allattend-department" type="text" placeholder="{{vacationMgn.name}}" ng-keyup="vacationMgn.searchUserName()" data-ng-model="vacationMgn.searchName"/>
+            <i class="pbiconfont poabso down-arrow" ng-click="vacationMgn.memberSelectPopup()" >&#xe60f;</i>
+            <ul class="department f16" style="display: block" ng-show="vacationMgn.userStatusCtr" ng-mouseleave="vacationMgn.userStatusCtr=false">
+                <li ng-repeat="item in memberListInfo" data-ng-click="vacationMgn.selectUserName(item.real_name,item.u_id)"><a href="javascript:void(0);" >{{item.real_name}}</a></li>
+            </ul>
+        </div>-->
+        <cascade-member handle-member-select="vacationMgn.selectUserName(member)" handle-depart-select="vacationMgn.selectOrgName(depart)"></cascade-member>
+        <div class="inblock btn-query">
+            <button class="btn blue fl" ng-click="vacationMgn.searchVacation()">查询</button>
+        </div>
+        <button isperm pcode="AttendanceVacationmgnExport" class="toExcel btn blue" ng-click="vacationMgn.outVacationData()">导出EXCEL</button>
+        <button isperm pcode="AttendanceVacationmgnSet" class="toExcel btn blue holiday-set-btn" ng-click="vacationMgn.setVacation()">假期设置</button>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--假期管理列表开始-->
+<div class="listWrap clear">
+    <table class="attend-table holidayManage-table">
+        <thead  >
+        <tr>
+            <td>姓名</td>
+            <td>所属部门</td>
+            <td>年假（天）</td>
+            <td>年假操作</td>
+            <td>调休假（天）</td>
+            <td>调休假操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in vacationDataList">
+            <td>{{item.real_name| cut:true:20:' ...'}}</td>
+            <td>{{item.org_name| cut:true:20:' ...'}}</td>
+            <td>{{item.annualLeave}} &nbsp<span class="modify" data-ng-click="vacationMgn.modifyLeavePopup(item.u_id,item.annualLeave)">修改</span></td>
+            <td><span class="change-record" data-ng-click="vacationMgn.getChangeRecord(item.u_id,2)">变更记录</span></td>
+            <td data-ng-if="item.workDays.workDays.length!=0">{{item.workDays.workDays}} &nbsp<span class="modify" data-ng-click="vacationMgn.modifyPopup(item.u_id,item.workDays.workDays)">修改</span></td>
+            <td data-ng-if="item.workDays.workDays.length==0">0 &nbsp<span class="modify" data-ng-click="vacationMgn.modifyPopup(item.u_id,item.workDays.workDays)">修改</span></td>
+            <td><span class="change-record" data-ng-click="vacationMgn.getChangeRecord(item.u_id,1)">变更记录</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="taskPaging" ></div>
+    <!--分页结束-->
+
+</div>
+<!--假期管理列表结束-->
+
+<!--假期设置开始-->
+    <div class="ui-widget-fixed-winbor holiday-set f16" ng-show="vacationMgn.showVacationSet">
+        <div class="top-part">
+            <div class="holiday-set-header" >
+                <span>假期设置</span>
+                <i class="iconfont fr" data-ng-click="vacationMgn.back()">&#xe603;</i>
+            </div>
+            <div class="holiday-set-common">
+                初始年假：<input type="text" data-ng-model="vacationMgn.vacationSet.ini_annual_vacation"/> 天
+            </div>
+            <div class="holiday-set-common">
+                <p>年假增加规则：</p>
+                <div class="entry-time curcol">入职时间<=2年，每年年假5天；</div>
+                <div class="entry-time curcol">
+                    入职时间 > 2 年，每满一年，年假递增1天；
+                </div>
+                <div class="entry-time curcol">
+                    入司不足一年的员工如需申请年假，年假天数=在职时长（天数）/365*足年年假天数，年假最小计算单位为0.5天；
+                </div>
+                <div class="entry-time curcol">
+                    年假累加计算最多15天；
+                </div>
+
+            </div>
+            <p class="holiday-disable">假期失效设置</p>
+            <div class="holiday-set-common holiday-disable">
+                <div class="curcol">
+                    <b class="iconfont">&#xe601;</b>1月1日至12月31日，可延长至次年3月31日，过期系统清零，转正后方可使用年假
+                </div>
+                <div class="entry-time">
+                    调休假失效时间：<input type="text" data-ng-model="vacationMgn.vacationSet.overtime_expire"/> 天
+                </div>
+            </div>
+        </div>
+        <div class="bottom-part">
+            <div class="holiday-save">
+                <button class="btns" data-ng-click="vacationMgn.saveSet()">保存</button>&nbsp;
+                <button class="btns gray" data-ng-click="vacationMgn.reSet()">重置</button>
+            </div>
+        </div>
+    </div>
+<!--假期设置结束-->
+
+<!--提示框-->
+<notice message="vacationMgn.noticeService.message" type="vacationMgn.noticeService.notice_type" gourl="vacationMgn.noticeService.gourl">></notice>
+
+<!--修改弹出层开始-->
+<div class="holiday-modify" style="display: block" ng-show="vacationMgn.popupCtr" >
+    <div class="header f18">修改</div>
+    <div class="main">
+        <div class="annual">
+            年假：<input type="text" data-ng-model="vacationMgn.vacationLeave"/> 天
+        </div>
+        <div>
+            修改原因：<br/>
+            <textarea name="" cols="10" rows="5" data-ng-model="vacationMgn.vacationLeaveReason"></textarea>
+        </div>
+        <div class="holiday-modify-sure">
+            <button class="btns " data-ng-click="vacationMgn.modifyVacationLeave()">确定</button>
+            <button class="btns gray" data-ng-click="vacationMgn.hidePopupCtr()">取消</button>
+        </div>
+    </div>
+</div>
+<!--修改弹出层开始-->
+<div class="holiday-modify" style="display: block" ng-show="vacationMgn.popupTuneCtr">
+    <div class="header f18">修改</div>
+    <div class="main">
+        <div class="annual">
+            调休假：<input type="text" data-ng-model="vacationMgn.tuneVacation"/> 天
+        </div>
+        <div>
+            修改原因：<br/>
+            <textarea name="" cols="10" rows="5" data-ng-model="vacationMgn.vacationLeaveReason"></textarea>
+        </div>
+        <div class="holiday-modify-sure">
+            <button class="btns " data-ng-click="vacationMgn.modifyTuneVacation()">确定</button>
+            <button class="btns gray" data-ng-click="vacationMgn.hidePopupTuneCtr()">取消</button>
+        </div>
+    </div>
+</div>
+<!--修改弹出层结束-->
+
+<!--变更记录弹出层开始-->
+
+<div class="ui-widget-winbor tablelistwin of minscroll loglistwin" style="display: block " ng-show="vacationMgn.popupVacationChangeCtr">
+    <div class="toptitle porela">
+        <span>变更记录</span>
+        <i class="pbiconfont poabso closebtn pointer" data-ng-click="vacationMgn.closeChangeRecord()">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso mintable attend-change-log">
+        <div class="top">
+            <div class="time fl tac">时间</div>
+            <div class="person fl">操作人</div>
+            <div class="detail fl">操作日志</div>
+        </div>
+        <ul>
+            <li ng-repeat="item in changeRecordList">
+                <div class="time fl lh">{{item.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}} {{item.weekDay}}</div>
+                <div class="fl lh tac operate-mem">
+                    <span>
+                        <img ng-src="{{item.head_img}}" class="headimg">
+                    </span>
+                    <span class="omit">
+                        {{item.real_name}}
+                    </span>
+                </div>
+                <div class="detail fl break change-log">
+                    变更前：<span>{{item.value_before}}</span>
+                    变更后：<span>{{item.value_after}}</span><br/><br/>
+                    原因：<span>{{item.log_content}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!--变更记录弹出层结束-->
+
+
+<div class="empty-icon" ng-if="vacationDataList.length==0">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有相关数据</p>
+</div>

@@ -1,0 +1,442 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1471502639_7989886.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/font_1471502639_7989886.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/font_1471502639_7989886.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/font_1471502639_7989886.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/font_1471502639_7989886.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont";
+    font-size:18px;
+    color:#D2D2D2;
+}
+.iconfont-mid{
+    font-family:"iconfont";
+    font-size: 36px;
+    color:#9ECFFD;
+    vertical-align: middle;
+}
+.iconfont-big{
+    font-family:"iconfont";
+    font-size: 36px;
+    color:#fff;
+}
+.iconfont-add{
+    font-family:"iconfont";
+    font-size: 40px;
+    /*color:#B5B5B5;*/
+    vertical-align: middle;
+    cursor: pointer;
+}
+.iconfont-add:hover{
+    color:#57C8F2;
+}
+.meeting-header{
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: fixed;
+    top:46px;
+    z-index: 100;
+    background: #E8E8E8;
+    width:90%;
+    height:60px;
+    box-sizing: border-box;
+    padding-top:16px;
+}
+.meeting-header i{
+    display: inline-block;
+    width:15px;
+    height:15px;
+    border:1px solid #B8B8B8;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.meeting-header span{
+    margin-right: 20px;
+}
+.meeting-header>span:first-child{
+    margin-right:5px;
+}
+.canreverse{
+    background: #fff;
+}
+.selected{
+    background: #A9D96C;
+}
+.reversed{
+    background: #C8C8C8;
+}
+.myreverse{
+    background: #57C8F2;
+}
+.date-pick{
+    display: inline-block;
+    border-radius: 3px;
+    background: #F4F4F4;
+    padding:2px 5px;
+    cursor: pointer;
+    margin-right: 40px;
+}
+.date-pick input{
+    border:none;
+    width:120px;
+    cursor: pointer;
+    background: #F4F4F4;
+}
+.mainsbar{
+    background: #E8E8E8;
+}
+.meeting{
+    /*overflow-x: auto;*/
+}
+.section-wrap{
+    overflow-x: auto;
+}
+.meeting-section{
+    background: #fff;
+    margin-top:24px;
+    box-sizing: border-box;
+    padding:45px 20px;
+    position: relative;
+    width:1710px;
+    overflow-x: auto;
+    /*overflow-y: hidden;*/
+    min-height: 900px;
+}
+.reserve-bar{
+    box-sizing: border-box;
+    height:110px;
+    background: #F7F7F7;
+    border-radius: 5px;
+    margin-bottom: 35px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.shadow{
+    box-shadow: 0px 0px 12px 3px rgba(128, 125, 125, 0.2);
+}
+.reserve-bar-head{
+    box-sizing: border-box;
+    width:310px;
+    height:100%;
+    background: #57C8F2;
+    border-radius: 5px 0 0 5px;
+    padding:0 15px;
+    display: table;
+    float:left;
+}
+.reserve-bar-head div{
+    margin-top:35px;
+}
+.reserve-bar-head p{
+    width:220px;
+    height:100%;
+    display: table;
+    overflow: hidden;
+}
+.reserve-bar-head p>span{
+    display: table-cell;
+    vertical-align: middle;
+}
+.meeting-name{
+    font-size: 18px;
+    color:#fff;
+}
+.meeting-msg{
+    color:#B8E5F9;
+}
+.time-select{
+    float:left;
+    display: inline-block;
+    height:70px;
+    margin:20px 0 0 24px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.time-select:hover{
+    cursor: pointer;
+}
+.time-select li{
+    box-sizing: border-box;
+    padding-top:10px;
+    float:left;
+    width:70px;
+    height:70px;
+    text-align: center;
+    margin-right: 6px;
+}
+.reserve-green{
+    background: url(../images/reserve.png) 0 -70px no-repeat;
+    color:#fff;
+}
+.reserve-blue{
+    background: url(../images/reserve.png) 0 0 no-repeat;
+    color:#fff;
+}
+.reserve-gray{
+    background: url(../images/reserve.png) -70px 0 no-repeat;
+    color:#fff;
+}
+.reserve-white{
+    background: url(../images/reserve.png) -70px -70px no-repeat;
+}
+.reserve-pop{
+    box-sizing: border-box;
+    width:470px;
+    box-shadow: 0px 0px 12px 3px rgba(128, 125, 125, 0.2);
+    min-height: 300px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    margin-left: -235px;
+    top:190px;
+    background: #fff;
+    z-index: 600;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.reserve-pop-head{
+    background: #F7F7F7;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #E8E8E8;
+    color:#C1C1C1;
+}
+.reserve-title{
+    text-align: center;
+    margin-top:30px;
+    line-height: 1.5em;
+}
+.star{
+    color:#FF3330;
+    padding-right: 0;
+}
+.reserve-msg{
+    box-sizing: border-box;
+    padding:0 25px;
+    display: none;
+}
+.reserve-common{
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid #EFEFEF;
+    width:350px;
+    padding:0 10px;
+}
+.reserve-msg input{
+    height:40px;
+}
+.reserve-msg textarea{
+    height:85px;
+    vertical-align: top;
+    padding-top:10px;
+}
+.reserve-msg>div{
+    margin-top:20px;
+}
+.reserve-msg>div:first-child{
+    margin-top:0;
+}
+.meeting-member{
+    width:100%;
+    background: #F7F7F7;
+    height:118px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+.meeting-member li{
+    box-sizing: border-box;
+    float:left;
+    padding:2px 10px;
+}
+.member-del{
+    color:#C0C0C0;
+    font-size: 14px;
+    cursor: pointer;
+}
+.attend span{
+    color:#CCCCCC;
+}
+.attend span i,.attend a{
+    color:#57C8F2;
+}
+.addmember{
+    vertical-align: middle;
+    display: inline-block;
+    width:42px;
+    height:42px;
+    background: url(../images/addbtn1.jpg) no-repeat;
+    margin-left: 20px;
+}
+.addmember:hover{
+    background: url(../images/addbtn2.jpg) no-repeat;
+    cursor: pointer;
+}
+.sure-reserve{
+    box-sizing: border-box;
+    height:108px;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #E8E8E8;
+    padding-top:30px;
+    position: relative;
+}
+.packUp{
+    position:absolute;
+    left:175px;
+    top:-8px;
+    padding:0 10px;
+    background: #fff;
+    cursor: pointer;
+    color: #ccc;
+}
+.packUp i{
+    font-size: 14px;
+}
+.reserve-time{
+    background: #F7F7F7;
+    width:198px;
+    margin: 10px auto;
+}
+.cancel-reserve{
+    display: none;
+}
+.relative{
+    position: relative;
+}
+.reserved-msg{
+    position: absolute;
+    left:-220px;
+    top:70px;
+    color:#333;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 12px 3px rgba(128, 125, 125, 0.2);
+    min-width:480px;
+    padding:10px;
+    text-align: left;
+}
+.reserved-msg b{
+    position: absolute;
+    display: block;
+    border: 8px solid #fff;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    width:0;
+    height:0;
+    left:250px;
+    top:-14px;
+}
+.reserved-msg i{
+    color:#B8B8B8;
+}
+.reserveManage-head{
+    text-align: center;
+    margin-bottom: 20px;
+    color:#B8B8B8;
+    font-size: 16px;
+    text-align: right;
+}
+.reserveManage-head>span{
+    cursor: pointer;
+}
+.reserveManage-head>span:hover{
+    color:#57C8F2;
+}
+.addMeeting{
+    display: block;
+    top:126px;
+    text-align: center;
+}
+.addMeeting input{
+    height: 40px;
+}
+.addMeeting p{
+    margin-top: 20px;
+}
+.addMeeting-sure{
+    margin:20px 0;
+}
+.memselect{
+    top:360px;
+    left:215px;
+}
+.memselect>div>i{
+    color:#C8C8C8;
+}
+.memselect>div>input{
+    margin-top:0!important;
+}
+.mousemove {
+    text-align: right;
+    left:50%;
+    margin-left:-270px;
+    top:200px;
+    z-index: 300;
+}
+.mousemove span{
+    cursor: pointer;
+    padding:5px;
+    background: #fff;
+    color:#57C8F2;
+    border-radius: 5px;
+}
+.mousemove span:hover{
+    color:#fff;
+    background: #57C8F2;
+}
+.headImgSmall{
+    width:36px;
+    height:36px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+.pof{
+    position: fixed!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

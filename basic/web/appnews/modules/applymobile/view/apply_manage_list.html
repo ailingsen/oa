@@ -1,0 +1,482 @@
+<!--审批单管理 开始-->
+<div class="applyindexeditbor">
+    <div class="applyboxedit porela of bg1 one">
+        <a href="javascript:void(0)" ui-sref="main.apply.createModel">
+            <i class="pbiconfont poabso mt3">&#xe646;</i>
+            <span class="poabso">新增</span>
+        </a>
+        <div class="editbor addform">
+            <a href="javascript:void(0)" ui-sref="main.apply.createModel">新建一个表单</a>
+        </div>
+    </div>
+
+    <div class="applyboxedit porela bg3 of" ng-repeat="item in model.modelList">
+        <a href="javascript:void(0)" ng-if="item.model_id == 2" ng-click="model.vacationWin=true;model.showMask(item.model_id,item.modeltype);">
+            <i class="pbiconfont poabso mt3">&#xe641;</i><!--请假申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+        <a href="javascript:void(0)" ng-if="item.model_id == 1" ng-click="model.overtimeWin=true;model.showMask(item.model_id,item.modeltype);">
+            <i class="pbiconfont poabso mt3">&#xe640;</i><!--加班申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+        <a href="javascript:void(0)" ng-if="item.model_id == 3" ng-click="model.checkoutWin=true;model.showMask(item.model_id,item.modeltype);">
+            <i class="pbiconfont poabso mt3">&#xe642;</i><!--忘打卡申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+        <a href="javascript:void(0)" ng-if="item.model_id == 5" ng-click="model.rankWin=true;model.showMask(item.model_id,item.modeltype);">
+            <i class="pbiconfont poabso mt3">&#xe643;</i><!--职级申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+        <a href="javascript:void(0)" ng-if="item.model_id == 4" ng-click="model.flexworkWin=true;model.showMask(item.model_id,item.modeltype);">
+            <i class="pbiconfont poabso mt3">&#xe63e;</i><!--弹性上班-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+        <a href="javascript:void(0)" ng-if="item.modeltype == 0" ng-click="model.customerformshow(item.model_id);model.showMask(item.model_id,item.modeltype);">
+            <i class="pbiconfont poabso mt3">&#xe648;</i><!--自定义表单-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+        <div class="editbor addform flex">
+            <a href="javascript:void(0)" ng-click="model.editTitlePop(item.model_id,item.title)">修改名称</a>
+            <a ng-if="item.status == 0" href="javascript:void(0)" ui-sref="main.apply.flow({id:item.model_id,type:item.modeltype,readOnly:0})">编辑流程</a>
+            <a ng-if="item.status == 1" ng-click="model.stopModelPop(item.model_id,item.title)" href="javascript:void(0)">停用流程</a>
+            <a ng-if="item.status == 0" href="javascript:void(0)" ng-click="model.turnOnModel(item.model_id)">启用流程</a>
+            <a ng-if="item.allow_del && item.modeltype == 0" href="javascript:void(0)" ng-click="model.delModelPop(item.model_id,item.title)">删除</a>
+        </div>
+    </div>
+
+
+
+    <!--自定义表单
+    <div class="applyboxedit porela bg2 of">
+        <a href="javascript:void(0)" ng-click="model.customerformshow();model.showMask();">
+            <i class="pbiconfont poabso mt3">&#xe648;</i>
+            <span class="poabso">自定义表单1</span>
+        </a>
+        <div class="editbor addform flex">
+            <a href="javascript:void(0)" ng-click="model.editTitlePop(item.model_id,item.title)">修改名称</a>
+            <a ng-if="item.status == 0" href="javascript:void(0)">编辑流程</a>
+            <a ng-if="item.status == 1" ng-click="model.stopModelPop(item.model_id,item.title)" href="javascript:void(0)">停用流程</a>
+            <a ng-if="item.status == 0" href="javascript:void(0)" ng-click="model.turnOnModel(item.model_id)">启用流程</a>
+            <a ng-if="item.allow_del && item.modeltype == 0" href="javascript:void(0)" ng-click="model.delModelPop(item.model_id,item.title)">删除</a>
+        </div>
+    </div>
+    -->
+
+ 
+
+</div>
+<!--审批单管理 结束-->
+
+<!--修改审批单名称弹窗 开始-->
+<div class="ui-widget-winbor surewin of pfixed" ng-show="model.showTitleWin">
+    <div class="toptitle">
+        修改审批单名称
+    </div>
+    <div class="tipstitle pbc f16">
+        <input type="text" class="maxtextbor" ng-model="modelParam.title"/>
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="model.doEditTitle()">确定</button>
+            <button class="btns gray" ng-click="model.showTitleWin=false;model.closeMask();">取消</button>
+        </div>
+    </div>
+</div>
+<!--修改审批单名称弹窗 结束-->
+
+<!--停用流程弹窗 开始-->
+<div class="ui-widget-winbor surewin of pfixed" ng-show="model.showStopWin">
+    <div class="toptitle">
+        停用流程
+    </div>
+    <div class="tipstitle pbc f16">
+        确定要停用"<span class="spantip red" ng-bind="model.tipTitle"></span>"的审批流程吗？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="model.doStop()">确定</button>
+            <button class="btns gray" ng-click="model.showStopWin=false;model.closeMask();">取消</button>
+        </div>
+    </div>
+</div>
+<!--停用流程弹窗 结束-->
+
+<!--删除审批单弹窗 开始-->
+<div class="ui-widget-winbor surewin of pfixed" ng-show="model.showDelWin">
+    <div class="toptitle">
+        删除审批单
+    </div>
+    <div class="tipstitle pbc f16">
+        确定要删除"<span class="spantip red" ng-bind="model.tipTitle"></span>"吗？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="model.doDel()">确定</button>
+            <button class="btns gray" ng-click="model.showDelWin=false;model.closeMask();">取消</button>
+        </div>
+    </div>
+</div>
+<!--删除审批单弹窗 结束-->
+
+<!--请假 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin formpreviewbor pfixed of block" ng-show="model.vacationWin">
+    <div class="disabledbor poabso"></div>
+    <div class="toptitle porela">
+        <span class="omit">请假申请<i class="pbiconfont">&#xe64d;</i></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="model.vacationWin=false;model.closeMask();">&#xe61d;</i>
+        <div class="changebtn poabso pointer">
+            <span class="fl selected" ng-click="model.tabSwitch($event,0)">表单</span>
+            <span class="fl " ng-click="model.tabSwitch($event,1)">流程</span>
+        </div>
+    </div>
+
+    <!--表单 区域 开始-->
+    <div class="scrollbor poabso formbor">
+
+        <div class="borderbor of porela xlefttitlebor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">请假类型：</span>
+            <select class="fl" >
+                <option value="调休">调休</option>
+                <option selected="" value="请选择">请选择</option>
+                <option value="年假">年假</option>
+                <option value="事假">事假</option>
+                <option value="带薪病假">带薪病假</option>
+                <option value="病假">病假</option>
+                <option value="哺乳假">哺乳假</option>
+                <option value="婚假">婚假</option>
+                <option value="产假">产假</option>
+                <option value="陪产假">陪产假</option>
+                <option value="丧假">丧假</option>
+                <option value="弹性上班">弹性上班</option>
+            </select>
+            <div class="fl ml10">
+                当前可用调休 <span>1</span> 小时
+            </div>
+        </div>
+
+        <div class="borderbor porela timesbor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">休假时间 :</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="fl">——</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="clear">&nbsp;</span>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">详细说明：</span>
+            <textarea name="textarea" id="textarea" disabled class="pb_textareas noborder" placeholder="请输入详细说明(最多输入100个字)"></textarea>
+        </div>
+
+        <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso filesiconmin"></i>
+                    <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size}}</div>
+                    <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso">添加附件<!-- <upload-modalsingle upload-attrs="addFileBtn" ></upload-modalsingle> --></div>
+        </div>
+
+    </div>
+    <!--表单 区域 结束-->
+
+    <!--流程 区域 开始-->
+    <div class="scrollbor poabso processbor none flow-preview" id="flow-preview">
+        <apply-flow modelid="modelid" modeltype="modeltype" status="{{status}}"></apply-flow>
+    </div>
+</div>
+<!--请假 表单预览 结束-->
+
+<!--加班 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin formpreviewbor pfixed of block" ng-show="model.overtimeWin">
+    <div class="disabledbor poabso"></div>
+    <div class="toptitle porela">
+        <span class="omit">加班申请<i class="pbiconfont">&#xe64d;</i></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="model.overtimeWin=false;model.closeMask();">&#xe61d;</i>
+        <div class="changebtn poabso pointer">
+            <span class="fl selected" ng-click="model.tabSwitch($event,0)">表单</span>
+            <span class="fl " ng-click="model.tabSwitch($event,1)">流程</span>
+        </div>
+    </div>
+
+    <!--表单 区域 开始-->
+    <div class="scrollbor poabso formbor">
+
+        <div class="borderbor of porela xlefttitlebor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">加班类型：</span>
+            <select class="fl" >
+                <option value="工作日加班">工作日加班</option>
+                <option value="节假日加班">节假日加班</option>
+                <option selected="" value="请选择">请选择</option>
+            </select>
+            <div class="fl ml10">
+                当前可用调休 <span>1</span> 小时
+            </div>
+        </div>
+
+        <div class="borderbor porela timesbor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">休假时间 :</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="fl">——</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="clear">&nbsp;</span>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor nomb">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">工作说明：</span>
+            <textarea name="textarea" id="textarea" disabled class="pb_textareas noborder" placeholder="请输入工作说明(最多输入100个字)"></textarea>
+        </div>
+
+    </div>
+    <!--表单 区域 结束-->
+
+    <!--流程 区域 开始-->
+    <div class="scrollbor poabso processbor none flow-preview" id="flow-preview">
+        <apply-flow modelid="modelid" modeltype="modeltype" status="{{status}}"></apply-flow>
+    </div>
+</div>
+<!--加班 表单预览 结束-->
+
+<!--忘打卡 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin formpreviewbor pfixed of block" ng-show="model.checkoutWin">
+    <div class="disabledbor poabso"></div>
+    <div class="toptitle porela">
+        <span class="omit">忘打卡申请<i class="pbiconfont">&#xe64d;</i></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="model.checkoutWin=false;model.closeMask();">&#xe61d;</i>
+        <div class="changebtn poabso pointer">
+            <span class="fl selected" ng-click="model.tabSwitch($event,0)">表单</span>
+            <span class="fl " ng-click="model.tabSwitch($event,1)">流程</span>
+        </div>
+    </div>
+
+    <!--表单 区域 开始-->
+    <div class="scrollbor poabso formbor">
+
+        <div class="borderbor porela xlefttitlebor timesbor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">忘打卡时间：</span>
+
+            <div class="porela inblock fl">
+
+                <input type="text" name="wdk_datestart" id="wdk_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#wdk_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+
+            <span class="line"></span>
+
+            <div class="fl ml10 apmbor">
+                <label>
+                    <input type="radio" disabled />上午
+                </label>
+                <label class="ml20">
+                    <input type="radio" disabled />下午
+                </label>
+            </div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor nomb" id="w5nums">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">忘打卡说明：</span>
+            <textarea name="textarea" id="textarea" disabled class="pb_textareas noborder" placeholder="请输入忘打卡说明(最多输入100个字)"></textarea>
+        </div>
+
+    </div>
+    <!--表单 区域 结束-->
+
+    <!--流程 区域 开始-->
+    <div class="scrollbor poabso processbor none flow-preview" id="flow-preview">
+        <apply-flow modelid="modelid" modeltype="modeltype" status="{{status}}"></apply-flow>
+    </div>
+    <!--流程 区域 开始-->
+</div>
+<!--忘打卡 表单预览 结束-->
+
+<!--职级 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin formpreviewbor pfixed of block" ng-show="model.rankWin">
+    <div class="disabledbor poabso"></div>
+    <div class="toptitle porela">
+        <span class="omit">职级申请<i class="pbiconfont">&#xe64d;</i></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="model.rankWin=false;model.closeMask();">&#xe61d;</i>
+        <div class="changebtn poabso pointer">
+            <span class="fl selected" ng-click="model.tabSwitch($event,0)">表单</span>
+            <span class="fl " ng-click="model.tabSwitch($event,1)">流程</span>
+        </div>
+    </div>
+
+    <!--表单 区域 开始-->
+    <div class="scrollbor poabso formbor">
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23 wdspacing2">内 容：</span>
+            <textarea name="textarea" disabled id="textarea" class="pb_textareas noborder" placeholder="请输入内容(最多输入500个字)"></textarea>
+        </div>
+
+        <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso filesiconmin"></i>
+                    <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size}}</div>
+                    <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso">添加附件<!-- <upload-modalsingle upload-attrs="addFileBtn"></upload-modalsingle> --></div>
+        </div>
+
+    </div>
+    <!--表单 区域 结束-->
+
+    <!--流程 区域 开始-->
+    <div class="scrollbor poabso processbor none flow-preview" id="flow-preview">
+        <apply-flow modelid="modelid" modeltype="modeltype" status="{{status}}"></apply-flow>
+    </div>
+    <!--流程 区域 开始-->
+</div>
+<!--职级 表单预览 结束-->
+
+<!--弹性 表单预览开始-->
+<div class="ui-widget-winbor uiwinabs publicwin formpreviewbor pfixed of block" ng-show="model.flexworkWin">
+    <div class="disabledbor poabso"></div>
+    <div class="toptitle porela">
+        <span class="omit">弹性上班申请<i class="pbiconfont">&#xe64d;</i></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="model.flexworkWin=false;model.closeMask();">&#xe61d;</i>
+        <div class="changebtn poabso pointer">
+            <span class="fl selected" ng-click="model.tabSwitch($event,0)">表单</span>
+            <span class="fl " ng-click="model.tabSwitch($event,1)">流程</span>
+        </div>
+    </div>
+    <!--表单 区域 开始-->
+    <div class="scrollbor poabso formbor">
+
+        <div class="borderbor porela timesbor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">申请时间 :</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="fl">——</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" disabled onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="clear">&nbsp;</span>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor addworktimeselectbor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">加班时间：</span>
+            <select class="fl" >
+                <!-- <option value="2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)">2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)</option>
+                <option selected="" value="2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)">2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)</option> -->
+            </select>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">详细说明：</span>
+            <textarea name="textarea" id="textarea" disabled class="pb_textareas noborder" placeholder="请输入详细说明(最多输入100个字)"></textarea>
+        </div>
+
+        <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso filesiconmin"></i>
+                    <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size}}</div>
+                    <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso">添加附件<!-- <upload-modalsingle upload-attrs="addFileBtn"></upload-modalsingle> --></div>
+        </div>
+
+    </div>
+    <!--表单 区域 结束-->
+
+
+    <!--流程 区域 开始-->
+    <div class="scrollbor poabso processbor none flow-preview" id="flow-preview">
+        <apply-flow modelid="modelid" modeltype="modeltype" status="{{status}}"></apply-flow>
+    </div>
+    <!--流程 区域 开始-->
+</div>
+<!--弹性 表单预览 结束-->
+
+<!--自定义 表单预览开始-->
+<div id="formpresentation" class="ui-widget-winbor formpresentation pbcreateformlib pfixed of block zindex" ng-show="model.customerform">
+    <div class="toptitle porela">
+        <span class="omit formtitles ml0">自定义</span>
+        <i class="pbiconfont yulan">&#xe64d;</i>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="model.customerform=false;model.closeMask(0);">&#xe61d;</i>
+        <div class="changebtn poabso pointer">
+            <span class="fl selected" ng-click="model.tabSwitch($event,0)">表单</span>
+            <span class="fl " ng-click="model.tabSwitch($event,1)">流程</span>
+        </div>
+    </div>
+    <!--表单 区域 开始-->
+    <div id="scroll" class="scrollbor poabso">
+    </div>
+    <!--表单 区域 结束-->
+
+    <!--流程 区域 开始-->
+    <div class="scrollbor poabso processbor none flow-preview" id="flow-preview">
+        <apply-flow modelid="modelid" modeltype="modeltype" status="{{status}}"></apply-flow>
+    </div>
+    <!--流程 区域 开始-->
+ 
+</div>
+<!--自定义 表单预览开始

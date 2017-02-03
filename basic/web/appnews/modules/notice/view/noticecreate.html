@@ -1,0 +1,57 @@
+<!--公告创建开始-->
+<div class="notice-window notice-create f16">
+    <div class="notice-head">
+        <span>公告标题： </span><input type="text" ng-model="paramobj.title"/>
+    </div>
+    <!--<div id="container" class="notice-content" ng-model="paramobj.content"></div>-->
+    <div class="ueditor" id="container" ng-model="paramobj.content"></div>
+
+    <!--<div class="borderbor porela taskfilebor">-->
+        <!--<i class="pbiconfont mt2">&#xe619;</i>-->
+        <!--<span class="ml23 wdspacing2 ">附 件：</span>-->
+        <!--<ul>-->
+            <!--<li class="porela" ng-repeat='item in task.files'>-->
+                <!--<i class="poabso filesiconmin"></i>-->
+                <!--<div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>-->
+                <!--<div class="filesize fl omit">{{item.file_size}}</div>-->
+                <!--<div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="btn blue fr "><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>-->
+    <!--</div>-->
+
+    <!--<div class="borderbor porela taskfilebor">-->
+        <!--<i class="pbiconfont mt2">&#xe619;</i>-->
+        <!--<span class="ml23 wdspacing2 ">附 件：</span>-->
+        <!--<ul>-->
+            <!--<li class="porela">-->
+                <!--<i class="poabso filesiconmin"></i>-->
+                <!--<div class="filename fl omit"><a href="#">放假通知</a></div>-->
+                <!--<div class="filesize fl omit">12kb</div>-->
+                <!--<div class="del fr">删除</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="btn blue fr "><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>-->
+    <!--</div>-->
+
+
+    <div class="content-common content-annex">
+        <div class="fl">
+            <i class="pbiconfont icon-annex">&#xe619;</i>附&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件：
+        </div>
+        <ul class="add-annex fl">
+            <li ng-repeat="itematt in att">
+                <i class="file-type icon-{{itematt.file_type}}"></i> <span class="reserve">{{itematt.file_name | cut:true:20:' ...'}}</span> <span>{{itematt.file_size/1024 | number:2}}KB</span>
+                <button class="btn notice-btn fr" ng-click="notice.delFileBtn($index)">删除</button>
+            </li>
+        </ul>
+        <!--<button class="btn blue fr">添加附件</button>-->
+        <div class="btn blue fr"><upload-modal upload-attrs="addAttBtn" att-object="att">添加附件</upload-modal></div>
+    </div>
+
+    <div class="notice-commit">
+        <button class="btns" ng-click="notice.addButton()">提交</button>
+        <button class="btns darkgreen" ng-click="notice.resetButton()">重置</button>
+    </div>
+</div>
+<!--公告创建结束-->

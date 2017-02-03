@@ -1,0 +1,21 @@
+<!--创建任务开始-->
+<div class="ui-widget-winbor publishResearch_box">
+	<div class="publishResearch_content">
+	     <div class="scrollbor publishResearch_title ">
+	            <input type="text" class="fl texttitle f16" placeholder="请输入调研标题"maxlength="60" ng-model="survey_param.title"/>
+	     </div>
+	     <div class="scrollbor publishResearch_explain">
+	           <textarea placeholder="请输入调研说明" rows="5" class="f16" ng-model="survey_param.explain"></textarea>
+	     </div>
+	     <div class="editor">
+	     	<!--<textarea placeholder="编辑器" rows="15" class="f16" ng-model="survey_param.content"></textarea>-->
+             <div class="ueditor" id="container" config="config" ng-model="survey_param.content"></div>
+	     </div>
+    </div>
+    <div class="sub_btn">
+	    <div class="btnsbor"> 
+	       <button class="btns" ng-click="survey.createSurveyBtn();">提交</button>
+	    </div>
+	</div>
+</div>
+

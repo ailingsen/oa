@@ -1,0 +1,1034 @@
+<!--悬赏列表开始-->
+
+<!--顶部搜索-->
+<div class="w100">
+	<div class="pbsearchbor">
+
+	     <div class="selectbor porela inblock">
+	        <span>状态</span>
+	        <i class="pbiconfont poabso">&#xe60f;</i>
+	        <ul class="listbor poabso">
+	        	<li><a href="javascript:void(0);">已认领</a></li>
+	            <li><a href="javascript:void(0);">待认领</a></li>
+	        </ul>
+	     </div>
+
+	     <div class="searchbor porela inblock">
+	     	  <div class="searchbors poabso">
+		     	  <i class="pbiconfont poabso">&#xe610;</i>
+	              <input type="text"  class="inputtext noborder searchinputtext fl" placeholder="请输入任务标题" />
+	              <div class="btn blue fl" ng-click="task.addfilesbtn()">查询</div>
+              </div>
+	     </div>
+
+	     <div class="poabso f16 atitle">
+	            <a href="javascript:void(0);">
+	            	申请认领记录
+	                <i class="pbiconfont poabso">&#xe60e;</i>
+	            </a>
+	     </div>
+
+	</div>
+</div>
+<!--顶部搜索-->
+
+
+<!--任务列表-->
+<ul class="listWrap clear">
+    <li>
+        <a href="javascript:void(0);" class="porela">
+           <div class="title omit fl">
+                <span class="ordinal">1</span>
+                <span>OA项目是打发是打发是的的说法都是</span>
+           </div>
+           <div class="texttip gray poabso">已认领</div>
+           <div class="name fr omit">张三张三</div>
+
+           <div class="time fr">2016-12-12 23:23:23</div>
+           <div class="taskpoint fr"><span class="omit fl">345</span><span class="fl">纳米币</span></div>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0);" class="porela">
+           <div class="title omit fl">
+                <span class="ordinal">2</span>
+                <span>OA项目是打发是打发是的的说法都是</span>
+           </div>
+           <div class="texttip green poabso">待认领 <i>我认领的</i></div>
+           <div class="name fr omit">张三张三</div>
+           <div class="time fr">2016-12-12 23:23:23</div>
+           <div class="taskpoint fr"><span class="omit fl">889</span><span class="fl">纳米币</span></div>
+        </a>
+    </li>
+
+
+    <!--分页-->
+    <div class="pagebor of clear">
+	     <ul>
+	         <li>
+	             <a href="javascript:void(0);">&lt;上一页</a>
+	         </li>
+	         <li>
+	             <a href="javascript:void(0);">1</a>
+	         </li>
+	         <li class="selected">
+	             <a href="javascript:void(0);">2</a>
+	         </li>
+	         <li>
+	             <a href="javascript:void(0);">3</a>
+	         </li>
+	         <li class="omit3 nobor poabso">…</li>
+	         <li>
+	             <a href="javascript:void(0);">下一页&gt;</a>
+	         </li>
+		     <div class="inblock pagesearchbor porela">
+		     	 共
+	             <span>99</span>
+	             页，
+	             到第
+	             <input type="text" />
+	             页
+	             <a class="of button">确定</a>
+		     </div>
+	     </ul>
+	  </div>
+	  <!--分页-->
+
+</ul>
+<!--任务列表-->
+
+
+
+<!--无数据提示
+<div class="tasknodata poabso">
+     <i class="pbiconfont poabso">&#xe621;</i>
+     <div class="f20 bold title1">您还没有负责参与的任务哦！</div>
+     <div class="f16 title2">让自己每一天都很明确要推进什么事、计划第二天还要处理的事、这周这月还有哪些事要做！试试创建一个任务吧~</div>
+</div>
+无数据提示-->
+
+
+<!--悬赏列表结束-->
+
+
+
+
+
+
+<!--申请认领记录 弹窗 开始-->
+<div class="ui-widget-winbor tablelistwin of minscroll none">
+     <div class="toptitle porela">
+       	  <div class="gobackbtn pointer fl">
+    	     	   <i class="pbiconfont poabso">&#xe60d;</i>
+    	     	   <span>返回</span>
+  	      </div>
+          <span>申请认领记录</span>
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso mintable">
+          <div class="top">
+               <div class="detail fl">任务名称</div>
+               <div class="person fl">认领人</div>
+               <div class="status fl">认领状态</div>
+               <div class="time fl">时间</div>
+          </div>
+          <ul>
+              <li>
+                   <div class="detail fl break">oa项目实得分是的是43得分是的</div>
+  	               <div class="person fl porela">
+                          <div class="img40bor poabso">
+                             <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit">
+                             a刘新宇
+                          </div>
+  	               </div>
+  	               <div class="status fl">未认领成功</div>
+  	               <div class="time fl">2016-12-12 23:23:23</div>
+              </li>
+              <li>
+                   <div class="detail fl break">oa项目实3243分是的</div>
+  	               <div class="person fl porela">
+  	                    <div class="img40bor poabso">
+                             <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit">
+                             a刘新宇
+                          </div>
+  	               </div>
+  	               <div class="status fl success">认领成功</div>
+  	               <div class="time fl">2016-12-12 23:23:23</div>
+              </li>
+          </ul>
+     </div>
+</div>
+<!--申请认领记录 弹窗 结束-->
+
+
+
+<!--任务操作日志列表 弹窗 开始-->
+<div class="ui-widget-winbor tablelistwin of minscroll loglistwin none">
+     <div class="toptitle porela">
+     	    <div class="gobackbtn pointer fl">
+	     	       <i class="pbiconfont poabso">&#xe60d;</i>
+	     	       <span>返回</span>
+	        </div>
+          <span>任务操作日志列表</span>
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso mintable">
+          <div class="top">
+          	   <div class="time fl">时间</div>
+               <div class="person fl">操作人</div>
+               <div class="detail fl">操作日志</div>
+          </div>
+          <ul>
+              <li>
+                 <div class="time fl">2016-12-12 23:23:23</div>
+	               <div class="person fl porela">
+                      <div class="img40bor poabso">
+                         <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit">
+                         a刘新宇
+                      </div>
+	               </div>
+	               <div class="detail fl break">oa项目实得分是的是43得分是的</div>
+              </li>
+          </ul>
+     </div>
+</div>
+<!--任务操作日志列表 弹窗 结束-->
+
+
+
+<!--任务详情 弹窗 开始-->
+<div class="ui-widget-winbor taskdetailwin of none">
+
+     <div class="toptitle porela">
+          任务详情
+          <div class="pointer poabso operlog">
+              <i class="pbiconfont poabso">&#xe622;</i>
+	     	  <span>操作日志</span>
+          </div>
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+
+     <div class="toptitle porela none">
+          <div class="gobackbtn pointer fl">
+               <i class="pbiconfont poabso">&#xe60d;</i>
+               <span>返回</span>
+          </div>
+          <span>审核任务</span>
+     </div>
+
+     <div class="scrollbor poabso scroll">
+
+           <div class="borderbor of porela">
+                <div class="fl porela titlecells">
+                     <i class="pbiconfont">&#xe612;</i>
+                	   <span class="ml3">任务类型：</span>
+                     <span class="sp">指派任务</span>
+                </div>
+                <span class="line1"></span>
+                <div class="fl porela titlecells ml15">
+                     <i class="pbiconfont poabso t3">&#xe623;</i>
+                     <span class="ml23 wdspacing poabso ">任务状态：</span>
+                     <!-- 7种状态 -->
+                     <!-- <span class="texttip sp">已关闭</span> -->
+                     <!-- <span class="texttip sp">已失效</span> -->
+                     <span class="texttip sp ml95">待接收</span>
+                     <!-- <span class="texttip blue">进行中</span> -->
+                     <!-- <span class="texttip green">已完成</span> -->
+                     <!-- <span class="texttip red">已拒绝</span> -->
+                     <!-- <span class="texttip bluegreen">待审核</span> -->
+                </div>
+                <span class="line2"></span>
+                <div class="fl porela titlecells ml15">
+                     <i class="pbiconfont">&#xe617;</i>
+                     任务级别：
+                     <span class="sp">高</span>
+                </div>
+           </div>
+
+
+           <div class="borderbor of porela taskprobor">
+                <i class="pbiconfont fl poabso">&#xe611;</i>
+                <span class="ml23 wdspacing poabso">所属项目：</span>
+                <div class="inblock break pbc maxtitleof">OA项目OA项目OA项目OA项目OA项目OA项目OA项目OA项目OA项目</div>
+           </div>
+
+           <div class="borderbor of porela tasktitlebor">
+           	    <i class="pbiconfont fl poabso">&#xe613;</i>
+                <span class="ml23 wdspacing poabso">任务标题：</span>
+                <div class="inblock break pbc maxtitleof">OA项目OA项目OA项目OA项目OA项目OA项目OA项目OA项目OA项目</div>
+           </div>
+
+           <div class="borderbor porela tasktimebor readtasktimebor">
+
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">开始时间：</span>
+                <div class="porela inblock fl pbc readtime">
+                     2016-12-12 12:12
+                </div>
+                <span class="fl ml15">——</span>
+                <i class="pbiconfont inblock">&#xe615;</i>
+                <span class="fl ml30">结束时间：</span>
+                <div class="porela inblock fl pbc readtime">
+                     2016-12-12 12:12
+                </div>
+                <span class="clear">&nbsp;</span>
+
+           </div>
+
+
+           <div class="borderbor porela taskxsbor of">
+                <i class="pbiconfont poabso mt2">&#xe61e;</i>
+                <span class="ml23 wdspacing">悬赏范围：</span>
+                <ul class="readul xslistbor inblock of fl">
+                    <li>php2</li>
+                    <li>php3</li>
+                    <li>php4</li>
+                    <li>php5</li>
+                    <li>php6</li>
+                </ul>
+           </div>
+
+
+           <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">分 配 给：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+           </div>
+
+
+           <div class="borderbor porela hauto">
+                <i class="pbiconfont poabso mt2">&#xe618;</i>
+                <span class="ml23 wdspacing poabso">任务描述：</span>
+                <div class="inblock break pbc maxtitleof">任务描述任务描述任务描述任务描述任务描述任务描述任务描述任务描述任务描述</div>
+           </div>
+
+           <div class="borderbor porela taskfilebor read">
+                <i class="pbiconfont poabso mt2">&#xe619;</i>
+                <span class="ml23 wdspacing2 poabso">附 件：</span>
+                <ul>
+                    <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                        <i class="poabso filesiconmin"></i>
+                        <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                        <div class="filesize fl omit">12.18KB</div>
+                        <div class="time fl ml10">2016-12-12</div>
+                        <div class="name fl ml10 omit">张三李四</div>
+                        <div class="btn blue fr poabso">下载</div>
+                    </li>
+                </ul>
+           </div>
+
+           <div class="borderbor porela taskjnbor">
+                <i class="pbiconfont poabso mt2">&#xe61b;</i>
+                <span class="ml23 wdspacing">任务技能：</span>
+                <ul class="readul xslistbor inblock of fl">
+                    <li>php2</li>
+                    <li>php3</li>
+                    <li>php4</li>
+                    <li>php5</li>
+                    <li>php6</li>
+                </ul>
+           </div>
+
+           <div class="borderbor porela taskpointbor">
+                <i class="pbiconfont poabso mt3">&#xe61a;</i>
+                <span class="ml23 wdspacing2">奖 励：</span>
+                <span class="surplusPoint pbc"> 100 </span> <span class="pbc">纳米币</span>
+           </div>
+
+
+           <!--工作笔记编辑提交 开始-->
+           <div class="notebor porela">
+               <textarea name="textarea" class="noborder fl poabso" placeholder="工作笔记"></textarea>
+               <div class="upfilebor taskfilebor">
+                    <ul>
+                        <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                            <i class="poabso filesiconmin"></i>
+                            <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                            <div class="filesize fl omit">12.18KB</div>
+                            <div class="del fr">删除</div>
+                        </li>
+                    </ul>
+                    <div class="btn blue fr poabso inblock">
+                         <i class="pbiconfont">&#xe619;</i>
+                         <span>添加附件</span>
+                    </div>
+               </div>
+           </div>
+           <!--工作笔记编辑提交 结束-->
+
+
+           <!--工作笔记详情 开始-->
+           <div class="notebor porela read of">
+               <div class="fl notetitlebor">
+                   <i class="pbiconfont poabso mt2 notebor_i">&#xe627;</i>
+                   <span class="ml23 wdspacing2 poabso notebor_i_span">工作笔记：</span>
+               </div>
+
+               <textarea name="textarea" disabled class="noborder fl">的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数的说法都是大多数</textarea>
+               <div class="upfilebor taskfilebor fl">
+                    <ul>
+                        <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                            <i class="poabso filesiconmin"></i>
+                            <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                            <div class="filesize fl omit">12.18KB</div>
+                            <div class="name fl ml10 omit">张三李四</div>
+                            <div class="btn blue fr poabso inblock">
+                                <a href="###">
+                                    <i class="pbiconfont ">&#xe624;</i>
+                                    <span>下载</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+               </div>
+           </div>
+           <!--工作笔记详情 结束-->
+
+
+           <!--申请认领 开始-->
+           <div class="porela borderbor claimbor of">
+                <div class="fl mt20 title">
+                      <i class="pbiconfont poabso mt2">&#xe626;</i>
+                      <span class="ml23 wdspacing2 break">已有<span>12</span>人申请认领：</span>
+                </div>
+                <ul class="fl">
+                    <!--选中 添加 selected -->
+                    <li class="fl mt10 porela pointer selected">
+                        <i class="pbiconfont poabso mt2">&#xe625;</i>
+                        <div class="imgbor40">
+                              <div class="imgbor fl">
+                                   <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                              </div>
+                              <div class="name omit fl pbc">张三李四</div>
+                        </div>
+                    </li>
+                    <li class="fl mt10 porela pointer" ng-repeat="item in [1,2,3,4,5,6,7,8,9]">
+                        <div class="imgbor40">
+                              <div class="imgbor fl">
+                                   <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                              </div>
+                              <div class="name omit fl pbc">张三李四</div>
+                        </div>
+                    </li>
+                </ul>
+           </div>
+           <!--申请认领 结束-->
+
+
+           <!--审核结果 开始-->
+           <div class="porela borderbor reviewbor mt15">
+                <div class="fl reviewtitlebor poabso">
+                    <div class="left ml15 mt15 fl">
+                        <i class="pbiconfont poabso mt2">&#xe626;</i>
+                        <span class="ml23 wdspacing2">审核结果：</span>
+                    </div>
+                    <div class="fl ml15 mt15">
+                        <label class="porela pointer of fl selected">
+                           <i class="pbiconfont poabso mt2">&#xe62b;</i>
+                           <span>审核通过</span>
+                        </label>
+
+                        <label class="porela pointer of fl">
+                           <i class="pbiconfont poabso mt2">&#xe62c;</i>
+                           <span>审核不通过</span>
+                        </label>
+                    </div>
+                </div>
+                <!--审核通过 开始-->
+                <div class="revieweditbor fl none">
+                     <div class="left fl">
+                          <div class="zlbor fl">
+                               <span class="fl">完成质量</span>
+                               <ul>
+                                   <li><i class="pbiconfont poabso mt2 selected">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2 selected">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2 selected">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                               </ul>
+                          </div>
+                     </div>
+                     <div class="right fl">
+                          <div class="zlbor fl">
+                               <span class="fl">完成速度</span>
+                               <ul>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                                   <li><i class="pbiconfont poabso mt2">&#xe62d;</i></li>
+                               </ul>
+                          </div>
+                     </div>
+                </div>
+                <!--审核通过 结束-->
+
+                <!--审核不通过 开始-->
+                <div class="revieweditbor fl none">
+                     <div class="left fl">
+                          <div class="nopassbor fl">
+                               <span class="fl">请输入原因：</span>
+                               <textarea name="textarea" class="noborder poabso fl" placeholder="(最多输入50字)"></textarea>
+                          </div>
+                     </div>
+                     <div class="right fl">
+                          <div class="nopassbor fl">
+                               <span class="fl">重新分配给：</span>
+
+                               <div class="imgbor40 poabso" ng-show="task.querymemberok.length>0">
+                                    <div class="imgbor fl">
+                                         <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                                    </div>
+                                    <div class="name omit fl" ng-bind="task.querymemberok"></div>
+                                    <i class="pbiconfont poabso pointer" ng-click="task.delmember();">&#xe61d;</i>
+                               </div>
+
+                               <!--列表开始-->
+                               <div class="poabso addbtn1 fpgbtn">
+                                   <div class="menbersearchbor minscroll">
+                                        <div class="searchbg of porela">
+                                             <i class="pbiconfont poabso">&#xe610;</i>
+                                             <input type="text" class="noborder" placeholder="搜索"/>
+                                        </div>
+                                        <ul>
+                                            <li class="pointer" ng-repeat='item in task.member' >
+                                                <div class="imgbor fl">
+                                                     <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                                                </div>
+                                                <div class="name omit fl">
+                                                     {{item.name}}
+                                                </div>
+                                            </li>
+                                        </ul>
+                                   </div>
+                               </div>
+                               <!--列表结束-->
+
+                          </div>
+                     </div>
+                </div>
+                <!--审核不通过 结束-->
+
+                <!--审核不通过[详情] 开始-->
+                <div class="revieweditbor fl ">
+                     <!--若有填写重写分配给-->
+                     <div class="left fl none">
+                          <div class="nopassbor fl">
+                               <span class="fl">请输入原因：</span>
+                               <textarea name="textarea" class="noborder poabso fl" disabled >士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫</textarea>
+                          </div>
+                     </div>
+                     <div class="right fl none">
+                          <div class="nopassbor fl">
+                               <span class="fl">重新分配给：</span>
+                               <div class="imgbor40 poabso" >
+                                    <div class="imgbor fl">
+                                         <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                                    </div>
+                                    <div class="name omit fl">werwer</div>
+                               </div>
+                          </div>
+                     </div>
+
+                     <!--若有填写未有重写分配给-->
+                     <div class="left fl w100nobor">
+                          <div class="nopassbor fl">
+                               <span class="fl">请输入原因：</span>
+                               <textarea name="textarea" class="noborder poabso fl" disabled >士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫士大夫似的发士大夫</textarea>
+                          </div>
+                     </div>
+
+                </div>
+                <!--审核不通过[详情] 结束-->
+
+           </div>
+           <!--审核结果 结束-->
+
+
+           <!--申请者 开始-->
+           <div class="porela borderbor applybor mt15 of">
+                <div class="fl mt15 title">
+                     <i class="pbiconfont poabso mt2">&#xe616;</i>
+                     <span class="ml21 wdspacing">申 请 者：</span>
+                </div>
+
+                <ul>
+                   <!--待认领-->
+                   <li class="selected">
+                      <div class="imgbor40">
+                           <div class="imgbor fl">
+                                <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                           </div>
+                           <div class="name omit fl pbc">张三李四</div>
+                      </div>
+                   </li>
+                   <!--已认领-->
+                   <li>
+                      <div class="imgbor40">
+                           <div class="imgbor fl">
+                                <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                           </div>
+                           <div class="name omit fl pbc">张三李四</div>
+                      </div>
+                   </li>
+                </ul>
+           </div>
+           <!--申请者 结束-->
+
+     </div>
+
+     <div class="btnbor poabso nobor">
+
+          <!--待接受-->
+          <div class="btnsbor none">
+               <button class="btns ">接受任务</button>
+               <button class="btns gray ">拒绝任务</button>
+          </div>
+
+          <!--提交任务-->
+          <div class="btnsbor none">
+               <button class="btns " >提交任务</button>
+          </div>
+
+          <!--我发布的 待发布-->
+          <div class="btnsbor none">
+               <button class="btns green" >编辑</button>
+               <button class="btns " >发布</button>
+               <button class="btns gray" >删除</button>
+          </div>
+
+          <!--我发布的-待接受(关闭任务)-->
+          <div class="btnsbor none">
+               <button class="btns green" >编辑</button>
+               <button class="btns gray" >关闭</button>
+          </div>
+
+          <!--我发布的-待确认-->
+          <div class="btnsbor none">
+               <button class="btns " >确认任务</button>
+          </div>
+
+          <!--我发布的-待审核-->
+          <div class="btnsbor none">
+               <button class="btns bluegreen" >审核</button>
+          </div>
+
+
+         <!--我发布的-待审核-->
+         <div class="btnsbor none">
+             <button class="btns" >确定</button>
+             <button class="btns gray" >取消</button>
+         </div>
+
+          <!--我发布的-进行中-->
+          <div class="btnsbor none">
+               <button class="btns green" >编辑</button>
+               <button class="btns gray" >关闭</button>
+               <button class="btns " >延期</button>
+          </div>
+
+          <!--悬赏专区-待认领(认领成功)-->
+          <div class="btnsbor none">
+               <button class="btns darkgreen" >申请认领</button>
+          </div>
+
+          <!--悬赏专区-已认领-->
+          <div class="btnsbor">
+               <button class="btns disbled" >申请认领</button>
+          </div>
+
+
+
+
+
+     </div>
+
+</div>
+<!--任务详情 弹窗 结束-->
+
+
+
+<!--编辑任务 弹窗 开始-->
+<div class="ui-widget-winbor taskeditwin of">
+
+     <div class="toptitle porela">
+          <div class="gobackbtn pointer fl">
+               <i class="pbiconfont poabso">&#xe60d;</i>
+               <span>返回</span>
+          </div>
+          <span>编辑任务</span>
+     </div>
+
+     <div class="scrollbor poabso scroll">
+
+           <div class="borderbor of porela">
+                <div class="fl porela titlecells">
+                     <i class="pbiconfont">&#xe612;</i>
+                     <span class="ml3">任务类型：</span>
+                    <select ng-model='task.taskTypeDefaultSelect'  ng-options='values as values.label for values in task.taskType'></select>
+                </div>
+                <span class="line"></span>
+                <div class="fl porela titlecells ml15">
+                     <i class="pbiconfont">&#xe617;</i>
+                     任务级别：
+                    <select ng-model='task.levelDefaultSelect'  ng-options='values as values.label for values in task.taskLevel'></select>
+                </div>
+           </div>
+
+           <div class="borderbor of porela taskprobor">
+                <i class="pbiconfont">&#xe611;</i>
+                <span class="ml3">所属项目：</span>
+               <select ng-model='task.taskProjectSelect' ng-change="taskFunc.setTaskTimeRange(values)"   ng-options='values as values.pro_name for values in task.allProject'></select>
+           </div>
+
+           <div class="borderbor of porela tasktitlebor">
+                <i class="pbiconfont fl poabso">&#xe613;</i>
+                <span class="fl ml23">任务标题：</span>
+                <input type="text" class="fl texttitle" ng-model="task.task_title" placeholder="输入任务标题(最多输入50个字)"/>
+           </div>
+
+           <div class="borderbor porela tasktimebor">
+
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">开始时间：</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="task_datestart" id="task_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="task.begin_time" data-datetimepicker-config="{ dropdownSelector: '#task_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl ml15">——</span>
+                <i class="pbiconfont inblock">&#xe615;</i>
+                <span class="fl ml30">结束时间：</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="task_dateend" id="task_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="task.end_time" data-datetimepicker-config="{ dropdownSelector: '#task_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+
+                <span class="clear">&nbsp;</span>
+
+           </div>
+
+
+           <div class="borderbor porela taskxsbor" ng-if="task.taskTypeDefaultSelect == task.taskType[1]">
+                <i class="pbiconfont poabso mt2">&#xe61e;</i>
+                <span class="ml23 wdspacing2 poabso">悬赏范围：</span>
+                <div class="poabso addbtn2"  ng-mouseenter="taskFunc.openSelecteGroup()"  ng-mouseleave="taskFunc.closeSelecteGroup()">
+
+                     <div class="offerbor poabso minscroll">
+                          <div class="titles">请选择悬赏范围</div>
+                          <div class="nbor">
+                               <!--<div class="nbors"> -->
+                                    <!--<div class="title">-->
+                                         <!--<label>-->
+                                            <!--<input type="checkbox">-->
+                                            <!--<span>全公司</span>-->
+                                         <!--</label>-->
+                                    <!--</div>-->
+                               <!--</div>-->
+
+
+                                <div class="nbors" ng-repeat="groupTree in task.allGroupsTree">
+                                    <div class="title">
+                                        <label>
+                                            <input type="checkbox" class="cbox" ng-checked="groupTree.is_select" data-ng-click="taskFunc.selectAllSubGroup($event,groupTree.org_id)" gname="{{groupTree.org_name}}" gid="{{groupTree.org_id}}"/>
+                                            <span>{{groupTree.org_name}}</span>
+                                        </label>
+                                        <span>
+                                            <!--默认向下-->
+                                            <i class="pbiconfont poabso" ng-if="groupTree.show==1" ng-click="taskFunc.showGroupList($index,0)">&#xe620;</i>
+
+                                            <!--点击向上-->
+                                            <i class="pbiconfont poabso" ng-if="groupTree.show==0" ng-click="taskFunc.showGroupList($index,1)">&#xe61f;</i>
+                                        </span>
+                                    </div>
+                                    <ul ng-if="groupTree.show==1">
+                                        <li ng-repeat="children in groupTree.children">
+                                            <label>
+                                                <input type="checkbox" class="cbox" ng-checked="children.is_select" data-ng-click="taskFunc.selectAllSubGroup2($event,children.org_id)" gname="{{children.org_name}}" gid="{{children.org_id}}"/>
+                                                <span>{{children.org_name}}</span>
+                                            </label>
+                                            <!-- <span ng-include="'field_renderer.html'"></span> -->
+                                            <span>
+                                                  <ul>
+                                                      <li ng-repeat="secChild in children.children">
+                                                          <label>
+                                                              <input type="checkbox" class="cbox" ng-checked="secChild.is_select" data-ng-click="taskFunc.selectGroup($event)" gname="{{secChild.org_name}}" gid="{{secChild.org_id}}"/>
+                                                              <span> {{secChild.org_name}} </span>
+                                                          </label>
+                                                      </li>
+                                                  </ul>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                          </div>
+                     </div>
+
+                </div>
+
+                <ul class="xslistbor of">
+                    <li ng-repeat="selectGroups in task.selectedGroup" ng-click="taskFunc.selectMember(selectGroups)">{{selectGroups.org_name}}</li>
+                </ul>
+           </div>
+
+
+           <div class="borderbor porela" ng-if="task.taskTypeDefaultSelect == task.taskType[0]">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">分 配 给：</span>
+                <div class="imgbor40 poabso" ng-show="task.selectedMember.u_id>0">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl" ng-bind="task.selectedMember.real_name"></div>
+                      <i class="pbiconfont poabso pointer" ng-click="taskFunc.delmember();">&#xe61d;</i>
+                </div>
+               <div class="poabso addbtn1 fpgbtn" ng-mouseenter="taskFunc.openSelectedP()"  ng-mouseleave="taskFunc.closeSelectedP()">
+                   <div class="menbersearchbor minscroll">
+                       <div class="searchbg of porela">
+                           <i class="pbiconfont poabso">&#xe610;</i>
+                           <input type="text" class="noborder" placeholder="搜索" ng-keyup="taskFunc.allott(1)" data-ng-model="task.searchMemberRealName"/>
+                       </div>
+                       <ul>
+                           <li class="pointer" ng-repeat='item in taskFunc.groupMembers' ng-click="taskFunc.selectMember(item)">
+                               <div class="imgbor fl">
+                                   <img ng-src="{{item.head_img}}">
+                               </div>
+                               <div class="name omit fl">
+                                   {{item.real_name}}
+                               </div>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+
+
+           <div class="borderbor porela tasktextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe618;</i>
+                <span class="ml23">任务描述：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" ng-model="task.task_desc" placeholder="请输入任务描述(最多输入500个字)"></textarea>
+           </div>
+
+
+           <div class="borderbor porela taskfilebor">
+                <i class="pbiconfont poabso mt2">&#xe619;</i>
+                <span class="ml23 wdspacing2 poabso">附 件：</span>
+                <ul>
+                    <li class="porela" ng-repeat='item in task.files'>
+                        <i class="poabso  icon-{{item.file_type}}"></i>
+                        <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                        <div class="filesize fl omit">{{item.file_size}}kb</div>
+                        <div class="del fr" ng-click="taskFunc.delFiles($index, item.task_att_id)">删除</div>
+                    </li>
+                </ul>
+               <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+           </div>
+
+
+           <div class="borderbor porela taskjnbor">
+                <i class="pbiconfont poabso mt2">&#xe61b;</i>
+                <span class="ml23 wdspacing2 poabso">任务技能：</span>
+               <div class="poabso addbtn2" ng-mouseenter="taskFunc.openSelecteSkill()"  ng-mouseleave="taskFunc.closeSelecteSkill()">
+                   <div class="skillbor poabso minscroll">
+                       <div class="titles">请选择技能</div>
+                       <div class="nbor">
+
+                           <div class="nbors" ng-repeat='item in task.skillList'>
+                               <div class="title">
+                                   <label>{{item.skill_name}}</label>
+                                                <span>
+                                                    <!--默认向下-->
+                                                    <i class="pbiconfont poabso" ng-if="item.show==1" ng-click="taskFunc.showList($index,0)">&#xe620;</i>
+
+                                                    <!--点击向上-->
+                                                    <i class="pbiconfont poabso" ng-if="item.show==0" ng-click="taskFunc.showList($index,1)">&#xe61f;</i>
+                                                </span>
+                               </div>
+                               <ul id="skill{{item.skill_id}}" ng-if="item.show==1">
+                                   <li ng-repeat='item2 in item.children'>
+                                       <label>
+                                           <input type="checkbox" id="item2.id" ng-checked="item2.is_select" ng-click="taskFunc.updateSelection($event, item2)">
+                                           <span>{{item2.skill_name}}</span>
+                                       </label>
+                                   </li>
+                               </ul>
+                           </div>
+
+                       </div>
+                   </div>
+                </div>
+                <ul class="skilllistbor of">
+                    <li ng-repeat='item in task.selecteSkill'>{{item.skill_name}}</li>
+                </ul>
+           </div>
+
+
+           <div class="borderbor porela taskpointbor">
+                <i class="pbiconfont poabso mt3">&#xe61a;</i>
+                <span class="ml23 wdspacing2">奖 励：</span>
+                <input type="text" class="inputtext taskpoint noborder" ng-model="task.point" ng-keyup="taskFunc.pointkeyup();" />
+                纳米币
+                <div class="surplus">( 剩余<span class="surplusPoint">{{user.points}}</span>纳米币 )</div>
+           </div>
+
+
+     </div>
+
+
+     <div class="btnbor poabso nobor">
+          <!--任务编辑-->
+          <div class="btnsbor">
+               <button class="btns " ng-click="taskFunc.saveTask(0);">保存</button>
+               <button class="btns gray " ng-click="taskFunc.reback(0);">返回</button>
+          </div>
+     </div>
+
+</div>
+<!--编辑任务 弹窗 开始-->
+
+
+
+<!--拒绝任务 弹窗 开始-->
+<div class="ui-widget-winbor refusewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc">
+          请填写拒绝任务原因：
+     </div>
+     <textarea name="textarea" class="noborder fl" placeholder="最多输入50个字"></textarea>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--拒绝任务 弹窗 结束-->
+
+
+
+<!--删除提示 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要删除此任务吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--删除提示 弹窗 结束-->
+
+
+
+<!--确定关闭提示 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要关闭此任务吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--确定关闭提示 弹窗 结束-->
+
+
+
+<!--我发布的-待确认(指派某人弹窗) 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定此悬赏任务指派给申请人[<span>王五</span>]吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--我发布的-待确认(指派某人弹窗) 结束-->
+
+
+
+<!--我发布的任务-进行中(延期弹窗) 开始-->
+<div class="ui-widget-winbor refusedelaywin none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="delaybor fl">
+          <span class="fl ml20 title pbc">延期时间：</span>
+          <div class="porela inblock fl">
+
+               <i class="pbiconfont yqi poabso">&#xe614;</i>
+               <input type="text" name="delaytime" id="delaytime" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.delaytime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+               <ul class="dropdown-menu" aria-labelledby="dLabel">
+                   <datetimepicker ng-model="task.delaytime" data-datetimepicker-config="{ dropdownSelector: '#delaytime', startView: 'day', minView: 'minute' }"></datetimepicker>
+               </ul>
+
+          </div>
+     </div>
+     <div class="tipstitle pbc clear">
+          请填写延期任务原因：
+     </div>
+     <textarea name="textarea" class="noborder fl" placeholder="最多输入50个字"></textarea>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--我发布的任务-进行中(延期弹窗) 结束-->
+
+
+
+
+<!--创建任务(继续新建) 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          新建任务保存成功！
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">继续新建任务</button>
+               <button class="btns gray">查看已创建的任务列表</button>
+          </div>
+     </div>
+</div>
+<!--创建任务(继续新建) 弹窗 结束-->

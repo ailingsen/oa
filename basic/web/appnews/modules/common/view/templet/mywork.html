@@ -1,0 +1,22 @@
+<div class="common-head">
+    <i class="iconfont">&#xe61a;</i>
+    <span class="f20">我的工作</span>
+</div>
+<div class="common-content">
+    <ul>
+        <li ng-repeat="item in index.my_work" class="index-mywork">
+            <span class="new" ng-if="item.is_new==1">NEW</span>
+            <a ng-if="item.type==1" ui-sref="main.msg.approvalmsglist">【审批】{{item.real_name}}{{item.title}}</a>
+            <a ng-if="item.type==2" ui-sref="main.msg.applymsglist">【申请】{{item.real_name}}{{item.title}}</a>
+            <a ng-if="item.type==3" ui-sref="main.msg.meetingmsglist">【会议】{{item.real_name}}{{item.title}}：{{item.meeting_name}}</a>
+            <a ng-if="item.type==4" ui-sref="main.msg.taskmsglist">【任务】{{item.real_name}}{{item.title}}：{{item.task_title}}</a>
+            <a ng-if="item.type==5" ui-sref="main.msg.projectmsglist">【项目】{{item.real_name}}{{item.title}}：{{item.project_name}}</a>
+            <a ng-if="item.type==6" ui-sref="main.msg.reportmsglist">【报告】{{item.real_name}}{{item.title}}{{item.work_title}}</a>
+            <!--<span class="fr st1">{{item.create_time_time}}</span>-->
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.my_work==0">
+        <img src="images/empty.png" alt=""/>
+        <p>暂时没有相关数据</p>
+    </div>
+</div>

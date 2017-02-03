@@ -1,0 +1,108 @@
+<!--顶部开始-->
+<div class="w100">
+    <div class="pbsearchbor">
+        <div class="inblock pronames minscroll porela mems" >
+            <input class="allattend-department" type="text" placeholder="{{Work.searchMember}}" ng-change="Work.searchInputMember()" ng-model="Work.searchName"/>
+            <i class="pbiconfont poabso down-arrow" ng-click="Work.dropDownStatusCtr()">&#xe60f;</i>
+            <ul class="department f16" ng-show="Work.memberShow" style="display: block">
+                <li ng-repeat="memName in allMembers" data-ng-click="Work.getSelectName(memName.real_name)"><a href="javascript:void(0);" class="omit">{{memName.real_name}}</a></li>
+            </ul>
+        </div>&nbsp;
+        <div class="inblock btn-query">
+            <button class="btn blue fl" ng-click="Work.clickInputMember()">查询</button>
+        </div>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--工作情况列表开始-->
+<div class="listWrap clear">
+    <table class="attend-table">
+        <thead  >
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>参与项目数</td>
+            <td>总任务数</td>
+            <td>未完成任务数</td>
+            <td>已完成任务数</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in WorkingConditions">
+            <td>{{$index+1}}</td>
+            <td>{{item.realName}}</td>
+            <td class="lightblue">{{item.project_count}}</td>
+            <td class="lightblue">{{item.pCount}}</td>
+            <td class="lightblue">{{item.unfinished}}</td>
+            <td class="lightblue">{{item.finished}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="workPaging" ></div>
+    <!--分页结束-->
+
+</div>
+<!--工作情况列表结束-->
+
+
+<div class="empty-icon" ng-if="!WorkingConditions">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有相关数据</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

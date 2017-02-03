@@ -1,0 +1,17 @@
+<!-- 01申请a-我的审批g-弹窗（通用拒绝）开始 -->
+<div class="ui-widget-winbor refusewin of" ng-show="leave_apply.isShowRefuseWin">
+    <div class="toptitle">
+        拒绝
+    </div>
+    <div class="tipstitle pbc">
+        请填写拒绝原因：
+    </div>
+    <textarea ng-model="leave_apply.comment" class="noborder fl" placeholder="必填，最多输入50个字"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="leave_apply.refuseBtn()">拒绝</button>
+            <button class="btns gray" ng-click="leave_apply.isShowRefuseWin=false">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的审批g-弹窗（通用拒绝）结束 -->

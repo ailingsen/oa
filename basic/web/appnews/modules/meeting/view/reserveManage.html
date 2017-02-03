@@ -1,0 +1,95 @@
+<div isperm pcode="BoadroomManageAdd" class="reserveManage-head" ng-click="meetIng.addBtn()">
+    <span><i class="iconfont-add">&#xe60a;</i>添加会议室</span>
+</div>
+<div class="listWrap clear">
+    <!--会议室列表开始-->
+    <table class="attend-table noticeManage-table">
+        <thead  >
+        <tr>
+            <td>楼层</td>
+            <td>名称</td>
+            <td>描述</td>
+            <td>排序</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in meetingRoomList">
+            <td>{{item.floor|cut:true:10:'...'}}</td>
+            <td>{{item.name|cut:true:25:'...'}}</td>
+            <td>{{item.desc|cut:true:25:'...'}}</td>
+            <td>{{item.hot}}</td>
+            <td>
+                <span isperm pcode="BoadroomManageEdite" class="btn-check" ng-click="meetIng.modifyBtn(item.room_id)">编辑</span>
+                <span isperm pcode="BoadroomManageDel" class="btn-delete" ng-click="meetIng.delMeetingPopup(item.name,item.room_id)">删除</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--会议室列表结束-->
+
+    <!--添加会议室弹出框开始-->
+    <div class="reserve-pop addMeeting" ng-if="meetIng.addShow">
+        <div class="reserve-pop-head f16">新增会议室</div>
+        <div>
+            <p><i class="iconfont star">&#xe613;</i>会议室名称：<input type="text" placeholder="请输入会议室名称" class="reserve-common" data-ng-model="meetIng.name" maxlength="20"/></p>
+            <p><i class="iconfont star">&#xe613;</i>会议室描述：<input type="text" placeholder="请输入会议室描述" class="reserve-common" data-ng-model="meetIng.dec" maxlength="20"/></p>
+            <p><i class="iconfont star">&#xe613;</i>会议室楼层：<input type="text" placeholder="请输入会议室楼层" class="reserve-common" data-ng-model="meetIng.floor" maxlength="20"/></p>
+            <p><i class="iconfont star">&#xe613;</i>会议室排序：<input type="text" placeholder="请输入会议室排序（数字越大越靠前）" class="reserve-common" data-ng-model="meetIng.hot" /></p>
+        </div>
+        <div class="addMeeting-sure">
+            <button class="btns blue sure" data-ng-click="meetIng.reserveMeeting()">添加</button>&nbsp;&nbsp;
+            <button class="btns gray cancel" ng-click="meetIng.cancelBtn()">取消</button>
+        </div>
+    </div>
+    <!--添加会议室弹出框结束-->
+
+    <!--编辑会议室弹出框开始-->
+    <div class="reserve-pop addMeeting" ng-show="meetIng.modifyShow">
+        <div class="reserve-pop-head f16">编辑会议室</div>
+        <div >
+            <p><i class="iconfont star">&#xe613;</i>会议室名称：<input type="text" class="reserve-common" data-ng-model="meetIng.editName" MAXLENGTH="20"/></p>
+            <p><i class="iconfont star">&#xe613;</i>会议室描述：<input type="text" class="reserve-common"  data-ng-model="meetIng.editDec" maxlength="20"/></p>
+            <p><i class="iconfont star">&#xe613;</i>会议室楼层：<input type="text" class="reserve-common"  data-ng-model="meetIng.editFloor" maxlength="20"/></p>
+            <p><i class="iconfont star">&#xe613;</i>会议室排序：<input type="text" class="reserve-common"  data-ng-model="meetIng.editHot"/></p>
+        </div>
+        <div class="addMeeting-sure">
+            <button class="btns blue sure" data-ng-click="meetIng.editMeetingRoom()">确定</button>&nbsp;&nbsp;
+            <button class="btns gray cancel" ng-click="meetIng.cancelBtn()">取消</button>
+        </div>
+    </div>
+    <!--编辑会议室弹出框结束-->
+</div>
+
+<!--删除确认 弹窗 开始-->
+<div class="ui-widget-winbor surewin " style="display: block" ng-show="meetIng.delMeetingPopupCtr">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        确认删除{{meetIng.delMeetingName}}？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="meetIng.delMeeting(meetIng.delRoomId)">是</button>
+            <button class="btns gray" ng-click="meetIng.cancelMeetingBtn()">否</button>
+        </div>
+    </div>
+</div>
+<!--删除确认 弹窗 结束-->
+
+
+
+<div class="empty-icon" ng-if="meetingRoomList.length==0">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有相关数据</p>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,160 @@
+.min-btns{
+    background:#57C8F2;
+    border:0 none;
+    border-radius:3px;
+    color:#FFF;
+    cursor:pointer;
+    padding:3px 8px;
+}
+
+.setprocessobr .borderbor.xlefttitlebor .min-btns{
+    width: 80px;
+    text-align: center;
+}
+
+.borderbor .xslistbor li{
+    margin-right:5px;
+    margin-left: 5px;
+}
+
+.borderbor .xslistbor li>i{
+    color:#B8B8B8;
+    font-size:14px;
+    top:3px;
+}
+
+.borderbor .xslistbor li:after{
+    content:""
+}
+
+.formpresentation #flow-preview{
+    bottom:30px;
+}
+
+.flow-preview .pbcreateformlib input[type=text]{
+    width:30%;
+}
+
+.formpresentation #flow-preview input[type=text]{
+    width:30%;
+}
+
+.processbor .sprbor .imgbor40{
+    position:static;
+}
+
+.flow-auditors{
+    overflow:hidden;
+    clear:both;
+    width:600px;
+    position:absolute;
+    left:215px;
+    top:6px;
+}
+
+.processbor .sprbor .imgbor40 i{
+    position:static;
+    line-height:40px;
+}
+.delete-group{
+    position:absolute;
+    top:15px;
+    right:15px;
+}
+.depart-dialog-btns .btns{
+    margin-right:12px;
+}
+
+.flow-seperator{
+    border-top:1px dashed #e8e8e8;
+    padding:12px 0;
+}
+
+.flow-block .noborder{
+    border:0 none;
+}
+
+.flow-block{
+    margin-bottom:12px;
+}
+
+#masklayer5{
+    background:rgba(0,0,0,0.4);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:fixed;
+    /*display:none;*/
+    z-index:500;
+}
+
+.memPartPop{
+    box-shadow:none;
+}
+
+.depart-combo{
+    display:inline-block;
+    position:relative;
+}
+.depart-combo .chosen-input{
+    position:relative;
+}
+.depart-combo .chosen-drop{
+    position:absolute;
+    top:28px;
+    left:0;
+    min-width:128px;
+    z-index:1000;
+    background:#FFF;
+    box-shadow:0 0 12px 3px rgba(128,125,125,0.16);
+}
+.depart-combo .chosen-search{
+    position:relative;
+    margin:5px;
+    width:92%;
+    box-sizing: border-box;
+}
+
+.depart-combo .chosen-search>i{
+    position: absolute;
+    top:5px;
+    right:3px;
+}
+
+.depart-combo .chosen-search>input{
+    border:0 none;
+    display:block;
+    width:100%;
+    height:24px;
+    padding:0 18px 0 3px;
+    border:1px solid #DFDFDF;
+    box-sizing: border-box;
+}
+
+.depart-combo .chosen-results{
+    max-height:300px;
+    overflow:hidden;
+    overflow-y:auto;
+    display:block;
+}
+
+.depart-combo .chosen-results li{
+    text-align:left;
+    line-height:25px;
+    padding:0 12px 10px 8px;
+    cursor:pointer;
+    white-space: nowrap;
+}
+
+.depart-combo .chosen-results li a:hover,.depart-combo .chosen-results li.selected a{
+    color:#57C8F2;
+}
+
+.cascade-combo{
+    display:inline-block;
+}
+
+.visible1,.visible2{
+    display: none;
+}

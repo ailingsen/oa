@@ -1,0 +1,241 @@
+<!--公共左部开始-->
+<div class="leftsbar">
+	 <!--logo-->
+     <div class="logo">
+          <div class="logomax"></div>
+          <div class="logomin"></div>
+     </div>
+     <!--切换按钮-->
+     <div class="switchbor">
+          <div class="switchbtn pointer">
+               <i class="pbiconfont">&#xe60d;</i>
+          </div>
+          <div class="menu-up">
+               <i class="pbiconfont">&#xe60f;</i>
+          </div>
+          <div class="menu-down">
+               <i class="pbiconfont">&#xe60f;</i>
+          </div>
+     </div>
+     <!--公共菜单-->
+     <div class="menus menusscroll">
+          <ul>
+              <!--工作台-->
+              <li>
+                    <div class="menu-title navindex">
+                        <i class="pbiconfont">&#xe600;</i>
+                        <a ui-sref="main.index" href="javascript:void(0);">
+                            <div class="libor">
+                                <span class="name f16">工作台</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+              <!--任务-->
+			        <li isperm pcode="Task">
+			            <div class="menu-title navtask">
+			                <i class="pbiconfont">&#xe608;</i>
+			                <a href="javascript:void(0);">
+			                    <div class="libor">
+			                        <span class="name f16">任务</span> 
+			                    </div>
+			                </a>
+			                <i class="pbiconfont addhref">&#xe605;</i>
+			            </div>
+			            <ul>
+			                <li isperm pcode="TaskMytask"><a ui-sref="main.task.myTask" href="#"><span></span>我接受的任务</a></li>
+			                <li isperm pcode="TaskMyrelease"><a ui-sref="main.task.myReleaseTask" href="#"><span></span>我发布的任务</a></li>
+			                <li isperm pcode="TaskReward"><a ui-sref="main.task.rewardTask" href="#"><span></span>悬赏专区</a></li>
+                            <li isperm pcode="TaskCreate"><a ui-sref="main.task.create" href="#"><span></span>创建任务</a></li>
+			            </ul>
+			        </li>
+              <!--项目-->
+			        <li isperm pcode="Project">
+			            <div class="menu-title navproject">
+			                <i class="pbiconfont">&#xe60b;</i>
+			                <a href="javascript:void(0);">
+			                <div class="libor">
+			                    <span class="name f16">项目</span>
+			                </div>
+			                </a>
+			                <i class="pbiconfont addhref">&#xe605;</i>
+			            </div>
+			            <ul>
+			                <li isperm pcode="ProjectMycreate"><a ui-sref="main.project.mycreatepro({isInit:1,list_status:0})" href="#"><span></span>我创建的项目</a></li>
+                            <li isperm pcode="ProjectMypartake"><a ui-sref="main.project.myinvoepro({isInit:1,list_status:0})" href="#"><span></span>我参与的项目</a></li>
+                            <li isperm pcode="ProjectPublic"><a ui-sref="main.project.openpro({isInit:1,list_status:0})" href="#"><span></span>他人公开项目</a></li>
+			                <li isperm pcode="ProjectCreate"><a ui-sref="main.project.createpro" href="#"><span></span>创建项目</a></li>
+			            </ul>
+			        </li>
+              <!--考勤-->
+              <li isperm pcode="Attendance">
+                  <div class="menu-title navattendance">
+                      <i class="pbiconfont">&#xe607;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">考勤</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="AttendanceMine"><a ui-sref="main.attendance.myattend" href="#"><span></span>我的考勤</a></li>
+                      <li isperm pcode="AttendanceStaff"><a ui-sref="main.attendance.allattend" href="#"><span></span>员工考勤</a></li>
+                      <li isperm pcode="AttendanceVacationsta"><a ui-sref="main.attendance.holidaySta" href="#"><span></span>考勤统计</a></li>
+                      <li isperm pcode="AttendanceVacationmgn"><a ui-sref="main.attendance.holidayManage" href="#"><span></span>假期管理</a></li>
+                      <li isperm pcode="AttendanceSet"><a ui-sref="main.attendance.attendset" href="#"><span></span>考勤设置</a></li>
+                      <li isperm pcode="AttendanceStatistic"><a ui-sref="main.attendance.attendcount" href="#"><span></span>加班统计</a></li>
+                  </ul>
+              </li>
+              <!--公告-->
+              <li isperm pcode="Notice">
+                  <div class="menu-title navnotice">
+                      <i class="pbiconfont">&#xe603;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">公告</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="noticeview"><a ui-sref="main.notice.noticeQuery({notice_id:0})" href="#"><span></span>公告查询</a></li>
+                      <li isperm pcode="NoticeManage"><a ui-sref="main.notice.noticeManage" href="#"><span></span>公告管理</a></li>
+                      <li isperm pcode="NoticeCreate"><a ui-sref="main.notice.noticecreate" href="#"><span></span>创建公告</a></li>
+                  </ul>
+              </li>
+              <!--申请-->
+              <li isperm pcode="Apply">
+                  <div class="menu-title navapply">
+                      <i class="pbiconfont">&#xe609;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">申请</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="ApplyMyapprove"><a ui-sref="main.apply.agent({apply_id:0,model_id:0,model_type:0})" href="#"><span></span>我的审批</a></li>
+                      <li isperm pcode="ApplyMyapply"><a ui-sref="main.apply.mine({apply_id:0,model_id:0})" href="#"><span></span>我的申请</a></li>
+                      <li isperm pcode="ApplyApply"><a ui-sref="main.apply.application" href="#"><span></span>申请</a></li>
+                      <li isperm pcode="ApplyManage"><a ui-sref="main.apply.manage" href="#"><span></span>审批单管理</a></li>
+                  </ul>
+              </li>
+              <!--会议室-->
+              <li isperm pcode="Boadroom">
+                  <div class="menu-title navmeeting">
+                      <i class="pbiconfont">&#xe604;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">会议室</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="BoadroomBoad"><a ui-sref="main.meeting.reserve" href="#"><span></span>预订</a></li>
+                      <li isperm pcode="BoadroomManage"><a ui-sref="main.meeting.reserveManage" href="#"><span></span>管理</a></li>
+                  </ul>
+              </li>
+              <!--同事-->
+              <li isperm pcode="Workmate">
+                  <div class="menu-title navcolleague">
+                      <i class="pbiconfont">&#xe60c;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">同事</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="WorkmateWork"><a ui-sref="main.colleague.work" href="#"><span></span>工作情况</a></li>
+                      <li isperm pcode="WorkmateMymate"><a ui-sref="main.colleague.myColleague" href="#"><span></span>我的同事</a></li>
+                      <li isperm pcode="WorkmateScoreboard"><a ui-sref="main.colleague.scoreboard" href="#"><span></span>积分榜</a></li>
+                  </ul>
+              </li>
+              <!--工作报告-->
+              <li isperm pcode="Workstate">
+                  <div class="menu-title navworkStatement">
+                      <i class="pbiconfont">&#xe602;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">工作报告</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="WorkstateApprove"><a ui-sref="main.workStatement.checkTable" href="#"><span></span>工作报告审阅</a></li>
+                      <li isperm pcode="WorkstateMyWorkstate"><a ui-sref="main.workStatement.myWorkStatementTable" href="#"><span></span>我的工作报告</a></li>
+                  </ul>
+              </li>
+               <!--用户调研-->
+              <li isperm pcode="survey">
+                  <div class="menu-title navsurvey">
+                      <i class="pbiconfont">&#xe64c;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">用户调研</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="surveylist"><a ui-sref="main.survey.surveylist({isInit:1})" href="#" ><span></span>调研列表</a></li>
+                      <li isperm pcode="surveymine"><a ui-sref="main.survey.mycreatelist({isInit:1})" href="#" ><span></span>我的发布</a></li>
+                      <li isperm pcode="SurveyPublish"><a ui-sref="main.survey.createsurvey" href="#" ><span></span>发布调研</a></li>
+                  </ul>
+              </li>
+              <!--WIKI-->
+             <!-- <li>
+                  <div class="menu-title">
+                      <i class="pbiconfont">&#xe601;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">WIKI</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li><a href="#"><span></span>游戏词条</a></li>
+                      <li><a href="#"><span></span>系统词条</a></li> 
+                  </ul>
+              </li>-->
+              <!--系统管理-->
+              <li isperm pcode="system">
+                  <div class="menu-title navsystem">
+                      <i class="pbiconfont">&#xe60a;</i>
+                      <a href="javascript:void(0);">
+                      <div class="libor">
+                          <span class="name f16">系统管理</span>
+                      </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+                  <ul>
+                      <li isperm pcode="SystemPermission"><a ui-sref="main.system.employeelist({isInit:1})" href="#"><span></span>权限管理</a></li>
+                      <li isperm pcode="SystemSkill"><a ui-sref="main.system.skillList" href="#"><span></span>技能管理</a></li>
+                      <li isperm pcode="SystemScore"><a ui-sref="main.system.personalNanoCoinList" href="#"><span></span>纳米币管理</a></li>
+                      <li isperm pcode="SystemWorkday"><a ui-sref="main.system.workdaySet" href="#"><span></span>工作日设置</a></li>
+                  </ul>
+              </li>
+              <!--纳米云-->
+              <!-- <li>
+                  <div class="menu-title navNanoCloud">
+                      <i class="pbiconfont">&#xe604;</i>
+                      <a href="javascript:void(0);" ui-sref="main.nanoCloud.nanoCloudSection">
+                          <div class="libor">
+                              <span class="name f16">纳米云</span>
+                          </div>
+                      </a>
+                      <i class="pbiconfont addhref">&#xe605;</i>
+                  </div>
+              </li> -->
+          </ul>	
+     </div>
+
+</div>
+<!--公共左部开始-->

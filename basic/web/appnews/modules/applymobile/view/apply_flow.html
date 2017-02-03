@@ -1,0 +1,123 @@
+<!--设置审批流程 开始-->
+<div class="ui-widget-winbor pabso publicwin setprocessobr of " style="display:block">
+    <div class="toptitle porela">
+        设置审批流程
+    </div>
+    <div id="masklayer5" ng-show="departDialogVisble||memberDialogVisble"/>
+    <depart-dialog selected-departs="selectedDeparts" visble="departDialogVisble" ng-show="departDialogVisble"></depart-dialog>
+    <member-dialog selected-members="selectedMembers" visble="memberDialogVisble" ng-show="memberDialogVisble" single="onlyOne" supervisor="supervisor"></member-dialog>
+    <div class="scrollbor poabso processbor">
+
+        <div class="borderbor of porela xlefttitlebor ">
+            <span class="fl">发起次数限制：</span>
+            <span class="sp">
+                     <input type="number" class="limitnumber" ng-model="params.limit_num" ng-readonly="readOnly" placeholder="(请输入)" />
+               </span>
+            <span class="sp">次 / </span>
+            <select ng-options="item.label for item in limitTypes" ng-model="params.limit_type" ng-disabled="readOnly"></select>
+            <span class="poabso r20 pbcd1">(0代表次数不限)</span>
+        </div>
+
+        <!--审批流程开始-->
+
+        <div ng-repeat="group in params.groups track by $index" ng-class="['flow-block']">
+            <div ng-class="['porela','processbtnbor','of','flow-seperator',{'none':readOnly},{'noborder':$index===0}]">
+                <div class="fr">
+                    <span class="spantip blue pointer" ng-click="addGroup()">新增</span>
+                    <span class="spantip gray pointer" ng-click="deleteGroup($index)" ng-show="$index>0">删除</span>
+                    <span class="spantip blue pointer" ng-click="copyGroup($index)">复制</span>
+                </div>
+            </div>
+            <div class="borderbor porela xlefttitlebor hauto">
+                <span class="fl">流程应用范围：</span>
+
+                <div class="w100">
+                    <button ng-class="['min-btns',{'none':readOnly}]" ng-click="openDepartDialog('groups['+$index+']')">指定部门</button>
+                    <ul class="readul xslistbor inblock of">
+                        <li ng-repeat="item in group.selectedDeparts">
+                            <div class="fl" ng-bind="item.label"></div>
+                            <i ng-class="['pbiconfont','poabso','pointer',{'none':readOnly}]" ng-click="deleteDepart(item,$parent.$index);">&#xe61d;</i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w100" style=" margin-left: 98px; width: 645px;">
+                    <button ng-class="['min-btns',{'none':readOnly}]" ng-click="openMemberDialog('groups['+$index+']')">指定人</button>
+                    <ul class="readul xslistbor inblock of" style=" margin-left: 0px;">
+                        
+                        <li ng-repeat="item in group.selectedMembers" class="selected-members">
+                            <div class="fl" ng-bind="item.label"></div>
+                            <i ng-class="['pbiconfont','poabso','pointer',{'none':readOnly}]" ng-click="deleteMember(item,$parent.$index);">&#xe61d;</i>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div ng-class="['borderbor','of','porela','xlefttitlebor','rule',{'none':hideFilter}]">
+                <span class="wdspacing4">判 断 条 件：</span>
+                <select ng-options="item as item.label for item in selectTypes" ng-model="group.conditions.type" ng-disabled="readOnly" ng-change="handleLimitChange($index,group.conditions.type)">
+                  </select>
+                <select class="ml10" ng-options="item.label for item in selectExprs" ng-model="group.conditions.expression" ng-disabled="group.conditions.type.value==-1">
+                  </select>
+                <span class="line"></span>
+                <span class="pbc ml30 omit">
+                        <input type="number" class="numberday" placeholder="(请输入)" ng-model="group.conditions.value" ng-keydown="keyFilterString($event)" ng-readonly="group.conditions.type.value==-1" ng-paste="pasteFilterString($event)"/>
+                  </span>
+                <!-- <span class="poabso r20 pbc" ng-if="params.model_id==2">(天)</span> -->
+            </div>
+
+            <!--多流循环-->
+            <div class="borderbor porela sprbor" ng-repeat="flow in group.flows">
+                <span>{{$index+1}}级审批流程 ： </span>
+                <span>审批人</span>
+                <div ng-class="['poabso','addbtn1','fpgbtn',{'none':readOnly||flow.auditors.length>0}]" ng-click="addAuditor('groups['+$parent.$index+'].flows['+$index+']')"></div>
+                <div class="flow-auditors">
+                    <div class="imgbor40 poabso fl" ng-repeat="auditor in flow.auditors">
+                        <div class="imgbor fl">
+                            <img ng-src="{{auditor.avatar}}">
+                        </div>
+                        <div class="name omit fl pbc">{{auditor.label}}</div>
+                        <i ng-class="['pbiconfont','poabso','pointer',{'none':readOnly}]" ng-click="deleteAuditor('groups['+$parent.$parent.$index+'].flows['+$parent.$index+']')">&#xe61d;</i>
+                    </div>
+                </div>
+                <i ng-class="['pbiconfont','poabso','r20','del','pointer',{'none':readOnly}]" ng-show="$index!=0" ng-click="deleteFlow($parent.$index,$index)">&#xe649;</i>
+            </div>
+            <div ng-class="['borderbor','porela',{'none':readOnly}]">
+                <div class="addprocessbtn porela pointer" ng-click="addFlow($index)">
+                    <i class="pbiconfont poabso pointer">&#xe646;</i>
+                    <span class="f16">新增审批流程</span>
+                </div>
+            </div>
+        </div>
+        <!--审批流程结束-->
+    </div>
+    <!--流程 区域 开始-->
+
+    <div ng-class="['btnbor','poabso','nobor',{'none':readOnly}]">
+        <div class="btnsbor">
+            <button repeat-click class="btns " ng-click="submit()" >完成</button>
+            <button class="btns gray" ng-click="goback()">返回</button>
+
+        </div>
+    </div>
+</div>
+<!--设置审批流程 结束-->
+
+
+
+
+<div class="ui-widget-winbor surewin of" ng-show="deleteGroupTC">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要删除此审批流程吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns" ng-click="deleteGroupTrue();">确定</button>
+               <button class="btns gray" ng-click="deleteGroupFalse();">取消</button>
+          </div>
+     </div>
+</div>

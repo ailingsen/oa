@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="login-header">
+        <ul>
+            <li class="OAsys">OA系统</li>
+        </ul>
+    </div>
+    <!--密码重置框开始-->
+    <div class="index-login psdreset">
+        <div class="header f22">
+            <span>密码重置</span>
+        </div>
+        <div class="main">
+            <form action="" class="login-form f16">
+                <div>
+                    <input type="password" placeholder="请输入新密码" class="inputArea" name="user_password" data-ng-model="loginForm.newPass"/>
+                </div>
+                <div>
+                    <input type="password" placeholder="请再次输入密码" class="inputArea" name="user_password" data-ng-model="loginForm.againnewPass" />
+                </div>
+                <button type="button" class="btns psdreset-sure" ng-click="loginForm.updatePassword()">确认</button>
+            </form>
+        </div>
+    </div>
+    <!--密码重置框结束-->
+
+    <div class="copyright">
+        <p>Copyright© 2001-2016 supernano All Rights Reserved.</p>
+    </div>
+</body>
+</html>

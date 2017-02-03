@@ -1,0 +1,12 @@
+[
+    "appnews/modules/task/controller/TaskController.js",
+    "appnews/modules/task/controller/TaskListController.js",
+    "appnews/modules/task/controller/MyReleaseTaskController.js",
+    "appnews/modules/task/controller/RewardTaskListController.js",
+    "appnews/modules/task/models/TaskListModel.js",
+    "appnews/modules/task/controller/TaskCreateController.js",
+    "appnews/modules/task/controller/TaskEditeController.js",
+    "appnews/modules/task/models/TaskModel.js",
+    "appnews/modules/task/models/DoTaskModel.js",
+    "appnews/modules/task/route.js"
+]

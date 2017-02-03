@@ -1,0 +1,71 @@
+
+
+
+<div class="sortable">
+    <div class="module-wrap fl big-module" ng-repeat="item in index.bigTpl track by $index" tpl_name="{{item}}" ng-class="{'none-bg':item=='shortcut'}"  data-ng-if="item!='blanktpl'">
+        <div ng-include="index.tplUrl(item)" data-ng-if="item!='blanktpl'"></div>
+        <div data-ng-if="item=='blanktpl'"></div>
+    </div>
+</div>
+<div class="workbenchBg" ng-if="index.isShowWorkbenchBg">
+    <img src="images/workbench.png" alt=""/>
+    <p>您的工作台为空，赶紧去设置吧！</p>
+    <button class="btn blue" ui-sref="main.index.set">添加模块</button>
+</div>
+
+
+<!--任务详情-->
+<div ui-view="task_detail"></div>
+
+<!--公告详情-->
+<div ui-view="notice_detail"></div>
+
+<!--申请详情-->
+<div ui-view="apply_detail"></div>
+
+<!--申请待审阅详情-->
+<div ui-view="apply_agent"></div>
+
+<!--工作报告详情-->
+<div ui-view="workstate_detail"></div>
+
+<!--调研详情-->
+<div ui-view="survey_detail"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,622 @@
+<!--顶部开始-->
+<div class="nanoCloud-head" >
+    <div class="fl porela upload" ng-click="nanocloud.dropdown($event)">
+        <span>
+            <i class="nanoicon f16">&#xe620;</i>
+            上传
+        </span>
+        <i class="nanoicon">&#xe60e;</i>
+        <!--下拉框-->
+        <div class="poabso" ng-if="nanocloud.isShowUplodingMenu">
+            <ul>
+                <li ng-click="nanocloud.upLodingFile($event)">
+                    <upload-modal>上传文件</upload-modal>
+                </li>
+                <li ng-click="nanocloud.upLodingFile($event)">
+                    <upload-modal>上传文件夹</upload-modal>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="fl newfile" ng-click="nanocloud.createFile()">
+        <i class="nanoicon col-a9">&#xe624;</i>
+        新建文件夹
+    </div>
+    <div class="fr recycle" ng-click="nanocloud.enterRecycle()">
+        <i class="nanoicon col-a9 f16">&#xe621;</i>
+        回收站
+    </div>
+    <div class="fr search porela">
+        <i class="nanoicon col-a9 f16">&#xe623;</i>
+        <input type="text" placeholder="请输入关键字" maxlength="40"/>
+        <button class="btn fr">搜索</button>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--内容主体开始-->
+<div class="nanoCloud-content">
+    <!--面包屑开始-->
+    <div class="bread clear">
+        <span class="cp fl">返回上一级 </span>
+        <b class="col-a9 fl"> |</b>
+        <span class="cp fl"> 纳米云</span>
+        <ul class="fl">
+            <li class="fl cp">
+                <span class="col-a9"> ></span>
+                文件夹1
+            </li>
+            <li class="fl cp">
+                <span class="col-a9"> ></span>
+                文件夹2
+            </li>
+            <li class="fl cp">
+                <span class="col-a9"> ></span>
+                文件夹3
+            </li>
+        </ul>
+        <span class="fr col-a9">加载完成，共<span>{{nanocloud.myFiles.length}}</span>项</span>
+    </div>
+    <!--面包屑结束-->
+    <!--列表内容开始-->
+    <div>
+        <!--列表头部开始-->
+        <div class="list-head col-a9" >
+            <div class="fl width1" >
+                <i class="checkbox cd allcheck" ng-click="nanocloud.selected($event,$index,0)"><i class="nanoicon col-bl" ng-if="nanocloud.isAllSelected">&#xe625;</i></i>
+                <span ng-if="!nanocloud.isShowOperatorMenu">
+                    <span class="cp">名称</span>
+                    <i class="nanoicon col-a9">&#xe627;</i>
+                </span>
+                <span ng-if="nanocloud.isShowOperatorMenu">
+                    <span class="par10">已选中<span>{{nanocloud.selecteds}}</span>个文件夹/文件</span>
+                    <span class="head-btn"><i class="nanoicon col-a9">&#xe618;</i>下载</span>
+                    <span class="head-btn" ng-click="nanocloud.moveFile()"><i class="nanoicon col-a9">&#xe626;</i>移动到</span>
+                    <span class="head-btn" ng-click="nanocloud.copyFile()"><i class="nanoicon col-a9">&#xe615;</i>复制到</span>
+                    <span class="head-btn" ng-click="nanocloud.deleteFile()"><i class="nanoicon col-a9">&#xe610;</i>删除</span>
+                </span>
+            </div>
+            <div class="fl width2 cp">
+                <span class="cp">修改时间</span>
+                <i class="nanoicon col-a9">&#xe627;</i>
+            </div>
+            <div class="fl width2">
+                <span class="cp">大小</span>
+                <i class="nanoicon col-a9">&#xe627;</i>
+            </div>
+        </div>
+        <!--列表头部结束-->
+        <ul class="list">
+            <li  id={{'li'+$index}} context-menu="getindex($index)" context-Menu-Close="nanocloud.contextMenuClose($index)" data-target="{{item.fileType=='wenjianjia'?'context-menu-folder':'context-menu-file'}}" class="list-content hodb clear" ng-click="nanocloud.selected($event,$index,1)" ng-mouseleave="nanocloud.hideDiaMore($event)" ng-class={'bg-f0':item.isSelected} ng-repeat="item in nanocloud.myFiles">
+                <div class="fl width1 bs porela">
+                    <i class="checkbox cd"><i class="nanoicon col-bl" ng-if="item.isSelected">&#xe625;</i></i>
+                    <i class="file-type icon-{{item.fileType}}"></i>
+                    <span >
+                        <span>{{item.fileName}}</span>
+                        <input ng-model="item.fileName" ng-blur="nanocloud.blur($event,$index)" class="input-rename" autofocus type="text" size="15"/>
+                    </span>
+                    <span class="operate fr none">
+                        <i class="nanoicon col-a9 f16 hocb" title="链接分享" ng-click="nanocloud.getShareLink()">&#xe612;</i>
+                        <i class="nanoicon col-a9 f16 hocb" title="下载">&#xe618;</i>
+                        <span class="porela">
+                            <i class="nanoicon col-a9 f16 hocb more" title="更多" ng-click="nanocloud.showDiaMore($event)">&#xe611;</i>
+                            <!--更多弹框开始-->
+                            <div class="right-click dia-more">
+                                <ul>
+                                    <li>
+                                        <p class="items" ng-click="nanocloud.setShare()">
+                                            <i class="nanoicon col-a9">&#xe616;</i>
+                                            <span>设置共享权限</span>
+                                        </p>
+                                        <p class="items" ng-click="nanocloud.showOperateLog()">
+                                            <i class="nanoicon col-a9">&#xe619;</i>
+                                            <span>显示操作日志</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="items" ng-click="nanocloud.rename($event,2)">
+                                            <i class="nanoicon col-a9">&#xe61d;</i>
+                                            <span>重命名</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="items" ng-click="nanocloud.moveFile()">
+                                            <i class="nanoicon col-a9">&#xe626;</i>
+                                            <span>移动到</span>
+                                        </p>
+                                        <p class="items" ng-click="nanocloud.copyFile()">
+                                            <i class="nanoicon col-a9">&#xe615;</i>
+                                            <span>复制到</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="items" ng-click="nanocloud.deleteFile()">
+                                            <i class="nanoicon col-a9">&#xe610;</i>
+                                            <span>删除</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--更多弹框结束-->
+                        </span>
+                    </span>
+                </div>
+                <div class="fl width2 col-a9">
+                    <span>{{item.modifyTime}}</span>
+                </div>
+                <div class="fl width2 col-a9">
+                    <span ng-if="item.size>0">{{item.size}}kb</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--列表内容结束-->
+
+</div>
+<!--内容主体结束-->
+
+
+
+    <!--
+    <div class="dropdown position-fixed" >
+      <ul >
+        <li><a class="pointer" role="menuitem" tabindex="1" ng-click="fuzhi($event);">复制</a></li>
+        <li><a class="pointer" role="menuitem" tabindex="2">粘贴</a></li>
+      </ul>
+    </div>
+右键出现的菜单区域-->
+
+
+
+<!--鼠标右键弹出框1开始-->
+<div class="right-click none" id="context-menu-file">
+    <ul>
+        <li>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe618;</i>
+                <span>下载</span>
+            </p>
+            <p class="items">
+                <i class="nanoicon col-a9">&#xe613;</i>
+                <span>预览</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.getShareLink()">
+                <i class="nanoicon col-a9">&#xe612;</i>
+                <span>获取分享链接</span>
+            </p>
+            <p class="items">
+                <i class="nanoicon col-a9 vh">&#xe612;</i>
+                <span class="col-a9">取消分享</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.rename($event,1)">
+                <i class="nanoicon col-a9" >&#xe61d;</i>
+                <span>重命名</span>
+            </p>
+            <p class="items" ng-click="nanocloud.checkHistoryVer()">
+                <i class="nanoicon col-a9">&#xe614;</i>
+                <span>查看历史版本</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.moveFile()">
+                <i class="nanoicon col-a9">&#xe626;</i>
+                <span>移动到</span>
+            </p>
+            <p class="items" ng-click="nanocloud.copyFile()">
+                <i class="nanoicon col-a9">&#xe615;</i>
+                <span>复制到</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.deleteFile($event)">
+                <i class="nanoicon col-a9">&#xe610;</i>
+                <span>删除</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<!--鼠标右键弹出框1结束-->
+
+<!--鼠标右键弹出框2开始-->
+<div class="right-click none" id="context-menu-folder">
+    <ul>
+        <li>
+            <p class="items" ng-click="nanocloud.setShare()">
+                <i class="nanoicon col-a9">&#xe616;</i>
+                <span>设置共享权限</span>
+            </p>
+            <p class="items" ng-click="nanocloud.checkShare()">
+                <i class="nanoicon col-a9">&#xe629;</i>
+                <span>查看共享权限</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.load()">
+                <i class="nanoicon col-a9">&#xe618;</i>
+                <span>下载</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.getShareLink()">
+                <i class="nanoicon col-a9">&#xe612;</i>
+                <span>获取分享链接</span>
+            </p>
+            <p class="items" ng-click="nanocloud.cancelShare()">
+                <i class="nanoicon col-a9 vh">&#xe612;</i>
+                <span class="col-a9">取消分享</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.rename($event,1)">
+                <i class="nanoicon col-a9" >&#xe61d;</i>
+                <span>重命名</span>
+            </p>
+            <p class="items" ng-click="nanocloud.showOperateLog()">
+                <i class="nanoicon col-a9">&#xe619;</i>
+                <span>显示操作日志</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.moveFile()">
+                <i class="nanoicon col-a9">&#xe626;</i>
+                <span>移动到</span>
+            </p>
+            <p class="items" ng-click="nanocloud.copyFile()">
+                <i class="nanoicon col-a9">&#xe615;</i>
+                <span>复制到</span>
+            </p>
+        </li>
+        <li>
+            <p class="items" ng-click="nanocloud.deleteFile($event)">
+                <i class="nanoicon col-a9">&#xe610;</i>
+                <span>删除</span>
+            </p>
+            <p class="items" ng-click="nanocloud.cancelJoin()">
+                <i class="nanoicon col-a9 ">&#xe628;</i>
+                <span>取消参与</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<!--鼠标右键弹出框2结束-->
+
+
+
+<!--鼠标右键弹出框4开始-->
+<div class="right-click none">
+    <ul>
+        <li>
+            <p class="items">
+                <i>图</i>
+                <span>下载</span>
+            </p>
+            <p class="items">
+                <i>图</i>
+                <span>预览</span>
+            </p>
+        </li>
+    </ul>
+</div>
+<!--鼠标右键弹出框4结束-->
+
+<!--设置共享文件弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowSetShare">
+    <div class="dia-head f16">
+        设置共享权限：<span class="omit inblock vam width500">示范文档十分干涩发送阿斯顿发撒旦法艾薇儿风微风污染阿瑟发热发文人阿斯顿发威而发阿斯顿发威粉色.pdf</span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeSetShare()">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="addMember col-a9">添加可访问此文件夹的成员：<i class="nanoicon f40 vam">&#xe617;</i></div>
+        <div class="added col-a9 clear">
+            <span class="fl">已添加成员：</span>
+            <span class="btn fr">批量删除</span>
+            <select name="" id="" class="fr inblock">
+                <option value="">上传</option>
+                <option value="">下载</option>
+                <option value="">上传下载</option>
+            </select>
+            <span class="fr">批量管理</span>
+        </div>
+        <div class="memList">
+            <div class="memList-head">
+                <span class="width200"><input type="checkbox" class=""/> 全选</span>
+                <span class="width200">成员</span>
+                <span class="width300 tac">权限</span>
+            </div>
+            <div class="memList-content">
+                <ul>
+                    <li>
+                        <span class="width200 inblock"><input type="checkbox" class=""/></span>
+                        <span class="width200 inblock">张三</span>
+                        <span class="width300 inblock tac">
+                            <select name="" id="" class="inblock">
+                                <option value="">上传</option>
+                                <option value="">下载</option>
+                                <option value="">上传下载</option>
+                            </select>
+                            <span class="btn">删除</span>
+                        </span>
+                     </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tac sure">
+            <button class="btns">确定</button>
+            <button class="btns gray" ng-click="nanocloud.closeSetShare()">取消</button>
+        </div>
+    </div>
+</div>
+<!--设置共享文件弹框结束-->
+
+<!--查看共享权限弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowCheckShare">
+    <div class="dia-head f16">
+        查看共享权限：<span class="omit inblock vam width600">示范文档.pdf</span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeCheckShare()">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="memList-head col-a9">
+            <span class="width50 tac">用户</span><span class="width50 tac">权限</span>
+        </div>
+        <div class="memList-content view-list">
+            <ul>
+                <li>
+                    <span class="width50 inblock tac">张三</span><span class="width50 inblock tac col-a9">拥有者</span>
+                </li>
+                <li>
+                    <span class="width50 inblock tac">李四</span><span class="width50 inblock tac">上传下载</span>
+                </li>
+            </ul>
+        </div>
+        <div class="tac sure">
+            <button class="btns gray" ng-click="nanocloud.closeCheckShare()">关闭</button>
+        </div>
+    </div>
+</div>
+<!--查看共享文件权限弹框结束-->
+
+<!--分享弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowShare">
+    <div class="dia-head f16">
+        分享：<span class="omit inblock vam width600">示范文档.pdf</span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeGetShareLink()">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="share">
+            <div class="link-suc">
+                <i class="fl nanoicon f46 col-bl">&#xe600;</i>
+                <p class="f16 fl pat8">
+                    <span class="col-bl">链接生成成功</span><br/>
+                    <span class="col-a9">将链接发给好友即可分享内容</span>
+                </p>
+            </div>
+            <div class="link-copy">
+                <input type="text" readonly value="http://oa.com/index_news.html#/nanoCloud" class="input-link inblock bs"/>
+                <button class="btns bg-gr">复制链接</button>
+            </div>
+            <div class="link-msg bs">
+                <div>
+                    <span class="col-a9">过期时间：</span>
+                    <label><input type="radio" name="expiration"/> 无</label>
+                    <label><input type="radio" name="expiration"/> 自定义</label>
+                    <input type="text"/>
+                </div>
+                <div>
+                    <span class="col-a9">访问密码：</span>
+                    <label><input type="radio" name="expiration"/> 无</label>
+                    <label><input type="radio" name="expiration"/> 生成密码</label>
+                    <input type="text"/>
+                </div>
+                <div>
+                    <span class="col-a9">访问权限：</span>
+                    <label><input type="checkbox"/> 下载</label>
+                </div>
+            </div>
+        </div>
+        <div class="tac sure">
+            <button class="btns">确定</button>
+            <button class="btns gray" ng-click="nanocloud.closeGetShareLink()">取消</button>
+        </div>
+    </div>
+</div>
+<!--分享弹框结束-->
+
+<!--操作历史弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowOperateLog">
+    <div class="dia-head f16">
+        操作历史：<span class="omit inblock vam width600">文件夹路径</span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeOperateLog()">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="memList-head col-a9">
+            <span class="width100 tac">作者</span><span class="width150 tac">操作</span><span class="width300 tac">文件</span><span class="width150 tac">操作时间</span>
+        </div>
+        <div class="memList-content view-list">
+            <ul>
+                <li>
+                    <span class="width100 tac inblock omit">作者</span><span class="width150 tac inblock col-gr">增加文件夹</span><span class="width300 tac inblock omit">文件名称.doc</span><span class="width150 tac inblock col-a9">2016-10-20 14:22</span>
+                </li>
+                <li>
+                    <span class="width100 tac inblock omit">作者</span><span class="width150 tac inblock col-red">删除文件夹</span><span class="width300 tac inblock omit">文件名称.doc</span><span class="width150 tac inblock col-a9">2016-10-20 14:22</span>
+                </li>
+                <li>
+                    <span class="width100 tac inblock omit">作者</span><span class="width150 tac inblock col-bl">修改文件夹</span><span class="width300 tac inblock omit">文件名称.doc</span><span class="width150 tac inblock col-a9">2016-10-20 14:22</span>
+                </li>
+            </ul>
+        </div>
+        <div class="tac sure">
+            <button class="btns gray" ng-click="nanocloud.closeOperateLog()">关闭</button>
+        </div>
+    </div>
+</div>
+<!--操作历史弹框结束-->
+
+<!--查看历史版本弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowCheckHistoryVer">
+    <div class="dia-head f16">
+        查看历史版本：<span class="omit inblock vam width600">文件夹路径</span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeCheckHistoryVer()">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="memList-head col-a9 clear">
+            <span class="width100 tac fl">作者</span>
+            <span class="width150 tac fl">操作</span>
+            <span class="width150 tac fl">大小</span>
+            <span class="width150 tac fl">操作时间</span>
+        </div>
+        <div class="memList-content view-list">
+            <ul>
+                <li class="clear">
+                    <span class="width100 tac inblock fl omit">作者</span>
+                    <span class="width150 tac inblock fl col-gr">增加文件夹</span>
+                    <span class="width150 tac inblock fl omit col-a9">1M</span>
+                    <span class="width150 tac inblock fl col-a9">2016-10-20 14:22</span>
+                    <span class="width150 tac inblock fl col-bl">
+                        <span class="cp">恢复</span> <span class="cp">下载</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="tac sure">
+            <button class="btns gray" ng-click="nanocloud.closeCheckHistoryVer()">关闭</button>
+        </div>
+    </div>
+</div>
+<!--查看历史版本弹框结束-->
+
+<!--移动文件弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowMoveFile">
+    <div class="dia-head f16">
+        移动文件：<span class="omit inblock vam width600">文件夹sfhsdf </span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeMoveFile()">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="file bs">
+            <div>
+                <ul>
+                    <li>
+                        <div id="0" ng-click="nanocloud.fileListToggle($event)" class="fileList">
+                            <b class="addIcon f18">+</b>
+                            <b class="fileIcon"></b>
+                            <span>全部文件</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tac sure">
+            <button class="btns">确定</button>
+            <button class="btns gray" ng-click="nanocloud.closeMoveFile()">取消</button>
+        </div>
+    </div>
+</div>
+<!--移动文件弹框结束-->
+
+<!--删除弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowDeleteFile">
+    <div class="dia-head f16">
+        删除：<span class="omit inblock vam width600">示范性文档.pdf </span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeDeleteFile()">&#xe602;</i>
+    </div>
+    <div class="dia-content h200">
+        <div class="del-msg bs">
+            <div class="clear">
+                <i class="nanoicon f46 col-bl fl vam">&#xe61e;</i>
+                <p class="f16 fl">
+                    <span>是否确定删除？</span><br/>
+                    <span class="col-a9">文件删除后，可通过回收站找回</span>
+                </p>
+            </div>
+        </div>
+        <div class="tac sure">
+            <button class="btns">确定</button>
+            <button class="btns gray" ng-click="nanocloud.closeDeleteFile()">取消</button>
+        </div>
+    </div>
+</div>
+<!--删除弹框结束-->
+
+<!--取消参与弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowCancelJoin">
+    <div class="dia-head f16">
+        取消参与：<span class="omit inblock vam width600">示范性文档.pdf </span>
+        <i class="fr nanoicon cp" ng-click="nanocloud.closeCancelJoin()">&#xe602;</i>
+    </div>
+    <div class="dia-content h200">
+        <div class="del-msg bs">
+            <div class="clear can-join">
+                <i class="nanoicon f46 col-bl fl vam">&#xe61e;</i>
+                <p class="f16 fl">
+                    <span>是否确定取消参与？</span><br/>
+                    <span class="col-a9">取消参与后该文件夹从列表中移除，您将不再同步和访问改文件夹</span>
+                </p>
+            </div>
+        </div>
+        <div class="tac sure">
+            <button class="btns">确定</button>
+            <button class="btns gray" ng-click="nanocloud.closeCancelJoin()">取消</button>
+        </div>
+    </div>
+</div>
+<!--取消参与弹框结束-->
+
+<!--正在上传大弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowBigUploading">
+    <div class="dia-head f16">
+        正在上传（<span>1</span>/<span>12</span>）
+        <div class="progress-min"><div></div></div>
+        <span class="f14 cp allstop">全部暂停</span>
+        <i class="fr nanoicon cp">&#xe602;</i>
+    </div>
+    <div class="dia-content">
+        <div class="memList-head col-a9">
+            <span class="width200 tac">文件名</span><span class="width100 tac">大小</span><span class="width300 tac">状态</span><span class="width100 tac">操作</span>
+        </div>
+        <div class="memList-content view-list">
+            <ul>
+                <li class="clear">
+                    <span class="width200 tac  fl omit">
+                        <img src="images/pdf.png" alt=""/> <span>示范文档.pdf</span>
+                    </span>
+                    <span class="width100 tac fl col-a9">16.7kb</span>
+                    <span class="width300 tac fl">
+                        <div class="progress-big "><div></div><span class="f12">23%</span></div>
+                        <span class="col-gr none"><i class="nanoicon f18 vam">&#xe600;</i> 上传成功！</span>
+                        <span class="col-red none"><i class="nanoicon f18 vam">&#xe61e;</i> 上传失败！</span>
+                        <span class="col-a9 none">已暂停</span>
+                        <span class="col-a9 none">等待上传</span>
+                    </span>
+                    <span class="width100 tac fl col-a9">
+                        <i class="nanoicon f18 cp none">&#xe606;</i>
+                        <i class="nanoicon f22 cp none">&#xe603;</i>
+                        <i class="nanoicon f22 cp">&#xe601;</i>
+                        <i class="nanoicon f18 cp">&#xe607;</i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="tac sure">
+            <button class="btns gray">关闭</button>
+        </div>
+    </div>
+</div>
+<!--正在上传大弹框结束-->
+
+<!--正在上传小弹框开始-->
+<div class="bigDialog" ng-if="nanocloud.isShowSmallUploading">
+    <div class="dia-head f16 br5">
+        正在上传（<span>1</span>/<span>12</span>）
+        <div class="progress-min"><div></div></div>
+        <span class="f14 cp allstop">全部暂停</span>
+        <i class="fr nanoicon cp">&#xe602;</i>
+        <i class="fr nanoicon cp par10">&#xe60a;</i>
+    </div>
+</div>
+<!--正在上传小弹框结束-->
+
+
+

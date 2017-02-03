@@ -1,0 +1,114 @@
+<!--顶部搜索-->
+<div class="w100">
+	<div class="pbsearchbor">
+	     <div class="selectbor porela pronames minscroll">
+	     	<span ng-click="taskobj.showStatus($event)">
+                 <span>{{taskobj.taskProName}}</span>
+	             <i class="pbiconfont poabso">&#xe60f;</i>
+	     	</span>
+	        
+	        <ul class="listbor poabso" id="projectInfo">
+	            <li  ng-model="task.proId"><a href="javascript:void(0);" class="omit"  data-ng-click="taskobj.getSelectPro('','项目')">项目</a></li>
+	            <li ng-repeat="pro in myObject"><a href="javascript:void(0);" class="omit" data-ng-click="taskobj.getSelectPro(pro.pro_id,pro.pro_name)">{{pro.pro_name}}</a></li>
+			</ul>
+	     </div>
+
+	     <div class="selectbor porela">
+	        
+	        <span ng-click="taskobj.showTaskType($event)">
+                 <span>{{taskobj.taskTypeName}}</span>
+	             <i class="pbiconfont poabso">&#xe60f;</i>
+	     	</span>
+
+	        <ul class="listbor poabso"  id="taskType" >
+				<li><a href="javascript:void(0);" ng-click="taskobj.selectTaskType('类型','')">类型</a></li>
+	        	<li><a href="javascript:void(0);" ng-click="taskobj.selectTaskType('指派任务',1)">指派任务</a></li>
+	            <li><a href="javascript:void(0);" ng-click="taskobj.selectTaskType('悬赏任务',2)">悬赏任务</a></li>
+	        </ul>
+	     </div>
+
+	     <div class="selectbor porela">
+	   
+            <span ng-click="taskobj.showStatusName($event)">
+                 <span>{{taskobj.taskStatusName}}</span>
+	             <i class="pbiconfont poabso">&#xe60f;</i>
+	     	</span>
+
+	        <ul class="listbor poabso" id="taskStatus" >
+				<li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('状态','') ">状态</a></li>
+	        	<li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('待接受','1')">待接受</a></li>
+	            <li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('进行中','2')">进行中</a></li>
+	            <li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('待审核','3')">待审核</a></li>
+	            <li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('已完成','4')">已完成</a></li>
+	            <li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('已拒绝','6')">已拒绝</a></li>
+	            <li><a href="javascript:void(0);" ng-click="taskobj.selectStatusName('已关闭','5')">已关闭</a></li>
+	        </ul>
+	     </div>
+
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="task_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="taskobj.searchstarttime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="taskobj.searchstarttime" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+         <span class="timeline inblock">—</span>
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="taskobj.searchendtime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="taskobj.searchendtime" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+
+	     <div class="searchbor porela inblock">
+	     	  <div class="searchbors poabso">
+		     	  <i class="pbiconfont poabso">&#xe610;</i>
+	              <input type="text"  ng-model="taskobj.taskTitle" class="inputtext noborder searchinputtext fl" placeholder="请输入任务标题" />
+	              <div class="btn blue fl" ng-click="taskobj.taskSearch()">查询</div>
+	          </div>
+	     </div>
+
+	</div>
+</div>
+<!--顶部搜索-->
+
+
+<!--任务列表-->
+<ul class="listWrap clear">
+	<li ng-repeat="item in myTaskList">
+		<a href="javascript:void(0);" class="porela" ng-click="taskobj.taskDetail(item.task_id);">
+			<div class="title omit fl">
+				<span class="ordinal">{{$index+1}}</span>
+				<span>{{item.task_title}}</span>
+			</div>
+			<div class="tips1 red fl" data-ng-if="item.task_type==1">指派任务</div>
+			<div class="tips1 blue fl" data-ng-if="item.task_type==2">悬赏任务</div>
+			<div class="texttip poabso sp gray" data-ng-if="item.status==0">待发布<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+			<div class="texttip poabso sp gray" data-ng-if="item.status==1">待接受<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+			<div class="texttip poabso blue" data-ng-if="item.status==2">进行中<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+			<div class="texttip poabso bluegreen" data-ng-if="item.status==3">待审核<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+			<div class="texttip poabso green" data-ng-if="item.status==4">已完成</div>
+			<div class="texttip poabso sp gray" data-ng-if="item.status==5">已关闭</div>
+			<div class="texttip poabso red" data-ng-if="item.status==6">已拒绝</div>
+			<div class="name fr omit">{{item.real_name}}</div>
+			<div class="time fr">{{item.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+			<div class="proname fr omit">{{item.pro_name}}</div>
+		</a>
+	</li>
+	<!--分页开始-->
+	<div paging page-object="page" click-function="taskPaging" ></div>
+	<!--分页结束-->
+
+</ul>
+<!--任务列表-->
+
+
+<ng-include src="'appnews/modules/task/view/task_detail.html'"></ng-include>
+
+
+<!--无数据提示-->
+<div class="tasknodata poabso" ng-if="myTaskList.length<=0">
+     <i class="pbiconfont poabso">&#xe621;</i>
+     <div class="f20 bold title1">您还没有负责参与的任务哦！</div>
+     <div class="f16 title2">让自己每一天都很明确要推进什么事、计划第二天还要处理的事、这周这月还有哪些事要做！试试创建一个任务吧~</div>
+</div>
+<!--无数据提示-->

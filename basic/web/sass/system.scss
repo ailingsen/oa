@@ -1,0 +1,1486 @@
+/*权限管理列表页*/
+@font-face {
+    font-family: 'systemfont';
+    src: url('//at.alicdn.com/t/font_1471577496_874998.eot');
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    /* chrome、firefox */
+    /* IE6-IE8 */
+    /* IE9*/
+    src: url('//at.alicdn.com/t/font_1471577496_874998.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_1471577496_874998.woff') format('woff'),url('//at.alicdn.com/t/font_1471577496_874998.ttf') format('truetype'),url('//at.alicdn.com/t/font_1471577496_874998.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+i.systemfont {
+    font-family: "systemfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.sign_btn {
+    background: url("../images/sign.png") no-repeat;
+    vertical-align: middle;
+    padding-left: 15px;
+    background-position: left center;
+}
+.ml13 {
+    margin-left: 13px;
+}
+.nav_jurisdictionList_container {
+    height: 400px;
+    overflow-y: auto;
+}
+.nav_jurisdictionList_box {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 0;
+    height: 42px;
+    line-height: 42px;
+    .nav_jurisdictionList {
+        font-style: normal;
+        span {
+            background: #e8e8e8;
+            color: #b8b8b8;
+            font-size: 16px;
+            padding: 8px 30px;
+            border: 1px solid #d5d4d4;
+            border-left: 0 none;
+            &:nth-child(1) {
+                border-left: 1px solid #d5d4d4;
+                border-right: 1px solid #d5d4d4;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+        }
+        .selected {
+            background: #fff;
+            color: #333;
+        }
+    }
+    .btn_add {
+        font-size: 16px;
+        float: right !important;
+        text-align: right;
+        background: url("../images/add_btn1.png") no-repeat;
+        vertical-align: middle;
+        background-position: center left;
+        padding-left: 50px;
+        height: 42px;
+        color: #B8B8B8;
+        cursor: pointer;
+        a {
+            color: #B8B8B8;
+            &:hover {
+                color: #B8B8B8;
+            }
+        }
+    }
+}
+/*表格操作*/
+.system_ist {
+    width: 100%;
+}
+.system_table {
+    width: 100%;
+    background: #fff;
+    thead,
+    tbody {
+        tr {
+            border: 1px solid #f1f1f1;
+            td {
+                vertical-align: middle;
+                width: 24%;
+                text-align: center;
+                &:first-child {
+                    width: 14%;
+                }
+                &:nth-child(2) {
+                    width: 14%;
+                }
+            }
+        }
+    }
+    thead {
+        color: #b8b8b8;
+        td{
+            padding: 10px 0;
+        }
+    }
+    tbody{
+        td{
+            padding: 20px 0;
+        }
+    }
+}
+/*列表状态*/
+.system_list_status {
+    tr {
+        td {
+            a {
+                padding: 0 20px;
+            }
+            .edit_style {
+                color: #57c8f2;
+            }
+            .jurisdiction_style {
+                color: #57c8f2;
+            }
+        }
+    }
+}
+.searchbor {
+    .down_btn {
+        top: 5px !important;
+        left: 21px !important;
+    }
+    .searchinputtext {
+        width: 150px;
+        background: #fff;
+        padding: 3px;
+        font-size: 14px;
+        border-radius: 3px;
+        margin-left: 15px;
+        margin-right: 5px;
+        padding-left: 28px !important;
+        border: none;
+        &::-webkit-input-placeholder,
+        -moz-input-placeholder,
+         {
+            color: #D2D2D2;
+        }
+    }
+    .query_btn {
+        height: 20px;
+        line-height: 20px;
+    }
+}
+.query_btn {
+    position: relative;
+    top: 9px;
+}
+.border_none {
+    border: none;
+}
+.add_staff_details_box {
+    width: 832px;
+    min-height: 400px;
+    top: 95px;
+    left: 50%;
+    margin-left: -440px;
+    z-index: 500;
+    padding: 24px;
+    bottom: 85px;
+    input {
+        &::-webkit-input-placeholder,
+        -moz-input-placeholder,
+         {
+            color: #DADADA;
+        }
+    }
+}
+/*添加员工头部*/
+.add_staff_header {
+    em {
+        font-style: normal;
+    }
+    .close_addStaff {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        float: right;
+        cursor: pointer;
+    }
+}
+.click_btn {
+    min-height: 110px !important;
+}
+.add_staff_details_content {
+    left: 24px;
+    right: 24px;
+    bottom: 170px;
+    top: 60px;
+    .borderbor {
+        border-radius: 3px;
+        border: 1px solid #e8e8e8;
+        padding: 15px 15px 15px 8px !important;
+        margin-bottom: 15px;
+        background: #fff;
+        height: 21px;
+        line-height: 21px;
+        .pbiconfont {
+            right: 8px;
+            top: 0;
+        }
+        .project_title {
+            width: 87%;
+            border: 0 none;
+            margin-top: 1px;
+            margin-left: 3px;
+        }
+        .regular_status {
+            width: 15%;
+        }
+        .uploading_resume {
+            background: #57C8F2;
+            width: 85px;
+            color: #fff;
+            float: left;
+            border: none;
+            border-radius: 5px;
+            height: 25px;
+            line-height: 24px;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 3px;
+            margin-top: -2px;
+            cursor: pointer;
+        }
+    }
+}
+/*添加成功*/
+.add_succeed {
+    width: 235px;
+    height: 55px;
+    line-height: 55px;
+    background: rgba(000,000,000,0.55);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    text-align: center;
+    border-radius: 3px;
+    span {
+        color: #D1D1D1;
+    }
+}
+/*权限设置*/
+.jurisdiction_setting_box {
+    width: 832px;
+    min-height: 620px;
+    top: 155px;
+    left: 50%;
+    margin-left: -440px;
+    z-index: 500;
+    bottom: 50px;
+    /* position: relative; */
+    .jurisdiction_setting_content {
+        padding: 24px;
+        .select_role {
+            height: 50px;
+        }
+    }
+}
+.jurisdiction_header {
+    margin-bottom: 20px;
+    a {
+        display: inline-block;
+        color: #B8B8B8;
+        cursor: pointer;
+    }
+    .back_btn {
+        height: 16px;
+        line-height: 16px;
+        background: url("../images/back_btn.png") no-repeat;
+        margin-right: 17px;
+        padding-left: 20px;
+        margin-top: -1px;
+    }
+    .close_btn {
+        float: right;
+        width: 16px;
+        height: 16px;
+    }
+}
+/*员工信息*/
+.staff_info {
+    ul {
+        width: 100%;
+        border: 1px solid #e1e1e1;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        li {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            width: 33.3333%;
+            float: left;
+            padding-left: 15px;
+            height: 40px;
+            line-height: 40px;
+            border-right: 1px solid #e1e1e1;
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}
+.sel_role {
+    select,
+    input {
+        width: 88%;
+        border: none;
+        &::-webkit-input-placeholder,
+         {
+            color: #B8B8B8;
+        }
+    }
+    .texttitle {
+        width: 10% !important;
+        color: #616161 !important;
+    }
+    .role-name{
+        width: 11%;
+    }
+    .input-role-name{
+        width: 88%;
+    }
+}
+/*权限管理表格*/
+.jurisdiction_scroll {
+    left: 24px;
+    right: 24px;
+    bottom: 70px;
+    top: 130px;
+}
+/*员工管理设置scroll位置*/
+.scroll_set {
+    top: 180px;
+}
+.add_role_container {
+    top: 130px;
+}
+.jurisdiction_table_box {
+    margin-bottom: 10px;
+    caption {
+        border: 1px solid #E1E1E1;
+        border-bottom: none;
+        height: 55px;
+        line-height: 55px;
+        text-align: left;
+        padding-left: 15px;
+    }
+    .jurisdiction_table {
+        width: 100%;
+        border: 1px solid #E1E1E1;
+        tbody {
+            width: 100%;
+            tr {
+                width: 100%;
+                th {
+                    height: 150px;
+                    width: 120px;
+                    vertical-align: middle;
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    text-align: left;
+                    padding-left: 15px;
+                    color: #616161;
+                    font-weight: normal;
+                    input {
+                        display: inline-block;
+                        margin-right: 5px;
+                    }
+                }
+                .td_one {
+                    width: 120px;
+                    height: 50px;
+                    padding-left: 10px;
+                    border: 1px solid #e1e1e1;
+                }
+                td {
+                    box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    text-align: center;
+                    height: 50px;
+                    vertical-align: middle;
+                    border: 1px solid #e1e1e1;
+                    label {
+                        display: inline-block;
+                        float: left;
+                        margin-left: 25px;
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        box-sizing: border-box;
+                        -webkit-box-sizing: border-box;
+                        color: #616161;
+                        input {
+                            display: inline-block;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*权限设置提交按钮*/
+.jurisdiction_sub_btn {
+    position: absolute;
+    bottom: 13px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    button {
+        margin-right: 10px;
+    }
+}
+/*权限管理列表页删除-弹出层*/
+.jurisdiction_del {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    margin-left: -235px;
+    box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
+    display: none;
+    z-index: 500;
+    .header {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 50px;
+        width: 470px;
+        background: #F9F9F9;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #b8b8b8;
+    }
+    .main {
+        box-sizing: border-box;
+        height: 160px;
+        width: 470px;
+        background: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 20px;
+        border-top: 1px solid #E8E8E8;
+        font-size: 16px;
+        .confirm_del {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #7D7D7D;
+        }
+        .jurisdiction_del_btn {
+            text-align: center;
+            margin-top: 18px;
+            button {
+                &:last-child {
+                    margin-left: 7px;
+                }
+                &:first-child {
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+}
+/*控制器动作列表页*/
+.system_list {
+    .controller_table {
+        width: 100%;
+        background: #fff;
+        thead {
+            color: #b8b8b8;
+        }
+        thead,
+        tbody {
+            tr {
+                border: 1px solid #f1f1f1;
+                td {
+                    width: 20%;
+                    vertical-align: middle;
+                    padding: 10px 0;
+                    text-align: center;
+                    input {
+                        text-align: center;
+                        border: none;
+                        &::-webkit-input-placeholder,
+                        -moz-input-placeholder,
+                         {
+                            color: #DADADA;
+                        }
+                    }
+                }
+                .apply_style {
+                    display: inline-block;
+                    background: #57C8F2;
+                    color: #fff;
+                    padding: 3px 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+.no_fun_name {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    p {
+        background: url("../images/sign.png") no-repeat;
+        padding-left: 10px;
+        vertical-align: middle;
+        background-position: left center;
+        color: #f00;
+    }
+}
+/*点击应用*/
+.apply_click {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    margin-left: -235px;
+    box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
+    display: none;
+    .header {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 50px;
+        width: 470px;
+        background: #F9F9F9;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #b8b8b8;
+    }
+    .main {
+        box-sizing: border-box;
+        height: 200px;
+        width: 470px;
+        background: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 20px;
+        border-top: 1px solid #E8E8E8;
+        font-size: 16px;
+        .controller_input {
+            text-align: center;
+            margin: auto;
+            div {
+                margin-bottom: 22px;
+                label {
+                    input {
+                        padding: 3px 0 3px 5px;
+                        &::-webkit-input-placeholder,
+                        -moz-input-placeholder,
+                         {
+                            color: #DADADA;
+                        }
+                    }
+                    .route {
+                        color: #B8B8B8;
+                    }
+                }
+            }
+        }
+        .jurisdiction_del_btn {
+            text-align: center;
+            margin-top: 32px;
+            button {
+                &:last-child {
+                    margin-left: 7px;
+                }
+                &:first-child {
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+}
+/*角色管理列表页*/
+.system_list {
+    .role_table {
+        width: 100%;
+        background: #fff;
+        thead {
+            color: #b8b8b8;
+            td{
+                padding: 10px 0;
+            }
+        }
+        tbody{
+            td{
+                padding: 20px 0;
+            }
+        }
+        thead,
+        tbody {
+            tr {
+                border: 1px solid #f1f1f1;
+                td {
+                    width: 33.333%;
+                    vertical-align: middle;
+                    text-align: center;
+                    input {
+                        text-align: center;
+                        border: none;
+                        &::-webkit-input-placeholder,
+                        -moz-input-placeholder,
+                         {
+                            color: #DADADA;
+                        }
+                    }
+                }
+                .grade_confirm {
+                    display: inline-block;
+                    background: #57C8F2;
+                    color: #fff;
+                    padding: 3px 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+/*技能管理*/
+.add_skill_box {
+    width: 100%;
+    background: #fff;
+}
+.add_language_type {
+    height: 40px;
+    line-height: 40px;
+    color: #B8B8B8;
+    padding: 0 40px;
+    border-bottom: 1px solid #e8e8e8;
+    background: #f7f7f7;
+    a {
+        float: right;
+        color: #B8B8B8;
+        margin-left: 40px;
+    }
+}
+.add_language_box {
+    .add_skill_btn {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 17px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+}
+.add_language_container {
+    overflow: hidden;
+    display: inline-block;
+    padding-top: 25px;
+    width: 100%;
+    div {
+        float: left;
+        background: #57C8F2;
+        color: #fff;
+        text-align: center;
+        display: inline-block;
+        width: 10%;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 25px;
+        margin-left: 17px;
+        position: relative;
+        margin-bottom: 25px;
+        em {
+            display: inline-block;
+            width: 100%;
+            height: 30px;
+            font-style: normal;
+            line-height: 30px;
+            border-radius: 25px;
+            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            a {
+                color: #fff;
+                visibility: hidden;
+                position: absolute;
+            }
+            .language_del {
+                right: 20px;
+            }
+            .language_edit {
+                left: 20px;
+            }
+        }
+        &:hover {
+            em {
+                background: rgba(28,106,178,0.65);
+            }
+            a {
+                visibility: visible;
+                color: #fff;
+                width: 30px;
+                height: 25px;
+                line-height: 25px;
+                margin-top: 2px;
+                vertical-align: middle;
+                &:hover {
+                    outline: 1px solid #fff;
+                }
+            }
+        }
+    }
+}
+/*添加技能类型-弹出框*/
+.addSkillType_popUp {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    margin-left: -235px;
+    box-shadow: 0 0 12px 5px rgba(128, 125, 125, 0.2);
+    border-radius: 5px;
+    display: none;
+    z-index: 500;
+    .header {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 50px;
+        width: 470px;
+        background: #F9F9F9;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #b8b8b8;
+    }
+    .main {
+        box-sizing: border-box;
+        height: 190px;
+        width: 470px;
+        background: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 20px;
+        border-top: 1px solid #E8E8E8;
+        font-size: 16px;
+        .type_name {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            label {
+                color: #A8A8A8;
+                font-size: 16px;
+                input {
+                    border: none;
+                    padding: 5px 6px;
+                    border: 1px solid #e8e8e8;
+                    &::-webkit-input-placeholder,
+                    -moz-input-placeholder,
+                     {
+                        color: #DADADA;
+                    }
+                }
+            }
+        }
+        .jurisdiction_del_btn {
+            text-align: center;
+            margin-top: 18px;
+            button {
+                &:last-child {
+                    margin-left: 7px;
+                }
+                &:first-child {
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+}
+/*技能管理删除*/
+.skill_del {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    margin-left: -235px;
+    box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
+    display: none;
+    z-index: 500;
+    .header {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 50px;
+        width: 470px;
+        background: #F9F9F9;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #b8b8b8;
+    }
+    .main {
+        box-sizing: border-box;
+        height: 160px;
+        width: 470px;
+        background: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 20px;
+        border-top: 1px solid #E8E8E8;
+        font-size: 16px;
+        .confirm_del {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #7D7D7D;
+        }
+        .jurisdiction_del_btn {
+            text-align: center;
+            margin-top: 18px;
+            button {
+                &:last-child {
+                    margin-left: 7px;
+                }
+                &:first-child {
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+}
+/*等级设置*/
+.system_list {
+    .grade_table {
+        width: 100%;
+        background: #fff;
+        thead {
+            color: #b8b8b8;
+            td{
+                padding: 10px 0;
+            }
+        }
+        tbody{
+            td{
+                padding: 20px 0;
+            }
+        }
+        thead,
+        tbody {
+            tr {
+                border: 1px solid #f1f1f1;
+                td {
+                    width: 25%;
+                    vertical-align: middle;
+                    text-align: center;
+                    input {
+                        text-align: center;
+                        border: none;
+                        &::-webkit-input-placeholder,
+                        -moz-input-placeholder,
+                         {
+                            color: #DADADA;
+                        }
+                    }
+                }
+                .grade_confirm {
+                    display: inline-block;
+                    background: #57C8F2;
+                    color: #fff;
+                    padding: 3px 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+.grade_title{
+    text-align: center;
+    color: #aaa;
+    margin: -10px 147px 20px 0;
+}
+/********************纳米币管理****************************/
+/*个人纳米币管理列表页*/
+.system_list {
+    .personalNano_table {
+        width: 100%;
+        background: #fff;
+        thead {
+            color: #b8b8b8;
+            td{
+                padding: 10px 0;
+            }
+        }
+        tbody{
+            td{
+                padding: 20px 0;
+            }
+        }
+        thead,
+        tbody {
+            tr {
+                border: 1px solid #f1f1f1;
+                td {
+                    width: 25%;
+                    vertical-align: middle;
+                    text-align: center;
+                    label {
+                        input {
+                            display: inline-block;
+                            margin-right: 5px;
+                            border: none;
+                            &::-webkit-input-placeholder,
+                            -moz-input-placeholder,
+                             {
+                                color: #DADADA;
+                            }
+                        }
+                    }
+                    &:first-child {
+                        text-align: inherit;
+                        padding-left: 150px;
+                    }
+                }
+                .apply_style {
+                    display: inline-block;
+                    background: #57C8F2;
+                    color: #fff;
+                    padding: 3px 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+/*下拉设置*/
+.nanoList {
+    input {
+        box-sizing: border-box;
+        width: 128px;
+        height: 28px;
+        border: 1px solid #DFDFDF;
+        padding: 5px;
+        border-radius: 3px;
+        position: relative;
+        padding-right: 24px;
+    }
+    .down-arrow {
+        left: 104px;
+        top: 4px;
+        color: #B4B4B4;
+        &:hover {
+            cursor: pointer;
+            color: #57C8F2;
+        }
+    }
+}
+/*调整个人纳米币*/
+.adjustment_personalNano {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    margin-left: -205px;
+    box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
+    display: none;
+    z-index: 500;
+    .header {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 50px;
+        width: 410px;
+        background: #F9F9F9;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #b8b8b8;
+    }
+    .main {
+        box-sizing: border-box;
+        height: 255px;
+        width: 410px;
+        background: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 20px;
+        border-top: 1px solid #E8E8E8;
+        font-size: 16px;
+        .adjustment_box {
+            .coin_adjustment {
+                display: flex;
+                display: -webkit-flex;
+                justify-content: center;
+                margin-bottom: 25px;
+                label {
+                    height: 35px;
+                    line-height: 35px;
+                    vertical-align: middle;
+                }
+                a {
+                    display: inline-block;
+                    width: 42px;
+                    height: 35px;
+                    cursor: pointer;
+                }
+                input {
+                    width: 127px;
+                    border: 1px solid #e8e8e8;
+                    border-right: none;
+                    border-left: none;
+                    text-align: center;
+                }
+            }
+            .adjustment_cause {
+                display: flex;
+                display: -webkit-flex;
+                justify-content: center;
+                margin-bottom: 10px;
+                label {
+                    textarea {
+                        width: 203px;
+                        vertical-align: top;
+                        border: 1px solid #E8E8E8;
+                        padding-left: 7px;
+                        padding-top: 3px;
+                    }
+                }
+            }
+        }
+        .jurisdiction_del_btn {
+            text-align: center;
+            margin-top: 27px;
+            button {
+                &:last-child {
+                    margin-left: 14px;
+                }
+                &:first-child {
+                    margin-right: 14px;
+                }
+            }
+        }
+    }
+}
+.save_btn {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+/*纳米币查看详情*/
+.nanoExamine_details_box {
+    width: 100%;
+    text-align: center;
+    .nanoExamine_details_contaniner {
+        border: 1px solid #E8E8E8;
+        .nanoExamine_details_nav {
+            width: 100%;
+            overflow: hidden;
+            li {
+                height: 30px;
+                line-height: 30px;
+                float: left;
+                &:first-child {
+                    width: 25%;
+                }
+                &:nth-child(2) {
+                    width: 30%;
+                }
+                &:last-child {
+                    width: 45%;
+                }
+            }
+        }
+        .nanoExamine_details_content_box {
+            min-height: 400px;
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 70px;
+            top: 96px;
+            border: 1px solid #E8E8E8;
+            .nanoExamine_details_content {
+                width: 100%;
+                overflow: hidden;
+                li {
+                    height: 80px;
+                    line-height: 80px;
+                    border-bottom: 1px dashed #E8E8E8;
+                    position: relative;
+                    float: left;
+                    &:first-child {
+                        width: 25%;
+                    }
+                    &:nth-child(2) {
+                        width: 30%;
+                        text-align: left;
+                        box-sizing: border-box;
+                        -webkit-box-sizing: border-box;
+                        div {
+                            padding-left: 87px;
+                        }
+                    }
+                    &:last-child {
+                        width: 45%;
+                    }
+                    .cur_time {
+                        em {
+                            display: inline-block;
+                            font-style: normal;
+                            margin-left: 3px;
+                        }
+                    }
+                    .person_img {
+                        i {
+                            display: inline-block;
+                            width: 40px;
+                            height: 40px;
+                            line-height: 40px;
+                            border-radius: 50%;
+                            vertical-align: middle;
+                            img {
+                                width: 100%;
+                                border-radius: 50%;
+                                display: block;
+                            }
+                        }
+                        em {
+                            font-style: normal;
+                            margin-left: 5px;
+                        }
+                    }
+                    .change_content {
+                        height: 45px;
+                        line-height: 46px;
+                        text-align: left;
+                        margin-left: 38px;
+                        label{
+                            span{
+                                vertical-align: middle;
+                            }
+                            &:first-child{
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                    .change_cause {
+                        display: block;
+                        margin: auto;
+                        height: 40px;
+                        line-height: 15px;
+                        text-align: left;
+                        margin-left: 38px;
+                        position: absolute;
+                        top: 45px;
+                    }
+                }
+                &:last-child {
+                    margin-bottom: 10px;
+                    li {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+}
+/*弹出框背景*/
+.popUp_back {
+    background: #57C8F2 !important;
+    margin-top: -1px;
+    color: #fff !important;
+}
+/*操作里面的删除按钮*/
+.del_style {
+    color: #B8B8B8 !important;
+}
+/****************纳米币设置*********************/
+.nano_set {
+    margin-bottom: 40px;
+}
+/*个人纳米币设置*/
+.nano_set_box {
+    .nano_set_title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        p {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #E1E1E1;
+            color: #B8B8B8;
+        }
+    }
+}
+.nano_set_content {
+    width: 810px;
+    margin: auto;
+    overflow: hidden;
+    .nano_set_leftContent {
+        width: 700px;
+        margin: 0 auto;
+        .nano_set_topContent {
+            padding: 10px;
+            border: 1px solid #E1E1E1;
+            height: 30px;
+            line-height: 30px;
+            i {
+                height: 15px;
+                background: url("../images/time_icon.png") no-repeat;
+                background-position: left center;
+                vertical-align: middle;
+                padding-left: 28px;
+            }
+            span {
+                display: inline-block;
+            }
+            select {
+                width: 150px;
+                border: none;
+            }
+            .hint {
+                font-style: normal;
+                margin-left: 15px;
+                color: #B8B8B8;
+            }
+        }
+        .nano_set_bottomContent {
+            padding: 10px;
+            border: 1px solid #E1E1E1;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 15px;
+            i {
+                height: 15px;
+                background: url("../images/add_number_icon.png") no-repeat;
+                background-position: left center;
+                vertical-align: middle;
+                padding-left: 25px;
+            }
+            span {
+                display: inline-block;
+            }
+            input {
+                width: 150px;
+                border: none;
+            }
+            .hint {
+                font-style: normal;
+                margin-left: 15px;
+            }
+            .nano_coin {
+                font-style: normal;
+                margin-left: 15px;
+            }
+        }
+    }
+    .del_nano_set {
+        float: right;
+        width: 90px;
+        height: 117px;
+        line-height: 117px;
+        text-align: center;
+        border: 1px solid #E1E1E1;
+        cursor: pointer;
+        color: #B8B8B8;
+    }
+}
+.add_nano {
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    img {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+    }
+}
+.system_department {
+    left: 0;
+    top: 28px;
+    min-width: 100px;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 3px;
+    max-height: 300px;
+    z-index: 1000;
+    overflow: auto;
+    overflow-x: hidden;
+    display: none;
+}
+.system_department li {
+    padding: 5px 0 5px 10px;
+    text-align: left;
+}
+.system_department li:hover {
+    background: #F5F5F5;
+    cursor: pointer;
+}
+.system_department li:hover a {
+    color: #43B1DA;
+}
+#down_arrow {
+    left: 104px;
+}
+.back_opacity {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 100;
+}
+.staff_title {
+    border: 1px solid #e1e1e1;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 15px;
+}
+.border_top {
+    border-top: none !important;
+}
+/*上传控件样式问题调整*/
+.uploading_resume {
+    input {
+        opacity: 0;
+        position: absolute;
+        z-index: 99;
+        cursor: pointer;
+        top: -4px;
+        left: -15px !important;
+        width: 85px !important;
+        height: 27px;
+        cursor: pointer;
+    }
+}
+/*部门管理操作失败样式*/
+.number_defeated_box {
+    position: fixed;
+    left: 50%;
+    top: 28%;
+    margin-left: -350px;
+    box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
+    display: none;
+    z-index: 1000;
+    background: #fff;
+}
+.number_defeated {
+    width: 700px;
+    height: 255px;
+    .header {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 50px;
+        background: #57C8F2;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #b8b8b8;
+        position: relative;
+        .hint_title {
+            position: absolute;
+            left: 20px;
+            color: #fff;
+        }
+        .close_adjustment_personalNano {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: url("../images/white_close_btn.png") no-repeat;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            margin-top: -8px;
+        }
+    }
+    .hint_content_box {
+        padding: 20px;
+        .hint_content {
+            font-size: 16px;
+            margin-bottom: 5px;
+            .red {
+                color: #f00;
+            }
+            em,
+            i {
+                font-style: normal;
+            }
+        }
+        .hint_content_table {
+            left: 20px;
+            right: 20px;
+            bottom: 25px;
+            top: 105px;
+            table {
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                tr {
+                    border-bottom: 1px solid #f1f1f1;
+                    td {
+                        padding: 10px 0;
+                    }
+                }
+                .defeated_daparment_title {
+                    background: #F7F7F7;
+                    color: #b8b8b8;
+                }
+            }
+        }
+    }
+}
+.depart-combo {
+    .chosen-drop {
+        top: 23.5px !important;
+    }
+    .chosen-input{
+        input{
+            padding-left: 3px;
+        }
+        .down-arrow{
+            right: 8px;
+            top: 0;
+            color: #ababab;
+        }
+    }
+}
+
+/*空数据*/
+@font-face {
+  font-family: 'iconfont';  /* project id："178735" */
+  src: url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.eot');
+  src: url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.eot') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont";
+    font-size:18px;
+}
+.empty-icon{
+    position: absolute;
+    left:50%;
+    top:50%;
+    text-align: center;
+    margin-left:-100px;
+    margin-top:-100px;
+}
+.empty-icon i{
+    font-size: 180px;
+    color:#D1D1D1;
+}
+.empty-icon p{
+    margin-top:-20px;
+    font-size: 18px;
+    color:#BFBFBF;
+}

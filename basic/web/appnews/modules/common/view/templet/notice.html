@@ -1,0 +1,21 @@
+<div class="common-head">
+    <i class="iconfont">&#xe619;</i>
+    <span class="f20">公告</span>
+    <span class="fr" ui-sref="main.notice.noticeQuery">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="noticeview">
+        <li ng-repeat="item in index.notice">
+            <a ui-sref="main.notice.noticeQuery({notice_id:item.notice_id})">
+            <!--<a ui-sref="main.index.noticedetail({notice_id:item.notice_id})">-->
+                <span class="new" data-ng-if="item.is_new==1">NEW</span>
+                <span>{{item.title|cut:true:21:' ...'}}</span>
+                <span class="fr st1">{{item.create_time}}</span>
+            </a>
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.notice.length==0">
+        <img src="images/empty.png" alt=""/>
+        <p>暂无公告发布</p>
+    </div>
+</div>

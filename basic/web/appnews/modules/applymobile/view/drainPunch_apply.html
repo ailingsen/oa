@@ -1,0 +1,48 @@
+<!--忘打卡申请创建开始-->
+<div class="ui-widget-winbor uiwinabs pfixed block isrequired">
+    <div class="toptitle">
+        忘打卡申请
+    </div>
+    <div class="scrollbor pfixed">
+
+        <div class="borderbor porela xlefttitlebor timesbor" style="height:100px;">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">忘打卡时间：</span>
+
+            <div class="porela inblock fl" style="width:100%">
+
+                <input type="text" name="wdk_datestart" id="wdk_datestart"  data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="drainPunch.beginTime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="drainPunch.beginTime" data-datetimepicker-config="{ dropdownSelector: '#wdk_datestart', startView: 'day', minView: 'day' }"></datetimepicker>
+                </ul>
+
+            </div>
+
+             
+            <div class="fl ml10 apmbor" style="margin-left:0px;">
+                <label>
+                    <input type="radio" name="am" data-ng-click="drainPunch.drainTimePoint('1')" ng-checked="true"/>上午
+                </label>
+                <label class="ml20">
+                    <input type="radio" name="am" data-ng-click="drainPunch.drainTimePoint('2')"/>下午
+                </label>
+            </div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor nomb" id="w5nums">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23">忘打卡说明：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入忘打卡说明(最多输入100个字)" data-ng-model="drainPunch.desc"></textarea>
+        </div>
+
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns " data-ng-click="drainPunch.drainPunch()">提交</button>
+            <!-- <button class="btns gray" ng-click="drainPunch.cancelBtn()">取消</button> -->
+        </div>
+    </div>
+</div>
+<!--忘打卡申请创建结束-->

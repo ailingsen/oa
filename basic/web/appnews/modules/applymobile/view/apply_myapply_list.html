@@ -1,0 +1,159 @@
+<!-- 申请 我的审批 顶部搜索-->
+<div class="w100">
+    <div class="pbsearchbor">
+
+        <div class="selectbor porela minscroll">
+            <span ng-click="apply.statusWinButton()" id="status">状态</span>
+            <i ng-click="apply.statusWinButton()" class="pbiconfont poabso">&#xe60f;</i>
+            <ul class="listbor poabso " id="projectInfo" >
+                <li ng-repeat="item in apply.arrStatus"><a href="javascript:void(0);" class="omit" ng-click="apply.selectSearchStatus(item.value)">{{item.text}}</a></li>
+            </ul>
+        </div>
+        <div class="selectbor porela minscroll">
+            <span ng-click="apply.modelWinButton()" id="model">审批单名称</span>
+            <i ng-click="apply.modelWinButton()" class="pbiconfont poabso">&#xe60f;</i>
+            <ul class="listbor poabso "  id="applyType" >
+                <li ng-repeat="item in apply.modelList"><a href="javascript:void(0);" class="omit" ng-click="apply.selectSearchModel(item.model_id)">{{item.title}}</a></li>
+            </ul>
+        </div>
+
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="applysearchtime" id="searchstarttime" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="applyParams.begin" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="applyParams.begin" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'day' }"></datetimepicker>
+            </ul>
+        </div>
+        <span class="timeline inblock">—</span>
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="searchendtime" id="searchendtime" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="applyParams.end" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="applyParams.end" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'day' }"></datetimepicker>
+            </ul>
+        </div>
+
+        <div class="searchbor porela inblock">
+            <div class="searchbors poabso">
+                <div class="btn blue fl" ng-click="apply.search()">查询</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--顶部搜索-->
+<!--01申请-我的申请 列表开始 【头部搜索共用】 -->
+<div class="applytablelistbor">
+
+    <div class="pbtbtop pbcd1 flex t_center">
+          <span class="w10">
+                序号
+          </span>
+        <span class="w50">审批单名称</span>
+        <span class="w10">审批状态</span>
+        <span class="w15">申请时间</span>
+
+        <span class="w15">操作</span>
+    </div>
+
+    <ul>
+        <li class="pblistli flex t_center" ng-repeat="item in apply.list">
+               <span class="w10 omit">
+                     <!-- {{item.apply_id}} -->
+                     {{$index+1}}
+               </span>
+	           <span class="w50 omit porela applyname">
+	           	     <a href="javascript:;" ng-click="apply.detailApply(item.apply_id,item.model_id)">
+                         <span class="omit">{{item.title}}</span>
+                         <i ng-if="item.is_attachment == 1" class="pbiconfont poabso filetips">&#xe63b;</i>
+                     </a>
+	           </span>
+	           <span class="w10 omit">
+	           	     <span class="texttip bluegreen" ng-if="item.status == 0">待审批</span>
+	           	     <span class="texttip red" ng-if="item.status == 2">已拒绝</span>
+	           	     <span class="texttip gray" ng-if="item.status == 3">已撤回</span>
+	           	     <span class="texttip green" ng-if="item.status == 1">已审批</span>
+	           </span>
+	           <span class="w15 omit pbcd1">
+	           	  {{item.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}
+	           </span>
+
+	           <span class="w15 omit seeprogress">
+                     <a ng-if="item.status == 0" href="javascript:void(0);" ng-click="apply.revoke(item.apply_id)">撤回</a>
+                     <a ng-if="item.status == 0 && item.is_press == 0" href="javascript:void(0);" ng-click="apply.press(item.apply_id)">催办</a>
+                     <a ng-if="item.status == 3 || item.status == 2" href="javascript:void(0);"  ng-click="apply.editApply(item.apply_id,item.model_id)">编辑</a>
+                     <a ng-if="item.status == 3 || item.status == 2" href="javascript:void(0);" class="del" ng-click="apply.delApply(item.apply_id)">删除</a>
+                     <a ng-if="item.status == 1" href="javascript:void(0)" ng-click="apply.detailApply(item.apply_id,item.model_id)">查看进度</a>
+	           </span>
+        </li>
+    </ul>
+
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+
+</div>
+<!--01申请-我的申请 列表结束【头部搜索共用】 -->
+
+<!--我的申请f-撤回弹窗 开始-->
+<div class="ui-widget-winbor surewin of" ng-show="apply.showRevokeWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        确定要撤回此申请单吗?
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="apply.doRevoke();apply.hidemask();">确定</button>
+            <button class="btns gray" ng-click="apply.showRevokeWin=false;">取消</button>
+        </div>
+    </div>
+</div>
+<!--我的申请f-撤回弹窗 结束-->
+
+<!--我的申请f-删除弹窗 开始-->
+<div class="ui-widget-winbor surewin of" ng-show="apply.showDelWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        确定要删除此申请单吗?
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="apply.doDel();apply.hidemask();">确定</button>
+            <button class="btns gray" ng-click="apply.showDelWin=false;apply.hidemask();">取消</button>
+        </div>
+    </div>
+</div>
+<!--我的申请f-删除弹窗 结束-->
+
+<!--请假编辑-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/leave_apply_edit.html'" ></ng-include> -->
+<!--请假详情 审批详情-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/leave_apply_detail.html'" ></ng-include> -->
+<!--加班详情-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/overtime_apply_detail.html'" ></ng-include> -->
+<!--加班编辑-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/overtime_apply_edit.html'" ></ng-include> -->
+<!--职级编辑-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/applyRank_edit.html'" ></ng-include> -->
+<!--职级详情-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/applyRank_detail.html'" ></ng-include> -->
+<!--忘打卡编辑-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/applyDrain_edit.html'"></ng-include> -->
+<!--忘打卡详情-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/applyDrainDetail.html'"></ng-include> -->
+<!--弹性工作编辑-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/flexibleWork_edit.html'"></ng-include> -->
+<!--弹性工作详情-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/flexibleDetailWork.html'"></ng-include> -->
+
+<ng-include src="'appnews/modules/applymobile/view/applyDrain_edit.html'" ></ng-include>
+<!--自定义表单详情-->
+<ng-include src="'appnews/modules/applymobile/view/apply_custom_detail.html'" ></ng-include>
+<!--自定义表单编辑-->
+<ng-include src="'appnews/modules/applymobile/view/apply_custom_edit.html'" ></ng-include>
+
+<depart-dialog-form selected-departs="selectedDeparts" update-departs="updateDeparts(departs)" cancel-attr="cancels" visble="group.departDialogVisble" ng-show="group.departDialogVisble"></depart-dialog-form>
+
+<member-dialog selected-members="selectedMembers" update-members="updateMembers(members)" cancel-attr="cancels" visble="group.memberDialogVisble" ng-show="group.memberDialogVisble"></member-dialog>

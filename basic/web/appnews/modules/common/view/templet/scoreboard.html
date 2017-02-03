@@ -1,0 +1,22 @@
+<!--积分榜开始-->
+<div class="common-head">
+    <i class="iconfont">&#xe61f;</i>
+    <p class="inblock score-module">
+        <span class="score-active f16" ng-click="index.scoreBoard(1)">纳米币</span><span class="f16" ng-click="index.scoreBoard(2)">积分晋升榜</span>
+    </p>
+    <span class="fr" ui-sref="main.colleague.scoreboard">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="WorkmateScoreboard">
+        <li ng-repeat="item in index.score_board">
+            <!--<span class="rank">1</span>-->
+            <span class="rank" data-ng-if="$index==0">{{$index+1}}</span>
+            <span class="rank opa8" data-ng-if="$index==1">{{$index+1}}</span>
+            <span class="rank opa7" data-ng-if="$index==2">{{$index+1}}</span>
+            <span class="rank opa6" data-ng-if="$index>2">{{$index+1}}</span>
+            <span>{{item.real_name}}</span>
+            <span class="col-gray fr margin-top " data-ng-if="index_param.type == 1">共纳米币 <span class="col-red">{{item.points}}</span></span>
+            <span class="col-gray fr margin-top " data-ng-if="index_param.type == 2">共积分 <span class="col-red">{{item.points}}</span></span>
+        </li>
+    </ul>
+</div>

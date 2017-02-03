@@ -1,0 +1,23 @@
+<div class="common-head">
+    <i class="iconfont">&#xe628;</i>
+    <span class="f20">用户调研</span>
+    <span class="fr" ui-sref="main.survey.surveylist">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="surveylist">
+        <li ng-repeat="item in index.survey">
+            <a ui-sref="main.survey.surveylist.surveydetail({survey_id:item.survey_id})">
+                <span>
+                    <span class="new" data-ng-if="item.is_new==true">NEW</span>
+                    {{item.title|cut:true:30:' ...'}}
+                </span>
+                <span class="col-blue fr" data-ng-if="item.status==1">进行中</span>
+                <span class="col-gray fr" data-ng-if="item.status==2">已结束</span>
+            </a>
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.survey.length==0">
+        <img src="images/empty.png" alt=""/>
+        <p>暂无调研发布</p>
+    </div>
+</div>

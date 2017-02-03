@@ -1,0 +1,416 @@
+@charset "UTF-8";
+/*
+   全局变量配置
+   email  : 8543307@qq.com
+   github : git:8543307.git/8543307
+
+*/
+/*整站背景颜色*/
+/*全局滚动条颜色5eaee3*/
+/*全局滚动条背景颜色fff*/
+/*左部菜单滚动条颜色5eaee3*/
+/*左部菜单滚动条背景颜色242e3a*/
+/*小弹窗滚动条背景颜色242e3a*/
+/*placeholder*/
+/*a动画时间*/
+/*大logo*/
+/*小logo*/
+/*菜单动画时间*/
+/*混合单参数*/
+/*属性 + 动画 混合单参数*/
+/*混合多参数*/
+.ui-widget-winbor .borderbor .line1 {
+  position: absolute;
+  top: 0px;
+  left: 265px;
+  width: 10px;
+  height: 51px;
+  font-size: 1px;
+  border-left: 1px solid #e8e8e8; }
+
+.ui-widget-winbor .borderbor .line2 {
+  position: absolute;
+  top: 0px;
+  left: 530px;
+  width: 10px;
+  height: 51px;
+  font-size: 1px;
+  border-left: 1px solid #e8e8e8; }
+
+.ui-widget-winbor .hauto {
+  height: auto; }
+
+.ui-widget-winbor .maxtitleof {
+  width: 688px;
+  margin-left: 96px; }
+
+.ui-widget-winbor .tasktitlebor i {
+  top: 17px;
+  left: 15px; }
+
+.ui-widget-winbor .inputtext {
+  margin-top: -3px;
+  width: 100px;
+  height: 26px;
+  line-height: 26px;
+  background: #fff;
+  text-align: center;
+  color: #333;
+  border-radius: 3px;
+  border: 1px solid #e1e1e1; }
+
+.ui-widget-winbor .tasktime {
+  width: 178px; }
+
+.ui-widget-winbor .tasktimebor > i:nth-child(1) {
+  position: absolute;
+  left: 15px;
+  top: 17px; }
+
+.ui-widget-winbor .tasktimebor > i:nth-child(5) {
+  position: absolute;
+  left: 345px;
+  top: 17px; }
+
+.ui-widget-winbor .readtasktimebor > i:nth-child(5) {
+  left: 298px; }
+
+.ui-widget-winbor .tasktimebor > span:nth-child(6) {
+  margin-left: 37px; }
+
+.ui-widget-winbor .taskfilebor,
+.ui-widget-winbor .taskjnbor,
+.ui-widget-winbor .taskxsbor,
+.ui-widget-winbor .taskprobor,
+.ui-widget-winbor .tasktitlebor,
+.ui-widget-winbor .claimbor,
+.ui-widget-winbor .applybor {
+  height: auto; }
+
+.ui-widget-winbor .taskfilebor.read li {
+  width: 705px; }
+
+.ui-widget-winbor .taskfilebor.read .btn {
+  right: 15px;
+  top: -3px;
+  color: #fff; }
+  .ui-widget-winbor .taskfilebor.read .btn a {
+    color: #fff; }
+
+.ui-widget-winbor .taskfilebor.read .filename {
+  width: 290px; }
+
+.ui-widget-winbor .taskfilebor.read .name {
+  width: 70px;
+  color: #c7c7c7; }
+
+.ui-widget-winbor .taskfilebor.read .time {
+  width: 145px;
+  color: #d7d7d7;
+  text-align: center; }
+
+.ui-widget-winbor .taskpointbor {
+  margin-bottom: 0px; }
+
+.ui-widget-winbor .taskjnbor i:nth-child(1),
+.ui-widget-winbor .taskpointbor i:nth-child(1) {
+  font-size: 15px; }
+
+.ui-widget-winbor .taskpointbor .taskpoint {
+  margin: 0px; }
+
+.ui-widget-winbor .taskpointbor .inputtext {
+  position: relative;
+  margin-top: -4px; }
+
+.ui-widget-winbor .surplus {
+  display: inline-block; }
+
+/*列表*/
+.tasknodata {
+  left: 50%;
+  top: 50%;
+  width: 840px;
+  height: 300px;
+  margin-left: -420px;
+  margin-top: -150px;
+  text-align: center; }
+  .tasknodata i {
+    font-size: 180px;
+    color: #d1d1d1;
+    left: 322px; }
+  .tasknodata .title1 {
+    width: 100%;
+    margin-top: 170px;
+    color: #bfbfbf; }
+  .tasknodata .title2 {
+    width: 100%;
+    margin-top: 10px;
+    color: #b8b8b8; }
+
+.taskxsbor > i:nth-child(1),
+.taskjnbor > i:nth-child(1) {
+  left: 15px;
+  top: 14px; }
+
+.surewin {
+  height: 258px;
+  margin-top: -129px; }
+  .surewin .tipstitle {
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 55px; }
+
+.refusedelaywin textarea {
+  height: 75px; }
+
+.refusedelaywin .delaybor {
+  margin-top: 18px;
+  margin-bottom: 15px; }
+
+.refusedelaywin .yqi {
+  left: 158px;
+  top: 3px;
+  color: #dddddd; }
+
+.notebor {
+  margin-top: 15px;
+  min-height: 92px;
+  border-radius: 3px;
+  border: 1px solid #d3d3d3;
+  background: #fff; }
+  .notebor textarea {
+    margin: 2%;
+    width: 96%;
+    bottom: 0px;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    height: 62px; }
+  .notebor .upfilebor {
+    width: 100%;
+    margin-top: 92px;
+    background: #e4e4e4;
+    min-height: 52px; }
+  .notebor .taskfilebor .btn {
+    top: auto;
+    right: 15px;
+    bottom: 13px; }
+  .notebor .taskfilebor ul {
+    margin: 15px 0px 12px 15px; }
+    .notebor .taskfilebor ul .filesize {
+      color: #b9b9b9; }
+    .notebor .taskfilebor ul li {
+      width: 640px; }
+      .notebor .taskfilebor ul li .filename {
+        width: 420px; }
+  .notebor .btn i.pbiconfont {
+    font-size: 14px; }
+
+.notebor.read .notebor_i {
+  top: 16px;
+  left: 15px; }
+
+.notebor.read .notebor_i_span {
+  left: 14px;
+  top: 16px; }
+
+.notebor.read .notetitlebor {
+  width: 100%;
+  min-height: 50px; }
+
+.notebor.read textarea {
+  margin-left: 118px;
+  width: 688px;
+  margin-top: -33px; }
+
+.notebor.read .upfilebor {
+  margin-top: 0px;
+  width: 100%; }
+
+.notebor.read .taskfilebor li {
+  width: 807px; }
+  .notebor.read .taskfilebor li .filename {
+    width: 470px; }
+  .notebor.read .taskfilebor li .name {
+    width: 70px;
+    color: #9A9A9A; }
+
+.notebor.read .taskfilebor .btn {
+  top: -3px;
+  bottom: -4px; }
+  .notebor.read .taskfilebor .btn a span, .notebor.read .taskfilebor .btn a i {
+    color: #fff; }
+
+.notebor.read .taskfilebor .btn i.pbiconfont {
+  position: relative; }
+
+.ui-widget-winbor .reviewbor {
+  padding: 0px;
+  height: 150px;
+  margin-bottom: 0px; }
+  .ui-widget-winbor .reviewbor .reviewbor_i {
+    color: #ade1f8; }
+  .ui-widget-winbor .reviewbor .reviewbor_i_span {
+    color: #ade1f8; }
+  .ui-widget-winbor .reviewbor .reviewtitlebor {
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    background: #57c8f2;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px; }
+    .ui-widget-winbor .reviewbor .reviewtitlebor .left {
+      color: #abe4f9; }
+    .ui-widget-winbor .reviewbor .reviewtitlebor label {
+      color: #abe4f9;
+      margin-right: 20px; }
+      .ui-widget-winbor .reviewbor .reviewtitlebor label span {
+        margin-left: 20px; }
+    .ui-widget-winbor .reviewbor .reviewtitlebor label:nth-child(1) {
+      width: 80px; }
+      .ui-widget-winbor .reviewbor .reviewtitlebor label:nth-child(1) i {
+        color: #abe4f9; }
+    .ui-widget-winbor .reviewbor .reviewtitlebor label:nth-child(2) {
+      width: 90px; }
+      .ui-widget-winbor .reviewbor .reviewtitlebor label:nth-child(2) i {
+        color: #abe4f9; }
+    .ui-widget-winbor .reviewbor .reviewtitlebor label.selected {
+      color: #fff; }
+      .ui-widget-winbor .reviewbor .reviewtitlebor label.selected i {
+        color: #fff; }
+  .ui-widget-winbor .reviewbor .revieweditbor {
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    background: #fff; }
+    .ui-widget-winbor .reviewbor .revieweditbor .left {
+      width: 50%;
+      height: 100%;
+      border-right: 1px solid #e8e8e8;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box; }
+      .ui-widget-winbor .reviewbor .revieweditbor .left.w100nobor {
+        width: 100%;
+        border-right: 0px solid #e8e8e8; }
+        .ui-widget-winbor .reviewbor .revieweditbor .left.w100nobor textarea {
+          left: 115px;
+          width: 84%; }
+    .ui-widget-winbor .reviewbor .revieweditbor .right {
+      width: 50%;
+      height: 100%; }
+    .ui-widget-winbor .reviewbor .revieweditbor .zlbor {
+      margin-left: 88px;
+      margin-top: 40px; }
+      .ui-widget-winbor .reviewbor .revieweditbor .zlbor ul, .ui-widget-winbor .reviewbor .revieweditbor .zlbor li {
+        float: left; }
+      .ui-widget-winbor .reviewbor .revieweditbor .zlbor ul {
+        margin-left: 10px;
+        margin-top: -10px; }
+      .ui-widget-winbor .reviewbor .revieweditbor .zlbor li {
+        position: relative;
+        width: 30px;
+        height: 40px;
+        text-align: left;
+        margin-left: 3px; }
+        .ui-widget-winbor .reviewbor .revieweditbor .zlbor li i {
+          color: #e4e4e4;
+          font-size: 28px;
+          cursor: pointer; }
+        .ui-widget-winbor .reviewbor .revieweditbor .zlbor li i.selected {
+          color: #f4e87f; }
+    .ui-widget-winbor .reviewbor .revieweditbor .nopassbor {
+      position: relative;
+      width: 100%; }
+      .ui-widget-winbor .reviewbor .revieweditbor .nopassbor span {
+        margin-left: 20px;
+        margin-top: 20px; }
+      .ui-widget-winbor .reviewbor .revieweditbor .nopassbor textarea {
+        right: 0px;
+        left: 26%;
+        width: 70%;
+        height: 62px;
+        margin-top: 20px; }
+      .ui-widget-winbor .reviewbor .revieweditbor .nopassbor .addbtn1 {
+        top: 8px; }
+
+.ui-widget-winbor .applybor {
+  margin-bottom: 0px;
+  padding: 18px 15px; }
+  .ui-widget-winbor .applybor ul, .ui-widget-winbor .applybor li {
+    float: left; }
+  .ui-widget-winbor .applybor .title {
+    width: 13%; }
+  .ui-widget-winbor .applybor ul {
+    margin-top: -9px;
+    width: 87%;
+    position: relative;
+    top: 4px; }
+    .ui-widget-winbor .applybor ul .imgbor40 {
+      width: auto; }
+    .ui-widget-winbor .applybor ul .name {
+      width: auto;
+      max-width: 105px;
+      min-width: 65px; }
+  .ui-widget-winbor .applybor li {
+    position: relative;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 85px;
+    padding: 8px;
+    margin-right: 3px; }
+  .ui-widget-winbor .applybor li.selected {
+    background: #e6e6e6;
+    border: 1px solid #e6e6e6; }
+    .ui-widget-winbor .applybor li.selected:after {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      margin-left: -25px;
+      width: 50px;
+      height: 20px;
+      border-radius: 85px;
+      background: #ff6762;
+      text-align: center;
+      color: #fff;
+      content: '已认领'; }
+
+.taskdetailwin, .taskeditwin {
+  position: fixed;
+  top: 112px;
+  margin-left: -360px; }
+
+.taskcreatewin {
+  z-index: 1; }
+  .taskcreatewin .borderbor .imgbor40 {
+    left: 160px; }
+
+.taskeditwin {
+  z-index: 201; }
+  .taskeditwin .borderbor .imgbor40 {
+    left: 160px; }
+
+.pbsearchbor > .selectbor {
+  margin-right: 10px; }
+
+.personborcenter {
+  margin: 0px auto;
+  width: 155px; }
+  .personborcenter .img40bor {
+    top: -10px; }
+
+ .emptyBg{
+   display: block;
+   position: absolute;
+   width: 94.5%;
+   text-align: center;
+   box-sizing: border-box;
+   top: 200px;
+   font-size: 18px;
+ }
+
+.emptyBg p{
+   padding-top: 15px;
+ }

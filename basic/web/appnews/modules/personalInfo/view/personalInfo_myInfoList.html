@@ -1,0 +1,237 @@
+<!--顶部切换-->
+<div class="w100 personalInfo_title_box">
+	<em class="personalInfo_title">
+	    <span class="selected"><a ui-sref="main.personalInfo.myInfoList">我的信息</a></span>
+	    <span><a ui-sref="main.personalInfo.skillList">纳米币与技能</a></span>
+	    <span><a ui-sref="main.personalInfo.vacationList">假期</a></span>
+   </em>
+	<div class="back_personalInfo ng-scope">
+		<a href="javascript:;" class="back_btn f16"  data-ng-click="userInfo.back();">返回</a>
+		<span class="f16">个人信息</span>
+	</div>
+</div>
+<div class="myInfo_list_box">
+	<div class="myInfo_list_content">
+		<div class="clipcover_box">
+			<div id="clipcover">
+				<div class="set" id="set">
+					<div class="layer-title">头像设置<span class="close" id="close">&times;</span></div>
+					<div class="layer-content" id="layer-content">
+						<canvas class="canvas" id="canvas"></canvas>
+						<canvas class="canvas" id="coverfloor"></canvas>
+						<div class="canvas getfile"><input type="file" class="file" id="file">
+							<a href="javascript:void(0);" class="file">选择图片</a>
+						</div>
+					</div>
+					<div id="preview">
+						<span class="title-word">预览</span>
+						<div class="wrap">
+							<canvas id="big" width="100" height="100"></canvas>
+							<span class="ctx">100px * 100px</span>
+						</div>
+						<div class="wrap">
+							<canvas id="mid" width="50" height="50"></canvas>
+							<span class="ctx">50px * 50px</span>
+						</div>
+						<div class="wrap">
+							<canvas id="small" width="30" height="30"></canvas>
+							<span class="ctx">30px * 30px</span>
+						</div>
+					</div>
+					<input type="file" class="refile" id="refile">
+					<a href="javascript:void(0);" class="refile">重新上传</a>
+					<span id="rotate">90°旋转</span>
+					<div class="set-footer"><span id="cut">确定</span> <span id="cancel">取消</span></div>
+				</div>
+			</div>
+			<div class="info_img smi_info_show">
+				<!--<img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg" />-->
+				<span>
+	                <div class="showimgcho" id="showimgcho"><img ng-src="{{userInfo.detail.head_img}}" alt="头像" height="87" width="87" class="user_imgs" id="usershowimg"></div>
+	            </span>
+			</div>
+		</div>
+		<div class="info_box f16">
+			<div class="info_name omit">{{userInfo.detail.real_name}}</div>
+			<div class="info_bor omit">
+				<div>部门 : </div><span class="omit">{{userInfo.detail.org_name}}</span>
+			</div>
+			<div class="info_bor">
+				<div>职位 : </div><span class="omit">{{userInfo.detail.position}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="myInfo_content f16">
+		<ul>
+			<li>
+				<em>登录ID：</em>
+				<span>{{userInfo.detail.u_id}}</span>
+			</li>
+			<li>
+				<em>考勤编号：</em>
+				<span>{{userInfo.detail.card_no}}</span>
+			</li>
+			<li>
+				<em>手机号码：</em>
+				<span>{{userInfo.detail.phone}}</span>
+				<button class="change_btn f16" ng-click="userInfo.mobileWin=true">修改</button>
+			</li>
+			<li>
+				<em>邮箱地址：</em>
+				<span>{{userInfo.detail.email}}</span>
+			</li>
+			<li>
+				<em>密码：</em>
+				<!--<input name="number" type="password" value="123456" class="border_none" id="passwordValue"/>-->
+				<span class="current_password">******</span>
+				<button class="change_btn f16" ng-click="userInfo.pwdWin=true">修改</button>
+			</li>
+			<li>
+				<em>擅长技能：</em>
+				<span>{{userInfo.skills}}</span>
+			</li>
+			<!--<li>
+				<em>邮件推送：</em>
+				<ul class="mail_push_box">
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_task_email', userInfo.detail.allow_task_email)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_task_email)" class="ui-checkbox" id="check1" />
+							<label for="check1">任务</label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_project_email', userInfo.detail.allow_project_email)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_project_email)"  class="ui-checkbox" id="check2" />
+							<label for="check2">项目 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_apply_email', userInfo.detail.allow_apply_email)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_apply_email)"  class="ui-checkbox" id="check3" />
+							<label for="check3">申请 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_approval_email', userInfo.detail.allow_approval_email)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_approval_email)"  class="ui-checkbox" id="check4" />
+							<label for="check4">审批 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_meeting_email', userInfo.detail.allow_meeting_email)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_meeting_email)"  class="ui-checkbox" id="check5" />
+							<label for="check5">会议通知 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_notice_email', userInfo.detail.allow_notice_email)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_notice_email)"  class="ui-checkbox" id="check6" />
+							<label for="check6">公告 </label>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li data-ng-if="1==0">
+				<em>APP推送：</em>
+				<ul class="mail_push_box">
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_task_app', userInfo.detail.allow_task_app)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_task_app)"  class="ui-checkbox" id="check11" />
+							<label for="check11">任务</label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_project_app', userInfo.detail.allow_project_app)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_project_app)"  class="ui-checkbox" id="check22" />
+							<label for="check22">项目 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_apply_app', userInfo.detail.allow_apply_app)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_apply_app)"  class="ui-checkbox" id="check33" />
+							<label for="check33">申请 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_approval_app', userInfo.detail.allow_approval_app)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_approval_app)"  class="ui-checkbox" id="check44" />
+							<label for="check44">审批 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_meeting_app', userInfo.detail.allow_meeting_app)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_meeting_app)"  class="ui-checkbox" id="check55" />
+							<label for="check55">会议通知 </label>
+						</div>
+					</li>
+					<li>
+						<div class="i-check" ng-click="userInfo.editePush('allow_notice_app', userInfo.detail.allow_notice_app)">
+							<input type="checkbox" ng-checked="userInfo.isChecked(userInfo.detail.allow_notice_app)"  class="ui-checkbox" id="check66" />
+							<label for="check66">公告 </label>
+						</div>
+					</li>
+				</ul>
+			</li>-->
+		</ul>
+	</div>
+	<!--退出账号按钮-->
+	<div class="btnsbor quit_btn">
+		<button class="btns" data-ng-click="logout()">退出账号</button>
+	</div>
+</div>
+
+<!--修改手机号-->
+<div class="public_popup modification_number ng-scope" style="display: block" ng-show="userInfo.mobileWin">
+	<div class="header f18">提示</div>
+	<div class="main">
+		<div class="controller_input">
+			<div>
+				<label>请输入新手机号：<input type="text" data-ng-model="user_param.phone"/></label>
+			</div>
+		</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="userInfo.editeMobile()">确定</button>
+			<button class="btns gray" ng-click="userInfo.mobileWin=false">取消</button>
+		</div>
+	</div>
+</div>
+
+<!--修改密码-->
+<div class="public_popup modification_password ng-scope" style="display: block" ng-show="userInfo.pwdWin">
+	<div class="header f18">提示</div>
+	<div class="main">
+		<div class="controller_input">
+			<div>
+				<label for="oldPassword">请输入原密码：</label><input type="password" id="oldPassword"  data-ng-model="user_param.pwd"/>
+			</div>
+			<div>
+				<label for="newPassword">请输入新密码：</label><input type="password" id="newPassword"  data-ng-model="user_param.newpass"/>
+			</div>
+			<div>
+				<label for="confirmPassword">确认新密码：</label><input type="password" id="confirmPassword"  data-ng-model="user_param.newpass2"/>
+			</div>
+		</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="userInfo.editePwd()">确定</button>
+			<button class="btns gray" ng-click="userInfo.cancelEdite()">取消</button>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../../../appnews/lib/uploadImage/cropImage.js" ></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

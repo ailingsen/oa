@@ -1,0 +1,66 @@
+<!--表单展示【可提交数据】 开始-->
+<div id="formpresentation_edit" class="ui-widget-winbor formpresentation pbcreateformlib pfixed formzindex of block" ng-show="apply.customShowEditWin">
+    <div class="toptitle porela">
+        <span class="formtitles ml0"></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="apply.customShowEditWin=false; apply.customHideWin();">&#xe61d;</i>
+    </div>
+    <div id="scroll" class="poabso addwinshowdata1">
+        
+        <div class="scrollbor"></div>  
+
+        <!--<div class="borderbor porela mt15">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">申 请 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.applyer_name}}</div>
+            </div>
+        </div>
+        <div class="borderbor of porela xlefttitlebor ">
+            <i class="pbiconfont poabso mt2 left15">&#xe614;</i>
+            <span class="fl ml23">申请时间：</span>
+            <span class="sp">{{apply.detail.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </div>
+
+        <div class="borderbor porela nomb applyprogress hauto mt15" ng-if="apply.detail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+
+            <ul>
+                <li class="porela" ng-repeat="itemVerRed in apply.detail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <imgng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>-->
+
+    </div>
+
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns formsave">提交</button>
+            <button class="btns gray" ng-click="apply.customShowEditWin=false;apply.customHideWin();">取消</button>
+        </div>
+    </div>
+</div>
+<!--表单展示【可提交数据】 结束-->
+
+
+<!-- 所需日期控件 -->
+<script src="/appnews/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="/appnews/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- 所需日期控件 -->

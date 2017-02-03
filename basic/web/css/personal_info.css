@@ -1,0 +1,597 @@
+@charset "UTF-8";
+.personalInfo_title_box {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 0;
+  height: 42px;
+  line-height: 42px;
+}
+.personalInfo_title_box .personalInfo_title {
+  font-style: normal;
+}
+.personalInfo_title_box .personalInfo_title span {
+  background: #e8e8e8;
+  color: #b8b8b8;
+  font-size: 16px;
+  padding: 8px 30px;
+  border: 1px solid #d5d4d4;
+  border-left: 0 none;
+}
+.personalInfo_title_box .personalInfo_title span:nth-child(1) {
+  border-left: 1px solid #d5d4d4;
+  border-right: 1px solid #d5d4d4;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.personalInfo_title_box .personalInfo_title .selected {
+  background: #fff;
+  color: #333;
+}
+
+/*返回个人信息*/
+.back_personalInfo {
+  display: inline-block;
+  float: left;
+}
+.back_personalInfo .back_btn {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  background-size: 100% 100%;
+  background: url("../images/left_btn.png") no-repeat;
+  padding-left: 20px;
+  margin-top: -1px;
+  vertical-align: middle;
+  color: #616161;
+}
+.back_personalInfo span {
+  display: inline-block;
+  color: #b8b8b8;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+
+.myInfo_list_box {
+  padding: 30px;
+  background: #fff;
+  min-height: 850px;
+  position: relative;
+}
+
+.myInfo_list_content {
+  overflow: hidden;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #E1E1E1;
+}
+.myInfo_list_content .info_img {
+  float: left;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.myInfo_list_content .info_img img {
+  width: 87px;
+  height: 87px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.myInfo_list_content .info_box {
+  float: left;
+  width: 460px;
+  margin-left: 15px;
+}
+.myInfo_list_content .info_box .info_name {
+  font-size: 22px;
+}
+.myInfo_list_content .info_box .info_bor {
+  float: left;
+  margin-top: 5px;
+  width: 460px;
+}
+.myInfo_list_content .info_box .info_bor div {
+  float: left;
+}
+.myInfo_list_content .info_box .info_bor span {
+  color: #b0b0b0;
+  width: 155px;
+  padding-left: 5px;
+}
+.myInfo_list_content .info_content {
+  margin-top: 2px;
+}
+
+/*我的信息*/
+.myInfo_content ul li {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #E1E1E1;
+}
+.myInfo_content ul li em {
+  display: inline-block;
+  width: 95px;
+  color: #b0b0b0;
+}
+.myInfo_content ul li em,
+.myInfo_content ul li div {
+  float: left;
+  font-style: normal;
+}
+.myInfo_content ul li .change_btn {
+  color: #57c8f2;
+  border: none;
+  background: #fff;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.myInfo_content ul li .current_password {
+  vertical-align: middle;
+}
+
+.myInfo_skill_content ul li em {
+  width: 113px !important;
+}
+
+.mail_push_box {
+  overflow: hidden;
+}
+.mail_push_box li {
+  float: left;
+  margin-left: 10px;
+  overflow: hidden;
+}
+.mail_push_box li div {
+  float: left;
+}
+.mail_push_box li .i-check input[type=checkbox] {
+  -webkit-appearance: none;
+  border: none;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  margin-top: -1px;
+  cursor: pointer;
+  vertical-align: middle;
+  background: #fff url(../images/check.png) top center no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+.mail_push_box li .i-check input[type=checkbox]:checked {
+  background-image: url(../images/cur_checked.png);
+}
+.mail_push_box li .i-check label {
+  cursor: pointer;
+}
+.mail_push_box li:first-child {
+  margin-left: 0;
+}
+
+/*退出账号按钮*/
+.quit_btn {
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.quit_btn .btns {
+  margin: 0;
+  min-width: 130px;
+  border: 0 none;
+  background: #57c8f2;
+  color: #fff;
+  padding: 11px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/*积分与技能*/
+.skill_grade_box {
+  border-bottom: 1px solid #E1E1E1;
+}
+.skill_grade_box em,
+.skill_grade_box i {
+  font-style: normal;
+}
+.skill_grade_box .skill_grade_content {
+  margin-top: 20px;
+}
+.skill_grade_box .skill_grade_content em {
+  display: inline-block;
+  width: 112px;
+  color: #b0b0b0;
+}
+.skill_grade_box .skill_grade_content span {
+  margin-left: -2px;
+}
+.skill_grade_box .skill_progress_box {
+  margin-top: 10px;
+  width: 700px;
+}
+.skill_grade_box .skill_progress_box .skill_progress {
+  width: 100%;
+  height: 8px;
+  background: #eaeaea;
+  position: relative;
+  border-radius: 3px;
+}
+.skill_grade_box .skill_progress_box .skill_progress i {
+  display: inline-block;
+  border-radius: 3px;
+  height: 8px;
+  width: 30%;
+  background: #57c8f2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.skill_grade_box .skill_section {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.skill_grade_box .skill_section em {
+  color: #b0b0b0;
+}
+
+/*技能等级说明*/
+.grad_explain_container {
+  margin-top: 15px;
+}
+.grad_explain_container .grad_explain_content {
+  color: #b0b0b0;
+}
+.grad_explain_container .skill_grad_table_box {
+  width: 700px;
+  height: 400px;
+  overflow-y: scroll;
+}
+.grad_explain_container .skill_grad_table_box .skill_grad_table {
+  width: 700px;
+  margin-top: 10px;
+}
+.grad_explain_container .skill_grad_table_box .skill_grad_table thead tr,
+.grad_explain_container .skill_grad_table_box .skill_grad_table tbody tr {
+  border-bottom: 1px solid #E1E1E1;
+}
+.grad_explain_container .skill_grad_table_box .skill_grad_table thead tr th,
+.grad_explain_container .skill_grad_table_box .skill_grad_table thead tr td,
+.grad_explain_container .skill_grad_table_box .skill_grad_table tbody tr th,
+.grad_explain_container .skill_grad_table_box .skill_grad_table tbody tr td {
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.grad_explain_container .skill_grad_table_box .skill_grad_table thead tr th,
+.grad_explain_container .skill_grad_table_box .skill_grad_table tbody tr th {
+  color: #b0b0b0;
+  font-weight: normal;
+  height: 30px;
+  line-height: 30px;
+}
+
+.border_none {
+  border: none;
+}
+
+/*弹出层*/
+.public_popup {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+  border-radius: 5px;
+  border: 1px solid #E8E8E8;
+  display: none;
+}
+.public_popup .header {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: 50px;
+  background: #F9F9F9;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
+  line-height: 50px;
+  color: #b8b8b8;
+}
+.public_popup .main {
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px;
+  border-top: 1px solid #E8E8E8;
+  font-size: 16px;
+}
+.public_popup .main .jurisdiction_del_btn {
+  text-align: center;
+  margin-top: 50px;
+}
+.public_popup .main .jurisdiction_del_btn button:last-child {
+  margin-left: 7px;
+}
+.public_popup .main .jurisdiction_del_btn button:first-child {
+  margin-right: 7px;
+}
+
+/*修改手机号弹框*/
+.modification_number {
+  margin-left: -235px;
+}
+.modification_number .main {
+  width: 470px;
+  height: 200px;
+}
+.modification_number .main .controller_input {
+  text-align: center;
+  margin: auto;
+}
+.modification_number .main .controller_input div {
+  margin-top: 20px;
+  margin-bottom: 22px;
+}
+.modification_number .main .controller_input div label {
+  cursor: pointer;
+}
+.modification_number .main .controller_input div label input {
+  padding: 3px 0 3px 5px;
+}
+.modification_number .main .controller_input div label input::-webkit-input-placeholder,
+.modification_number .main .controller_input div label input -moz-input-placeholder {
+  color: #DADADA;
+}
+.modification_number .main .controller_input div label .route {
+  color: #B8B8B8;
+}
+
+/*修改密码弹框*/
+.modification_password {
+  margin-left: -250px;
+}
+.modification_password .main {
+  width: 500px;
+  height: 300px;
+}
+.modification_password .main .controller_input {
+  text-align: center;
+  margin: auto;
+}
+.modification_password .main .controller_input div {
+  margin-top: 20px;
+  margin-bottom: 22px;
+}
+.modification_password .main .controller_input div label {
+  cursor: pointer;
+  display: inline-block;
+  width: 120px;
+  text-align: left;
+}
+.modification_password .main .controller_input div input {
+  padding: 3px 0 3px 5px;
+}
+.modification_password .main .controller_input div input::-webkit-input-placeholder,
+.modification_password .main .controller_input div input -moz-input-placeholder {
+  color: #DADADA;
+}
+
+/*上传图片*/
+.smi_info_show {
+  color: #667282;
+  display: inline;
+}
+
+.showimgcho {
+  display: block;
+  position: relative;
+  width: 87px;
+  height: 87px;
+  cursor: pointer;
+}
+.showimgcho img {
+  border-radius: 50%;
+}
+.showimgcho::after {
+  content: "+选择图片";
+  background-color: rgba(51, 51, 51, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  line-height: 0;
+  text-align: center;
+  width: 87px;
+  height: 87px;
+  cursor: pointer;
+  font-size: 0;
+  opacity: 0;
+  border-radius: 50%;
+}
+
+#clipcover {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#set {
+  width: 615px;
+  height: 550px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -225px;
+  margin-left: -307px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+#set .layer-title {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background-color: #008BE7;
+  height: 42px;
+  line-height: 42px;
+  font-size: 20px;
+  border-radius: 5px 5px 0 0;
+}
+#set .layer-title #close {
+  line-height: 42px;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  font-size: 25px;
+}
+#set .layer-content {
+  width: 360px;
+  height: 360px;
+  border-right: 1px solid #F2F2F2;
+  border-bottom: 1px solid #F2F2F2;
+  margin-top: 20px;
+  margin-left: 10px;
+  position: relative;
+}
+#set .layer-content .canvas {
+  display: block;
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+#set .layer-content .getfile {
+  z-index: 100;
+  background-color: #fff;
+}
+#set .layer-content .getfile .file {
+  position: absolute;
+  width: 120px;
+  height: 35px;
+  top: 50%;
+  left: 50%;
+  margin-top: -17px;
+  margin-left: -60px;
+  text-decoration: none;
+  color: #8D8D8D;
+  border: 1px solid #F2F2F2;
+  text-align: center;
+  line-height: 35px;
+  z-index: 99;
+  border-radius: 3px;
+}
+#set .layer-content .getfile #file {
+  opacity: 0;
+  z-index: 100;
+}
+#set .layer-content .getfile a.file::after {
+  content: "只支持JPG, PNG, GIF, 大小不超过5M";
+  position: absolute;
+  top: 100%;
+  left: -50px;
+  opacity: 1;
+  width: 220px;
+  font-size: 10px;
+}
+
+#preview {
+  width: 235px;
+  height: 360px;
+  border-bottom: 1px solid #F2F2F2;
+  position: absolute;
+  right: 10px;
+  top: 63px;
+  color: #8D8D8D;
+}
+#preview span {
+  width: 100%;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+#preview .wrap {
+  float: left;
+  width: 100%;
+  margin: 0 auto 15px;
+}
+#preview .wrap canvas {
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+}
+
+#refile {
+  z-index: 100;
+  opacity: 0;
+}
+
+#clipcover #set .refile, #clipcover #set #rotate {
+  position: absolute;
+  top: 430px;
+  left: 10px;
+  text-decoration: none;
+  width: 70px;
+  height: 35px;
+  line-height: 35px;
+  z-index: 99;
+  color: #8D8D8D;
+  border: 1px solid #F2F2F2;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type=file] {
+  display: block;
+}
+
+#rotate {
+  left: 300px !important;
+}
+
+.set-footer {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+.set-footer span {
+  position: absolute;
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #fff;
+  left: 50%;
+  top: 50%;
+  margin-top: -30px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.set-footer #cut {
+  background-color: #45ADE6;
+  margin-left: -130px;
+}
+.set-footer #cancel {
+  margin-right: -130px;
+  background-color: #AFB1C1;
+}
+
+/*重新上传*/
+#clipcover #set #refile {
+  z-index: 100;
+  opacity: 0;
+}

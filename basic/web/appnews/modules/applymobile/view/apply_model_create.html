@@ -1,0 +1,203 @@
+<!--创建表单 开始-->
+<div class="w100 formindexbor">
+    <div class="f16">设计表单</div>
+    <ul class="mt10 changeform of" id="scroll">
+        <span class="pbcd1">选择模板：</span>
+        <li>
+            <label>
+                <input type="radio" name="formname" checked ng-click="apply.changeforms(0)" />
+                <span>无</span>
+            </label>
+        </li>
+        <li ng-repeat="item in apply.customList">
+            <label>
+                <input type="radio" name="formname" ng-click="apply.changeforms(item.model_id)" />
+                <span>{{item.title}}</span>
+            </label>
+        </li>
+    </ul>
+</div>
+
+
+<div class="ui-widget-winbor createforms pbcreateformlib pabso of formindexbor">
+
+    <div class="borderbor of porela formstitle">
+        <div class="titlebor">
+            <span class="porela break inblock title">表单名称</span>
+            <div class="break pbc inblock rcontent">
+                <input type="text" />
+            </div>
+        </div>
+    </div>
+
+    <div id="scroll" class="scrollbor poabso droppable">
+    </div>
+
+    <div class="btnbor poabso nobor w100">
+        <div class="btnsbor">
+            <button ng-click="apply.formPreview()" class="btns">预览表单</button>
+            <button id="saveForm" class="btns">保存表单</button>
+            <button id="saveFormStep" class="btns darkgreen">保存并设置审核流程</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui-widget-winbor formslibbor pabso formindexbor">
+    <div class="title">
+        <span class="f16">组件库</span>
+    </div>
+    <div class="ulbor">
+        <ul>
+            <li title="拖拽至页面中间区域" data-widget="Text" class="draggable">
+                <i class="glyphicon glyphicon-text-color poabso"></i>
+                <span>文本输入框</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="TextArea" class="draggable">
+                <i class="glyphicon glyphicon-text-size poabso"></i>
+                <span>多行文本框</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="DateInterval" class="draggable">
+                <i class="glyphicon glyphicon-calendar poabso"></i>
+                <span>日期区间</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="RadioBox" class="draggable">
+                <i class="glyphicon glyphicon-ok-circle poabso"></i>
+                <span>单选按钮</span>
+            </li>
+
+
+            <li title="拖拽至页面中间区域" data-widget="CheckBox" class="draggable">
+                <i class="glyphicon glyphicon-check poabso"></i>
+                <span>复选框</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Money" class="draggable">
+                <i class="glyphicon glyphicon-usd poabso"></i>
+                <span>金额</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Mobile" class="draggable">
+                <i class="glyphicon glyphicon-earphone poabso"></i>
+                <span>手机</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Paragraph" class="draggable">
+                <i class="glyphicon glyphicon-align-justify poabso"></i>
+                <span>描述文字</span>
+            </li>
+
+
+            <li title="拖拽至页面中间区域" data-widget="FileComponent" class="draggable">
+                <i class="glyphicon glyphicon-paperclip poabso"></i>
+                <span>附件</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Department" class="draggable">
+                <i class="glyphicon glyphicon-briefcase poabso"></i>
+                <span>部门选择</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Phone" class="draggable">
+                <i class="glyphicon glyphicon-phone-alt poabso"></i>
+                <span>电话</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Select" class="draggable">
+                <i class="glyphicon glyphicon-triangle-bottom poabso"></i>
+                <span>下拉菜单</span>
+            </li>
+
+
+            <li title="拖拽至页面中间区域" data-widget="ImageComponent" class="draggable">
+                <i class="glyphicon glyphicon-picture poabso"></i>
+                <span>图片</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="Email" class="draggable">
+                <i class="glyphicon glyphicon-envelope poabso"></i>
+                <span>邮箱</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="DateComponent" class="draggable">
+                <i class="glyphicon glyphicon-calendar poabso"></i>
+                <span>日期</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="NumberComponent" class="draggable">
+                <i class="glyphicon glyphicon-sound-5-1 poabso"></i>
+                <span>数字输入框</span>
+            </li>
+
+            <li title="拖拽至页面中间区域" data-widget="Employee" class="draggable">
+                <i class="glyphicon glyphicon-user poabso"></i>
+                <span>用户选择</span>
+            </li>
+            <li title="拖拽至页面中间区域" data-widget="DividingLine" class="draggable">
+                <i class="glyphicon glyphicon-minus poabso"></i>
+                <span>分割线</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="ui-widget-winbor formseditbor pbcreateformlib pabso of formindexbor">
+    <div class="title">
+        <span class="f16">组件编辑</span>
+    </div>
+    <div id="scroll" class="scrollbor poabso">
+    </div>
+</div>
+<!--创建表单 结束-->
+
+<!--创建表单 所需插件and模块 开始-->
+<script src="/appnews/lib/jqueryui/jquery.ui.widget.js"></script>
+<script src="/appnews/lib/ckeditor/ckeditor.js"></script>
+<script src="/appnews/lib/createform/editform.js"></script>
+<!--创建表单 所需插件and模块 结束-->
+
+<!--创建表单 删除字段 弹窗 开始-->
+<div class="ui-widget-winbor surewin winnone of delcreatefield">
+    <div class="toptitle">
+        移除当前字段 <span class="none"></span>
+    </div>
+    <div class="tipstitle pbc f16">
+        确定要移除当前字段吗？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns">确定</button>
+            <button class="btns gray">取消</button>
+        </div>
+    </div>
+</div>
+<!--创建表单 删除字段 弹窗 结束-->
+
+<!--表单预览 开始-->
+<div class="ui-widget-winbor formPreview pbcreateformlib pfixed of">
+    <div class="toptitle porela">
+        <span class="formtitles"></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click=" apply.formPreviewClose();">&#xe61d;</i>
+    </div>
+    <div id="scroll" class="scrollbor poabso">
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns" ng-click=" apply.formPreviewClose();">退出预览</button>
+        </div>
+    </div>
+</div>
+<!--表单预览 结束-->
+
+
+
+
+
+<!--我的申请 - 保存表单 是否马上去设置表单审批流程 开始-->
+<div class="ui-widget-winbor surewin of issetFormStep" style="display:none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          保存表单成功,是否马上去设置表单审批流程?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns savego">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--我的申请 - 保存表单 是否马上去设置表单审批流程 结束-->

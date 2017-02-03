@@ -1,0 +1,88 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span class="selected"><a ui-sref="main.system.jurisdictionList">员工管理</a></span>
+	    <span><a ui-sref="main.system.roleList">角色管理</a></span>
+	    <!--<span><a ui-sref="main.system.controllerList">控制器动作列表页</a></span>-->
+    </em>
+	<a isperm pcode="SystemPermissonAddstaff" ng-click="employee.addEmp()" class="add_staff btn_add" id="add_staff"><i>添加员工</i></a>
+</div>
+<!--顶部搜索-->
+<div class="w100">
+	<div class="pbsearchbor">
+		<div class="selectbor porela minscroll">
+			<span ng-click="employee.roleWinButton($event)">
+				<span id="role">角色</span>
+				<i class="pbiconfont">&#xe60f;</i>
+			</span>
+			<ul class="listbor poabso"id="roleList">
+				<li ng-repeat="itemPerm in employee.allPerm">
+					<a href="javascript:;" ng-click="employee.selectSearchRole(itemPerm.group_id)" class="omit">{{itemPerm.group_name}}</a>
+				</li>
+			</ul>
+		</div>
+		<!--<div class="inblock minscroll porela nanoList">
+            <input class="submitter" type="text" placeholder="部门" ng-keyup="attend.searchOrgInfo()" ng-model="attend.search_org_name"/>
+            <i class="pbiconfont poabso down-arrow" ng-click="attend.getSearchAllOrgInfo()">&#xe60f;</i>
+            <ul class="system_department poabso block" ng-if="attend.isOrgWin">
+                <li ng-repeat="item in attend.orgInfo" ng-click="attend.selectOrg(item)"><a href="javascript:void(0);" class="omit">{{item.org_name}}</a></li>
+            </ul>
+       </div>-->
+        <depart-combo handle-select="attend.selectOrg(depart)" depart="depart"></depart-combo>
+		<div class="searchbor porela inblock query_btn">
+			<i class="pbiconfont poabso down_btn">&#xe610;</i>
+			<input type="text" class="inputtext noborder searchinputtext fl" placeholder="请输入员工姓名搜索" ng-model="employee.real_name"/>
+		</div>
+		<div class="inblock query_btn">
+			<button class="btn blue fl border_none" ng-click="employee.searchBtn()">查询</button>
+		</div>
+	</div>
+</div>
+
+<div class="system_list clear">
+	<table class="system_table">
+		<thead class="tablehc">
+			<tr>
+				<td>用户ID</td>
+				<td>姓名</td>
+				<td>所属部门</td>
+				<td>用户名</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody class="system_list_status">
+			<tr ng-repeat="item in employee.memList">
+				<td>{{item.u_id}}</td>
+				<td>{{item.real_name}}</td>
+				<td>{{item.all_org_name}}</td>
+				<td>{{item.username}}</td>
+				<td>
+					<a isperm pcode="SystemPermissonEditestaff" href="javascript:;" class="edit_style" ng-click="employee.editEmp(item.u_id)">编辑</a>
+					<a isperm pcode="SystemPermissonSetperm"  href="javascript:;" class="jurisdiction_style" ng-click="employee.setPerm(item.u_id)">权限设置</a>
+					<a isperm pcode="SystemPermissonDelstaff" href="javascript:;" class="edit_style " ng-click="employee.openDelEmpWin(item.u_id)">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--分页开始-->
+	<div paging page-object="page" click-function="page_fun"></div>
+	<!--分页结束-->
+</div>
+
+<!--删除弹框-->
+<div class="jurisdiction_del ng-scope block" ng-if="employee.isDelConfirmWin">
+	<div class="header f18">提示</div>
+	<div class="main">
+		<div class="confirm_del f20">确认删除员工？</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="employee.delEmp()">确定</button>
+			<button class="btns gray" ng-click="employee.closeDelEmpWin()">取消</button>
+		</div>
+	</div>
+</div>
+
+<!--空数据-->
+<div class="empty-icon" ng-if="employee.memList.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>暂时没有相关数据</p>
+</div>

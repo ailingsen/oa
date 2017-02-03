@@ -1,0 +1,38 @@
+<!--工作报告已审阅开始-->
+<div class="workStatement_checked_box workStatement_checked_boxshadow f16">
+	<div class="workStatement_head f16">
+		<span>
+        	填写人：<i>{{work.work_detail.real_name}}</i>
+        </span>
+		<span data-ng-if="work.work_detail.type==1">日报</span>
+		<span data-ng-if="work.work_detail.type==2">周报</span>
+		<span>
+        	<a ui-sref="main.workStatement.myWorkStatementTable" href="javascript:;" ></a>
+        </span>
+	</div>
+	<!--请输入您本日/本周的工作项：-->
+	<div class="work_project f16 week_work">
+		<p data-ng-if="work.work_detail.type==1">请输入您本日的工作项：</p>
+		<p data-ng-if="work.work_detail.type==2">请输入您本周的工作项：</p>
+	</div>
+	<!--请输入您本日/本周的工作项详情-->
+	<div class="job_content this_week_content">
+		<textarea cols="3" rows="12" placeholder="请输入工作内容" class="f16" maxlength="1000"required data-ng-model="work.work"></textarea>
+	</div>
+	<div class="work_project f16 next_week">
+		<p data-ng-if="work.work_detail.type==1">请输入您明日的工作计划：</p>
+		<p data-ng-if="work.work_detail.type==2">请输入您下周的工作计划：</p>
+	</div>
+	<div class="job_content next_week_content">
+		<textarea cols="3" rows="12" placeholder="请输入工作计划" class="f16" maxlength="1000" required data-ng-model="work.plan"></textarea>
+	</div>
+	<!--已审阅按钮-->
+	<div class="workStatement_checked_btn">
+		<button class="btns f16 ok_btn" ng-click="work.updateWork(work.work_detail.work_id)">确定</button>
+		<button class="btns gray f16 cancle_btn" ng-click="work.back()">取消</button>
+	</div>
+	<div class="save_succeed" ng-show="work.editeSuccess">
+		<span class="f16">修改成功 !</span>
+	</div>
+</div>
+<!--工作报告已审阅结束-->

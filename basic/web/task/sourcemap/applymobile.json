@@ -1,0 +1,13 @@
+[
+    "appnews/modules/applymobile/controller/ApplymobileAppController.js",
+    "appnews/modules/applymobile/controller/OvertimeApplymobileCreateCtrl.js",
+    "appnews/modules/applymobile/controller/LeaveApplymobileCreateController.js",
+    "appnews/modules/applymobile/controller/DrainPunchmobileController.js",
+    "appnews/modules/applymobile/controller/RankApplymobileController.js",
+    "appnews/modules/applymobile/controller/FlexibleWorkmobileController.js",
+    "appnews/modules/applymobile/controller/MyApplyListmobileController.js",
+    "appnews/modules/applymobile/controller/AgentApplyListmobileController.js",
+    "appnews/modules/applymobile/controller/CustomApplymobileCreateCtrl.js",
+    "appnews/modules/applymobile/models/ApplymobileModel.js",
+    "appnews/modules/applymobile/route.js"
+]

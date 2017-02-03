@@ -1,0 +1,53 @@
+<div class="toptitle porela">
+     <div class="gobackbtn pointer fl" ng-click="project.returnGo()">
+          <i class="pbiconfont poabso pbc">&#xe60d;</i>
+          <span class="pbcd1">返回</span>
+     </div>
+     <span class="pbcd1">项目进度-{{project.proInfo.pro_name}}</span>
+</div>
+
+<div class="w100 flex mt5">
+    <div class="pronumsbor border_bg">
+         <h2 class="omit pbc">项目任务</h2>
+         <ul>
+            <li>
+                <a   href="javascript:;" ng-click="project.goProTaskList(project.proInfo.pro_id, 1 , project.type , project.position, chartData[2])" >
+                    <p class="title current">
+                    <i class="pbiconfont poabso title-task-icon">&#xe61f;</i>总任务数</p>
+                    <strong class="task-content omit current">{{chartData[2]}}</strong>
+                </a>
+            </li>
+            <li>
+                <a   href="javascript:;" ng-click="project.goProTaskList(project.proInfo.pro_id, 2 , project.type , project.position, chartData[1])">
+                    <p class="title pbcd1">
+                    <i class="pbiconfont poabso title-task-icon">&#xe61f;</i>已完成任务数</p>
+                    <strong class="task-content omit ">{{chartData[1]}}</strong>
+                </a>
+            </li>
+            <li class="nobd">
+                <a   href="javascript:;" ng-click="project.goProTaskList(project.proInfo.pro_id, 3 , project.type , project.position, chartData[0])">
+                    <p class="title pbcd1">
+                    <i class="pbiconfont poabso title-task-icon">&#xe61f;</i>未完成任务数</p>
+                    <strong class="task-content omit ">{{chartData[0]}}</strong>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Highcharbor border_bg porela">
+         <div>
+               <highchart id="chart1" config="chartConfig"></highchart>
+         </div>
+         <div class="typebor poabso pbc">
+              <span class="porela"><i class="pbiconfont poabso">&#xe63a;</i>待完成任务</span>
+              <span class="porela"><i class="pbiconfont poabso">&#xe63a;</i>已完成任务</span>
+             <span class="porela"><i class="pbiconfont poabso">&#xe63a;</i>总任务</span>
+         </div>
+    </div>
+
+</div>
+
+
+
+
+

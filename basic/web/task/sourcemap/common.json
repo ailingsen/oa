@@ -1,0 +1,11 @@
+[
+    "appnews/app.js",
+    "appnews/lib/directives/directives.js",
+    "appnews/lib/services/services.js",
+    "appnews/lib/factory/factory.js",
+    "appnews/lib/filters/filter.js",
+    "appnews/modules/common/common.js",
+    "appnews/lib/jqueryui/jquery-ui-1.10.4.custom.min.js",
+    "appnews/lib/alert/alertshowloading.js",
+    "appnews/lib/createform/showeditform.js"
+]

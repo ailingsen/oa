@@ -1,0 +1,79 @@
+<!--移动端申请遮罩-->
+<div id='mLayer' ng-show="userInfo.mLayer"></div>
+
+<!--公共顶部开始-->
+<div class="topsbar">
+    <div class="infobor">
+        <!--智能搜索-->
+        <!--<div class="searchbor">-->
+        <!--<i class="pbiconfont">&#xe610;</i>-->
+        <!--<input type="text" class="search" placeholder="智能搜索" />-->
+        <!--</div>-->
+        <span class="lines"></span>
+        <!--个人信息-->
+        <div class="infosbor">
+            <div class="infosbtn">
+                <div class="infosimages">
+                    <img ng-src="{{rootUserInfo.head_img}}"/>
+                </div>
+                <div class="infosname">{{rootUserInfo.real_name}}</div>
+                <i class="pbiconfont">&#xe60f;</i>
+            </div>
+        </div>
+        <!--设置-->
+        <div class="setupbor">
+            <a ui-sref="main.index.set" href="javascript:;" ng-if="isShowSet">
+                <i class="pbiconfont">&#xe60a;</i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="infoslist">
+    <div class="bor">
+        <div class="infoimg">
+            <img ng-src="{{rootUserInfo.head_img}}"/>
+        </div>
+        <div class="infomation">
+            <div class="infomation_name omit">{{rootUserInfo.real_name}}</div>
+            <div class="infomation_bor omit">
+                <div>部门 :</div>
+                <span class="omit">{{userInfo.userInfo.org_name}}</span>
+            </div>
+            <div class="infomation_bor">
+                <div>职位 :</div>
+                <span class="omit">{{userInfo.userInfo.position}}</span>
+            </div>
+            <div class="infomation_bor">
+                <div>电话 :</div>
+                <span class="omit">{{userInfo.userInfo.phone}}</span>
+            </div>
+            <div class="infomation_bor">
+                <div>邮箱 :</div>
+                <span class="omit">{{userInfo.userInfo.email}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="progressbor">
+        <div class="points">
+            <div>纳米币 : <span>{{userInfo.userInfo.points}}</span></div>
+            <!--<div class="progresbg">
+                 <div class="progresactive" style="width:{{userInfo.points}}%;"></div>
+            </div>-->
+        </div>
+        <div class="skills">
+            <div>技能等级 : <span>{{userInfo.skillInfo.title}}</span></div>
+            <div class="progresbg">
+                <div class="progresactive" style="width:{{userInfo.skillInfo.degree}}%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <a ui-sref="main.personalInfo.myInfoList" href="Javascript:;" ng-click="userInfo.hideUser()">个人设置</a>
+    </div>
+    <div class="btn nobor">
+        <a href="javascript:;" ng-click="userInfo.logout()">退出账号</a>
+    </div>
+</div>
+
+<!--公共顶部结束-->

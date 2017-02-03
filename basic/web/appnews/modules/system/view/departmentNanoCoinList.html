@@ -1,0 +1,115 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span isperm pcode="SystemScorePersonal"><a ui-sref="main.system.personalNanoCoinList">个人纳米币管理</a></span>
+	    <span isperm pcode="SystemScoreGroup" class="selected"><a ui-sref="main.system.departmentNanoCoinList">部门纳米币管理</a></span>
+	    <span isperm pcode="SystemScoreSet"> <a ui-sref="main.system.personalNanoCoinSet">纳米币设置</a></span>
+   </em>
+</div>
+<!--顶部搜索-->
+<div class="w100">
+	<div class="pbsearchbor">
+		<!--<div class="inblock minscroll porela nanoList" ng-mouseleave="score.isOrgWin=false">
+			<input class="submitter" type="text" placeholder="部门" ng-keyup="score.searchOrgInfo();" data-ng-model="score.search_org_name" />
+			<i class="pbiconfont poabso down-arrow" data-ng-click="score.getAllOrgInfo()">&#xe60f;</i>
+			<ul class="system_department poabso block f16" ng-show="score.isOrgWin">
+				<li ng-repeat="item in score.orgInfo" ng-click="score.selectOrg(item)">
+					<a href="javascript:void(0);" class="omit  ng-binding">{{item.org_name}}</a>
+				</li>
+			</ul>
+		</div>-->
+        <depart-combo handle-select="score.selectOrg(depart)"></depart-combo>
+		<div class="inblock query_btn">
+			<button class="btn blue fl border_none" data-ng-click="score.searchButton()">查询</button>
+		</div>
+		<div class="inblock query_btn">
+			<button class="btn blue fl border_none" data-ng-click="score.addBatch()">批量调整</button>
+		</div>
+	</div>
+</div>
+
+<div class="system_list clear">
+	<table class="personalNano_table">
+		<thead class="tablehc">
+			<tr>
+				<td><label><input type="checkbox" ng-click="score.selectAll($event)">部门</label></td>
+				<td>纳米币</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody class="system_list_status">
+			<tr ng-repeat="item in score.scoreList">
+				<td><label><input type="checkbox" org_id="{{item.org_id}}">{{item.org_info}}</label></td>
+				<td>{{item.org_points}}</td>
+				<td>
+					<a href="javascript:;" class="edit_style" data-ng-click="score.addSingle(item.org_id)">调整</a>
+					<a ui-sref="main.system.departmentNanoCoinList.examine_nano_details({search_id:item.org_id,type:2})" href="javascript:;" class="edit_style">查看详情</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--调整个人纳米币-->
+	<div class="adjustment_personalNano ng-scope ng-hide" style="display: block" ng-show="score.isAdjustWin">
+		<div class="header f18">提示</div>
+		<div class="main">
+			<div class="adjustment_box">
+				<div class="coin_adjustment">
+					<label>币值调整：</label>
+					<a data-ng-click="score.decreasePoint()">
+						<img src="../../../../images/reduce_btn.png" />
+					</a>
+					<input type="text" value="0" data-ng-model="score_param.points" />
+					<a data-ng-click="score.increasePoint()">
+						<img src="../../../../images/increase_btn.png" />
+					</a>
+				</div>
+				<div class="adjustment_cause">
+					<label>调整原因：<textarea maxlength="40" placeholder="最多输入40个字" rows="4" data-ng-model="score_param.reason"></textarea></label>
+				</div>
+
+			</div>
+			<div class="jurisdiction_del_btn">
+				<button class="btns" data-ng-click="score.adjust()">确定</button>
+				<button class="btns gray" data-ng-click="score.hide()">取消</button>
+			</div>
+		</div>
+	</div>
+
+	<!--数据操作失败-->
+	<div class="number_defeated_box ng-scope" style="display: block" ng-show="score.isErrorWin">
+		<div class="number_defeated">
+			<div class="header f18">
+				<div class="hint_title">提示！</div>
+				<a href="JavaScript:;" data-ng-click="score.closeError()" class="close_adjustment_personalNano"></a>
+			</div>
+			<div class="hint_content_box">
+				<div class="hint_content">
+					<p>批量操作<span class="red">异常 </span> ! 以下数据操作失败:(&nbsp;成功：<em>{{score.error_info.success}}</em>条数据;&nbsp;失败:<i>{{score.error_info.failed}}</i>条数据&nbsp;)</p>
+				</div>
+				<div class="hint_content_table poabso" id="scroll">
+					<table>
+						<thead>
+							<tr class="defeated_daparment_title">
+								<td>操作失败部门</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in score.error_info.list">
+								<td>{{item}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--分页开始-->
+	<div paging page-object="page" click-function="page_fun"></div>
+	<!--分页结束-->
+</div>
+
+<!--空数据-->
+<div class="empty-icon" ng-if="score.scoreList.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>暂时没有相关数据</p>
+</div>

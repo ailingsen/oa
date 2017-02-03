@@ -1,0 +1,1182 @@
+@charset "UTF-8";
+/*
+   全局变量配置
+   email  : 8543307@qq.com
+   github : git:8543307.git/8543307
+
+*/
+/*整站背景颜色*/
+/*全局滚动条颜色5eaee3*/
+/*全局滚动条背景颜色fff*/
+/*左部菜单滚动条颜色5eaee3*/
+/*左部菜单滚动条背景颜色242e3a*/
+/*小弹窗滚动条背景颜色242e3a*/
+/*placeholder*/
+/*a动画时间*/
+/*大logo*/
+/*小logo*/
+/*菜单动画时间*/
+/*混合单参数*/
+/*属性 + 动画 混合单参数*/
+/*混合多参数*/
+.applytablelistbor .seeprogress a {
+  padding: 0px 5px;
+  width: 100%;
+  color: #58c3f9; }
+
+.applytablelistbor .seeprogress a:hover {
+  color: #ff5851; }
+
+.applytablelistbor .seeprogress a.del {
+  color: #d8d8d8; }
+
+.applytablelistbor .seeprogress a.del:hover {
+  color: #ff5851; }
+
+.applytablelistbor i.pbiconfont.resetcheckbox {
+  color: #a5a5a5;
+  cursor: default;
+  margin-left: -8px;
+  margin-top: 4px; }
+
+.setprocessobr input[type=text],
+.agreeAddwork input[type=text],
+.timesbor input[type=text],
+.createforms input[type=text],
+.pbcreateformlib input[type=text] {
+  margin-top: -3px;
+  width: 120px;
+  background: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 8px;
+  padding-left: 5px;
+  text-align: center;
+  border: 1px solid #e1e1e1; }
+
+.applyindexbor {
+  margin: 0px auto;
+  margin-top: 150px;
+  width: 879px; }
+  .applyindexbor .applybox {
+    display: inline-block;
+    margin: 15px;
+    width: 260px;
+    height: 180px;
+    color: #fff;
+    font-size: 20px; }
+    .applyindexbor .applybox span {
+      left: 115px;
+      top: 50%;
+      -moz-transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      word-break: break-all; }
+    .applyindexbor .applybox a {
+      color: #fff;
+      float: left;
+      width: 100%;
+      height: 180px; }
+    .applyindexbor .applybox a:hover {
+      color: #ff5851; }
+    .applyindexbor .applybox i {
+      top: 67px;
+      left: 62px;
+      font-size: 36px; }
+  .applyindexbor .applybox.bg1 {
+    background: #a9d96c; }
+  .applyindexbor .applybox.bg2 {
+    background: #6ed5d4; }
+  .applyindexbor .applybox.bg3 {
+    background: #57c8f2; }
+
+#w5nums textarea.pb_textareas {
+  left: 125px;
+  width: 692px; }
+
+.apmbor {
+  margin-left: 100px; }
+  .apmbor label {
+    width: 50px;
+    cursor: pointer; }
+
+.readwin .apmbor {
+  margin-left: 180px; }
+
+.applyindexeditbor {
+  margin: 0px auto;
+  margin-top: 150px;
+  width: 999px; }
+  .applyindexeditbor .applyboxedit {
+    display: inline-block;
+    margin: 15px;
+    width: 300px;
+    height: 200px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px; }
+    .applyindexeditbor .applyboxedit span {
+      left: 125px;
+      top: 50%;
+      -moz-transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      word-break: break-all; }
+    .applyindexeditbor .applyboxedit > a {
+      color: #fff;
+      float: left;
+      width: 100%;
+      height: 135px;
+      position: relative; }
+    .applyindexeditbor .applyboxedit > a:hover {
+      color: #ff5851; }
+    .applyindexeditbor .applyboxedit i {
+      top: 45px;
+      left: 70px;
+      font-size: 36px; }
+    .applyindexeditbor .applyboxedit .editbor {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 65px;
+      background: #fff; }
+      .applyindexeditbor .applyboxedit .editbor a {
+        color: #b8b8b8; }
+      .applyindexeditbor .applyboxedit .editbor.addform {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        justify-content: center; }
+        .applyindexeditbor .applyboxedit .editbor.addform a {
+          width: 33.3%;
+          line-height: 65px; }
+        .applyindexeditbor .applyboxedit .editbor.addform a:hover {
+          color: #ff5851; }
+    .applyindexeditbor .applyboxedit.one i {
+      left: 108px; }
+    .applyindexeditbor .applyboxedit.one span {
+      left: 152px; }
+  .applyindexeditbor .applyboxedit.bg1 {
+    background: #a9d96c; }
+  .applyindexeditbor .applyboxedit.bg2 {
+    background: #6ed5d4; }
+  .applyindexeditbor .applyboxedit.bg3 {
+    background: #57c8f2; }
+
+#lookprogressdetial {
+  bottom: 25px; }
+
+.applyprogress .title {
+  width: 100%;
+  color: #b8e6f6;
+  left: 0px;
+  top: 0px;
+  height: 50px;
+  background: #57c8f2;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; }
+  .applyprogress .title i {
+    top: 15px;
+    left: 20px; }
+  .applyprogress .title span {
+    top: 15px;
+    left: 20px; }
+
+.applyprogress ul {
+  display: inline-block;
+  width: 100%;
+  margin-top: 50px; }
+  .applyprogress ul .agree {
+    color: #a8d96c;
+    width: 100px;
+    line-height: 40px; }
+  .applyprogress ul .agree.red {
+    color: #ff5851; }
+  .applyprogress ul .time {
+    line-height: 40px; }
+  .applyprogress ul li {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    padding-left: 28px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+    .applyprogress ul li:after {
+      position: absolute;
+      height: 25px;
+      border-left: 1px solid #f0f1ff;
+      width: 10px;
+      content: "";
+      top: 50px;
+      left: 48px; }
+  .applyprogress ul li:last-child:after {
+    display: none; }
+  .applyprogress ul .jjbor {
+    margin-left: 15px;
+    float: left;
+    width: 340px;
+    margin-top: 10px; }
+
+.ui-widget-winbor .changebtn {
+  top: -10px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  background: #e8e8e8;
+  color: #bfbfbf; }
+  .ui-widget-winbor .changebtn span {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: 0px;
+    width: 100px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center; }
+  .ui-widget-winbor .changebtn span:nth-child(1) {
+    border-right: 1px solid #d4d4d4; }
+  .ui-widget-winbor .changebtn span.selected {
+    background: #fff;
+    color: #616161; }
+
+.disabledbor {
+  background: rgba(255, 255, 255, 0.05);
+  width: 1px;
+  height: 1px;
+  z-index: 100; }
+
+.ui-widget-winbor .borderbor.rule .line {
+  position: absolute;
+  left: 415px;
+  top: 0px;
+  border-left: 1px solid #e8e8e8;
+  height: 52px; }
+
+.processbor .sprbor .imgbor40 {
+  left: 180px; }
+
+.processbor .processli {
+  border-bottom: 1px dashed #e8e8e8;
+  margin-bottom: 15px; }
+
+.processbor .processli:last-child {
+  border-bottom: 0px none;
+  margin-bottom: 0px; }
+
+.setprocessobr .addbtn1 {
+  left: 165px; }
+
+.setprocessobr select {
+  margin-top: -4px; }
+
+.setprocessobr input[type=text].number {
+  width: 365px;
+  text-align: left;
+  margin-left: 0px; }
+
+.setprocessobr input[type=text].numberday {
+  width: 315px;
+  text-align: left; }
+
+.setprocessobr .processbtnbor {
+  width: 100%;
+  height: 34px; }
+  .setprocessobr .processbtnbor .spantip {
+    margin-left: 30px;
+    margin-right: 10px; }
+
+.setprocessobr .sprbor i.del {
+  font-size: 20px;
+  color: #ff2200;
+  top: 12px;
+  right: 15px; }
+
+.setprocessobr .addprocessbtn {
+  width: 155px;
+  margin: 0px auto;
+  margin-top: -14px;
+  height: 50px; }
+  .setprocessobr .addprocessbtn i {
+    font-size: 40px;
+    top: 2px; }
+  .setprocessobr .addprocessbtn span {
+    margin-left: 50px;
+    margin-top: 13px;
+    display: inline-block; }
+
+.setprocessobr .addprocessbtn:hover {
+  color: #57c8f2; }
+
+.setprocessobr .menbersearchbor .searchbg input {
+  margin-left: 42px;
+  margin-top: 7px;
+  width: 175px;
+  background: #f6f6f6;
+  border: 0px none;
+  text-align: left; }
+
+.setprocessobr.publicwin .xslistbor {
+  margin-top: 10px;
+  margin-left: 98px; }
+
+.setprocessobr.publicwin .menbersearchbor.minscroll,
+.setprocessobr.publicwin .offerbor.minscroll {
+  left: 113px;
+  top: 35px; }
+
+.changeform {
+  max-height: 58px; }
+  .changeform li {
+    display: inline-block;
+    margin-right: 15px; }
+    .changeform li label {
+      cursor: pointer; }
+    .changeform li span {
+      vertical-align: -1px; }
+
+/*分割线*/
+.divider-line {
+  height: 0px;
+  font-size: 0px;
+  margin-top: 0px;
+  border-color: #e8e8e8;
+  border-width: 1px 0 0;
+  border-width: 1px 0 0; }
+
+.divider-line.solid,
+.divider-line.thicksolid,
+.divider-line.solid-double,
+.divider-line.thicksolid-double {
+  border-style: solid; }
+
+.divider-line.dashed,
+.divider-line.thickdashed {
+  border-style: dashed; }
+
+.divider-line.thicksolid,
+.divider-line.thickdashed {
+  border-width: 2px 0 0; }
+
+.divider-line.solid-double {
+  border-width: 1px 0;
+  height: 3px; }
+
+.divider-line.thicksolid-double {
+  border-width: 2px 0;
+  height: 5px; }
+
+.m-type {
+  font-size: 12px;
+  color: #999;
+  margin: 3px 0 0 3px;
+  display: inline-block; }
+
+.form-amountbox input {
+  display: inline-block; }
+
+/*分割线*/
+.createforms {
+  width: 880px;
+  min-height: 700px;
+  top: 115px;
+  bottom: 30px;
+  background: #f9f9f9;
+  -moz-box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  -webkit-box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16); }
+  .createforms .scrollbor {
+    bottom: 170px;
+    left: 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    right: 24px;
+    top: 100px;
+    padding-bottom: 50px; }
+  .createforms .divider-line {
+    margin-left: 30px;
+    margin-right: 30px; }
+  .createforms .money-type {
+    margin-top: 1px;
+    margin-right: 5px; }
+
+.pbcreateformlib input[type=text] {
+  width: 50%;
+  text-align: left;
+  margin-left: 0px;
+  position: relative;
+  top: 1px; }
+
+.pbcreateformlib .borderbor {
+  height: auto; }
+  .pbcreateformlib .borderbor .title {
+    width: 75px;
+    text-align: right;
+    margin-top: 1px;
+    display: inline-table;
+    float: left; }
+    .pbcreateformlib .borderbor .title:after {
+      position: absolute;
+      top: 0px;
+      right: -5px;
+      content: ":"; }
+  .pbcreateformlib .borderbor .rcontent {
+    width: 88%;
+    margin-left: 10px; }
+  .pbcreateformlib .borderbor[data-widget=TextArea] {
+    height: 120px; }
+    .pbcreateformlib .borderbor[data-widget=TextArea] textarea {
+      left: 110px;
+      height: 78%;
+      bottom: 18px; }
+  .pbcreateformlib .borderbor label {
+    cursor: pointer; }
+  .pbcreateformlib .borderbor li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px; }
+  .pbcreateformlib .borderbor[data-widget=FileComponent] .btn, .pbcreateformlib .borderbor[data-widget=ImageComponent] .btn {
+    right: 15px;
+    top: 13px;
+    overflow: hidden; }
+  .pbcreateformlib .borderbor[data-widget=FileComponent] ul, .pbcreateformlib .borderbor[data-widget=ImageComponent] ul {
+    margin-left: 10px;
+    display: inline-block; }
+  .pbcreateformlib .borderbor[data-widget=FileComponent] .filesize, .pbcreateformlib .borderbor[data-widget=ImageComponent] .filesize {
+    text-align: center; }
+  .pbcreateformlib .borderbor[data-widget=FileComponent] i:nth-child(1), .pbcreateformlib .borderbor[data-widget=ImageComponent] i:nth-child(1) {
+    left: 0px;
+    width: 20px;
+    height: 20px; }
+  .pbcreateformlib .borderbor[data-widget=Department] .rcontent {
+    width: 90%; }
+  .pbcreateformlib .borderbor[data-widget=Department] .rcontent > ul {
+    width: 93%; }
+  .pbcreateformlib .borderbor[data-widget=Department] .offerbor {
+    top: 42px;
+    left: 103px; }
+  .pbcreateformlib .borderbor[data-widget=Department] .addbtn2 {
+    height: 28px; }
+  .pbcreateformlib .borderbor[data-widget=Select] select {
+    max-width: 90%;
+    background: #fff; }
+  .pbcreateformlib .borderbor[data-widget=Employee] .rcontent {
+    width: 90%; }
+  .pbcreateformlib .borderbor[data-widget=Employee] .searchbg input {
+    margin-left: 40px;
+    margin-top: 7px;
+    width: 175px;
+    background: #f6f6f6;
+    border: 0px none; }
+  .pbcreateformlib .borderbor[data-widget=Employee] .addbtn1 {
+    height: 43px; }
+  .pbcreateformlib .borderbor[data-widget=DividingLine] {
+    border: 1px solid #e8e8e8;
+    background: #fff;
+    padding-left: 0px;
+    padding-right: 0px; }
+  .pbcreateformlib .borderbor[data-widget=DateComponent] input, .pbcreateformlib .borderbor[data-widget=DateInterval] input {
+    width: 130px;
+    text-align: center; }
+  .pbcreateformlib .borderbor[data-widget=DateComponent] .rcontent span, .pbcreateformlib .borderbor[data-widget=DateInterval] .rcontent span {
+    margin-right: 8px;
+    color: #999; }
+  .pbcreateformlib .borderbor[data-widget=CheckBox] label input {
+    vertical-align: -2px;
+    margin-right: 3px; }
+  .pbcreateformlib .borderbor[data-widget=RadioBox] label input {
+    vertical-align: -2px;
+    margin-right: 3px; }
+  .pbcreateformlib .borderbor[data-widget=FileComponent] .btn, .pbcreateformlib .borderbor[data-widget=ImageComponent] .btn {
+    cursor: default;
+    right: 35px; }
+  .pbcreateformlib .borderbor[data-widget=Paragraph] h1 {
+    font-size: 36px; }
+  .pbcreateformlib .borderbor[data-widget=Paragraph] h2 {
+    font-size: 30px; }
+  .pbcreateformlib .borderbor[data-widget=Paragraph] h3 {
+    font-size: 24px; }
+
+.pbcreateformlib .borderbor:last-child {
+  margin-bottom: 0px; }
+
+.pbcreateformlib .processbor .borderbor:last-child {
+  margin-bottom: 15px; }
+
+.formslibbor {
+  height: 360px;
+  left: 920px;
+  top: 115px;
+  right: 20px;
+  bottom: 30px;
+  background: #f9f9f9;
+  -moz-box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  -webkit-box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  z-index: 1; }
+  .formslibbor .title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #f2f2f2;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+    .formslibbor .title span {
+      margin-left: 15px; }
+  .formslibbor .ulbor {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    overflow-y: auto; }
+    .formslibbor .ulbor ul {
+      float: left;
+      margin-left: 10px;
+      margin-bottom: 20px; }
+    .formslibbor .ulbor li.draggable {
+      margin-left: 17px;
+      margin-right: 17px;
+      margin-top: 20px;
+      float: left;
+      width: 160px;
+      height: 38px;
+      line-height: 38px;
+      border: 1px solid #e8e8e8;
+      border-radius: 3px;
+      background: #f5f5f5;
+      color: #696768;
+      cursor: move;
+      -webkit-transition: background ease-in-out 0.15s;
+      -moz-transition: background ease-in-out 0.15s;
+      transition: background ease-in-out 0.15s; }
+      .formslibbor .ulbor li.draggable i {
+        float: right;
+        margin-right: 10px;
+        margin-top: 10px; }
+      .formslibbor .ulbor li.draggable span {
+        float: left;
+        margin-left: 10px; }
+    .formslibbor .ulbor li:hover {
+      background-color: #d0e2f3;
+      border-color: #57a5ca;
+      border-style: solid; }
+
+.formseditbor {
+  min-height: 320px;
+  left: 920px;
+  top: 495px;
+  right: 20px;
+  bottom: 30px;
+  background: #f9f9f9;
+  -moz-box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  -webkit-box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  box-shadow: 0 0 17px 5px rgba(128, 125, 125, 0.16);
+  z-index: 2; }
+  .formseditbor .scrollbor {
+    bottom: 24px;
+    left: 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    right: 24px;
+    top: 65px; }
+  .formseditbor > .title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #57c8f2;
+    color: #fff; }
+    .formseditbor > .title span {
+      margin-left: 15px; }
+  .formseditbor .borderbor .rcontent {
+    width: 85%; }
+  .formseditbor li label {
+    cursor: pointer !important; }
+  .formseditbor .fieldtips {
+    height: 105px; }
+    .formseditbor .fieldtips .pb_textareas {
+      width: 638px;
+      height: 102px;
+      left: 103px; }
+  .formseditbor .dividerchoicelist {
+    margin-top: 10px; }
+    .formseditbor .dividerchoicelist .ds-ib-w {
+      width: 100%;
+      float: left;
+      clear: both;
+      overflow: hidden;
+      height: 30px;
+      cursor: pointer;
+      position: relative; }
+      .formseditbor .dividerchoicelist .ds-ib-w input {
+        position: absolute;
+        top: 50%;
+        margin-top: -5px;
+        left: 0px; }
+    .formseditbor .dividerchoicelist .divider-line {
+      margin-left: 20px;
+      margin-top: 16px; }
+    .formseditbor .dividerchoicelist .ds-ib-w:nth-child(5) input {
+      top: 17px; }
+    .formseditbor .dividerchoicelist .ds-ib-w:nth-child(6) input {
+      top: 19px; }
+  .formseditbor .required input {
+    margin-right: 3px; }
+
+.pbcreateformlib .optionSet {
+  position: relative;
+  clear: both; }
+  .pbcreateformlib .optionSet .title {
+    height: 25px; }
+  .pbcreateformlib .optionSet .controls {
+    float: left; }
+  .pbcreateformlib .optionSet ul {
+    padding: 0px;
+    margin: 0px;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 10px; }
+  .pbcreateformlib .optionSet li {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 10px;
+    padding-top: 10px; }
+    .pbcreateformlib .optionSet li input {
+      width: 380px;
+      margin: 0px; }
+    .pbcreateformlib .optionSet li .setbtnbor {
+      position: relative;
+      width: 100px;
+      margin-top: -4px; }
+      .pbcreateformlib .optionSet li .setbtnbor i:nth-child(1) {
+        font-size: 34px;
+        left: 50px; }
+      .pbcreateformlib .optionSet li .setbtnbor i:nth-child(2) {
+        font-size: 34px; }
+      .pbcreateformlib .optionSet li .setbtnbor i:hover {
+        color: #57c8f2; }
+    .pbcreateformlib .optionSet li [type='checkbox'] {
+      float: left;
+      width: 30px;
+      margin-top: 8px; }
+    .pbcreateformlib .optionSet li [type='radio'] {
+      float: left;
+      width: 30px;
+      margin-top: 8px; }
+  .pbcreateformlib .optionSet li:last-child {
+    border-bottom: 0px none;
+    padding-bottom: 0px; }
+
+.createforms li.draggable {
+  width: 160px;
+  height: 38px;
+  line-height: 38px; }
+
+.createforms .formstitle {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #e6edf5;
+  border: 0px none; }
+  .createforms .formstitle .title {
+    width: 100px;
+    color: #666; }
+  .createforms .formstitle .rcontent {
+    min-width: 75%; }
+  .createforms .formstitle input {
+    width: 100%;
+    border: 0px none;
+    padding-left: 0px;
+    margin-left: 0px; }
+  .createforms .formstitle .titlebor {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #e8e8e8; }
+
+.createforms .borderbor[data-widget=TextArea] {
+  height: auto;
+  min-height: 132px; }
+  .createforms .borderbor[data-widget=TextArea] textarea {
+    height: 130px; }
+  .createforms .borderbor[data-widget=TextArea] .field-description {
+    height: auto;
+    margin-left: 92px;
+    margin-top: 135px; }
+
+.createforms .borderbor[data-widget=FileComponent] .field-description,
+.createforms .borderbor[data-widget=ImageComponent] .field-description {
+  word-break: break-all;
+  word-wrap: break-word;
+  width: 592px;
+  padding-top: 1px; }
+
+.createforms .borderbor[data-widget=Employee] .rcontent,
+.createforms .borderbor[data-widget=Department] .rcontent {
+  width: 0%; }
+
+.createforms .borderbor[data-widget=Employee] .field-description,
+.createforms .borderbor[data-widget=Department] .field-description {
+  -webkit-box-flex: 1;
+  flex: 1;
+  width: 0%;
+  padding-top: 1px; }
+
+.createforms .field-active.borderbor[data-widget=DividingLine] {
+  background: #fff8dc;
+  border: 1px solid #ddd; }
+
+.form-placeholder-filed {
+  height: 50px;
+  border: 2px dashed #ff5851;
+  margin-bottom: 15px; }
+
+.field .glyphicon-remove-circle {
+  font-size: 18px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -10px;
+  color: #ff5851;
+  display: none;
+  cursor: pointer;
+  z-index: 10; }
+
+.field-active .glyphicon-remove-circle {
+  display: block; }
+
+.ui-widget-winbor .field {
+  border: 1px solid #e8e8e8;
+  position: relative;
+  background: #fff; }
+
+.ui-widget-winbor .field:hover {
+  border: 1px dashed #999; }
+
+.ui-widget-winbor .field-active {
+  background: #fff8dc;
+  border: 1px solid #ddd; }
+
+.ui-widget-winbor .widget-required {
+  color: #ff5851;
+  display: none; }
+
+.field-description {
+  padding-left: 3px;
+  padding-right: 50px;
+  padding-top: 5px;
+  width: 660px;
+  color: #b8b8b8;
+  word-break: break-all;
+  word-wrap: break-word; }
+
+.pbcreateformlib .borderbor label {
+  cursor: default; }
+
+.widget-required {
+  position: absolute;
+  left: 10px;
+  top: 19px;
+  height: 10px; }
+
+.field-description.hide {
+  display: none; }
+
+.pbcreateformlib.createforms .formstitle .rcontent {
+  width: 80%; }
+
+.formPreview {
+  width: 832px;
+  min-height: 600px;
+  top: 112px;
+  left: 50%;
+  margin-left: -360px;
+  z-index: 500;
+  padding: 24px;
+  bottom: 70px;
+  display: none;
+  z-index: 200; }
+  .formPreview .scrollbor {
+    overflow: hidden;
+    overflow-y: auto;
+    left: 24px;
+    right: 24px;
+    top: 60px;
+    bottom: 170px; }
+  .formPreview .toptitle .formtitles {
+    margin-left: 0px;
+    font-size: 14px; }
+  .formPreview .btnsbor .btns {
+    width: 240px; }
+  .formPreview .field-active {
+    background: #fff;
+    border: 1px solid #e8e8e8; }
+  .formPreview i.glyphicon-remove-circle {
+    display: none; }
+  .formPreview .borderbor[data-widget=TextArea] {
+    height: auto;
+    min-height: 132px; }
+  .formPreview .borderbor[data-widget=TextArea] textarea {
+    height: 130px; }
+  .formPreview .borderbor[data-widget=TextArea] .field-description {
+    height: auto;
+    margin-left: 92px;
+    margin-top: 135px; }
+  .formPreview .borderbor[data-widget=Department] .rcontent,
+  .formPreview .borderbor[data-widget=Employee] .rcontent {
+    width: 0%; }
+  .formPreview .borderbor[data-widget=Department] .field-description,
+  .formPreview .borderbor[data-widget=Employee] .field-description {
+    -webkit-box-flex: 1;
+    flex: 1;
+    width: 0%;
+    padding-top: 1px; }
+  .formPreview .borderbor[data-widget=FileComponent] .field-description,
+  .formPreview .borderbor[data-widget=ImageComponent] .field-description {
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 592px;
+    padding-top: 1px; }
+
+.ckeditor > label {
+  display: inline-block;
+  margin-bottom: 8px; }
+
+.ckeditorbg > label {
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-top: 12px; }
+
+.ckeditorbg .paragraphchoicelist {
+  margin-top: 10px; }
+
+.paragraphchoicelist .paragraph.alert {
+  margin: 3px 0 0 10px;
+  width: 70%;
+  margin-left: 25px;
+  margin-top: -24px; }
+
+.paragraphchoicelist > label {
+  display: block;
+  height: 45px;
+  float: left;
+  width: 100%;
+  cursor: pointer; }
+
+.paragraph.alert-e-default {
+  border: 1px solid #eee;
+  background: #f9f9f9; }
+
+.alert {
+  padding: 15px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  word-break: break-all;
+  word-wrap: break-word; }
+
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6; }
+
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1; }
+
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc; }
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1; }
+
+.formpresentation,
+.formeditpresentation {
+  width: 832px;
+  min-height: 600px;
+  top: 70px;
+  left: 50%;
+  margin-left: -440px;
+  padding: 24px;
+  bottom: 70px;
+  display: none;
+  z-index: 1; }
+  .formpresentation .scrollbor,
+  .formeditpresentation .scrollbor {
+    overflow: hidden;
+    overflow-y: auto;
+    left: 24px;
+    right: 24px;
+    top: 60px;
+    bottom: 170px; }
+  .formpresentation .toptitle .formtitles,
+  .formeditpresentation .toptitle .formtitles {
+    margin-left: 0px;
+    font-size: 14px; }
+  .formpresentation .borderbor[data-widget=TextArea],
+  .formeditpresentation .borderbor[data-widget=TextArea] {
+    height: auto;
+    min-height: 132px; }
+  .formpresentation .borderbor[data-widget=TextArea] textarea,
+  .formeditpresentation .borderbor[data-widget=TextArea] textarea {
+    height: 130px; }
+  .formpresentation .borderbor[data-widget=TextArea] .field-description,
+  .formeditpresentation .borderbor[data-widget=TextArea] .field-description {
+    height: auto;
+    margin-left: 92px;
+    margin-top: 135px; }
+  .formpresentation .borderbor[data-widget=Department] .title,
+  .formpresentation .borderbor[data-widget=Employee] .title,
+  .formeditpresentation .borderbor[data-widget=Department] .title,
+  .formeditpresentation .borderbor[data-widget=Employee] .title {
+    display: inline-block; }
+  .formpresentation .borderbor[data-widget=Department] .rcontent,
+  .formpresentation .borderbor[data-widget=Employee] .rcontent,
+  .formeditpresentation .borderbor[data-widget=Department] .rcontent,
+  .formeditpresentation .borderbor[data-widget=Employee] .rcontent {
+    float: left;
+    width: 635px;
+    min-height: 33px;
+    margin-left: 73px; }
+    .formpresentation .borderbor[data-widget=Department] .rcontent ul,
+    .formpresentation .borderbor[data-widget=Employee] .rcontent ul,
+    .formeditpresentation .borderbor[data-widget=Department] .rcontent ul,
+    .formeditpresentation .borderbor[data-widget=Employee] .rcontent ul {
+      width: 100%; }
+    .formpresentation .borderbor[data-widget=Department] .rcontent li .filename,
+    .formpresentation .borderbor[data-widget=Employee] .rcontent li .filename,
+    .formeditpresentation .borderbor[data-widget=Department] .rcontent li .filename,
+    .formeditpresentation .borderbor[data-widget=Employee] .rcontent li .filename {
+      width: auto;
+      max-width: 500px;
+      padding: 0px 5px;
+      margin-left: 10px; }
+  .formpresentation .borderbor[data-widget=Department] .rcontent.read,
+  .formpresentation .borderbor[data-widget=Employee] .rcontent.read,
+  .formeditpresentation .borderbor[data-widget=Department] .rcontent.read,
+  .formeditpresentation .borderbor[data-widget=Employee] .rcontent.read {
+    margin-left: -1px;
+    width: 705px; }
+  .formpresentation .borderbor[data-widget=Department] .field-description,
+  .formpresentation .borderbor[data-widget=Employee] .field-description,
+  .formeditpresentation .borderbor[data-widget=Department] .field-description,
+  .formeditpresentation .borderbor[data-widget=Employee] .field-description {
+    float: left;
+    margin-left: 90px;
+    width: 695px; }
+  .formpresentation .borderbor[data-widget=FileComponent] ul,
+  .formpresentation .borderbor[data-widget=ImageComponent] ul,
+  .formeditpresentation .borderbor[data-widget=FileComponent] ul,
+  .formeditpresentation .borderbor[data-widget=ImageComponent] ul {
+    float: left;
+    width: 620px;
+    position: relative; }
+  .formpresentation .borderbor[data-widget=FileComponent] .field-description,
+  .formpresentation .borderbor[data-widget=ImageComponent] .field-description,
+  .formeditpresentation .borderbor[data-widget=FileComponent] .field-description,
+  .formeditpresentation .borderbor[data-widget=ImageComponent] .field-description {
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 592px;
+    padding-top: 1px;
+    margin-left: 90px; }
+  .formpresentation .borderbor[data-widget=FileComponent] .btn,
+  .formpresentation .borderbor[data-widget=ImageComponent] .btn,
+  .formeditpresentation .borderbor[data-widget=FileComponent] .btn,
+  .formeditpresentation .borderbor[data-widget=ImageComponent] .btn {
+    cursor: pointer;
+    right: 15px; }
+  .formpresentation .borderbor li label,
+  .formeditpresentation .borderbor li label {
+    cursor: pointer; }
+  .formpresentation .addbtn1,
+  .formeditpresentation .addbtn1 {
+    cursor: pointer; }
+  .formpresentation .borderbor[data-widget=DateInterval] input,
+  .formpresentation .borderbor[data-widget=DateComponent] input,
+  .formeditpresentation .borderbor[data-widget=DateInterval] input,
+  .formeditpresentation .borderbor[data-widget=DateComponent] input {
+    cursor: default; }
+  .formpresentation .borderbor[data-widget=Text] .readtext,
+  .formeditpresentation .borderbor[data-widget=Text] .readtext {
+    margin-left: 3px; }
+
+.datetimepicker {
+  width: 320px;
+  padding: 4px; }
+
+.datetimepicker td, .datetimepicker th {
+  text-align: center;
+  width: 14.6%;
+  height: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: none; }
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 11px;
+  line-height: 1.42857143; }
+
+.batchlistwin {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  width: 820px;
+  height: 450px;
+  margin-left: -330px;
+  background: #fff;
+  border-radius: 3px;
+  -moz-box-shadow: 0px 5px 15px 0px rgba(192, 192, 192, 0.53);
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(192, 192, 192, 0.53);
+  box-shadow: 0px 5px 15px 0px rgba(192, 192, 192, 0.53);
+  z-index: 100; }
+  .batchlistwin .title {
+    height: 44px;
+    line-height: 44px;
+    background: #57c8f2;
+    color: #aae2fb; }
+    .batchlistwin .title i {
+      right: 15px;
+      color: #fff; }
+    .batchlistwin .title span {
+      color: #fff;
+      line-height: 40px;
+      margin-left: 10px; }
+  .batchlistwin .minlistbor {
+    width: 100%;
+    height: 406px; }
+    .batchlistwin .minlistbor span:nth-child(1) {
+      width: 15%; }
+    .batchlistwin .minlistbor span:nth-child(2) {
+      width: 35%; }
+    .batchlistwin .minlistbor span:nth-child(3) {
+      width: 15%; }
+    .batchlistwin .minlistbor span:nth-child(4) {
+      width: 35%; }
+    .batchlistwin .minlistbor ul {
+      width: 100%;
+      display: inline-block; }
+    .batchlistwin .minlistbor li {
+      width: 100%;
+      min-height: 52px;
+      line-height: 52px;
+      text-align: center;
+      border-bottom: 1px dashed #e8e8e8; }
+  .batchlistwin .titlethtop2 {
+    background: #f7f7f7;
+    height: 40px;
+    line-height: 40px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    border-bottom: 1px solid #e8e8e8; }
+  .batchlistwin .batchtips {
+    line-height: 30px;
+    text-align: center; }
+
+.zhijipd .textvalbor,
+.zhijipd2 .textvalbor {
+  padding-bottom: 5px; }
+  .zhijipd .textvalbor input,
+  .zhijipd2 .textvalbor input {
+    margin-top: -3px;
+    width: 300px;
+    height: 26px;
+    line-height: 26px;
+    background: #fff;
+    text-align: left;
+    color: #333;
+    border-radius: 3px;
+    border: 1px solid #e1e1e1; }
+
+.zhijipd textarea,
+.zhijipd2 textarea {
+  margin-top: 5px; }
+
+.formpreviewbor {
+  top: 112px; }
+  .formpreviewbor .toptitle > span {
+    width: 315px;
+    margin-left: 0px;
+    display: inline-block;
+    position: relative; }
+    .formpreviewbor .toptitle > span i {
+      margin-left: 5px; }
+  .formpreviewbor .imgbor40 {
+    position: absolute !important; }
+
+.formpresentation.zindex {
+  z-index: 255;
+  top: 112px;
+  margin-left: -360px; }
+
+.addwinshowdata1 {
+  overflow: hidden;
+  overflow-y: auto;
+  left: 24px;
+  right: 24px;
+  top: 60px;
+  bottom: 170px; }
+  .addwinshowdata1 .applyprogress .title {
+    width: 100%;
+    margin-top: 0px; }
+
+.selectedDepartswin {
+  height: 380px; }
+
+.formzindex {
+  z-index: 300;
+  top: 112px;
+  margin-left: -360px; }
+
+#flow-preview input {
+  width: 120px;
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid #e1e1e1;
+  margin-top: -3px; }
+
+#flow-preview select {
+  background: white !important;
+  height: 27px;
+  margin-top: -4px; }
+
+.addworktimeselectbor select {
+  width: 418px; }
+
+.setprocessobr input[type=text]:disabled,
+.agreeAddwork input[type=text]:disabled,
+.timesbor input[type=text]:disabled,
+.createforms input[type=text]:disabled,
+.pbcreateformlib input[type=text]:disabled {
+  background: white !important; }
+
+#formpresentation .borderbor[data-widget=DividingLine],
+#formpresentation_edit .borderbor[data-widget=DividingLine] {
+  border: 0px solid #e8e8e8;
+  background: none; }
+
+.ui-widget-winbor.isrequired .widget-required {
+  left: 5px; }
+
+.addworktipsbor {
+  margin-left: 92px;
+  margin-top: 15px; }

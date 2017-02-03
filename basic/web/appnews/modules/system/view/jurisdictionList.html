@@ -1,0 +1,78 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span class="selected"><a ui-sref="main.system.jurisdictionList">员工管理</a></span>
+	    <span><a ui-sref="main.system.roleList">角色管理</a></span>
+	    <span><a ui-sref="main.system.controllerList">控制器动作列表页</a></span>
+    </em>
+	<a ui-sref="main.system.jurisdictionList.add_staff" class="add_staff btn_add" id="add_staff"><i>添加员工</i></a>
+</div>
+<!--顶部搜索-->
+<div class="w100">
+	<div class="pbsearchbor">
+		<div class="selectbor porela">
+			<span id="status">角色</span>
+			<i class="pbiconfont">&#xe60f;</i>
+			<ul class="listbor poabso block" ng-if="attend.isStatusWin">
+				<li ng-repeat="item in attend.arrSearchStatus">
+					<a href="javascript:void(0);">{{item.statusstr}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="inblock minscroll porela nanoList">
+            <input class="submitter" type="text" placeholder="部门"/>
+            <i class="pbiconfont poabso down-arrow">&#xe60f;</i>
+            <ul class="listbor poabso block">
+                <li><a href="javascript:void(0);"></a></li>
+            </ul>
+       </div>
+		<div class="searchbor porela inblock query_btn">
+			<i class="pbiconfont poabso down_btn">&#xe610;</i>
+			<input type="text" class="inputtext noborder searchinputtext fl" placeholder="请输入员工姓名搜索"/>
+		</div>
+		<div class="inblock query_btn">
+			<button class="btn blue fl border_none">查询</button>
+		</div>
+	</div>
+</div>
+
+<div class="system_list clear">
+	<table class="system_table f16">
+		<thead>
+			<tr>
+				<td>用户ID</td>
+				<td>姓名</td>
+				<td>所属部门</td>
+				<td>用户名</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody class="system_list_status">
+			<tr>
+				<td>1</td>
+				<td>日报</td>
+				<td>项目中心-游戏项目部-棋牌项目组</td>
+				<td>lily@supernano.com</td>
+				<td>
+					<a href="javascript:;" class="edit_style">编辑</a>
+					<a ui-sref="main.system.jurisdictionList.jurisdiction_setting" href="#" class="jurisdiction_style">权限设置</a>
+					<a href="javascript:;" class="operation_style del_style">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--删除弹框-->
+	<div class="jurisdiction_del ng-scope ng-hide" style="display: block" ng-show="!vacationMgn.popupCtr">
+		<div class="header f18">提示</div>
+		<div class="main">
+			<div class="confirm_del f20">确认删除员工？</div>
+			<div class="jurisdiction_del_btn">
+				<button class="btns">确定</button>
+				<button class="btns gray">取消</button>
+			</div>
+		</div>
+	</div>
+	<!--分页开始-->
+	<div paging page-object="page" click-function="page_fun"></div>
+	<!--分页结束-->
+</div>

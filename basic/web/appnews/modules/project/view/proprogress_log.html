@@ -1,0 +1,46 @@
+
+
+
+
+
+
+<!--项目操作日志-->
+<div class="mt20 border_bg poabso promemberlogbor">
+
+     <div class="titletop pbcd1 of">
+          <div class="left fl">项目操作日志</div>
+          <div class="right fr" ng-click="project.returnGo()">
+               <a href="javascript:;">项目成员进度></a>
+          </div>
+     </div>
+
+
+     <div class="w100 poabso" id="scroll">
+         <div class="titlethtop flex pbc">
+              <span>时间</span>
+              <span>操作人</span>
+              <span>操作日志</span>
+         </div>
+
+         <ul  ng-repeat="item in project.proLog">
+             <li class="flex" ng-repeat="itemsub in item.subCon">
+                 <span ng-if="$index==0">{{item.date}} {{item.week}} {{itemsub.time}}</span>
+                 <span class="time fl" ng-if="$index!=0">{{itemsub.time}}</span>
+                 <span class="porela">
+                      <div class="person of">
+                          <div class="img40bor poabso">
+                              <img ng-src="{{itemsub.head_img_path}}">
+                          </div>
+                          <div class="fl name omit">
+                              {{itemsub.real_name}}
+                          </div>
+                      </div>
+                 </span>
+                 <span class="break">{{itemsub.content}}</span>
+             </li>
+         </ul>
+
+     </div>
+
+</div>
+<!--项目操作日志-->

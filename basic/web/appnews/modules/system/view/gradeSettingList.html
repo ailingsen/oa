@@ -1,0 +1,71 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span><a ui-sref="main.system.skillList">技能管理</a></span>
+	    <span class="selected"><a ui-sref="main.system.gradeSettingList">等级设置</a></span>
+    </em>
+	<a href="JavaScript:;" class="add_staff btn_add" data-ng-click="skillLevel.addskillLevel()"><i>添加技能等级</i></a>
+</div>
+<div class="grade_title f16">
+	等级设置分数请从0开始
+</div>
+<div class="system_list clear">
+	<table class="grade_table">
+		<thead class="tablehc">
+			<tr>
+				<td>等级</td>
+				<td>头衔</td>
+				<td>分数</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody class="system_list_status">
+			<tr ng-repeat="level in skillLevel.skillLevel_list">
+				<td>{{$index+1}}</td>
+				<td ng-show="!skillLevel.editeskillLevelWin[$index]">{{level.title}}</td>
+				<td ng-show="skillLevel.editeskillLevelWin[$index]">
+					<input type="text" placeholder="请输入头衔等级" class="f16" data-ng-model="skillLevel_param.title"/>
+				</td>
+				<td ng-show="!skillLevel.editeskillLevelWin[$index]">{{level.point}}</td>
+				<td ng-show="skillLevel.editeskillLevelWin[$index]">
+					<input type="text" placeholder="请输入分数" class="f16" data-ng-model="skillLevel_param.point"/></td>
+				</td>
+				<td ng-show="!skillLevel.editeskillLevelWin[$index]">
+					<a href="javascript:;" class="edit_style" data-ng-click="skillLevel.editeSkillLevel(level, $index)">编辑</a>
+					<a href="javascript:;" class="operation_style" data-ng-click="skillLevel.isDelskillLevel(level.skill_level_id)">删除</a>
+				</td>
+				<td ng-show="skillLevel.editeskillLevelWin[$index]">
+					<a href="javascript:;" class="operation_style grade_confirm" data-ng-click="skillLevel.saveEdite()">确定</a>
+				</td>
+
+			</tr>
+			<tr ng-show="skillLevel.addWin">
+				<td>{{skillLevel_param_add.level}}</td>
+				<td><input type="text" placeholder="请输入头衔等级" class="f16" data-ng-model="skillLevel_param_add.title"/></td>
+				<td><input type="text" placeholder="请输入分数" class="f16" data-ng-model="skillLevel_param_add.point"/></td>
+				<td>
+					<a href="javascript:;" class="operation_style grade_confirm" data-ng-click="skillLevel.saveAdd()">确定</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--删除弹框-->
+	<div class="jurisdiction_del ng-scope" style="display: block" ng-show="skillLevel.delskillLevelWin">
+		<div class="header f18">提示</div>
+		<div class="main">
+			<div class="confirm_del f20">确认删除？</div>
+			<div class="jurisdiction_del_btn">
+				<button class="btns" data-ng-click="skillLevel.delskillLevel()">确定</button>
+				<button class="btns gray" data-ng-click="skillLevel.hide()">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--提示框-->
+<notice message="skillLevel.noticeService.message" type="skillLevel.noticeService.notice_type" gourl="skillLevel.noticeService.gourl">></notice>
+
+<!--空数据-->
+<div class="empty-icon" ng-if="skillLevel.skillLevel_list.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>暂时没有相关数据</p>
+</div>

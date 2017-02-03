@@ -1,0 +1,57 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span isperm pcode="SystemScorePersonal" ><a ui-sref="main.system.personalNanoCoinList">个人纳米币管理</a></span>
+	    <span isperm pcode="SystemScoreGroup" ><a ui-sref="main.system.departmentNanoCoinList">部门纳米币管理</a></span>
+	    <span isperm pcode="SystemScoreSet"  class="selected"><a ui-sref="main.system.personalNanoCoinSet">纳米币设置</a></span>
+   </em>
+</div>
+
+<div class="nano_set_box clear">
+	<!--个人纳米币设置-->
+	<div class="nano_set personalNano_set">
+		<div class="nano_set_title f16">
+			<p>个人纳米币设置</p>
+		</div>
+		<div class="nano_set_content f16">
+			<div class="nano_set_leftContent">
+				<div class="nano_set_topContent">
+					<i>调整周期：</i>
+					<select data-ng-model="score.selectedCycle1" ng-options='values as values.label for values in score.cycle'>
+					</select>
+					<em class="hint">周期开始日00：00系统自动调整</em>
+				</div>
+				<div class="nano_set_bottomContent">
+					<i>调整数量：</i>
+					<label><input type="text"  data-ng-model="score.scoreCronlist[0].params"/></label>
+					<em class="nano_coin">纳米币</em>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!--部门纳米币设置-->
+	<div class="nano_set departmentNano_set">
+		<div class="nano_set_title f16">
+			<p>部门纳米币设置</p>
+		</div>
+		<div class="nano_set_content f16">
+			<div class="nano_set_leftContent">
+				<div class="nano_set_topContent">
+					<i>调整周期：</i>
+					<select data-ng-model="score.selectedCycle2" ng-options='values as values.label for values in score.cycle'>
+					</select>
+					<em class="hint">周期开始日00：00系统自动调整</em>
+				</div>
+				<div class="nano_set_bottomContent">
+					<i>调整数量：</i>
+					<label><input type="text"  data-ng-model="score.scoreCronlist[1].params"/></label>
+					<em class="nano_coin ">纳米币</em>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btnsbor save_btn">
+		<button class="btns" data-ng-click="score.saveEdite()">保存</button>
+	</div>
+</div>

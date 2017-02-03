@@ -1,0 +1,24 @@
+<!--列表开始-->
+<div class="listWrap clear">
+    <div class="msg-head">
+        <i class="iconfont cp" ui-sref="main.index">&#xe616;</i>
+        我的工作-任务
+    </div>
+    <table class="msg-table">
+        <tbody>
+        <tr ng-repeat="item in msg.msgInfo" ng-click="msg.goDetail(item)">
+            <td class="w5 tac">{{$index+1}}</td>
+            <td class="w60">【{{item.real_name}}】{{item.title}}：{{item.task_title}}</td>
+            <td class="w10 tac">{{item.create_time}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+    <div class="empty-icon" ng-if="msg.msgInfo.length==0">
+        <i class="iconfont">&#xe62d;</i>
+        <p>数据不存在了~</p>
+    </div>
+</div>
+<!--列表结束-->

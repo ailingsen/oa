@@ -1,0 +1,70 @@
+ 
+<div class="ui-widget-winbor uiwinabs block pfixed isrequired" style="display: block">
+    <div class="toptitle">
+        弹性上班申请
+    </div>
+    <div class="scrollbor pfixed">
+
+        <div class="borderbor porela timesbor" style="height:125px;">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">申请时间 :</span>
+            <div class="porela inblock fl w100">
+
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="flexibleWork.beginTime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="flexibleWork.beginTime" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="fl w100">——</span>
+            <div class="porela inblock fl w100">
+
+                <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="flexibleWork.endTime" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="flexibleWork.endTime"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="clear">&nbsp;</span>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor addworktimeselectbor hauto" >
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">加班时间：</span>
+            <select class="fl" data-ng-model="flexibleWork.id" style="margin-top:10px;">
+                <option ng-repeat="item in flexibleWork.timePoint" value="{{item.id}}">{{item.timeOutData}}</option>
+            </select>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23">详细说明：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入详细说明(最多输入100个字)" data-ng-model="flexibleWork.desc " style="height:120px"></textarea>
+        </div>
+
+        <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <!-- <span class="widget-required" style="display: inline;">*</span> -->
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul style=" width: 100%;">
+                <li class="porela" ng-repeat='item in flexibleWork.files'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a target="_blank" href="{{flexibleWork.file_root}}/{{item.file_path}}/{{item.real_name}}">{{item.file_name}}</a></div>
+                    <!-- <div class="filesize fl omit">{{item.file_size/1024 | number:2}}kb</div> -->
+                    <div class="del fr" ng-click="flexibleWork.delFiles($index)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso"><upload-modal upload-attrs="addFileBtn" att-object="att">添加附件</upload-modal></div>
+        </div>
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns " data-ng-click="flexibleWork.submitRankInfo()">提交</button>
+            <!-- <button class="btns gray" data-ng-click="flexibleWork.cancel()">取消</button> -->
+        </div>
+    </div>
+</div>
+<!--弹性上班申请创建结束

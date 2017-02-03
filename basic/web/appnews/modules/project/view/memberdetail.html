@@ -1,0 +1,77 @@
+<!--成员详情 弹窗 开始-->
+<style>
+	.member_box {
+		width: 832px;
+		min-height: 600px;
+		top: 112px;
+		left: 50%;
+		margin-left: -360px;
+		padding: 24px;
+		bottom: 70px;
+		z-index: 600;
+		position: fixed;
+	}
+	
+	.member_table_box {
+		margin-top: 20px;
+		overflow-y: auto;
+		height: 570px;
+	}
+	
+	.member_table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 14px;
+	}
+	
+	.member_table thead tr th,
+	.member_table tbody tr td {
+		width: 25%;
+		text-align: center;
+		border: 1px solid #e1e1e1;
+		padding: 10px 0;
+	}
+	
+	.member_table thead {
+		background: #F7F7F7;
+		color: #b8b8b8;
+	}
+	.work_record{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 200px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 16px;
+	}
+</style>
+<div class="ui-widget-winbor member_box prodetialbor of block" data-ng-if="project.isPreMenReport">
+	<div class="toptitle porela">
+        <i class="pbiconfont poabso closebtn pointer" ng-click="project.closeProMemReport()">&#xe61d;</i>
+    </div>
+	<div class="scrollbor scroll">
+		<div class="member_table_box">
+			<table class="member_table">
+				<thead>
+					<tr>
+						<th>提交者</th>
+						<th>工作内容</th>
+						<th>状态</th>
+						<th>提交时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in project.proMemReportList">
+						<td>{{item.real_name}}</td>
+						<td>{{item.work_content}}</td>
+						<td ng-if="item.status==1">待审阅</td>
+                        <td ng-if="item.status==2">已审阅</td>
+						<td>{{item.commit_time_format}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div ng-if="project.proMemReportList.length==0" class="work_record">无工作记录</div>
+</div>

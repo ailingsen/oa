@@ -1,0 +1,94 @@
+<!--顶部开始-->
+<div class="w100">
+    <div class="pbsearchbor checkTable_header">
+        <div class="inblock minscroll porela submitterBox">
+        	<span ng-click="work.workSubmitterButton($event)">
+	            <input class="submitter" type="text" placeholder="提交者" ng-keyup="work.searchUserInfo();" ng-model="work.search_real_name"/>
+	            <i class="pbiconfont poabso down-arrow" data-ng-click="work.searchAllUserInfo();work.allMem=!work.allMem">&#xe60f;</i>
+            </span>
+            <ul class="system_department poabsof16"id="submitter">
+                <li ng-repeat="item in work.userInfo" data-ng-click="work.selectUser(item)"><a href="javascript:void(0);" class="omit ng-binding">{{item.real_name}}</a></li>
+            </ul>
+        </div>
+        <div class="selectbor porela">
+        	<span ng-click="work.workStatusButton($event)">
+	            <span>{{work.status.statusstr}}</span>
+	            <i class="pbiconfont poabso">&#xe60f;</i>
+            </span>
+            <ul class="listbor poabso"id="workStatus">
+                <li ng-repeat="item in work.arrSearchStatus"><a href="javascript:void(0);"class="omit" ng-click="work.selectStatus(item)">{{item.statusstr}}</a></li>
+            </ul>
+        </div>
+        <div class="selectbor porela">
+        	<span ng-click=" work.workTypeButton($event)">
+	            <span>{{work.type.statusstr}}</span>
+	            <i class="pbiconfont poabso">&#xe60f;</i>
+            </span>
+            <ul class="listbor poabso"id="workType">
+                <li ng-repeat="item in work.arrSearchType"><a href="javascript:void(0);" ng-click="work.selectType(item)" class="omit" >{{item.statusstr}}</a></li>
+            </ul>
+        </div>
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="task_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="taskobj.searchstarttime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="taskobj.searchstarttime" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+         <span class="timeline inblock">—</span>
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="taskobj.searchendtime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="taskobj.searchendtime" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+
+        <div class="searchbor porela inblock">
+            <div class="searchbors poabso demand_btn">
+                <button class="btn blue fl" data-ng-click="work.searchButton()">查询</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--工作报告列表开始-->
+<div class="workStatement_ist clear">
+    <table class="workStatement_table">
+        <thead class="tablehc">
+            <tr>
+                <td>序号</td>
+                <td>工作报告类型</td>
+                <td>工作报告周期</td>
+                <td>提交者</td>
+                <td>状态</td>
+                <td>提交时间</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody class="workStatement_status">
+        <tr ng-repeat="item in work.workList">
+            <td>{{$index+1}}</td>
+            <td ng-if="item.type==1">日报</td>
+            <td ng-if="item.type==2">周报</td>
+            <td>{{item.cycle}}</td>
+            <td>{{item.real_name}}</td>
+            <td class="no_submit" ng-if="item.status==0">未提交</td>
+            <td ng-if="item.status==1">待审阅</td>
+            <td ng-if="item.status==2">已审阅</td>
+            <td data-ng-if="item.commit_time != 0">{{item.commit_time*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td data-ng-if="item.commit_time == 0">-</td>
+            <td>
+                <a isperm pcode="WorkstateApproveView" href="javascript:void(0);" data-ng-click="work.showDetail(item.work_id);" class="operation_style" data-ng-if="item.status>0">查看详情</a>
+                <a isperm pcode="WorkstateApproveCheck" href="" class="operation_style" data-ng-if="item.status==0">-</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+</div>
+<ng-include src="'appnews/modules/workStatement/view/workStatement_checked.html'" ></ng-include>
+
+<!--空数据-->
+<div class="empty-icon" ng-if="work.workList.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>您暂时还没有需要审阅的工作报告</p>
+</div>

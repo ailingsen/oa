@@ -1,0 +1,192 @@
+<!--职级未审批 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of readwin" style="display: block" ng-show="apply.rankDetailPopup">
+    <div class="toptitle porela">
+        职级申请
+        <i class="pbiconfont poabso closebtn pointer" data-ng-click="apply.popupCtr('5');apply.popupCtrClose();">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23 wdspacing2">内 容：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>{{apply.rankDetail.data.note}}
+                </textarea>
+        </div>
+
+        <div class="borderbor porela taskfilebor read hauto">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in apply.rankDetail.data.att'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a target="_blank" href="{{apply.file_root}}/{{item.file_path}}/{{item.real_name}}">{{item.file_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size/1024 | number:2}}kb</div>
+                    <div class="btn blue fr poabso" data-ng-click="apply.downFileBtn(item)">下载</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="borderbor porela">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">申 请 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.rankDetail.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.rankDetail.applyer_name}}</div>
+            </div>
+        </div>
+
+        <!--当前审批人-->
+        <div class="borderbor porela" ng-if="apply.rankDetail.handler_name">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">当前审批人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.rankDetail.handler_head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.rankDetail.handler_name}}</div>
+            </div>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor ">
+            <i class="pbiconfont poabso mt2">&#xe614;</i>
+            <span class="fl ml23">申请时间：</span>
+            <span class="sp">{{apply.rankDetail.create_time*1000  | date:'yyyy-MM-dd HH:mm'}}</span>
+        </div>
+        <div class="borderbor porela nomb applyprogress hauto" data-ng-if="apply.rankDetail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+            <ul>
+                <!--同意-->
+                <li class="porela" ng-repeat="itemVerRed in apply.rankDetail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img ng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.isDetailBtn && (apply.rankDetail.current_handler == 1)">
+        <div class="btnsbor">
+            <button class="btns " data-ng-if="apply.rankDetail.apply.last_step!=true" data-ng-click="apply.popupCtr('7')">同意</button>
+            <button class="btns " data-ng-if="apply.rankDetail.apply.last_step=true" data-ng-click="apply.popupCtr('11')">同意</button>
+            <button class="btns gray" data-ng-click="apply.popupCtr('9')">拒绝</button>
+        </div>
+    </div>
+</div>
+
+<!--职级未审批 可读详情 结束-->
+<div class="ui-widget-winbor refusewin of zhijipd" style="display: block;" ng-show="apply.showVieryRankPopup">
+    <div class="toptitle">
+        同意
+    </div>
+
+    <div class="delaybor fl mt20 textvalbor">
+        <span class="fl ml20 title pbc">职级评定：</span>
+        <div class="porela inblock fl">
+            <input data-ng-model="apply.level_rank" type="text" class="inputtext" />
+        </div>
+    </div>
+
+    <div class="tipstitle pbc clear">
+        请填写同意原因：
+    </div>
+    <textarea name="textarea" class="noborder fl" placeholder="非必填，最多输入50个字" data-ng-model="apply.comment"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.rankVieryCtr()">同意</button>
+            <button class="btns gray" data-ng-click="apply.popupCtr('8')">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的职级审批审批g-弹窗（最后一步）开始 -->
+<div class="ui-widget-winbor refusewin of zhijipd2 " style="display: block; height: 280px !important;" ng-show="apply.showVieryLastRankPopup" data-ng-if="apply.rankDetail.last_step==true">
+    <div class="toptitle">
+        同意
+    </div>
+    <div class="delaybor fl mt10 textvalbor mt30">
+        <span class="fl ml20 title pbc" style="margin-right: 13px;">职级评定：</span>
+        <div class="porela inblock fl">
+            <input data-ng-model="apply.level_rank" type="text" class="inputtext" />
+        </div>
+    </div>
+    <div class="delaybor fl mt10 textvalbor">
+        <span class="fl ml20 title pbc">纳米币奖励：</span>
+        <div class="porela inblock fl">
+            <input data-ng-model="apply.score" type="text" class="inputtext" />
+        </div>
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.rankVieryLastCtr(apply.rankDetail.step, apply.rankDetail.last_step)">同意</button>
+            <button class="btns gray" ng-click="apply.showVieryLastRankPopup=false">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的职级审批审批g-弹窗（最后一步）结束 -->
+
+<!-- 01申请a-我的职级审批g-弹窗（第一步）开始 -->
+<div class="ui-widget-winbor refusewin of zhijipd2 " style="display: block;" ng-show="apply.showVieryLastRankPopup" data-ng-if="apply.rankDetail.step==1 && apply.rankDetail.last_step==false">
+    <div class="toptitle">
+        同意
+    </div>
+    <div class="delaybor fl mt10 textvalbor mt30">
+        <span class="fl ml20 title pbc">职级评定：</span>
+        <div class="porela inblock fl">
+            <input data-ng-model="apply.level_rank" type="text" class="inputtext" />
+        </div>
+    </div>
+    <textarea name="textarea" class="noborder fl" placeholder="非必填，最多输入50个字" data-ng-model="apply.comment"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.rankVieryLastCtr(apply.rankDetail.step, apply.rankDetail.last_step)">同意</button>
+            <button class="btns gray" ng-click="apply.showVieryLastRankPopup=false">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的职级审批g-弹窗（第一步）结束 -->
+
+<!-- 01申请a-我的职级审批g-弹窗（其他步骤）开始 -->
+<div class="ui-widget-winbor refusewin of " style="display: block" ng-show="apply.showVieryLastRankPopup" data-ng-if="apply.rankDetail.step!=1 && apply.rankDetail.last_step==false">
+    <div class="toptitle">
+        同意
+    </div>
+    <div class="tipstitle pbc">
+        请填写同意原因：
+    </div>
+    <textarea name="textarea" class="noborder fl" placeholder="非必填，最多输入50个字" data-ng-model="apply.comment"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.rankVieryLastCtr(apply.rankDetail.step, apply.rankDetail.last_step)">同意</button>
+            <button class="btns gray"  ng-click="apply.showVieryLastRankPopup=false">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的职级审批g-弹窗（其他步骤）结束 -->
+<div class="ui-widget-winbor refusewin of" style="display: block;" ng-show="apply.showRefuseRankPopup">
+    <div class="toptitle">
+        驳回
+    </div>
+    <div class="tipstitle pbc">
+        请填写拒绝原因：
+    </div>
+    <textarea name="textarea"  data-ng-model="apply.comment" class="noborder fl" placeholder="必填，最多输入50个字"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.rankRefuseCtr()">拒绝</button>
+            <button class="btns gray" data-ng-click="apply.popupCtr('10')">取消</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<!--公告详情开始-->
+    <div class="notice-window f16" ng-if="notice.isNoticeDetailWin">
+        <div class="notice-window-content">
+            <i class="iconfont icon-close" ng-click="notice.noticeCloseDetail()">&#xe603;</i>
+            <div class="content-common content-title">
+                <span>{{notice.noticeDetail.title|cut:true:45:' ...'}}</span>
+            </div>
+            <div class="content-common content-content" ng-bind-html="notice.noticeDetail.content">
+            </div>
+            <div class="content-common content-load">
+                <ul>
+                    <li ng-repeat="attitem in notice.noticeDetail.att">
+                         <span ng-class="{'annexHide':$index>0}"><i class="pbiconfont icon-annex">&#xe619;</i> 附&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件：</span>
+                        <i class="file-type icon-{{attitem.file_type}}"></i> <span class="reserve">{{attitem.file_name | cut:true:20:' ...'}}</span> <span>{{attitem.file_size/1024 | number:2}}KB</span>
+                        <button class="btn fr" ng-click="notice.downFileBtn(attitem)">下载</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-common content-editor">
+                发布人：<span>{{notice.noticeDetail.real_name}}</span><br/>
+                发布时间：<span>{{notice.noticeDetail.create_time_f}}</span>
+            </div>
+        </div>
+        <div class="del-btn">
+            <input class="btns gray" type="button" value="删除" ng-click="notice.openDelConfirmWin(notice.noticeDetail,1)" ng-if="notice.is_manage"/>
+        </div>
+    </div>
+<!--公告详情结束-->

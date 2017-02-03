@@ -1,0 +1,402 @@
+@charset "UTF-8";
+/*工作报告审阅*/
+/*按钮控制*/
+.demand_btn button {
+  border: none;
+}
+
+/*下拉控制*/
+.checkTable_header div .submitter {
+  box-sizing: border-box;
+  width: 128px;
+  height: 28px;
+  border: 1px solid #DFDFDF;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  padding-right: 24px;
+}
+.checkTable_header div .down-arrow {
+  left: 104px;
+  top: 4px;
+  color: #B4B4B4;
+}
+.checkTable_header div .down-arrow:hover {
+  cursor: pointer;
+  color: #57C8F2;
+}
+
+/*表格操作*/
+.workStatement_ist {
+  width: 100%;
+}
+
+.workStatement_table {
+  width: 100%;
+  background: #fff;
+}
+.workStatement_table thead tr,
+.workStatement_table tbody tr {
+  border: 1px solid #f1f1f1;
+}
+.workStatement_table thead tr td,
+.workStatement_table tbody tr td {
+  vertical-align: middle;
+  width: 16%;
+  text-align: center;
+}
+.workStatement_table thead tr td:first-child, .workStatement_table thead tr td:last-child,
+.workStatement_table tbody tr td:first-child,
+.workStatement_table tbody tr td:last-child {
+  width: 10%;
+}
+.workStatement_table thead {
+  color: #b8b8b8;
+}
+.workStatement_table thead td {
+  padding: 10px 0;
+}
+.workStatement_table tbody td {
+  padding: 20px 0;
+}
+
+/*已审阅*/
+.workStatement_checked_box {
+  position: absolute;
+  left: 50%;
+  margin-left: -435px;
+  top: 70px;
+  box-sizing: border-box;
+  width: 870px;
+  height: 870px;
+  background: #F7F7F7;
+  border-radius: 5px;
+  padding: 30px;
+  z-index: 500;
+}
+
+.workStatement_checked_boxshadow {
+  -webkit-box-shadow: 0 0 12px rgba(128, 125, 125, 0.36);
+  box-shadow: 0 0 12px rgba(128, 125, 125, 0.36);
+}
+
+/*工作报告审阅头部*/
+.workStatement_head {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.workStatement_head span {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  width: 33%;
+}
+.workStatement_head span:first-child {
+  float: left;
+  text-align: left;
+  color: #B8B8B8;
+}
+.workStatement_head span a {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: url("../images/close_btn.png") no-repeat;
+  background-size: 100% 100%;
+  float: right;
+  text-align: right;
+}
+
+.scroll_box {
+  width: 810px;
+  height: 670px;
+}
+
+/*工作报告审阅工作项*/
+.workStatement_project {
+  width: 100%;
+  border: 1px solid #ECECEC;
+  margin-bottom: 70px;
+}
+.workStatement_project .same_style {
+  width: 100%;
+  color: #616161;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  height: 50px;
+  line-height: 50px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-bottom: 1px solid #ECECEC;
+}
+.workStatement_project .same_style .work_icon {
+  width: 16px;
+  height: 16px;
+  background: url("../images/week_work.png") no-repeat;
+  background-position: center left;
+  vertical-align: middle;
+  padding-left: 23px;
+}
+
+/*查看详情*/
+.workStatement_project .check_details_ceontent {
+  margin-bottom: 10px;
+}
+.workStatement_project .check_details_ceontent li {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ECECEC;
+}
+.workStatement_project .check_details_ceontent li span {
+  float: left;
+  margin-left: 30px;
+  color: #616161 !important;
+}
+.workStatement_project .check_details_ceontent li em {
+  font-style: normal;
+  float: right;
+  margin-right: 30px;
+}
+.workStatement_project .check_details_ceontent li .complete {
+  color: #a9d96c;
+}
+
+.MS_week_content textarea,
+.MS_next_content textarea {
+  border: none;
+}
+
+.tomorrow_work {
+  position: relative;
+}
+
+/*按钮*/
+.checked_btn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -65px;
+  text-align: center;
+}
+
+.workStatement_checked_btn {
+  text-align: center;
+}
+
+/*已审阅图片*/
+.already_checked {
+  width: 185px;
+  height: 124px;
+  position: absolute;
+  bottom: 60%;
+  right: 10%;
+}
+.already_checked img {
+  display: inline-block;
+  width: 100%;
+}
+
+/***********************我的工作报告*********************/
+/*写工作报告*/
+.work_project {
+  margin-bottom: 15px;
+}
+.work_project p {
+  color: #616161;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.week_work_details ul li {
+  overflow: hidden;
+  margin-bottom: 7px;
+}
+.week_work_details ul li span {
+  color: #616161;
+  float: left;
+}
+.week_work_details ul li select {
+  min-width: 135px;
+  border: 1px solid #e1e1e1;
+  float: right;
+}
+.week_work_details ul li:last-child {
+  margin-bottom: 15px;
+}
+
+.job_content {
+  margin-bottom: 20px;
+}
+.job_content textarea {
+  display: block;
+  width: 98%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 10px;
+  padding-top: 7px;
+  margin-left: 10px;
+  margin-top: -12px;
+  border: 1px solid #e8e8e8;
+}
+.job_content textarea::-webkit-input-placeholder {
+  color: #b8b8b8;
+}
+.job_content:before {
+  display: inline-block;
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: url(../images/sign.png) no-repeat left center;
+}
+
+/*保存成功*/
+.save_succeed {
+  width: 235px;
+  height: 55px;
+  line-height: 55px;
+  background: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  text-align: center;
+  border-radius: 3px;
+}
+.save_succeed span {
+  color: #D1D1D1;
+}
+
+/*编辑*/
+.workStatement_project .myWorkStatement_edit_content li {
+  width: 100%;
+}
+.workStatement_project .myWorkStatement_edit_content li input {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 67%;
+  border: none !important;
+  padding-left: 30px;
+  color: #B8B8B8;
+}
+.workStatement_project .myWorkStatement_edit_content li select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 5%;
+  border: none;
+}
+.workStatement_project .myWorkStatement_edit_content li .operation_btn {
+  display: inline-block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.workStatement_project .myWorkStatement_edit_content li .operation_btn i {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-left: 5px;
+}
+.workStatement_project .myWorkStatement_edit_content li .operation_btn .del_current {
+  background-image: url("../images/addbtn1.jpg");
+  margin-left: 20px;
+}
+.workStatement_project .myWorkStatement_edit_content li .operation_btn .add_next {
+  background-image: url("../images/addbtn1.jpg");
+}
+
+.workStatement_project #next_week_project li input {
+  width: 84%;
+}
+
+/*表格状态
+ * no_submit 未提交
+ * await_check 待审阅
+ * checked   已审阅
+ * */
+/*操作状态
+ * operation_style 写工作报告   编辑   查看详情 
+ * */
+.workStatement_status tr .no_submit {
+  color: #FF6D5E;
+}
+.workStatement_status tr .await_check {
+  color: #6ccac9;
+}
+.workStatement_status tr .checked {
+  color: #62DD69;
+}
+.workStatement_status tr .operation_style {
+  color: #57c8f2;
+}
+
+.system_department {
+  left: 0;
+  top: 28px;
+  min-width: 127px;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 12px 3px rgba(128, 125, 125, 0.16);
+  border-radius: 3px;
+  max-height: 300px;
+  z-index: 1000;
+  overflow: auto;
+  overflow-x: hidden;
+  display: none;
+}
+
+.system_department li {
+  padding: 5px 0 5px 10px;
+  text-align: left;
+}
+
+.system_department li:hover {
+  background: #F5F5F5;
+  cursor: pointer;
+}
+
+.system_department li:hover a {
+  color: #43B1DA;
+}
+
+/*空数据*/
+@font-face {
+  font-family: 'iconfont';
+  /* project id："178735" */
+  src: url("//at.alicdn.com/t/font_0s4q2efnuel5l8fr.eot");
+  src: url("//at.alicdn.com/t/font_0s4q2efnuel5l8fr.eot") format("embedded-opentype"), url("//at.alicdn.com/t/font_0s4q2efnuel5l8fr.woff") format("woff"), url("//at.alicdn.com/t/font_0s4q2efnuel5l8fr.ttf") format("truetype"), url("//at.alicdn.com/t/font_0s4q2efnuel5l8fr.svg#iconfont") format("svg");
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: 18px;
+}
+
+.empty-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+
+.empty-icon i {
+  font-size: 180px;
+  color: #D1D1D1;
+}
+
+.empty-icon p {
+  margin-top: -20px;
+  font-size: 18px;
+  color: #BFBFBF;
+}

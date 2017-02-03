@@ -1,0 +1,121 @@
+<div class="ui-widget-winbor procreatewin of">
+     <div class="toptitle porela" ng-click="project.returnGo()">
+          <div class="gobackbtn pointer fl">
+               <i class="pbiconfont poabso">&#xe60d;</i>
+               <span>返回</span>
+          </div>
+          <span>编辑项目</span>
+     </div>
+     <div class="scrollbor poabso" id="scroll">
+ 
+          <div class="borderbor of porela protitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">项目名称：</span>
+               <input type="text" class="fl texttitle" ng-model="paramobj.pro_name" placeholder="输入项目标题(最多输入20个字)"/>
+          </div>
+
+          <div class="borderbor of porela openstatebor">
+           	   <i class="pbiconfont poabso">&#xe62e;</i>
+               <span class="fl ml23">公开状态：</span>
+               <label class="pointer porela pbc"><input type="radio" value="1" ng-checked="paramobj.public_type==1" ng-model="paramobj.public_type" nama="openstate" class="pointer"> 公开</label>
+               <label class="pointer porela pbc"><input type="radio" value="2" ng-checked="paramobj.public_type==2" ng-model="paramobj.public_type" nama="openstate" class="pointer"> 内部公开</label>
+               <label class="pointer porela pbc"><input type="radio" value="3" ng-checked="paramobj.public_type==3" ng-model="paramobj.public_type" nama="openstate" class="pointer"> 私密</label>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                 
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">开始时间：</span>
+                <div class="porela inblock fl">
+
+                    <input ng-if="project.status!=1" type="text" name="pro_datestart" id="pro_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborderandleft" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" ng-disabled="project.isEditTime" >
+
+                    <input ng-if="project.status==1" type="text" name="pro_datestart" id="pro_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                    <ul ng-if="project.status==1" class="dropdown-menu" aria-labelledby="dLabel">
+                        <datetimepicker ng-model="paramobj.begin_time" data-on-set-time="project.getWordDay()" data-datetimepicker-config="{ dropdownSelector: '#pro_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                    </ul>
+
+                </div>
+                <span class="fl ml15">——</span>
+                <i class="pbiconfont inblock">&#xe615;</i>
+                <span class="fl ml30">结束时间：</span>
+                <div class="porela inblock fl">
+
+                    <input ng-if="project.status!=1" type="text" name="pro_dateend" id="pro_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborderandleft" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" ng-disabled="project.isEditTime">
+
+                    <input ng-if="project.status==1" type="text" name="pro_dateend" id="pro_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                    <ul ng-if="project.status==1" class="dropdown-menu" aria-labelledby="dLabel">
+                        <datetimepicker ng-model="paramobj.end_time" data-on-set-time="project.getWordDay()" data-datetimepicker-config="{ dropdownSelector: '#pro_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                    </ul>
+
+                </div>
+
+                <div class="fr">共耗时：<span class="pbcb">{{project.workDay}}</span> 天</div>
+                
+                <span class="clear">&nbsp;</span>
+
+          </div>
+
+           
+
+          <div class="porela borderbor hauto promemberbor" id="nomb">
+                <div class="fl title mt10">
+                     <i class="pbiconfont poabso mt2"></i>
+                     <span class="ml21 wdspacing">项目成员：</span>
+                </div>
+
+                <div class="promemberlist of">
+                    <ul>
+                        <!--项目成员列表开始-->
+                        <li ng-repeat="itemmember in paramobj.proMember">
+                            <div class="imgbor40" >
+                                  <div class="imgbor fl">
+                                       <img ng-src="{{itemmember.head_img}}">
+                                  </div>
+                                  <div class="name omit fl">{{itemmember.real_name}}</div>
+                                  <i class="pbiconfont pointer" ng-if="itemmember.owner==0" ng-click="project.delProMem($index)">&#xe61d;</i>
+                            </div>
+                        </li>
+                        <!--项目成员列表结束-->
+                    </ul>
+                </div>
+
+
+
+                <div class="poabso addbtn1 fpgbtn" ng-mouseenter="project.SelectMemWin()" ng-mouseleave="project.SelectMemWin()">
+                    <!--项目成员选择界面 开始-->
+                     <div class="menbersearchbor minscroll block" ng-if="project.isDispMemWin">
+                          <div class="searchbg of porela">
+                               <i class="pbiconfont poabso">&#xe610;</i>
+                               <input type="text" class="noborder" placeholder="搜索" ng-model="project.search_mem"  ng-keyup="project.searchAddMem()"/>
+                          </div>
+                          <ul>
+                              <li class="pointer" ng-repeat='item in project.allMember' ng-click="project.selectMemButton(item)">
+                                  <div class="imgbor fl">
+                                       <img ng-src="{{item.head_img}}">
+                                  </div>
+                                  <div class="name omit fl">
+                                       {{item.real_name}}
+                                  </div>
+                              </li>
+                          </ul>
+                     </div>
+                    <!--项目成员选择界面 结束-->
+                </div>
+
+
+
+
+          </div>
+
+     </div>
+
+
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor"> 
+               <button class="btns" ng-click="project.editButton()">保存</button>
+               <button class="btns gray" ng-click="project.returnGo()">返回</button>
+          </div>
+     </div> 
+</div>

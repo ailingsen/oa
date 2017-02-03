@@ -1,0 +1,264 @@
+/*问题收集*/
+.userResearch_box {
+    .userResearch_content {
+        li {
+            margin-bottom: 20px;
+            background: #fff;
+        }
+    }
+}
+.issue_collect_box {
+    .issue_collect {
+        display: block;
+        height: 40px;
+        background: #f9f9f9;
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            span{
+                float: left;
+                margin-left: 20px;
+                color: #b8b8b8;
+                font-weight: normal;
+                overflow: hidden;
+            } 
+        }
+    }
+}
+.describe {
+    padding-bottom: 20px;
+    p {
+        margin-bottom: 20px;
+        word-break: break-all;
+        color: #616161;
+        ol{
+            margin-left: 18px;
+           li{
+                list-style-type: decimal;
+           }
+        }
+        ul{
+            margin-left: 20px;
+           li{
+                list-style-type: disc;
+           }
+        }
+    }
+    .describe_title{
+        margin-top: 15px;
+        padding: 0 20px;
+    }
+    .describe_title_content{
+        padding: 0 20px;
+    }
+}
+
+/*创建者 日期*/
+.create_box {
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px dashed #ccc;
+    overflow: hidden;
+    color: #b8b8b8;
+    span {
+        float: right;
+        margin-right: 30px;
+    }
+}
+
+/*发布调研*/
+.publishResearch_box{
+        width: 832px;
+        min-height: 600px;
+        top: 30px;
+        left: 50%;
+        margin-left: -440px;
+        z-index: 500;
+        bottom: 30px;
+        position: relative;
+    .publishResearch_content{ 
+        padding: 24px; 
+    }
+}
+.publishResearch_title{
+    height:50px;
+    input{
+        display: block;
+        box-sizing:border-box; 
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        padding-left: 10px;
+        padding-right: -24px;
+        border:1px solid #e8e8e8;
+        &::-webkit-input-placeholder {
+            color: #b8b8b8;
+        }
+    }
+   
+}
+.publishResearch_explain,.editor{
+    margin-top: 25px;
+   textarea{
+        display: block;
+        box-sizing:border-box; 
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        width: 100%;
+        padding-left: 10px;
+        padding-top: 7px;
+        border:1px solid #e8e8e8;
+        letter-spacing: 1px;
+        &::-webkit-input-placeholder {
+           color: #b8b8b8;
+        }
+    } 
+}
+
+.sub_btn{
+    background: #ededed;
+    width: 832px;
+    height: 200px;
+    text-align: center;
+    button{
+        margin-top: 20px;
+    }
+}
+/*我的发布 */
+/*三种状态控制
+ *underway_btn 进行中
+ *end_btn  结束调研
+ *ended_btn 已结束  
+ * */
+.status{
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    button{
+      border: none; 
+      background: #f9f9f9;
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-left: 10px;
+    }
+    .underway_btn{
+        color: #57c8f2;
+    }
+    .end_btn{
+        background: #ff6c60;
+        color: #fff;
+        cursor: pointer;
+    }
+    .ended_btn{
+        color: #b8b8b8;
+    }
+    
+}
+
+/*反馈者*/
+.issue_feedback_box {
+    .issue_feedback_content {
+        li {
+            margin-bottom: 20px;
+            background: #fff;
+            .issue_feedback_title{
+                display: block;
+                padding: 0 27px;
+                background: #f9f9f9;
+                height: 40px;
+                line-height: 40px;
+                span{
+                    color: #b8b8b8;
+                    font-size: 16px;
+                    font-weight: normal;
+                    font-style: normal;
+                    em,i{
+                        font-weight: normal;
+                        font-style: normal;
+                        font-size: 16px;
+                    }
+                } 
+                .feedback_name{
+                   float: left; 
+                }
+                .feedback_time{
+                   float: right; 
+                }
+            }
+            .issue_feedback_describe{
+                margin-top: 20px;
+                padding-bottom: 20px;
+                p {
+                    margin-bottom: 20px;
+                    color: #616161;
+                    padding: 0 27px;
+                    word-break: break-all;
+                }
+            }
+        }
+    }
+}
+
+/*调研详情*/
+.back_box{
+    margin-bottom: 35px;
+    .back_btn{
+        display: inline-block;
+        height: 16px;
+        line-height: 16px;
+        background-size: 100% 100%;
+        background: url(../images/left_btn.png) no-repeat;
+        padding-left: 20px;
+        margin-top: -1px;
+        vertical-align: middle;
+        color: #616161;
+    }
+    span{
+        display: inline-block;
+        color: #b8b8b8;
+        vertical-align: middle;
+        padding-left: 20px;
+    }
+}
+/*按钮居中*/
+.center_btn{
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    button{
+        margin: auto auto;
+    }
+}
+
+/*空数据*/
+@font-face {
+  font-family: 'iconfont';  /* project id："178735" */
+  src: url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.eot');
+  src: url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.eot') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_0s4q2efnuel5l8fr.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont";
+    font-size:18px;
+}
+.empty-icon{
+    position: absolute;
+    left:50%;
+    top:50%;
+    text-align: center;
+    margin-left:-100px;
+    margin-top:-100px;
+}
+.empty-icon i{
+    font-size: 180px;
+    color:#D1D1D1;
+}
+.empty-icon p{
+    margin-top:-20px;
+    font-size: 18px;
+    color:#BFBFBF;
+}

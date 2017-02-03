@@ -1,0 +1,391 @@
+@font-face {
+    font-family: 'iconfont';  /* project id："131891" */
+    src: url('//at.alicdn.com/t/font_54qdrr9xrq5v1jor.eot');
+    src: url('//at.alicdn.com/t/font_54qdrr9xrq5v1jor.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_54qdrr9xrq5v1jor.woff') format('woff'),
+    url('//at.alicdn.com/t/font_54qdrr9xrq5v1jor.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_54qdrr9xrq5v1jor.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont";
+    font-size:18px;
+    padding-right:10px
+}
+button{
+    border: none;
+}
+
+.attend-table{
+    width:100%;
+    background: #fff;
+}
+.attend-table tr{
+    border:1px solid #F1F1F1;
+}
+.attend-table td{
+    vertical-align: middle;
+    padding:10px 0;
+    width:20%;
+    text-align: center;
+
+}
+.attend-table td:first-child,.attend-table td:last-child{
+    width:10%;
+}
+.change-record{
+    cursor: pointer;
+    color:#34A7D3;
+}
+.attend-table thead{
+    background: #99a4b1;
+    color:#fff;
+}
+.attend-table tbody td{
+    padding:20px 0;
+}
+.attend-abnormal{
+    color:#FF6D5E;
+}
+.attend-normal{
+    color:#62DD69;
+}
+.department{
+    left:0;
+    top:28px;
+    min-width:128px;
+    position:absolute;
+    background: #fff;
+    box-shadow: 0px 0px 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 3px;
+    max-height:300px;
+    z-index: 1000;
+    overflow: auto;
+    overflow-x: hidden;
+    display: none;
+}
+.department li{
+    padding:5px 0 5px 10px;
+    text-align: left;
+
+}
+.department li:hover{
+    background: #F5F5F5;
+    cursor: pointer;
+}
+.department li:hover a{
+    color:#43B1DA;
+}
+.toExcel{
+    display: inline-block;
+    position: relative;
+    top:2px;
+}
+.holidaySta-table td{
+    width:6.25%!important;
+}
+.holiday-set-btn{
+    float:right;
+    top:9px;
+}
+.modify{
+    color:#5AC7F2;
+    cursor: pointer;
+}
+.holiday-set{
+    box-sizing: border-box;
+    left:50%;
+    top:100px;
+    margin-left:-400px;
+    width:800px;
+    height:800px;
+    position: absolute;
+    z-index:1000;
+}
+.curcol{
+    color:#606060!important;
+}
+.top-part{
+    padding:20px;
+}
+.top-part>div{
+    margin:20px auto;
+}
+.bottom-part{
+    box-sizing: border-box;
+    background: #EDEDED;
+    height:186px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top:15px;
+}
+.holiday-set-header i{
+    cursor: pointer;
+}
+.holiday-set-header i:hover{
+    color:#34A7D3;
+}
+.holiday-set-common{
+    background: #fff;
+    border:1px solid #E8E8E8;
+    border-radius: 3px;
+    padding:15px;
+    margin-top:15px;
+}
+.holiday-set input{
+    box-sizing: border-box;
+    display: inline-block;
+    width:90px;
+    border:1px solid #EAEAEA;
+    border-radius: 3px;
+    padding:3px 10px;
+}
+.entry-time{
+    margin-top:20px;
+}
+.holiday-disable{
+    margin-top:15px;
+}
+.holiday-delay{
+    margin:15px 0;
+}
+div.holiday-disable>div>input,.attend-set input{
+    width:180px;
+}
+.holiday-save{
+    padding-top:30px;
+    text-align: center;
+}
+.holiday-save div{
+    display: inline-block;
+    text-align: center;
+    margin-right:15px;
+}
+.attend-set{
+    box-shadow: 0px 0px 12px 0px #ccc;
+}
+.length1{
+    width:725px;
+}
+.length2{
+    width:725px;
+}
+.length3{
+    width:725px;
+}
+.length4{
+    width:725px;
+}
+.attend-set .bottom-part{
+    height:248px;
+}
+.attend-input{
+    width:200px!important;
+}
+.holiday-modify{
+    position:fixed;
+    left:50%;
+    top:17%;
+    margin-left:-235px;
+    box-shadow: 0px 0px 12px 3px rgba(128, 125, 125, 0.16);
+    border-radius: 5px;
+    border: 1px solid #E8E8E8;
+    display: none;
+    z-index: 250;
+}
+.holiday-modify .header{
+    box-sizing: border-box;
+    height:50px;
+    width:470px;
+    background: #F9F9F9;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    color:#b8b8b8;
+}
+.holiday-modify .main{
+    box-sizing: border-box;
+    height:290px;
+    width:470px;
+    background: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding:20px;
+    border-top: 1px solid #E8E8E8;
+    font-size: 16px;
+}
+.holiday-modify .main input{
+    box-sizing: border-box;
+    display: inline-block;
+    width:214px;
+    border:1px solid #EAEAEA;
+    border-radius: 3px;
+    padding:3px 15px;
+    height:36px;
+}
+.holiday-modify .main textarea{
+    box-sizing: border-box;
+    width:428px;
+    height:84px;
+    border-radius: 3px;
+    border:1px solid #EAEAEA;
+    margin:10px auto;
+    padding:5px;
+
+}
+.holiday-modify-sure{
+    text-align: center;
+    margin-top:18px;
+}
+.holiday-modify-sure div{
+    display: inline-block;
+    margin-right: 15px;
+}
+.holiday-modify-sure div:last-child{
+    margin-right: 0;
+}
+.annual{
+    margin-bottom: 15px;
+}
+.allattend-department{
+    box-sizing: border-box;
+    width:128px;
+    height:28px;
+    border:1px solid #DFDFDF;
+    padding:5px;
+    border-radius: 3px;
+    position: relative;
+    padding-right: 24px;
+}
+.selector1{
+    left:-65px;
+    top:0;
+}
+.selector2{
+    left:-30px;
+}
+.down-arrow{
+    left:104px;
+    top:4px;
+    color:#B4B4B4;
+}
+.down-arrow:hover{
+    cursor:pointer;
+    color:#57C8F2;
+}
+.btn-query{
+    position: relative;
+    top:9px;
+}
+.change-log{
+    box-sizing: border-box;
+    text-align: left;
+    color:#b4b4b4!important;
+    padding-left:100px;
+}
+.change-log span{
+    color:#5d5d5d!important;
+}
+.leave{
+    top:19px!important;
+}
+#sta{
+    display: none;
+}
+.tac{
+    text-align: center!important;
+}
+.lh{
+    line-height: 60px;
+}
+.operate-mem{
+    width:23%;
+}
+.attend-change-log{
+    overflow-y: hidden!important;
+}
+.attend-change-log>ul{
+    overflow-y: auto;
+    height: 96%;
+}
+.empty-icon{
+    position: absolute;
+    left:50%;
+    top:50%;
+    text-align: center;
+    margin-left:-100px;
+    margin-top:-100px;
+}
+.headimg{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+.empty-icon i{
+    font-size: 180px;
+    color:#D1D1D1;
+}
+.empty-icon p{
+    margin-top:-50px;
+    font-size: 18px;
+    color:#BFBFBF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+[
+    "appnews/modules/system/controller/systemController.js",
+    "appnews/modules/system/controller/EmployeeListController.js",
+    "appnews/modules/system/controller/EmployeeAddController.js",
+    "appnews/modules/system/controller/EmployeeEditController.js",
+    "appnews/modules/system/controller/EmployeePermissionController.js",
+    "appnews/modules/system/controller/SkillController.js",
+    "appnews/modules/system/controller/ScoreController.js",
+    "appnews/modules/system/controller/ScoreCronController.js",
+    "appnews/modules/system/controller/GroupScoreController.js",
+    "appnews/modules/system/controller/RolesController.js",
+    "appnews/modules/system/controller/RolesAddController.js",
+    "appnews/modules/system/controller/RolesEditeController.js",
+    "appnews/modules/system/controller/SkillLevelController.js",
+    "appnews/modules/system/controller/ActionController.js",
+    "appnews/modules/system/models/PermissionModel.js",
+    "appnews/modules/system/models/SkillModel.js",
+    "appnews/modules/system/models/ScoreModel.js",
+    "appnews/modules/system/models/RolesModel.js",
+    "appnews/modules/system/models/EmployeeModel.js",
+    "appnews/modules/system/route.js"
+]

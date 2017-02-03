@@ -1,0 +1,51 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span><a ui-sref="main.system.employeelist">员工管理</a></span>
+	    <span class="selected"><a ui-sref="main.system.roleList">角色管理</a></span>
+	     <!--<span><a ui-sref="main.system.controllerList">控制器动作列表页</a></span>-->
+    </em>
+	<a isperm pcode="SystemPermissonAddrole"  ui-sref="main.system.roleList.add_role" class="add_staff btn_add" id="add_role"><i>添加角色</i></a>
+</div>
+<div class="system_list clear">
+	<table class="role_table">
+		<thead class="tablehc">
+			<tr>
+				<td>编号</td>
+				<td>角色名称</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody class="system_list_status">
+			<tr ng-repeat="item in roles.rolesList">
+				<td>{{$index+1}}</td>
+				<td>{{item.group_name}}</td>
+				<td ng-if="item.group_id>1">
+					<a isperm pcode="SystemPermissionEditerole"  ui-sref="main.system.roleList.edit_role({group_id:item.group_id})" href="#" class="edit_style">编辑</a>
+					<a isperm pcode="SystemPermissionDelrole"  href="javascript:;" class="operation_style del_style" ng-click="roles.del(item)">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--分页开始-->
+	<div paging page-object="page" click-function="page_fun"></div>
+	<!--分页结束-->
+</div>
+
+<!--删除弹框-->
+<div class="skill_del ng-scope" style="display: block" ng-show="roles.isDeleWin">
+	<div class="header f18">提示</div>
+	<div class="main">
+		<div class="confirm_del f20">确认删除角色？</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="roles.delRole()">确定</button>
+			<button class="btns gray" ng-click="roles.hide()">取消</button>
+		</div>
+	</div>
+</div>
+
+<!--空数据-->
+<div class="empty-icon" ng-if="roles.rolesList.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>暂时没有相关数据</p>
+</div>

@@ -1,0 +1,15 @@
+<div class="depart-combo">
+    <div class="chosen-input">
+        <input type="text" placeholder="部门" readonly value="{{selectedDepart?selectedDepart.label:''}}" class="allattend-department" ng-click="toggle($event)"/>
+       <i class="pbiconfont poabso down-arrow" ng-click="toggle($event)">&#xe60f;</i>
+    </div>
+    <div class="chosen-drop minscroll visible1" >
+        <div class="chosen-search">
+            <input type="text" ng-model="keyword" ng-change="search()"/>
+            <i class="iconMemPart">&#xe612;</i>
+        </div>
+        <ul class="chosen-results">
+            <li ng-repeat="item in departs" ng-click="selectDepart(item,$index)" ng-class="[{'selected':item.selected}]"><a href="javascript:void(0);">{{item.label}}</a></li>
+        </ul>
+    </div>
+</div>

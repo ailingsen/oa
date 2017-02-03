@@ -1,0 +1,6 @@
+[
+    "appnews/modules/notice/controller/NoticeListController.js",
+    "appnews/modules/notice/controller/NoticeCreateController.js",
+    "appnews/modules/notice/models/NoticeModel.js",
+    "appnews/modules/notice/route.js"
+]

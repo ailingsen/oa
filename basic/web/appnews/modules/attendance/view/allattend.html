@@ -1,0 +1,61 @@
+<!--顶部开始-->
+<div class="w100">
+    <div class="pbsearchbor">
+        <cascade-member handle-member-select="attend.selectUser(member)" handle-depart-select="attend.selectOrg(depart)"></cascade-member>
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="task_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="attend.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="attend.begin_time" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+        </div>
+        <span class="timeline inblock">—</span>
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="attend.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="attend.end_time" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+        </div>
+        <div class="inblock btn-query">
+                <button class="btn blue fl" ng-click="attend.searchButton()">查询</button>
+        </div>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--员工考勤列表开始-->
+<div class="listWrap clear">
+    <table class="attend-table">
+        <thead  >
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>日期</td>
+            <td>上班打卡时间</td>
+            <td>下班打卡时间</td>
+            <td>考勤状态</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in attend.attendList">
+            <td>{{$index+1}}</td>
+            <td>{{item.real_name| cut:true:20:' ...'}}</td>
+            <td>{{item.workDate_f}}</td>
+            <td>{{item.onTime_f}}</td>
+            <td>{{item.offTime_f}}</td>
+            <td ng-if="item.status==1" class="attend-normal">{{item.strstatus}}</td>
+            <td ng-if="item.status!=1"  class="attend-abnormal">{{item.strstatus}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+
+</div>
+<!--员工考勤列表结束-->
+
+
+<div class="empty-icon" ng-if="attend.attendList.length==0">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有相关数据</p>
+</div>

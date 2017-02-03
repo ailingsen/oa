@@ -1,0 +1,126 @@
+<style type="text/css">
+    .overtime-timeWrap {
+        margin: 10px 0 0 5px;
+    }
+
+    .overtime-timeWrap > input[type=time] {
+        border: 1px solid #e1e1e1;
+        padding: 2px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+
+    .overtime-timeWrap > input[type=text] {
+        margin-top: 0 !important;
+        width: 72px !important;
+        height: 21px !important;
+        padding: 2px !important;
+        border-radius: 3px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        border: 1px solid #e1e1e1 !important;
+    }
+</style>
+<!--加班申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of block  pfixed formzindex isrequired" ng-show="apply.overtimeShowEditWin">
+    <div class="toptitle">
+        加班申请
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor of porela xlefttitlebor">
+            <i class="pbiconfont poabso mt2" ng-click="apply.overtimeShowEditWin=false;apply.customHideWin();">&#xe611;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">加班类型：</span>
+            <select class="fl" ng-model="apply.detail.data.type">
+                <option value="0">请选择</option>
+                <option value="1">工作日加班</option>
+                <option value="2">节假日加班</option>
+            </select>
+        </div>
+
+        <div class="borderbor porela timesbor hauto">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">加班时间 :</span>
+            <!--<div class="porela inblock fl">
+
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="年-月-日 时:分" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="apply.detail.data.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="apply.detail.data.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="fl">——</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_dateend" id="leave_dateend" placeholder="年-月-日 时:分" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="apply.detail.data.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="apply.detail.data.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="clear">&nbsp;</span>
+            <div class="addworktipsbor">
+                   如有加班跨天的情况，加班结束时间选择当日23:55，系统会根据加班的最后打卡时间来统计加班时长。对于加班跨天且未打卡的情况，加班最后打卡时间请选择次日零点，且在备注中说明加班结束时间。
+            </div>-->
+            <div class="porela inblock">
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="年-月-日" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="apply.detail.data.currentDay" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="apply.detail.data.currentDay" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'day' }"></datetimepicker>
+                </ul>
+
+                <label>
+                    <input type="checkbox" name="isNextDay" ng-model="apply.detail.data.isNextDay"> 是否跨天
+                </label>
+
+                <div class="overtime-timeWrap">
+                    <input type="text" onfocus="(this.type='time')" name="overtime_beginTime" ng-model="apply.detail.data.begin_time_str" placeholder="时:分"/>
+                    <i>——</i>
+                    <input type="text" onfocus="(this.type='time')" name="overtime_endTime" ng-model="apply.detail.data.end_time_str" placeholder="时:分"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor nomb">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23">工作说明：</span>
+            <textarea ng-model="apply.detail.data.note" name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入工作说明(最多输入100个字)"></textarea>
+        </div>
+
+        <!--<div class="borderbor porela nomb applyprogress hauto mt15" ng-if="apply.detail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+
+            <ul>
+                <li class="porela" ng-repeat="itemVerRed in apply.detail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>-->
+
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns" ng-click="apply.editSubmit()">提交</button>
+            <button class="btns gray" ng-click="apply.overtimeShowEditWin=false;apply.customHideWin();">取消</button>
+        </div>
+    </div>
+</div>
+<!--加班申请创建结束-->

@@ -1,0 +1,94 @@
+<!--顶部开始-->
+<div class="w100">
+    <div class="pbsearchbor">
+        <!--<div class="inblock minscroll porela" ng-mouseleave="attend.isOrgWin=false">
+            <input class="allattend-department" type="text" placeholder="部门" ng-keyup="attend.searchOrgInfo();" ng-model="attend.search_org_name" />
+            <i class="pbiconfont poabso down-arrow" data-ng-click="attend.getSearchAllOrgInfo()">&#xe60f;</i>
+            <ul class="department f16" style="display:block" ng-show="attend.isOrgWin">
+                <li ng-repeat="item in attend.orgInfo" ng-click="attend.selectOrg(item)"><a href="javascript:void(0);" class="omit">{{item.org_name}}</a></li>
+            </ul>
+        </div>&nbsp;
+        <div class="inblock minscroll porela" ng-mouseleave="attend.isMemWin=false">
+            <input class="allattend-department" type="text" placeholder="成员" ng-keyup="attend.searchUserInfo();" ng-model="attend.search_real_name" />
+            <i class="pbiconfont poabso down-arrow" data-ng-click="attend.searchAllUserInfo()">&#xe60f;</i>
+            <ul class="department f16" style="display:block" ng-show="attend.isMemWin">
+                <li ng-repeat="item in attend.userInfo" data-ng-click="attend.selectUser(item)"><a href="javascript:void(0);">{{item.real_name}}</a></li>
+            </ul>
+        </div>-->
+        <cascade-member handle-member-select="attend.selectUser(member)" handle-depart-select="attend.selectOrg(depart)"></cascade-member>
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="task_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="attend.start_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="attend.start_time" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+        </div>
+        <span class="timeline inblock">—</span>
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="attend.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="attend.end_time" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+        </div>
+        <div class="inblock btn-query">
+            <button class="btn blue fl" ng-click="attend.searchButton()">查询</button>
+        </div>
+        <button isperm pcode="AttendanceVacationstaExport" class="toExcel btn blue" ng-click="vacation.export()">导出EXCEL</button>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--假期统计列表开始-->
+<div class="listWrap clear">
+    <table class="attend-table holidaySta-table">
+        <thead  >
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>正常上班天数</td>
+            <td>忘打卡次数</td>
+            <td>迟到次数</td>
+            <td>早退次数</td>
+            <td>请年假(天)</td>
+            <td>请事假(天)</td>
+            <td>请调休假(天)</td>
+            <td>请带薪病假(天)</td>
+            <td>请病假(天)</td>
+            <td>请哺乳假(天)</td>
+            <td>请婚假(天)</td>
+            <td>请产假(天)</td>
+            <td>请陪产假(天)</td>
+            <td>请丧假(天)</td>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vacation.vacationList">
+                <td>{{$index+1}}</td>
+                <td>{{item.real_name| cut:true:20:' ...'}}</td>
+                <td>{{item.attendance.normal}}</td>
+                <td class="attend-abnormal">{{item.attendance.unpunch}}</td>
+                <td class="attend-abnormal">{{item.attendance.later}}</td>
+                <td class="attend-abnormal">{{item.attendance.leave_early}}</td>
+                <td>{{item.vacation.annual}}</td>
+                <td>{{item.vacation.leave}}</td>
+                <td>{{item.vacation.overtime}}</td>
+                <td>{{item.vacation.paid_sick_leave}}</td>
+                <td>{{item.vacation.sick_leave}}</td>
+                <td>{{item.vacation.lactation_leave}}</td>
+                <td>{{item.vacation.marriage_leave}}</td>
+                <td>{{item.vacation.maternity_leave}}</td>
+                <td>{{item.vacation.accompany_leave}}</td>
+                <td>{{item.vacation.mourning_leave}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+
+</div>
+<!--假期统计列表结束-->
+
+<div class="empty-icon" ng-if="vacation.vacationList.length==0">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有相关数据</p>
+</div>

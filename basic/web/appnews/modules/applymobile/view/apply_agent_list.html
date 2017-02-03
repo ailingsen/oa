@@ -1,0 +1,150 @@
+
+<!--顶部搜索-->
+<div class="applytablelistbor">
+
+    <div class="pbtbtop pbcd1 flex t_center">
+          <span class="w10">
+                <input ng-if="apply.status == 0" type="checkbox" ng-click="apply.selectAll($event)" id="selectAll"/>
+                <i ng-if="apply.status != 0" class="pbiconfont poabso resetcheckbox">&#xe64b;</i>
+          </span>
+        <span class="w35">审批单名称</span>
+        <span class="w10">审批状态</span>
+        <span class="w15">申请时间</span>
+        <span class="w15">申请人</span>
+        <span class="w15">操作</span>
+    </div>
+
+    <ul>
+        <li class="pblistli flex t_center" ng-repeat="item in apply.list">
+               <span class="w10 omit">
+                     <input ng-if="item.allowBatch" type="checkbox" class="checkbox" ng-checked="apply.isSelected(item.apply_id)" ng-click="apply.updateSelection($event,item.apply_id)"/>
+                     <input ng-if="!item.allowBatch" type="checkbox" class="checkbox" disabled="disabled"/>
+               </span>
+	           <span class="w35 omit porela applyname">
+	           	     <a href="javascript:;" ng-click="apply.detailApply(item.model_id,item.apply_id,item.modeltype)">
+                         <span class="omit">{{item.title}}</span>
+                         <i ng-if="item.is_attachment == 1" class="pbiconfont poabso filetips">&#xe63b;</i>
+                     </a>
+	           </span>
+	           <span class="w10 omit">
+	           	     <!--<span ng-if="item.status == 0" class="texttip bluegreen">待审批</span>-->
+	           	     <!--<span ng-if="item.status == 2" class="texttip red">已拒绝</span>-->
+	           	     <!--<span ng-if="item.status == 1" class="texttip green">已审批</span>-->
+                     <!--<span ng-if="item.status == 3" class="texttip gray">已撤回</span>-->
+                     <span ng-if="apply.status == 0" class="texttip bluegreen">待审批</span>
+	           	     <span ng-if="apply.status == 2" class="texttip red">已拒绝</span>
+	           	     <span ng-if="apply.status == 1" class="texttip green">已审批</span>
+	           </span>
+	           <span class="w15 omit pbcd1">
+	           	  {{item.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}
+	           </span>
+	           <span class="w15 omit">
+	           	  {{item.real_name}}
+	           </span>
+	           <span class="w15 omit seeprogress">
+                    <a ng-if="apply.status == 0" href="javascript:void(0);" data-ng-click="apply.detailApply(item.model_id,item.apply_id,item.modeltype)">去审批</a>
+                    <a ng-if="apply.status != 0" href="javascript:void(0);" data-ng-click="apply.detailApply(item.model_id,item.apply_id,item.modeltype)">查看进度</a>
+	           </span>
+        </li>
+    </ul>
+
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+
+    <div ng-if="apply.status == 0" class="pbbtnbor btnbor nobor clear">
+        <div class="btnsbor">
+            <button class="btns" ng-click="apply.clickBatchVerify()">批量同意</button>
+            <button class="btns gray" ng-click="apply.clickBatchRefuse()">批量拒绝</button>
+        </div>
+    </div>
+</div>
+
+<!-- 01申请a-我的审批g-弹窗（通用同意）开始  批量审批-------------------------------------------------------------------->
+<div class="ui-widget-winbor refusewin of" ng-show="apply.showVieryWin">
+    <div class="toptitle">
+        同意
+    </div>
+    <div class="tipstitle pbc">
+        请填写同意原因：
+    </div>
+    <textarea ng-model="apply.verifyComment" class="noborder fl" placeholder="非必填，最多输入50个字"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="apply.verifyBatch()">同意</button>
+            <button class="btns gray" ng-click="apply.showVieryWin=false;apply.hidemask();">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的审批g-弹窗（通用同意）结束 ------------------------------------------------------------------------------->
+
+<!-- 01申请a-我的审批g-弹窗（通用拒绝）开始 批量审批------------------------------------------------------------------------>
+<div class="ui-widget-winbor refusewin of" ng-show="apply.showRefuseWin">
+    <div class="toptitle">
+        拒绝
+    </div>
+    <div class="tipstitle pbc">
+        请填写拒绝原因：
+    </div>
+    <textarea ng-model="apply.refuseComment" class="noborder fl" placeholder="必填，最多输入50个字"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="apply.refuseBatch()">拒绝</button>
+            <button class="btns gray" ng-click="apply.showRefuseWin=false;apply.hidemask();">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 01申请a-我的审批g-弹窗（通用拒绝）结束 -->
+
+<!--批量同意回显 弹窗 开始-->
+<div class="batchlistwin minscroll of block" style="height:338px; margin-top:-169px; top: 50%; bottom: auto; z-index: 201;
+" ng-if="apply.batchResWin" >
+    <div class="title porela">
+         <span class="f16">提示！</span>
+         <i class="pbiconfont poabso closebtnfff pointer" ng-click="apply.closeBatchResWin()">&#xe61d;</i>
+    </div>
+    <div class="minlistbor" id="scroll">
+         <div class="batchtips" style="padding:10px;">
+            批量操作 <span class="texttip red" ng-if="apply.failNum>0">异常</span><span class="texttip green" ng-if="apply.failNum==0">正常</span>！
+            <Div>
+              以下数据操作失败: (成功: <span>{{apply.successNum}}</span> 条数据; 失败: <span>{{apply.failNum}}</span> 条数据 )
+            </div>
+         </div>
+         <div class="titlethtop2 flex pbc" ng-if="apply.failList.length>0">
+              <span class="pbcd1">序号</span>
+              <span class="pbcd1">申请单名称</span>
+              <span class="pbcd1">申请人</span>
+              <span class="pbcd1">申请时间</span>
+         </div>
+         <ul ng-if="apply.failList.length>0">
+             <li ng-repeat="item in apply.failList" class="flex">
+                 <span class="pbc">{{$index+1}}</span>
+                 <span class="pbc omit">{{item.title}}</span>
+                 <span class="pbc omit">{{item.applyer}}</span>
+                 <span class="pbc omit">{{item.create_time}}</span>
+             </li>
+         </ul>
+    </div>
+</div>
+<!--批量同意回显 弹窗 结束-->
+
+<!--请假详情 审批详情-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/leave_apply_detail.html'" ></ng-include> -->
+<!--请假申请最后一步同意窗口-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/leave_apply_last_step_win.html'" ></ng-include> -->
+<!--请假申请审批同意窗口-->
+<ng-include src="'appnews/modules/applymobile/view/leave_apply_verify_win.html'" ></ng-include>
+<!--请假申请审批驳回窗口-->
+<ng-include src="'appnews/modules/applymobile/view/leave_apply_refuse_win.html'" ></ng-include>
+<!--职称申请详情窗口-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/rankDetail_apply.html'" ></ng-include> -->
+<!--忘打卡申请详情窗口-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/drainPunchDetail_apply.html'" ></ng-include> -->
+<!--加班申请详情窗口-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/overtime_apply_detail.html'" ></ng-include> -->
+<!--弹性上班详情窗口-->
+<!-- <ng-include src="'appnews/modules/applymobile/view/flexibleWorkDetail_apply.html'" ></ng-include> -->
+<!--自定义表单详情-->
+<ng-include src="'appnews/modules/applymobile/view/apply_custom_detail.html'" ></ng-include>
+
+

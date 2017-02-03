@@ -1,0 +1,458 @@
+@charset "UTF-8";
+
+.leftsbar,
+.topsbar,
+.infoslist{
+    display: none;
+}
+.mainsbar{
+    left: 0px;
+    top: 0px;
+}
+.applyindexbor {
+   width: 100%;
+   margin-top:0px;
+}
+.applyindexbor .applybox{
+  width: 31.7%;
+  height: 100px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0px; 
+  margin-left: 4px;
+} 
+
+.applyindexbor .applybox i{
+  font-size: 12px;
+  top: 50%;
+  left: 10%;
+  height: 50px;
+  line-height: 50px;
+  margin-top: -25px;
+}
+.applyindexbor .applybox span{
+   left: 28%;
+   top: 50%;
+   font-size: 14px;
+}
+.applyindexbor .applybox a{
+  height: 100px;
+  color: #fff;
+}
+.applyindexbor .applybox a:hover{
+  color: #fff;
+}
+
+.uiwinabs{
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  border-radius:0px;
+  min-height: auto;
+      position: absolute;
+}
+ .uiwinabs .scrollbor{
+   bottom: 110px; 
+   right: 0px;
+   padding-right: 24px;
+
+ }
+.uiwinabs.pfixed{
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0px;
+}
+.ui-widget-winbor .toptitle{
+      padding: 10px;
+   
+}
+.iskday{
+   clear: both;
+}
+
+.ui-widget-winbor .pb_textareas{
+  left: 15px;
+  top: 40px;
+  width: 90%;
+}
+
+.ui-widget-winbor .maxtextareasbor .pb_textareas{
+   height: 126px;
+}
+
+.ui-widget-winbor .btnbor{
+   min-height: 98px;
+   position: fixed;
+}
+
+#alertshowloading{
+   width: 200px;
+   margin-left: -125px;
+   top: 50%;
+   margin-top: -70px;
+}
+
+.ui-widget-winbor .timesbor .dropdown-menu{
+   left: 0px;
+   margin-top: -5px;
+}
+.datetimepicker .table td, .datetimepicker .table th{
+  padding:7px;
+}
+
+.dropdown-menu{
+  width: 270px; 
+}
+
+
+.setprocessobr input[type=text],
+.agreeAddwork input[type=text],
+.timesbor input[type=text],
+.createforms input[type=text],
+.pbcreateformlib input[type=text] {
+  margin-top: -3px;
+  width: 120px;
+  background: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 8px;
+  padding-left: 5px;
+  text-align: center;
+  border: 1px solid #e1e1e1;
+
+      width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+
+.ui-widget-winbor .inputtext.timesw{
+  width: 100%;
+}
+
+.ui-widget-winbor .pbfilebor ul{
+       margin-left: 0px;
+      
+     
+}
+.ui-widget-winbor .pbfilebor ul li:first-child{
+  margin-top: 30px;
+}
+
+
+.ui-widget-winbor .filename{
+  width: 100%;
+}
+.ui-widget-winbor .pbfilebor li{
+  width: 100%;
+}
+.ui-widget-winbor .filename{
+  width: 65%;
+}
+
+#w5nums textarea.pb_textareas{
+  left: 15px;
+    width: 89%;
+    height: 117px;
+}
+.jzsqtextarea{
+  height: 107px;
+}
+
+.addworktimeselectbor select{
+  width: 100%;
+}
+
+
+.pbcreateformlib{
+  margin: 0px;
+  padding:0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0px;
+}
+.pbcreateformlib .scrollbor{
+  right: 0px;
+  padding-right: 10px;
+      bottom: 68px;
+      left: 10px;
+}
+.pbcreateformlib .toptitle .formtitles{
+      height: 38px;
+    overflow: hidden;
+    display: block;
+
+}
+
+.ui-widget-winbor .toptitle{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+.ui-widget-winbor .borderbor{
+
+}
+
+.ui-widget-winbor .btnbor{
+  min-height: 58px;
+}
+.ui-widget-winbor .btnbor .btnsbor{
+  margin-top: 10px;
+}
+
+.pbcreateformlib .borderbor .title{
+  width: 100%;
+  text-align: left;
+}
+
+/* Rest apply detail */
+
+ .formzindex {
+    top:0;
+    margin-left: 0;
+}
+
+.formpresentation, .formeditpresentation {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    min-height: auto;
+}
+
+.ui-widget-winbor {
+    border-radius: 0;
+}
+
+ 
+.pbcreateformlib .borderbor .title {
+  width: auto;
+  text-align: left; 
+  margin-bottom: 5px;
+}
+
+.pbcreateformlib .borderbor .rcontent {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left:0px;
+}
+
+.formpresentation .borderbor[data-widget=Text] .readtext, .formeditpresentation .borderbor[data-widget=Text] .readtext {
+  margin-left: 0px;
+}
+
+.pbcreateformlib .borderbor li {
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+}
+
+.ui-widget-winbor .filename {
+    width: 40%;
+}
+
+.pbcreateformlib .borderbor[data-widget=FileComponent] ul, .pbcreateformlib .borderbor[data-widget=ImageComponent] ul {
+  margin-left: 0;
+}
+
+.pbcreateformlib .borderbor[data-widget=FileComponent] .filesize, .pbcreateformlib .borderbor[data-widget=ImageComponent] .filesize {
+    text-align: right;
+    float: right;
+}
+
+.formpresentation .borderbor[data-widget=FileComponent] ul, .formpresentation .borderbor[data-widget=ImageComponent] ul, .formeditpresentation .borderbor[data-widget=FileComponent] ul, .formeditpresentation .borderbor[data-widget=ImageComponent] ul {
+    width: 100%;
+}
+
+.formpresentation .borderbor[data-widget=Department] .rcontent.read, .formpresentation .borderbor[data-widget=Employee] .rcontent.read, .formeditpresentation .borderbor[data-widget=Department] .rcontent.read, .formeditpresentation .borderbor[data-widget=Employee] .rcontent.read {
+    width: 100%;
+}
+
+.formpresentation .borderbor[data-widget=Department] .porela, .formpresentation .borderbor[data-widget=Employee] .porela {
+  float: left;
+  width: auto;
+  margin-right: 10px;
+}
+
+.formpresentation .borderbor[data-widget=Department] .rcontent li .filename, .formpresentation .borderbor[data-widget=Employee] .rcontent li .filename, .formeditpresentation .borderbor[data-widget=Department] .rcontent li .filename, .formeditpresentation .borderbor[data-widget=Employee] .rcontent li .filename {
+    width: auto;
+    max-width: auto;
+    padding: 0;
+    margin-left: 0;
+}
+
+.pbcreateformlib .borderbor[data-widget=DateComponent] input, .pbcreateformlib .borderbor[data-widget=DateInterval] input {
+    width: 108px;padding-left: 0;
+}
+
+.setprocessobr input[type=text], .agreeAddwork input[type=text], .timesbor input[type=text], .createforms input[type=text], .pbcreateformlib input[type=text] {
+  text-align: left;
+  padding-left: 5px;
+  margin-top: 0;
+  margin-left: 0px;
+  box-sizing: border-box;
+}
+
+.pbcreateformlib .borderbor[data-widget=TextArea] textarea {
+  left: 15px;
+}
+
+.refusewin, .surewin, .refusedelaywin {
+    width: 300px;
+    margin-left: -150px;
+}
+
+.refusewin textarea, .surewin textarea, .refusedelaywin textarea {
+    width: 240px;
+}
+
+.refusewin .toptitle, .surewin .toptitle{
+  padding: 0;
+}
+
+.refusewin .btnbor, .surewin .btnbor{
+  position: inherit
+}
+
+.borderbor.applyprogress {
+  padding: 10px 8px;
+}
+
+.applyprogress .title{
+  width: 100% !important;
+}
+
+.applyprogress ul li {
+  padding: 0;
+}
+
+.ui-widget-winbor .imgbor40 .name {
+    width: 56px;
+}
+
+.applyprogress .imgbor40 {
+   width: 107px;
+}
+
+.applyprogress ul .agree {
+    width: 58px;
+}
+
+.applyprogress ul .jjbor {
+    width: 85%;
+    margin-left: 50px;
+    margin-top: 0;
+}
+
+
+.ui-widget-winbor .filesize{
+  width: 30%;
+}
+
+
+.memPartPop{
+  width: 100%;
+      left: 0px;
+    margin-left: 0px;
+}
+
+.pbcreateformlib .borderbor[data-widget=FileComponent] ul, 
+.pbcreateformlib .borderbor[data-widget=ImageComponent] ul{
+    margin-top: 5px;
+}
+.pbcreateformlib .borderbor[data-widget=DateComponent] input, .pbcreateformlib .borderbor[data-widget=DateInterval] input{
+    width: 100%;
+}
+.pbcreateformlib .borderbor[data-widget=DateComponent] .rcontent>span,
+.pbcreateformlib .borderbor[data-widget=DateInterval] .rcontent>span{
+    -webkit-transform: rotate(90deg) scale(0.5);
+    -moz-transform: rotateZ(90deg) scale(0.5);
+    -ms-transform: rotate(90deg) scale(0.5);
+    -o-transform: rotate(90deg) scale(0.5);
+    transform: rotate(90deg) scale(0.5);
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: 20px;
+    overflow: hidden;
+    left: 50%;
+    top: 70px;
+    margin-left: -16px;
+    
+
+}
+
+.memPartPop-search input{
+  width: 70%;
+}
+
+
+
+.formpresentation .borderbor[data-widget=Department] .rcontent ul, .formpresentation .borderbor[data-widget=Employee] .rcontent ul, .formeditpresentation .borderbor[data-widget=Department] .rcontent ul, .formeditpresentation .borderbor[data-widget=Employee] .rcontent ul{
+  margin-top: 5px;
+}
+
+
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td{
+  padding: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.datetimepicker td, .datetimepicker th{
+  width: 39px; 
+}
+.table-condensed{
+  width: 100%;
+}
+.datetimepicker table tr td span{
+  width: 21%;
+}
+.pbcreateformlib .borderbor[data-widget=DateComponent] .rcontent span.active,
+ .pbcreateformlib .borderbor[data-widget=DateInterval] .rcontent span.active{
+  color: #fff;
+}
+
+
+.pbcreateformlib .borderbor[data-widget=DateComponent] .rcontent .form-control:nth-child(4),
+.pbcreateformlib .borderbor[data-widget=DateInterval] .rcontent .form-control:nth-child(4){
+   margin-top: 12px;
+}
+
+#formpresentation .borderbor[data-widget=DateComponent] .rcontent .form-control:nth-child(3),
+#formpresentation .borderbor[data-widget=DateInterval] .rcontent .form-control:nth-child(3){
+   margin-top: 12px;
+}
+
+
+.field-description{
+  box-sizing: border-box;
+  width: 100% !important;
+  margin-left: 0px !important;
+  display: inline-block;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+}
+
+
+.borderbor[data-widget=Select] .rcontent,
+.borderbor[data-widget=RadioBox] .rcontent,
+.borderbor[data-widget=CheckBox] .rcontent{
+   padding-left: 10px;
+}

@@ -1,0 +1,172 @@
+<!--公共遮罩开始-->
+<!--单层遮罩-->
+<div id="masklayer1"></div>
+<!--多层遮罩-->
+<div id="masklayer2"></div>
+<!--公共遮罩结束-->
+
+ 
+
+<!--创建任务开始-->
+<div class="ui-widget-winbor taskcreatewin of">
+     <div class="toptitle">
+          创建任务
+     </div>
+     <div class="scrollbor poabso">
+
+           <div class="borderbor of porela">
+                <div class="fl porela titlecells">
+                     <i class="pbiconfont">&#xe612;</i>
+                	   <span class="ml3">任务类型：</span>
+                     <select ng-model='task.taskTypeDefaultSelect' ng-change="task.windowselect()"   ng-options='values as values.label for values in task.taskType'></select>
+                </div>
+                <span class="line"></span>
+                <div class="fl porela titlecells ml15">
+                     <i class="pbiconfont">&#xe611;</i>
+                	   所属项目：
+                     <select>
+                         <option selected>请选择项目</option>
+                     </select>
+                </div>
+           </div>
+
+           <div class="borderbor of porela tasktitlebor">
+           	    <i class="pbiconfont fl poabso">&#xe613;</i>
+                <span class="fl ml23">任务标题：</span>
+                <input type="text" class="fl texttitle" ng-model="task.title" placeholder="输入任务标题(最多输入50个字)"/>
+           </div>
+
+           <div class="borderbor porela tasktimebor">
+                 
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">开始时间：</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="task_datestart" id="task_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.datestart" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="task.datestart" data-datetimepicker-config="{ dropdownSelector: '#task_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl ml15">——</span>
+                <i class="pbiconfont inblock">&#xe615;</i>
+                <span class="fl ml30">结束时间：</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="task_dateend" id="task_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.dateend" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="task.dateend" data-datetimepicker-config="{ dropdownSelector: '#task_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                
+                <span class="clear">&nbsp;</span>
+
+           </div>
+
+           
+           <div class="borderbor porela taskjnbor" ng-if="task.taskTypeDefaultSelect == task.taskType[1]">
+                <i class="pbiconfont poabso mt2">&#xe61e;</i>
+                <span class="ml23 wdspacing">悬赏范围：</span>
+                <div class="poabso pointer addbtn2"></div>
+           </div>
+
+ 
+           <div class="borderbor porela" ng-if="task.taskTypeDefaultSelect == task.taskType[0]">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">分 配 给：</span>
+                <div class="imgbor40 poabso" ng-show="task.querymemberok.length>0">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl" ng-bind="task.querymemberok"></div>
+                      <i class="pbiconfont poabso pointer" ng-click="task.delmember();">&#xe61d;</i>
+                </div>
+                <div class="poabso addbtn1 fpgbtn" ng-show="task.querymemberok.length==0" ng-mouseenter="task.querymember=''">
+                     <div class="menbersearchbor">
+                          <div class="searchbg of porela">
+                               <i class="pbiconfont poabso">&#xe610;</i>
+                               <input type="text" class="noborder" placeholder="搜索" ng-model="task.querymember"/>
+                          </div>
+                          <ul>
+                              <li class="pointer" ng-repeat='item in task.member | filter: { name : task.querymember }' ng-click="task.memberChange($event,$index);">
+                                  <div class="imgbor fl">
+                                       <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                                  </div>
+                                  <div class="name omit fl">
+                                       {{item.name}}
+                                  </div>
+                              </li>
+                          </ul>
+                     </div>
+                </div>
+           </div>
+
+           <div class="hidebor">
+
+                 <div class="borderbor porela">
+                      <i class="pbiconfont poabso mt2">&#xe617;</i>
+                      <span class="ml23">任务级别：</span>
+                      <select>
+                         <option selected>高</option>
+                         <option>低</option>
+                      </select>
+                 </div>
+
+                 <div class="borderbor porela tasktextareasbor">
+                      <i class="pbiconfont poabso mt2">&#xe618;</i>
+                      <span class="ml23">任务描述：</span>
+                      <textarea name="textarea" id="textarea" class="pb_textareas noborder" ng-model="task.taskDesc" placeholder="请输入任务描述(最多输入500个字)"></textarea>
+                 </div>
+
+                 <div class="borderbor porela taskfilebor">
+                      <i class="pbiconfont poabso mt2">&#xe619;</i>
+                      <span class="ml23 wdspacing2 poabso">附 件：</span>
+                      <ul>
+                          <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                              <i class="poabso filesiconmin"></i>
+                              <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                              <div class="filesize fl omit">12.18KB</div>
+                              <div class="del fr" ng-click="task.delfiles()">删除</div>
+                          </li>
+                      </ul> 
+                      <!-- <div class="btn blue fr poabso" ng-click="task.addfilesbtn()">添加附件</div> -->
+                      <upload-modal upload-attrs="addFileBtn"  att-object="att">添加附件</upload-modal>
+                 </div>
+
+                 <div class="borderbor porela taskjnbor">
+                      <i class="pbiconfont poabso mt2">&#xe61b;</i>
+                      <span class="ml23 wdspacing">任务技能：</span>
+                      <div class="poabso pointer addbtn2"></div>
+                 </div>
+
+                 <div class="borderbor porela taskpointbor">
+                      <i class="pbiconfont poabso mt2">&#xe61a;</i>
+                      <span class="ml23 wdspacing2">奖 励：</span>
+                      <input type="text" class="inputtext taskpoint noborder" ng-model="task.point" ng-keyup="task.pointkeyup();" />
+                      纳米币 
+                      <div class="surplus">( 剩余<span class="surplusPoint">100</span>纳米币 )</div>
+                 </div>
+
+           </div>
+     </div>
+     
+     <div class="btnbor poabso hight">
+          <div class="morebtn porela">
+               <i class="pbiconfont poabso">&#xe61c;</i>
+               <span class="poabso">点击补充更多任务信息</span>
+          </div>
+
+          <div class="btnsbor"> 
+               <button class="btns green" ng-click="task.caogao();">保存草稿</button>
+               <button class="btns" ng-click="task.save();">保存并发布</button>
+          </div>
+
+     </div>
+      
+</div>
+<!--创建任务结束-->
+
+
+
+

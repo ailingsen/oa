@@ -1,0 +1,10 @@
+[
+    "appnews/modules/workStatement/controller/workStatementController.js",
+    "appnews/modules/workStatement/controller/MyWorkController.js",
+    "appnews/modules/workStatement/controller/ApproveWorkController.js",
+    "appnews/modules/workStatement/controller/WorkDetailController.js",
+    "appnews/modules/workStatement/controller/WriteWorkController.js",
+    "appnews/modules/workStatement/controller/EditeWorkController.js",
+    "appnews/modules/workStatement/models/WorkModel.js",
+    "appnews/modules/workStatement/route.js"
+]

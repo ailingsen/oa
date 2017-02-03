@@ -1,0 +1,123 @@
+<!--忘打卡 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs pfixed of readwin " style="display: block;" ng-show="apply.drainPunchPopup">
+    <div class="toptitle porela">
+        忘打卡申请
+        <i class="pbiconfont poabso closebtn pointer" data-ng-click="apply.popupCtr('3');apply.popupCtrClose();">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor porela xlefttitlebor timesbor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">忘打卡时间：</span>
+            <div class="porela inblock fl pbc">
+                {{apply.rankDetail.data.check_date*1000  | date:'yyyy-MM-dd HH:mm'}}
+            </div>
+
+            <span class="line"></span>
+            <div class="fl ml100 apmbor">
+                <label data-ng-if="apply.rankDetail.data.is_am==1">
+                    <input  type="checkbox" checked disabled />上午
+                </label>
+                <label data-ng-if="apply.rankDetail.data.is_am==2">
+                    <input  type="checkbox" checked disabled />下午
+                </label>
+            </div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor" id="w5nums">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">忘打卡说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>{{apply.rankDetail.data.note}}
+                </textarea>
+        </div>
+
+        <div class="borderbor porela">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">申 请 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.rankDetail.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.rankDetail.applyer_name}}</div>
+            </div>
+        </div>
+        <!--当前审批人-->
+        <div class="borderbor porela" ng-if="apply.rankDetail.handler_name">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">当前审批人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.rankDetail.handler_head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.rankDetail.handler_name}}</div>
+            </div>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor  ">
+            <i class="pbiconfont poabso mt2">&#xe614;</i>
+            <span class="fl ml23">申请时间：</span>
+            <span class="sp">{{apply.rankDetail.create_time*1000  | date:'yyyy-MM-dd HH:mm'}}</span>
+        </div>
+
+        <div class="borderbor porela nomb applyprogress hauto" data-ng-if="apply.rankDetail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+            <ul>
+                <!--同意-->
+                <li class="porela" ng-repeat="itemVerRed in apply.rankDetail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img ng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.isDetailBtn && (apply.rankDetail.current_handler == 1)">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.popupCtr('13')">同意</button>
+            <button class="btns gray" data-ng-click="apply.popupCtr('14')">拒绝</button>
+        </div>
+    </div>
+</div>
+<!--忘打卡 可读详情 结束-->
+<div class="ui-widget-winbor refusewin of" style="display: block" ng-show="apply.showVieryDrainPopup">
+    <div class="toptitle">
+        同意
+    </div>
+    <div class="tipstitle pbc">
+        请填写同意原因：
+    </div>
+    <textarea name="textarea" class="noborder fl" placeholder="非必填，最多输入50个字" data-ng-model="apply.comment"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.drainVieryCtr(); ">同意</button>
+            <button class="btns gray" data-ng-click="apply.popupCtr('15'); ">取消</button>
+        </div>
+    </div>
+</div>
+<div class="ui-widget-winbor refusewin of" style="display: block" ng-show="apply.showRefuseDrainPopup">
+    <div class="toptitle">
+        驳回
+    </div>
+    <div class="tipstitle pbc">
+        请填写拒绝原因：
+    </div>
+    <textarea name="textarea" class="noborder fl" placeholder="必填，最多输入50个字" data-ng-model="apply.comment"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" data-ng-click="apply.drainRefuseCtr()">拒绝</button>
+            <button class="btns gray" data-ng-click="apply.popupCtr('16')">取消</button>
+        </div>
+    </div>
+</div>

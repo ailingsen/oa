@@ -1,0 +1,626 @@
+HTML {
+    height: 100%;
+    width: 100%;
+}
+BODY {
+    margin: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 100%;
+    width: 100%;
+    background: #F1F1F1 !important;
+}
+IMG {
+    border: 0;
+}
+A {
+    text-decoration: none;
+    color: #000000;
+}
+A:hover {
+    text-decoration: none;
+}
+TABLE {
+    cellpadding: 0;
+    cellspacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+.btn {
+    width: auto;
+    height: 20px;
+    line-height: 22px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 2px;
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.btn:hover {
+    text-decoration: none;
+}
+.btnActive {
+    width: auto;
+    height: 20px;
+    line-height: 22px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 2px;
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.btn img {
+    margin-right: 4px;
+    margin-top: 3px;
+    width: 15px;
+    height: 15px;
+    float: left;
+}
+.tableIcon {
+    width: 18px;
+    height: 18px;
+}
+.overFlowH {
+    overflow: hidden;
+}
+.tAC {
+    text-align: center;
+}
+.W100XHYA {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.W1H1OFH {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.W160 {
+    width: 160px;
+    overflow: hidden;
+}
+.W85 {
+    width: 90px;
+    overflow: hidden;
+}
+.W75 {
+    width: 75px;
+    overflow: hidden;
+}
+.W70 {
+    width: 70px;
+    overflow: hidden;
+}
+.W60 {
+    width: 56px;
+    overflow: hidden;
+}
+.W50 {
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.W35 {
+    width: 35px;
+    overflow: hidden;
+}
+.LH25 {
+    line-height: 25px;
+}
+.FLMR8 {
+    float: left;
+    margin-right: 8px;
+}
+.FLML8 {
+    float: left;
+    margin-left: 4px;
+}
+.ML5 {
+    margin-left: 5px;
+}
+.H21 {
+    height: 21px;
+    overflow: hidden;
+}
+.W200H22 {
+    width: 190px;
+    height: 21px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.W60H22 {
+    width: 60px;
+    height: 21px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.MarL15 {
+    margin-left: 15px;
+}
+.W50OFH {
+    width: 40%;
+    overflow: hidden;
+}
+.H25BrdBtm {
+    height: 25px;
+    line-height: 25px;
+}
+/*main*/
+.mainLef {
+    width: 5px;
+    height: 26px;
+    float: left;
+    overflow: hidden;
+}
+.mainRig {
+    width: 5px;
+    height: 26px;
+    float: left;
+    overflow: hidden;
+}
+.mainCen {
+    height: 26px;
+    float: left;
+    overflow: hidden;
+}
+.mainCen SPAN {
+    float: left;
+    margin-top: 2px;
+}
+.mainCen STRONG {
+    line-height: 27px;
+    float: left;
+    width: 100px;
+}
+.mainCen A {
+    float: right;
+    line-height: 27px;
+}
+.mainCen A:hover {
+    text-decoration: underline;
+}
+.mainCont {
+    height: 105px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+/*main*/
+.main {
+    width: 100%;
+    padding-top: 20px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+}
+.bgMain {
+    width: 99%;
+    margin-top: 5px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.indexMain {
+    width: 100%;
+    margin-top: 5px;
+    height: 100%;
+    overflow: hidden;
+}
+.cadTit {
+    width: 260px;
+    height: 32px;
+    overflow: hidden;
+}
+.cadCont {
+    width: 258px;
+    height: auto;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.ymNaviss {
+    width: 256px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.ymNavis {
+    width: 160px;
+    line-height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.ymNavis SPAN {
+    float: left;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 70px;
+    text-align: center;
+}
+.ymNaviBtn {
+    height: 20px;
+    width: 12px;
+    float: left;
+    overflow: hidden;
+}
+.cadTable {
+    margin-bottom: 1px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+.red {
+    color: #FF0000;
+}
+.cadTable thead {
+    height: 20px;
+    overflow: hidden;
+}
+.cadTable tbody tr {
+    height: 18px;
+}
+.cadTable tbody td A {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.cadTable tbody td A:hover {
+    background-color: #fdfdcf;
+}
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#myrl {
+    width: 490px;
+    height: 352px;
+    margin: 20px auto 0;
+    position: relative;
+}
+#teshu {
+    float: right;
+    text-align: right;
+    padding-right: 5px;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+    width: 285px;
+    margin-top: 0;
+}
+#box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+}
+.unover {
+    background: #f4f1f1;
+    cursor: auto !important;
+}
+.pop {
+    width: 290px;
+    height: 180px;
+    background-color: #ffffff;
+    font-size: 12px;
+    color: #000000;
+    position: absolute;
+}
+.pop FONT {
+    padding-left: 5px;
+}
+table.biao {
+    border-collapse: collapse;
+    font-family: "Times New Roman", "宋体";
+}
+table.biao td{
+   cursor: pointer;
+}
+.over {
+    background: #f0e68c;
+}
+.tt:hover {
+    background: #f9fbc9;
+    text-decoration: none;
+}
+.imag1 {
+    margin-right: 2px;
+}
+.topDateFont {
+    font-size: 18px;
+    color: #fff;
+}
+.calTit FONT {
+    margin-top: 2px;
+}
+.calTit SPAN {
+    margin-top: 2px;
+    font-weight: bold;
+}
+/*===== dateSelection =====*/
+#dateSelectionDiv {
+    border: 1px solid #f8c173;
+    background: #fff;
+    position: absolute;
+    top: 30px;
+    z-index: 20;
+    width: 275px;
+    display: none;
+}
+#dateSelectionHeader {
+    width: 100%;
+    font-size: 0;
+}
+#dateSelectionBody {
+    width: 100%;
+}
+#dateSelectionFooter {
+    width: 100%;
+    font-size: 0;
+}
+#dateSeparator {
+    margin: 0 auto;
+    width: 152px;
+    height: 2px;
+    font-size: 0;
+}
+#dateSelectionBtn {
+    margin: 0 auto;
+    width: 133px;
+    height: 20px;
+    line-height: 20px;
+    padding-bottom: 2px;
+}
+#dateSelectionTodayBtn {
+    float: left;
+    width: 41px;
+    height: 20px;
+    cursor: pointer;
+}
+#dateSelectionOkBtn {
+    float: left;
+    text-align: center;
+    margin: 0 5px;
+    width: 41px;
+    height: 20px;
+    cursor: pointer;
+}
+#dateSelectionCancelBtn {
+    float: right;
+    text-align: right;
+    width: 41px;
+    height: 20px;
+    cursor: pointer;
+}
+#yearList {
+    width: 158px;
+    height: 20px;
+    line-height: 20px;
+    color: green;
+}
+#yearListPrev {
+    float: left;
+    margin-left: 3px;
+    text-align: left;
+    width: 8px;
+    height: 20px;
+    cursor: pointer;
+}
+#yearListNext {
+    float: right;
+    margin-right: 3px;
+    text-align: right;
+    width: 8px;
+    height: 20px;
+    cursor: pointer;
+}
+#yearListContent {
+    float: left;
+    height: 20px;
+}
+#yearListContent .year {
+    float: left;
+    display: block;
+    width: 275px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+#yearListContent .curr {
+    color: #373717;
+}
+#monthList {
+    margin: 0 1px;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+#monthListContent .month {
+    float: left;
+    display: block;
+    width: 36px;
+    height: 30px;
+    margin: 2px;
+    line-height: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+#monthListContent .curr {
+    color: red;
+}
+
+/* CSS Document */
+.topBar {
+    background-image: url("topBarC.gif");
+    border: 1px solid #99BBE8;
+}
+.topBar SPAN {
+    color: #15428B;
+}
+/*main*/
+.lArrow {
+    background:url(../images/workDay_left_btn.png) no-repeat;
+    margin-left: 324px;
+}
+
+.rArrow {
+    background:url(../images/workDay_right_btn.png) no-repeat;
+}
+
+.cadTable thead tr {
+    background-color: #99BBE8;
+}
+.cadTable tbody td {
+    border: 1px solid #99BBE8;
+}
+/*calendar*/
+.calTit {
+    background: #57C8F2 !important;
+}
+.calWeekTit {
+    color: #616161;
+    font-size: 18px;
+}
+.calTit FONT {
+    color: #15428B;
+}
+table.biao td {
+    border: 1px solid #d4d4d4 !important;
+}
+table.biao tr:nth-child(2) {
+    td {
+        border: none !important;
+        font-size: 20px !important;
+    }
+}
+.pop {
+    border: 1px solid #57C8F2;
+}
+#teshu {
+    background-color: #e6eef7;
+    background-image: url("topBarC.gif");
+}
+.jinri {
+    background: #cfdff0;
+}
+.cal_next {
+    color: #fff;
+}
+.selday {
+    background: #D9F5FF !important;
+}
+DIV {
+    font-size: 12px;
+}
+A {
+    font-size: 12px;
+}
+SPAN {
+    font-size: 12px;
+}
+FONT {
+    font-size: 12px;
+}
+TD {
+    font-size: 12px;
+}
+TH {
+    font-size: 12px;
+}
+/*头部*/
+.nav_jurisdictionList_box {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 0;
+    height: 42px;
+    line-height: 42px;
+    .nav_jurisdictionList {
+        font-style: normal;
+        span {
+            background: #e8e8e8;
+            color: #b8b8b8;
+            font-size: 16px;
+            padding: 8px 30px;
+            border: 1px solid #d5d4d4;
+            border-left: 0 none;
+            &:nth-child(1) {
+                border-left: 1px solid #d5d4d4;
+                border-right: 1px solid #d5d4d4;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+        }
+        .selected {
+            background: #fff;
+            color: #333;
+        }
+    }
+}
+#margin_right {
+    margin-right: 10px;
+    margin-top: 5px;
+    border-top: none;
+    tr {
+        td {
+            font-size: 16px !important;
+        }
+        .back_bor {
+            border: 1px solid #E1E1E1;
+        }
+    }
+}
+
+/*alert 弹窗 开始*/
+#alertshowloading {
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  z-index: 1000000;
+  width: 300px;
+  padding: 25px;
+  margin-left: -150px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  line-height: 36px;
+  /*
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    */
+  border: 1px solid #696969;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 2px;
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transform: all 0.3s;
+  transition: all 0.3s;
+  visibility: hidden; }
+
+.md-show#alertshowloading {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible; }
+
+/*alert 弹窗 结束*/

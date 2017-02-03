@@ -1,0 +1,130 @@
+ 
+
+<!--顶部切换-->
+<div class="w100 flex topbtnchange">
+     <span class="selected"><a ui-sref="main.task.rewardTask()">悬赏专区</a></span>
+     <span><a ui-sref="main.task.myRewardTask()">我的悬赏</a></span>
+     <span><a ui-sref="main.task.myClaimRecord()">我的认领记录</a></span>
+</div>
+
+
+<!--顶部搜索-->
+<div class="w100">
+    <div class="pbsearchbor">
+
+        <div class="selectbor porela inblock" >
+
+            <span ng-click="taskobj.taskStatusClick()">
+                <span >{{taskobj.statusName}}</span>
+                <i class="pbiconfont poabso">&#xe60f;</i>
+            </span> 
+
+            <ul class="listbor poabso" id="taskStatusClickbor">
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('状态','');">状态</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('已认领','2');">已认领</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('待认领','1');">待认领</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('已关闭','5');">已关闭</a></li>
+            </ul>
+        </div>
+
+        <div class="searchbor porela inblock">
+            <div class="searchbors poabso">
+                <i class="pbiconfont poabso">&#xe610;</i>
+                <input type="text"  ng-model="taskobj.taskTitle" class="inputtext noborder searchinputtext fl" placeholder="请输入任务标题" />
+                <div class="btn blue fl" ng-click="taskobj.rewardSearch()">查询</div>
+            </div>
+        </div>
+
+       <!--  <div class="poabso f16 atitle">
+            <a href="javascript:void(0);">
+                申请认领记录
+                <i class="pbiconfont poabso">&#xe60e;</i>
+            </a>
+        </div> -->
+
+    </div>
+</div>
+<!--顶部搜索-->
+
+
+<!--任务列表-->
+<ul class="listWrap clear">
+    <li ng-repeat="item in rewardList">
+        <a href="javascript:void(0);" class="porela" ng-click="taskobj.getRewardDetail(item.task_id)">
+            <div class="title omit fl">
+                <span class="ordinal">{{$index+1}}</span>
+                <span>{{item.task_title}}</span>
+            </div>
+            <div class="texttip gray poabso" data-ng-if="item.status==5">已关闭</div>
+            <div class="texttip gray poabso" data-ng-if="item.status==0">待发布<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="texttip gray poabso" data-ng-if="item.status==2">已认领<i data-ng-if="taskobj.userInfo.u_id==item.chargeUid">我认领的</i><span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="texttip green poabso" data-ng-if="item.status==1">待认领<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="name fr omit">{{item.real_name}}</div>
+            <div class="time fr">{{item.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+            <div class="taskpoint fr"><span class="omit fl">{{item.point}}</span><span class="fl">纳米币</span></div>
+
+        </a>
+    </li>
+
+
+
+</ul>
+<!--任务列表-->
+<!--分页开始-->
+<div paging page-object="page" click-function="taskPaging" ></div>
+<!--分页结束-->
+
+
+
+
+<!--无数据提示-->
+<div class="tasknodata poabso" ng-if="rewardList.length<=0">
+     <i class="pbiconfont poabso">&#xe621;</i>
+     <div class="f20 bold title1">悬赏专区暂时还没有悬赏任务哦！</div>
+     <!-- <div class="f16 title2">让自己每一天都很明确要推进什么事、计划第二天还要处理的事、这周这月还有哪些事要做！试试创建一个任务吧~</div> -->
+</div>
+<!--无数据提示-->
+
+
+
+<ng-include src="'appnews/modules/task/view/rewardtask_detail.html'"></ng-include>
+
+<div class="tablelistpagewin of minscroll none">
+      
+     <div class="scrollbor mintable">
+          <div class="top">
+               <div class="detail fl">任务名称</div>
+               <div class="person fl">认领人</div>
+               <div class="status fl">认领状态</div>
+               <div class="time fl">时间</div>
+          </div>
+          <ul>
+              <li>
+                   <div class="detail fl break">oa项目实得分是的是43得分是的</div>
+                   <div class="person fl porela">
+                          <div class="img40bor poabso">
+                             <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit">
+                             a刘新宇
+                          </div>
+                   </div>
+                   <div class="status fl">未认领成功</div>
+                   <div class="time fl">2016-12-12 23:23:23</div>
+              </li>
+              <li>
+                   <div class="detail fl break">oa项目实3243分是的</div>
+                   <div class="person fl porela">
+                        <div class="img40bor poabso">
+                             <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit">
+                             a刘新宇
+                          </div>
+                   </div>
+                   <div class="status fl success">认领成功</div>
+                   <div class="time fl">2016-12-12 23:23:23</div>
+              </li>
+          </ul>
+     </div>
+</div>

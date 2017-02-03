@@ -1,0 +1,78 @@
+<div class="ui-widget-winbor add_staff_details_box of">
+	<div class="toptitle add_staff_header">
+		<em>添加员工</em>
+		<a class="close_addStaff">
+			<img src="../../../../images/close_btn.png" />
+		</a>
+	</div>
+	<div class="add_staff_details_content poabso" id="scroll">
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">姓名：</span>
+			<input type="text" class="fl project_title" placeholder="请输入真实姓名" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">邮箱：</span>
+			<input type="text" class="fl project_title" placeholder="请输入邮箱" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">密码：</span>
+			<input type="password" class="fl project_title" placeholder="请输入密码" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">职位：</span>
+			<input type="text" class="fl project_title" placeholder="请输入职位" />
+		</div>
+		<div class="borderbor porela">
+			<span class="fl sign_btn">入职时间：</span>
+			<div class="porela inblock fl">
+				<input type="text" name="pro_datestart" id="pro_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+				<ul class="dropdown-menu" aria-labelledby="dLabel">
+					<datetimepicker data-on-set-time="project.getWordDay()" data-datetimepicker-config="{ dropdownSelector: '#pro_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+				</ul>
+			</div>
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">转正状态：</span>
+			<select type="text" class="fl project_title regular_status">
+				<option>请输入转正状态</option>
+				<option>已转正</option>
+				<option>未转正</option>
+			</select>
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">所属部门：</span>
+			<select type="text" class="fl project_title">
+				<option>湖南纳米娱乐网络科技有限公司</option>
+				<option>已转正</option>
+				<option>未转正</option>
+			</select>
+		</div>
+		<div class="borderbor of porela openstatebor">
+			<span class="fl ml13">是否为部门负责人：</span>
+			<label class="pointer porela pbc"><input type="radio"name="openstate" class="pointer ml10"> 是</label>
+			<label class="pointer porela pbc"><input type="radio"name="openstate" class="pointer ml20"> 否</label>
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl ml13">员工编号：</span>
+			<input type="text" class="fl project_title" placeholder="请输入员工编号" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl ml13">电话：</span>
+			<input type="text" class="fl project_title" placeholder="请输入电话" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl ml13">简历：</span>
+			<button type="button" class="fl uploading_resume">点击上传</button>
+		</div>
+	</div>
+	<div class="btnbor poabso nobor click_btn">
+		<div class="btnsbor">
+			<button class="btns">保存</button>
+			<button class="btns darkgreen">保存并设置权限</button>
+			<button class="btns gray">取消</button>
+		</div>
+	</div>
+	<div class="add_succeed">
+		<span>添加成功  !</span>
+	</div>
+</div>

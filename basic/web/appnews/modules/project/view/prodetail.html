@@ -1,0 +1,195 @@
+<!--项目详情 弹窗 开始-->
+<div class="ui-widget-winbor uiwin prodetialbor of block">
+
+    <div class="toptitle porela">
+        项目详情
+        <div class="pointer poabso operlog" ng-click="project.goLog()">
+            <i class="pbiconfont poabso">&#xe622;</i>
+            <span>操作日志</span>
+        </div>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="project.returnGo()">&#xe61d;</i>
+    </div>
+
+    <div class="scrollbor poabso scroll">
+
+        <div class="bgw100 of pointer" ng-click="project.goProgress(project.proInfo.pro_id)">
+            <div class="over procanvas poabso">
+                <div>已完成任务数</div>
+                <span class="omit">{{project.proInfo.degree.fcount}}</span>
+            </div>
+            <div class="over procanvas poabso">
+                <div>未完成任务数</div>
+                <span class="omit">{{project.proInfo.degree.count-project.proInfo.degree.fcount}}</span>
+            </div>
+            <div class="roundbor procanvas porela" ng-repeat="abc in [1]">
+                <div class="roundbg poabso of"></div>
+                <canvas ng-bind="project.draw($index,100,project.proInfo.degree.degree)" height="235" width="235"></canvas>
+                <div class="number poabso">
+                    <span>{{project.proInfo.degree.degree}}</span>
+                    <i>%</i>
+                </div>
+            </div>
+        </div>
+
+        <div class="borderbor of porela tasktitlebor">
+            <i class="pbiconfont fl poabso">&#xe636;</i>
+            <span class="ml23 wdspacing poabso">项目名称：</span>
+            <div class="inblock break pbc maxtitleof">{{project.proInfo.pro_name}}</div>
+        </div>
+
+        <div class="borderbor of porela tasktitlebor">
+            <i class="pbiconfont fl poabso">&#xe62e;</i>
+            <span class="ml23 wdspacing poabso">公开状态：</span>
+            <div class="inblock break pbc maxtitleof" ng-if="project.proInfo.public_type==1">公开</div>
+            <div class="inblock break pbc maxtitleof" ng-if="project.proInfo.public_type==2">内部公开</div>
+            <div class="inblock break pbc maxtitleof" ng-if="project.proInfo.public_type==3">私密</div>
+        </div>
+
+        <div class="borderbor of porela tasktitlebor">
+            <i class="pbiconfont fl poabso">&#xe62e;</i>
+            <span class="ml23 wdspacing poabso">项目状态：</span>
+            <div class="inblock break pbc maxtitleof">
+            <span class="tips pbcb" ng-if="project.proInfo.status==2">进行中</span>
+            <span class="tips pbcd1" ng-if="project.proInfo.status==1">未开始</span>
+            <span class="tips pbcg" ng-if="project.proInfo.status==4">已完成</span>
+            <span class="tips pbcb" ng-if="project.proInfo.status==3">进行中 <span class="pbcr">(已超时)</span></span>
+            </div>
+        </div>
+
+        <div class="borderbor of porela tasktitlebor">
+            <i class="pbiconfont fl poabso">&#xe614;</i>
+            <span class="ml23 wdspacing poabso">项目周期：</span>
+            <div class="inblock break pbc maxtitleof">
+                <span>{{project.proInfo.begin_time_f}}</span> ~ <span>{{project.proInfo.end_time_f}}</span>
+                <div class="mt5" ng-if="project.proInfo.delay_time_f">
+                    <span class="pbcr">延期截至：</span> <span>{{project.proInfo.delay_time_f}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="porela borderbor hauto promemberbor nomb">
+            <div class="fl title mt10">
+                <i class="pbiconfont poabso mt2"></i>
+                <span class="ml21">项目成员：</span>
+            </div>
+
+            <div class="promemberlist of">
+                <ul>
+                    <!--项目成员列表开始-->
+                    <li ng-repeat="itemmember in project.proMember">
+                        <div class="imgbor40" >
+                            <div class="imgbor fl pointer" ng-if="project.userInfo.u_id==project.proInfo.u_id">
+                                <img ng-src="{{itemmember.head_img_path}}" ng-click="project.openProMemReport(itemmember.u_id)">
+                            </div>
+                            <div class="imgbor fl" ng-if="project.userInfo.u_id!=project.proInfo.u_id">
+                                <img ng-src="{{itemmember.head_img_path}}">
+                            </div>
+                            <div class="name omit fl">{{itemmember.real_name}}</div>
+                            <!--<i class="pbiconfont pointer" ng-if="itemmember.owner==0" ng-click="project.delProMem($index)">&#xe61d;</i>-->
+                        </div>
+                    </li>
+                    <!--项目成员列表结束-->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns green" ng-if="project.userInfo.u_id==project.proInfo.u_id && project.proInfo.status!=4" ng-click="project.goEdit(project.proInfo.pro_id)">编辑</button>
+            <button class="btns gray" ng-click="project.openDelWinButton()" ng-if="project.userInfo.u_id==project.proInfo.u_id && project.proInfo.status==1">删除</button>
+            <button class="btns red" ng-click="project.openDelayWinButton()" ng-if="project.userInfo.u_id==project.proInfo.u_id && project.proInfo.status!=4 && project.proInfo.status!=1">延期</button>
+            <button class="btns bluegreen" ng-click="project.openCompleteWinButton()" ng-if="project.userInfo.u_id==project.proInfo.u_id &&(project.proInfo.status==2 || project.proInfo.status==3)">归档</button>
+            <button class="btns " ng-click="project.goGantt(project.proInfo.pro_id)">项目进展</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--项目(延期弹窗) 开始-->
+<div class="ui-widget-winbor refusedelaywin block" ng-if="project.isDelayWin" style="position: fixed !important;">
+
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="delaybor fl">
+        <span class="fl ml20 title pbc">延期时间：</span>
+        <div class="porela inblock fl">
+
+            <i class="pbiconfont yqi poabso" style="left:177px">&#xe614;</i>
+            <input type="text" name="delaytime" id="delaytime" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="project.param_delay_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="project.param_delay_time" data-datetimepicker-config="{ dropdownSelector: '#delaytime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+
+        </div>
+    </div>
+    <div class="tipstitle pbc clear">
+        请填写延期项目原因：
+    </div>
+    <textarea name="textarea" class="noborder fl" placeholder="最多输入50个字" ng-model="project.param_delay_reason"></textarea>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="project.saveProDelay()">确定</button>
+            <button class="btns gray" ng-click="project.closeDelayWinButton()">取消</button>
+        </div>
+    </div>
+</div>
+<!--项目(延期弹窗) 结束-->
+
+
+
+
+
+<!--归档确认框 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none block" ng-if="project.isCompleteWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        确定将此项目归档吗？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="project.proCompleteButton()">确定</button>
+            <button class="btns gray" ng-click="project.closeCompleteWinButton()">取消</button>
+        </div>
+    </div>
+</div>
+<!--归档确认框 弹窗 结束-->
+
+
+
+
+
+<!--项目删除确认框 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none block" ng-if="project.isDelWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        确定要删除此项目吗？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="project.delProButton()">确定</button>
+            <button class="btns gray" ng-click="project.closeDelWinButton()">取消</button>
+        </div>
+    </div>
+</div>
+<!--项目删除确认框 弹窗 结束-->
+	
+	
+	<!--成员详情-->
+<ng-include src="'appnews/modules/project/view/memberdetail.html'" ></ng-include>

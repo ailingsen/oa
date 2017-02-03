@@ -1,0 +1,352 @@
+<!--顶部切换-->
+<div class="w100 flex topbtnchange">
+    <span><a ui-sref="main.task.rewardTask()">悬赏专区</a></span>
+    <span class="selected"><a ui-sref="main.task.myRewardTask()">我的悬赏</a></span>
+    <span><a ui-sref="main.task.myClaimRecord()">我的认领记录</a></span>
+</div>
+
+<!--顶部搜索-->
+<div class="w100">
+    <div class="pbsearchbor">
+
+        <div class="selectbor porela inblock">
+            <span ng-click="taskobj.taskSearchPopupCtr()">
+                <span >{{taskobj.statusName}}</span>
+                <i class="pbiconfont poabso">&#xe60f;</i>
+            </span>
+            
+            <ul class="listbor poabso" id="taskSearchPopupCtr" >
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('状态','');">状态</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('待发布','1');">待发布</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('待认领','2');">待认领</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('待确认','3');">待确认</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('已认领','4');">已认领</a></li>
+                <li><a href="javascript:void(0)" ng-click="taskobj.selectStatus('已关闭','5');">已关闭</a></li>
+            </ul>
+        </div>
+
+        <div class="searchbor porela inblock">
+            <div class="searchbors poabso">
+                <i class="pbiconfont poabso">&#xe610;</i>
+                <input type="text"  ng-model="taskobj.taskTitle" class="inputtext noborder searchinputtext fl" placeholder="请输入任务标题" />
+                <div class="btn blue fl" ng-click="taskobj.myRewardSearch()">查询</div>
+            </div>
+        </div>
+
+        <!--  <div class="poabso f16 atitle">
+             <a href="javascript:void(0);">
+                 申请认领记录
+                 <i class="pbiconfont poabso">&#xe60e;</i>
+             </a>
+         </div> -->
+
+    </div>
+</div>
+<!--顶部搜索-->
+
+
+<!--任务列表-->
+<ul class="listWrap clear">
+    <li ng-repeat="item in myRewardDetailList">
+        <a href="javascript:void(0);" class="porela" ng-click="taskobj.getMyRewardDetail(item.task_id)">
+            <div class="title omit fl">
+                <span class="ordinal">{{$index+1}}</span>
+                <span>{{item.task_title}}</span>
+            </div>
+            <div class="texttip green poabso" data-ng-if="item.status==1 && item.sub_status==1">待认领<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="texttip green poabso" data-ng-if="item.status==0">待发布<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="texttip green poabso" data-ng-if="item.status==1 && item.sub_status==2">待确认<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="texttip green poabso" data-ng-if="item.status==2">已认领<span class="texttip red" data-ng-if="item.overtime==1">（已超时）</span></div>
+            <div class="texttip green poabso" data-ng-if="item.status==5">已关闭</div>
+            <div class="name fr omit">{{item.real_name}}</div>
+            <div class="time fr">{{item.create_time*1000  | date:'yyyy-MM-dd HH:mm'}}</div>
+            <div class="taskpoint fr"><span class="omit fl">{{item.point}}</span><span class="fl">纳米币</span></div>
+
+        </a>
+    </li>
+
+    <!--分页开始-->
+    <div paging page-object="page" click-function="taskPaging" ></div>
+    <!--分页结束-->
+
+</ul>
+<!--任务列表-->
+
+<!--任务详情 弹窗 开始-->
+<div class="ui-widget-winbor taskdetailwin of block" id="taskDetailPopup" ng-show="detailPopWin">
+
+    <div class="toptitle porela">
+        任务详情
+        <div class="pointer poabso operlog">
+            <i class="pbiconfont poabso">&#xe622;</i>
+            <span data-ng-click="taskobj.operationLogPopup(taskDetail.task_id)">操作日志</span>
+        </div>
+        <i class="pbiconfont poabso closebtn pointer" ng-click=" taskobj.taskDetailPopup()">&#xe61d;</i>
+    </div>
+
+    <div class="toptitle porela none">
+        <div class="gobackbtn pointer fl">
+            <i class="pbiconfont poabso">&#xe60d;</i>
+            <span>返回</span>
+        </div>
+        <span>审核任务</span>
+    </div>
+
+    <div class="scrollbor poabso scroll">
+
+        <div class="borderbor of porela">
+            <div class="fl porela titlecells">
+                <i class="pbiconfont">&#xe612;</i>
+                <span class="ml3">任务类型：</span>
+                <span class="sp">悬赏任务</span>
+            </div>
+            <span class="line1"></span>
+            <div class="fl porela titlecells ml15">
+                <i class="pbiconfont poabso t3">&#xe623;</i>
+                <span class="ml23 wdspacing poabso ">任务状态：</span>
+                <!-- 7种状态 -->
+                 <span class="texttip sp ml95" data-ng-if="taskDetail.status==5">已关闭</span>
+                <!-- <span class="texttip sp">已失效</span> -->
+                <span class="texttip sp ml95" data-ng-if="taskDetail.status==0">待发布</span>
+                <span class="texttip sp ml95" data-ng-if="taskDetail.status==1 && taskDetail.sub_status==1">待认领</span>
+                <span class="texttip sp ml95" data-ng-if="taskDetail.status==1 && taskDetail.sub_status==2">待确认</span>
+                <span class="texttip blue ml95" data-ng-if="taskDetail.status==2">已认领</span>
+                <span class="texttip red" data-ng-if="taskDetail.status<3 && taskDetail.is_overtime==1">（已超时）</span>
+                <!-- <span class="texttip blue">进行中</span> -->
+                <!-- <span class="texttip green">已完成</span> -->
+                <!-- <span class="texttip red">已拒绝</span> -->
+                <!-- <span class="texttip bluegreen">待审核</span> -->
+            </div>
+            <span class="line2"></span>
+            <div class="fl porela titlecells ml15">
+                <i class="pbiconfont">&#xe617;</i>
+                任务级别：
+                <span class="sp" data-ng-if="taskDetail.task_level==1">高</span>
+                <span class="sp" data-ng-if="taskDetail.task_level==2">中</span>
+                <span class="sp" data-ng-if="taskDetail.task_level==3">低</span>
+            </div>
+        </div>
+
+        <div class="borderbor of porela tasktitlebor">
+            <i class="pbiconfont fl poabso">&#xe613;</i>
+            <span class="ml23 wdspacing poabso">任务标题：</span>
+            <div class="inblock break pbc maxtitleof">{{taskDetail.task_title}}</div>
+        </div>
+
+        <div class="borderbor porela tasktimebor readtasktimebor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">开始时间：</span>
+            <div class="porela inblock fl pbc readtime">
+                {{taskDetail.begin_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}
+            </div>
+            <span class="fl ml15">——</span>
+            <i class="pbiconfont inblock">&#xe615;</i>
+            <span class="fl ml30">结束时间：</span>
+            <div class="porela inblock fl pbc readtime">
+                {{taskDetail.end_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}
+            </div>
+            <span class="clear">&nbsp;</span>
+
+        </div>
+        <div class="borderbor of porela tasktitlebor" ng-if="taskDetail.delay_time > 0">
+            <i class="pbiconfont fl poabso">&#xe614;</i>
+            <span class="ml23 wdspacing poabso">任务延期：</span>
+            <div class="inblock break pbc maxtitleof">
+                <!--<span>{{task.end_time  | date:'yyyy-MM-dd HH:mm:ss'}}</span> ~ <span>{{task.end_time  | date:'yyyy-MM-dd HH:mm:ss'}}</span>-->
+                <div class="" >
+                    <!--<span class="pbcr">延期截至：</span> -->
+                    <span>{{task.end_time  | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="borderbor porela taskxsbor of">
+            <i class="pbiconfont poabso mt2">&#xe61e;</i>
+            <span class="ml23 wdspacing">悬赏范围：</span>
+            <ul class="readul xslistbor inblock of fl" >
+                <li ng-repeat="item in taskDetail.range">{{item.org_name}}</li>
+            </ul>
+        </div>
+
+
+        <!--<div class="borderbor porela" >-->
+        <!--<i class="pbiconfont poabso mt2">&#xe616;</i>-->
+        <!--<span class="ml23 wdspacing">分 配 给：</span>-->
+        <!--<div class="imgbor40 poabso">-->
+        <!--<div class="imgbor fl">-->
+        <!--<img src="">-->
+        <!--</div>-->
+        <!--<div class="name omit fl pbc" ng-repeat="item in taskDetail.applicant">{{item.real_name}}</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="borderbor porela hauto">
+            <i class="pbiconfont poabso mt2">&#xe618;</i>
+            <span class="ml23 wdspacing poabso">任务描述：</span>
+            <div class="inblock break pbc maxtitleof">{{taskDetail.task_desc}}</div>
+        </div>
+
+        <div class="borderbor porela taskfilebor read">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in taskDetail.attachmentInfo'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a href="index.php?r=task/task/download&task_att_id={{item.task_att_id}}">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{(item.file_size/1024).toFixed(2)}}kb</div>
+                    <div class="time fl ml10">{{item.create_time*1000  | date:'yyyy-MM-dd HH:mm'}}</div>
+                    <div class="btn blue fr poabso"><a href="index.php?r=task/task/download&task_att_id={{item.task_att_id}}">下载</a></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="borderbor porela taskjnbor of">
+            <i class="pbiconfont poabso mt2">&#xe61b;</i>
+            <span class="ml23 wdspacing">任务技能：</span>
+            <ul class="readul xslistbor inblock of fl">
+                <li class="mt2" ng-repeat="item in taskDetail.skillInfo" data-ng-if="item.task_type==2">{{item.skill_name}}</li>
+            </ul>
+        </div>
+
+        <div class="borderbor porela taskpointbor">
+            <i class="pbiconfont poabso mt2">&#xe61a;</i>
+            <span class="ml23 wdspacing2">奖 励：</span>
+            <span class="surplusPoint pbc"> {{taskDetail.point}} </span> <span class="pbc">纳米币</span>
+        </div>
+
+
+
+        <!--申请认领 开始-->
+        <div class="porela borderbor claimbor of" ng-if="taskobj.userInfo.u_id==taskDetail.creater">
+            <div class="fl mt20 title">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 wdspacing2 break">已有<span>{{taskDetail.applicant.length}}</span>人申请认领：</span>
+            </div>
+            <ul class="fl">
+                <!--选中 添加 selected -->
+                <li class="fl mt10 porela pointer" ng-class="{selected:item.is_charge==1}" ng-repeat="item in taskDetail.applicant"  data-ng-click="taskDetail.status==1 && taskobj.selectPointer(item.u_id, item.real_name, $event)">
+                    <div class="imgbor40">
+                        <div class="imgbor fl">
+                            <img ng-src="{{item.headImg}}">
+                        </div>
+                        <div class="name omit fl pbc">{{item.real_name}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--申请认领 结束-->
+
+
+    </div>
+
+    <div class="btnbor poabso nobor"> 
+        <!--悬赏专区-待认领(认领成功)-->
+        <!--我发布的 待发布-->
+        <div class="btnsbor" data-ng-if="taskDetail.status==0">
+            <button class="btns green" data-ng-click="taskobj.editeTask(taskDetail.task_id,taskDetail.task_type)">编辑</button>
+            <button class="btns " data-ng-click="taskobj.publishTask(taskDetail.task_id)">发布</button>
+            <button class="btns gray" data-ng-click="taskobj.deleteTask(taskDetail.task_id)">删除</button>
+        </div>
+        <div class="btnsbor" data-ng-if="taskDetail.status==1 && taskDetail.sub_status==1">
+            <button class="btns green" data-ng-click="taskobj.editeTask(taskDetail.task_id,taskDetail.task_type)">编辑</button>
+            <button class="btns gray" data-ng-click="taskobj.shutDownTask(taskDetail.task_id)">关闭任务</button>
+        </div>
+        <div class="btnsbor" data-ng-if="taskDetail.status==1 && taskDetail.sub_status==2">
+            <button class="btns" data-ng-click="taskobj.conffirm()">确定</button>
+            <button class="btns gray" data-ng-click="taskobj.taskDetailPopup()">取消</button>
+        </div>
+
+    </div>
+</div>
+<!--任务详情 弹窗 结束-->
+
+
+
+
+
+<!--无数据提示-->
+<div class="tasknodata poabso" ng-if="myRewardDetailList.length<=0">
+    <i class="pbiconfont poabso">&#xe621;</i>
+    <div class="f20 bold title1">您暂时还未发布悬赏任务，赶紧去发布一个吧！</div>
+    <!-- <div class="f16 title2">让自己每一天都很明确要推进什么事、计划第二天还要处理的事、这周这月还有哪些事要做！试试创建一个任务吧~</div> -->
+</div>
+<!--无数据提示-->
+
+
+
+
+<!--确定关闭提示 弹窗 开始-->
+<div class="ui-widget-winbor surewin of of block" ng-show="pointcloseWin">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要关闭此任务吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns" ng-click="taskobj.shutDownTaskdata(taskDetail.task_id);">确定</button>
+               <button class="btns gray" ng-click="taskobj.shutDownTaskCloseWin();">取消</button>
+          </div>
+     </div>
+</div>
+<!--确定关闭提示 弹窗 结束-->
+
+
+
+
+<!--我发布的-待确认(指派某人弹窗) 开始-->
+<div class="ui-widget-winbor surewin of block" id="pointTaskPop" ng-show="pointWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        确定此悬赏任务指派给申请人[<span>{{taskobj.pointerName}}</span>]吗?
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns" ng-click="taskobj.pointTask(1)">确定</button>
+            <button class="btns gray" ng-click="taskobj.pointTask(2)">取消</button>
+        </div>
+    </div>
+</div>
+<!--我发布的-待确认(指派某人弹窗) 结束-->
+
+<!--确定关闭提示 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        请先选择指派人
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns">确定</button>
+            <button class="btns gray">取消</button>
+        </div>
+    </div>
+</div>
+<!--确定关闭提示 弹窗 结束-->
+
+<ng-include src="'appnews/modules/task/view/task_operation.html'" ></ng-include>
+
+
+<div class="ui-widget-winbor surewin of of block ng-scope" ng-show="deletecloseWin">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要删除此任务吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns" ng-click="taskobj.deleteTaskgo(taskDetail.task_id);">确定</button>
+               <button class="btns gray" ng-click="taskobj.deleteTaskexit();">取消</button>
+          </div>
+     </div>
+</div>
+
+

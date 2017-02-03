@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title></title>
+   <style>
+      body{
+         background: url(../images/loginbg.jpg) center center no-repeat;
+         height:100vh;
+         width:100vw;
+      }
+   </style>
+</head>
+<body>
+   <div class="login-header">
+      <ul>
+         <li><a href="javascript:void(0)" ui-sref="help">帮助</a></li>
+         <li><a href="javascript:void(0)" ui-sref="mobile">移动端</a></li>
+         <li><a href="javascript:void(0)" ui-sref="aboutwe">关于我们</a></li>
+         <li><a href="javascript:void(0)" ui-sref="login" class='active'>登录</a></li>
+         <li class="OAsys">OA系统</li>
+      </ul>
+   </div>
+   <!--用户登录框开始-->
+   <div class="index-login">
+      <div class="header f22">
+         <span>用户登录</span>
+      </div>
+      <div class="main">
+         <form action="" class="login-form f16">
+            <div>
+               <input id="loginUser" type="text" ng-keydown="myKeyup($event)" placeholder="请输入邮箱" class="inputArea" name="user_email" data-ng-model="loginForm.userName"/>
+            </div>
+            <div>
+               <input id="password" type="password" ng-keyup="myKeyup($event)" placeholder="请输入密码" class="inputArea" name="user_password" data-ng-model="loginForm.passWord"/>
+            </div>
+            <p class="f14"><a href="javascript:;" ng-click="loginForm.forgetWin()">忘记密码？</a></p>
+            <button type="button" class="btns loginBtn" ng-click="loginForm.submitButton()">登录</button>
+         </form>
+      </div>
+   </div>
+   <!--用户登录框结束-->
+
+   <!--密码找回框开始-->
+   <div class="index-login psd-forget" ng-if="loginForm.isForgetPwdWin">
+      <div class="header f22">
+         <span>密码找回</span>
+      </div>
+      <div class="main">
+         <form action="" class="login-form f16">
+            <div>
+               <input id="" type="text" placeholder="请输入注册邮箱" class="inputArea" name="user_email" data-ng-model="loginForm.findPassUsername" />
+            </div>
+            <!--可增加darkgreen类改变发送邮件按钮颜色-->
+            <button type="button" class="btns resetpsd resend" ng-click="loginForm.findPassword()">发送密码重置邮件</button><!--disbled-->
+            <button type="button" class="btns gray" ng-click="loginForm.retLogin()">返回登录</button>
+         </form>
+      </div>
+   </div>
+   <!--密码找回框结束-->
+
+   <!--邮件发送框开始-->
+   <div class="index-login psd-forget email-sended" ng-if="loginForm.isForgetPwdSuccessWin">
+      <div class="header f22">
+         <span>邮件已发送！</span>
+      </div>
+      <div class="main">
+         <form action="" class="login-form f16">
+            <div>
+               <p class="send-text">密码重置链接已发送至您的邮箱，请登录邮箱重置密码，该链接30分钟内有效。若未收到邮件请点击<span class="resend-link" style="cursor: auto;">重新发送</span></p>
+            </div>
+            <!--可增加darkgreen类改变发送邮件按钮颜色-->
+            <button type="button" class="btns darkgreen resetpsd resend" ng-click="loginForm.findPassword()">重新发送</button>
+            <button type="button" class="btns gray" ng-click="loginForm.retLogin()">返回登录</button>
+         </form>
+      </div>
+   </div>
+   <!--邮件发送框结束-->
+
+   <!--密码重置框开始-->
+   <div class="index-login psdreset" ng-if="loginForm.isUpdatePwdWin">
+      <div class="header f22">
+         <span>修改密码</span>
+      </div>
+      <div class="main">
+         <form action="" class="login-form f16">
+            <div>
+                <input type="password" placeholder="请输入新密码" class="inputArea" name="user_password" data-ng-model="loginForm.newPass"/>
+            </div>
+            <div>
+               <input type="password" placeholder="请再次输入密码" class="inputArea" name="user_password" data-ng-model="loginForm.againnewPass" />
+            </div>
+            <button type="button" class="btns psdreset-sure" ng-click="loginForm.updatePassword()">确认</button>
+         </form>
+      </div>
+   </div>
+   <!--密码重置框结束-->
+
+   <div class="copyright">
+      <p>Copyright© 2001-2016 supernano All Rights Reserved.</p>
+   </div>
+</body>
+</html>

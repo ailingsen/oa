@@ -1,0 +1,49 @@
+<div class="userResearch_box">
+	<ul class="userResearch_content">
+        <li ng-repeat="item in survey.surveyInfoList">
+            <div class="issue_collect_box pointer" ng-click="survey.detailGo(item.survey_id)">
+                <div class="issue_collect">
+                    <a ui-sref="main.userResearch.details" href="#" class="f16"><span>{{item.title}}</span></a>
+                    <p class="status">
+                        <button ng-if="item.status==1" class="underway_btn f16">进行中</button>
+                        <button ng-if="item.status==2" class="ended_btn f16">已结束</button>
+                        <button ng-if="item.status==1 && survey.isMySurveyList" class="end_btn f16" ng-click="survey.openSurveyWin($event,item.survey_id)">结束调研</button>
+                    </p>
+                </div>
+                <div class="describe">
+                    <p class="describe_title f16">{{item.explain}}</p>
+                </div>
+            </div>
+            <div class="create_box f16">
+                <span>创建时间：<i>{{item.create_time_f}}</i></span>
+                <span>创建者：<i>{{item.real_name}}</i></span>
+            </div>
+        </li>
+	</ul>
+
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+</div>
+
+<!--关闭调研提示 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none block" ng-if="survey.isCloseSurveyWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        是否确认结束调研？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="survey.closeSurveyBtn()">是</button>
+            <button class="btns gray" ng-click="survey.closeSurveyWin($event)">否</button>
+        </div>
+    </div>
+</div>
+	
+<!--空数据-->
+<div class="empty-icon" ng-if="survey.surveyInfoList.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>暂时还没有用户调研</p>
+</div>

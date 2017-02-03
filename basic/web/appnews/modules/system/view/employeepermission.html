@@ -1,0 +1,86 @@
+<div class="ui-widget-winbor jurisdiction_setting_box">
+	<div class="jurisdiction_setting_content">
+		<div class="jurisdiction_header f16">
+			<a class="back_btn" ng-click="employee.cancelBtn()">返回</a>
+			<span>权限设置</span>
+			<a class="close_btn" ng-click="employee.cancelBtn()">
+				<img src="../../../../images/close_btn.png" />
+			</a>
+		</div>
+		<div class="staff_info">
+			<ul>
+				<li>
+					员工姓名：<span>{{employee.memInfo.real_name}}</span>
+				</li>
+				<li>
+					所属部门：<span>{{employee.memInfo.org_name}}</span>
+				</li>
+				<li>
+					职位：<span>{{employee.memInfo.position}}</span>
+				</li>
+			</ul>
+		</div>
+		<div class="borderbor of porela sel_role f16">
+			<span class="fl">请选择角色：</span>
+			<select class="fl texttitle" ng-model="employee.memInfo.perm_groupid" ng-change="employee.selectRole()">
+				<option value="{{itemrole.group_id}}" ng-repeat="itemrole in employee.allPerm">{{itemrole.group_name}}</option>
+			</select>
+		</div>
+		<div class="jurisdiction_scroll scroll_set  poabso" id="scroll">
+			<div class="staff_title f16">员工权限:</div>
+			<div class="jurisdiction_table_container">
+				<!--任务-->
+				<div class="jurisdiction_table_box" ng-repeat="item in employee.allPermission">
+					<table class="jurisdiction_table border_top" ng-if="$index==0">
+						<tbody>
+							<tr ng-repeat="itemsub1 in item.children">
+								<th class="th_one" rowspan="{{item.children.length}}" ng-if="$index==0">
+									<label>
+		                                <input type="checkbox" pid="{{item.pid}}" ng-checked="item.is_selected" ng-click="roles.selectAllPerm($event,item.pid)"/>{{item.p_name}}
+		                            </label>
+								</th>
+								<th class="td_one border_top">
+									<label>
+		                                <input type="checkbox" pid="{{itemsub1.pid}}" ng-checked="itemsub1.is_selected" ng-click="roles.selectAllPerm2($event,itemsub1.pid)"/>{{itemsub1.p_name}}
+		                            </label>
+								</th>
+								<td class="td_two border_top" colspan="1">
+									<label ng-repeat="itemsub2 in itemsub1.children">
+		                                <input type="checkbox" pid="{{itemsub2.pid}}" ng-checked="itemsub2.is_selected" ng-click="roles.updateSelection($event,itemsub2.pid)"/>{{itemsub2.p_name}}
+		                            </label>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="jurisdiction_table" ng-if="$index>0">
+						<tbody>
+							<tr ng-repeat="itemsub1 in item.children">
+								<th class="th_one" rowspan="{{item.children.length}}" ng-if="$index==0">
+									<label>
+		                                <input type="checkbox" pid="{{item.pid}}" ng-checked="item.is_selected" ng-click="roles.selectAllPerm($event,item.pid)"/>{{item.p_name}}
+		                            </label>
+								</th>
+								<th class="td_one">
+									<label>
+		                                <input type="checkbox" pid="{{itemsub1.pid}}" ng-checked="itemsub1.is_selected" ng-click="roles.selectAllPerm2($event,itemsub1.pid)"/>{{itemsub1.p_name}}
+		                            </label>
+								</th>
+								<td class="td_two" colspan="1">
+									<label ng-repeat="itemsub2 in itemsub1.children">
+		                                <input type="checkbox" pid="{{itemsub2.pid}}" ng-checked="itemsub2.is_selected" ng-click="roles.updateSelection($event,itemsub2.pid)"/>{{itemsub2.p_name}}
+		                            </label>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jurisdiction_sub_btn">
+		<div class="btnsbor">
+			<button class="btns" ng-click="employee.saveBtn()">确定</button>
+			<button class="btns gray" ng-click="employee.cancelBtn()">取消</button>
+		</div>
+	</div>
+</div>

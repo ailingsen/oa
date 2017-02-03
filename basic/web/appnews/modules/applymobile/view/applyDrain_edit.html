@@ -1,0 +1,48 @@
+<!--忘打卡申请创建开始-->
+<div class="ui-widget-winbor uiwinabs pfixed formzindex isrequired" style="display:block;" ng-show="apply.drainPopup">
+    <div class="toptitle porela">
+        忘打卡申请
+        <i class="pbiconfont poabso closebtn pointer" ng-click="apply.drainPopup=false; apply.customHideWin();">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor porela xlefttitlebor timesbor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">忘打卡时间：</span>
+
+            <div class="porela inblock fl">
+
+                <input type="text" name="wdk_datestart" id="wdk_datestart"  data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="apply.beginTime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="apply.beginTime" data-datetimepicker-config="{ dropdownSelector: '#wdk_datestart', startView: 'day', minView: 'day' }"></datetimepicker>
+                </ul>
+
+            </div>
+
+            <span class="line"></span>
+            <div class="fl ml10 apmbor">
+                <label>
+                    <input type="radio" name="am" data-ng-click="apply.drainTimePoint('1')" ng-checked="apply.drainCheckAm"/>上午
+                </label>
+                <label class="ml20">
+                    <input type="radio" name="am" data-ng-click="apply.drainTimePoint('2')" ng-checked="apply.drainCheckPm"/>下午
+                </label>
+            </div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor " id="w5nums">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23">忘打卡说明：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入忘打卡说明(最多输入100个字)" data-ng-model="apply.drainDesc"></textarea>
+        </div>
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.detail.status == 3 || apply.detail.status == 2">
+        <div class="btnsbor">
+            <button class="btns " data-ng-click="apply.drainPunchSub()">提交</button>
+            <button class="btns gray" data-ng-click="apply.editPopupCtr('3');apply.customHideWin();">取消</button>
+        </div>
+    </div>
+</div>
+<!--忘打卡申请创建结束-->

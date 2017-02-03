@@ -1,0 +1,119 @@
+<div class="toptitle toptitlepb porela gtttopbors of">
+     <div class="gobackbtn pointer fl" ng-click="project.returnGo()">
+          <i class="pbiconfont poabso pbc">&#xe60d;</i>
+          <span class="pbcd1">返回</span>
+     </div>
+     <div class="gttbor pbcd1">
+     	  项目名称：
+     	  <span class="omit pbc">{{project.proInfo.pro_name}}</span>
+     </div>
+     <div class="colorbor poabso pbcd1">
+          <ul>
+              <li>
+                   <i class="pbiconfont poabso boxcolor1">&#xe63a;</i>
+                   <span>待接受</span>
+              </li>
+              <li>
+                   <i class="pbiconfont poabso boxcolor2">&#xe63a;</i>
+                   <span>进行中</span>
+              </li>
+              <li>
+                   <i class="pbiconfont poabso boxcolor3">&#xe63a;</i>
+                   <span>已关闭</span>
+              </li>
+              <li>
+                   <i class="pbiconfont poabso boxcolor4">&#xe63a;</i>
+                   <span>已完成</span>
+              </li>
+              <li>
+                   <i class="pbiconfont poabso boxcolor5">&#xe63a;</i>
+                   <span>已拒绝</span>
+              </li>
+              <li>
+                   <i class="pbiconfont poabso boxcolor6">&#xe63a;</i>
+                   <span>待审核</span>
+              </li>
+          </ul>
+     </div>
+     <div class="righta fr poabso">
+          <a href="javascript:;" isperm pcode="{{project.typePerm}}" ng-click="project.prowork(project_param.pro_id,project.type,project.position)">项目成员工作报告 > </a>
+     </div>
+</div>
+
+
+ 
+
+
+   <div class="abcabc" ng-hide="data.length==0" gantt
+                                         data="data"
+                                         timespans="timespans"
+                                         show-side="options.labelsEnabled"
+                                         daily="options.daily"
+                                         filter-task="{'name': options.filterTask}"
+                                         filter-row="{'name': options.filterRow}"
+                                         sort-mode="options.sortMode"
+                                         view-scale="options.scale"
+                                         column-width="getColumnWidth(options.width, options.scale, options.zoom)"
+                                         auto-expand="options.autoExpand"
+                                         task-out-of-range="options.taskOutOfRange"
+                                         from-date = "options.fromDate"
+                                         to-date = "options.toDate"
+                                         allow-side-resizing = "options.allowSideResizing"
+                                         task-content = "options.taskContentEnabled ? options.taskContent : undefined"
+                                         row-content = "options.rowContentEnabled ? options.rowContent : undefined"
+                                         current-date="options.currentDate"
+                                         current-date-value="options.currentDateValue"
+                                         headers="options.width && options.shortHeaders || options.longHeaders"
+                                         headers-formats="options.headersFormats" 
+                                         max-height="options.maxHeight && 300 || 0"
+                                         time-frames="options.timeFrames"
+                                         date-frames="options.dateFrames"
+                                         time-frames-working-mode="options.timeFramesWorkingMode"
+                                         time-frames-non-working-mode="options.timeFramesNonWorkingMode"
+                                         time-frames-magnet="options.timeFramesMagnet"
+                                         api="options.api"
+                                         column-magnet="options.columnMagnet">
+                                        <gantt-tree header = "options.taskColumnsName" enabled="options.sideMode === 'Tree' || options.sideMode === 'TreeTable'"
+                                                    header-content="options.treeHeaderContent"
+                                                    keep-ancestor-on-filter-row="true">
+                                        </gantt-tree>
+                                        <gantt-table enabled="options.sideMode === 'Table' || options.sideMode === 'TreeTable'"
+                                                     columns="options.sideMode === 'TreeTable' ? options.treeTableColumns : options.columns"
+                                                     headers="options.columnsHeaders"
+                                                     classes="options.columnsClasses"
+                                                     formatters="options.columnsFormatters"
+                                                     contents="options.columnsContents"
+                                                     header-contents="options.columnsHeaderContents">
+                                        </gantt-table>
+                                        <!-- <gantt-groups enabled="options.groupDisplayMode === 'group' || options.groupDisplayMode === 'overview' || options.groupDisplayMode === 'promote'" display="options.groupDisplayMode"></gantt-groups> -->
+                                        <gantt-tooltips date-format="options.tooltipsDateFormats"></gantt-tooltips>
+                                        <!-- <gantt-bounds></gantt-bounds> -->
+                                        <!-- <gantt-progress></gantt-progress> -->
+                                        <!-- <gantt-sortable></gantt-sortable> -->
+                                        <!-- <gantt-movable enabled="!options.readOnly"></gantt-movable> -->
+                                        <gantt-draw-task
+                                            enabled="options.canDraw"
+                                            move-threshold="2"
+                                            task-factory="options.drawTaskFactory">
+                                        </gantt-draw-task>
+                                        <gantt-overlap></gantt-overlap>
+                                        <!-- <gantt-resize-sensor></gantt-resize-sensor> -->
+                                    </div>
+ 
+
+
+<!-- 分页
+<div paging page-object="page" click-function="page_fun" ></div>
+ -->
+
+
+
+
+
+<!--无数据提示-->
+<div class="tasknodata poabso" ng-if="data.length<=0">
+    <i class="pbiconfont poabso">&#xe621;</i>
+    <div class="f20 bold title1">项目暂时还没有进展！</div>
+    <!-- <div class="f16 title2">让自己每一天都很明确要推进什么事、计划第二天还要处理的事、这周这月还有哪些事要做！试试创建一个任务吧~</div> -->
+</div>
+<!--无数据提示-->

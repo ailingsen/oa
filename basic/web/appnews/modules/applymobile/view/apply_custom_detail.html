@@ -1,0 +1,86 @@
+<!--表单展示数据】 开始-->
+<div id="formpresentation" class="ui-widget-winbor formpresentation pbcreateformlib pfixed formzindex of block" ng-show="apply.customShowWin">
+    <div class="toptitle porela">
+        <span class="formtitles ml0"></span>
+        <!-- <i class="pbiconfont poabso closebtn pointer" ng-click="apply.customShowWin=false; apply.customHideWin();">&#xe61d;</i> -->
+    </div>
+    <div id="scroll" class=" pfixed" style="    right: 10px;
+    
+    bottom: 68px;
+    left: 10px; top:60px;">
+        
+        <div class="scrollbor"></div>  
+
+        <div class="borderbor porela mt15">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">申 请 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.applyer_name}}</div>
+            </div>
+        </div>
+
+        <!--当前审批人-->
+        <div class="borderbor porela" ng-if="apply.detail.handler_name">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">当前审批人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.handler_head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.handler_name}}</div>
+            </div>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor nomb">
+            <i class="pbiconfont poabso mt2 left15">&#xe614;</i>
+            <span class="fl ml23">申请时间：</span>
+            <span class="sp">{{apply.detail.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </div>
+
+        <div class="borderbor porela nomb applyprogress hauto mt15" ng-if="apply.detail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2 ">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+
+            <ul>
+                <!--同意-->
+                <li class="porela" ng-repeat="itemVerRed in apply.detail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img ng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div> 
+  
+    </div>
+
+    <div class="btnbor poabso nobor" ng-if="apply.detail.current_handler == 1 && isAgent">
+        <div class="btnsbor">
+            <button class="btns " ng-click="leave_apply.showAgreeWin()">同意</button>
+            <button class="btns gray" ng-click="leave_apply.openRefuseWin()">拒绝</button>
+        </div>
+    </div>
+
+    <div class="btnbor poabso nobor" ng-if="apply.detail.is_applyer == 1 && isMine">
+        <div class="btnsbor">
+            <button ng-if="apply.detail.status == 0" ng-click="apply.revoke(apply.detail.apply_id)" class="btns">撤回</button>
+            <button ng-if="apply.detail.status == 0 && apply.detail.is_press == 0" ng-click="apply.press(apply.detail.apply_id)" class="btns  ">催办</button>
+            <button ng-if="apply.detail.status == 3 || apply.detail.status == 2" ng-click="apply.toEditApply(apply.detail.apply_id,apply.detail.model_id)" class="btns">编辑</button>
+            <button ng-if="apply.detail.status == 3 || apply.detail.status == 2" ng-click="apply.delApply(apply.detail.apply_id)" class="btns red">删除</button>
+        </div>
+    </div>
+</div>
+<!--表单展示数据】 结束-->

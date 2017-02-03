@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="oaApp" >
+<head>
+<meta charset="utf-8">
+<meta Http-Equiv="Cache-Control" Content="no-cache">
+<meta Http-Equiv="Pragma" Content="no-cache">
+<meta Http-Equiv="Expires" Content="0">
+<meta Http-Equiv="Pragma-directive: no-cache">
+<meta Http-Equiv="Cache-directive: no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>纳米娱乐</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+<link rel="stylesheet" type="text/css" href="css/public.css"> 
+<link rel="stylesheet" type="text/css" href="css/uploadDialog.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+
+<!-- 第三方控件 -->
+<script type="text/javascript" charset="utf-8" src="appnews/lib/common/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/angular.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/angular-cookies.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/angular-sanitize.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/moment.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/angular-ui-router.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/angular-file-upload.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/ng-file-upload.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/datetimepicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/jQuery.md5.js"></script>
+<script type="text/javascript" charset="utf-8" src="/appnews/lib/lodash.min.js"></script>
+<!-- gantt -->
+<script src="appnews/lib/angular-gantt/dist/angular-gantt.js"></script>
+<script src="appnews/lib/angular-gantt/dist/angular-gantt-plugins.js"></script>
+<script src="appnews/lib/angular-moment/angular-moment.js"></script>
+<script src="appnews/lib/angular-ui-tree/dist/angular-ui-tree.js"></script>
+<!-- gantt -->
+
+<!-- hightchart -->
+<script type="text/javascript" src="appnews/lib/highcharts/highcharts-ng.min.js"></script>
+<script type="text/javascript" src="appnews/lib/highcharts/highstock.src.js"></script>
+<!-- hightchart -->
+
+<!-- 公共模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/factory/factory.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/filters/filter.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/directives/directives.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/services/services.js"></script>
+<script type="text/javascript" charset="utf-8" src="/appnews/modules/common/common.js"></script>
+
+<!-- 登录注册 -->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/login/controller/LoginController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/login/controller/ForgetPasswordController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/login/route.js"></script>
+
+<!--工作台-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/main/controller/IndexController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/main/controller/HeadController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/main/controller/IndexSetController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/main/model/deskModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/main/route.js"></script>
+
+<!--项目模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/CreateProController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/EditProController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProDetailController.js"></script>
+<!--<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProProgressController.js"></script>-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProProgressHeadController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProProgressListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProTaskListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProGanttController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProDetailLogController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/controller/ProMemReportController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/models/ProjectModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/project/route.js"></script>
+
+<!--任务模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/controller/TaskController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/controller/TaskListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/controller/MyReleaseTaskController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/controller/RewardTaskListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/models/TaskListModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/controller/TaskCreateController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/controller/TaskEditeController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/models/TaskModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/models/DoTaskModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/task/route.js"></script>
+
+<!--考勤模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/controller/MyAttendController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/controller/AllAttendController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/controller/AttendSetController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/controller/VacationStatController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/controller/AttendCountController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/models/AttendanceModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/route.js"></script>
+
+<!--公告模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/lib/Ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/Ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/Ueditor/angular-ueditor.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/Ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/notice/controller/NoticeListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/notice/controller/NoticeCreateController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/notice/models/NoticeModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/notice/route.js"></script>
+
+<!--会议室预定模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/meeting/controller/Reserve.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/meeting/controller/ReserveManage.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/meeting/models/ConferenceRoomModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/meeting/route.js"></script>
+
+<!--用户调研模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/controller/SurveyListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/controller/SurveyDetailController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/controller/MyCreateListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/controller/MyCreateDetailController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/controller/CreateSurveyController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/models/SurveyModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/survey/route.js"></script>
+
+<!--工作报告模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/controller/workStatementController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/controller/MyWorkController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/controller/ApproveWorkController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/controller/WorkDetailController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/controller/WriteWorkController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/controller/EditeWorkController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/models/WorkModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/workStatement/route.js"></script>
+
+<!--系统管理模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/systemController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/EmployeeListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/EmployeeAddController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/EmployeeEditController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/EmployeePermissionController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/SkillController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/ScoreController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/ScoreCronController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/GroupScoreController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/RolesController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/RolesAddController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/RolesEditeController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/SkillLevelController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/controller/ActionController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/models/PermissionModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/models/SkillModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/models/ScoreModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/models/RolesModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/models/EmployeeModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/system/route.js"></script>
+<!--工作日设置模块-->
+<!--<script type="text/javascript"charset="utf-8" src="appnews/modules/system/controller/WorkdaySetController.js" ></script>-->
+<!--<script type="text/javascript" src="appnews/lib/datePicker/calendar.js" ></script>-->
+
+<!--申请模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyFlowController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyshowController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyeditshowController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyshowdataController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/MyApplyListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/RankApplyController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/DrainPunchController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyAppController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyModelListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/LeaveApplyCreateController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/AgentApplyListController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/ApplyModelCreateCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/FlexibleWorkController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/OvertimeApplyCreateCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/controller/CustomApplyCreateCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/models/ApplyModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/models/ApplySetModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/models/LeaveApplyModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/apply/route.js"></script>
+
+<!--移动申请-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/ApplymobileAppController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/OvertimeApplymobileCreateCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/LeaveApplymobileCreateController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/DrainPunchmobileController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/RankApplymobileController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/FlexibleWorkmobileController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/MyApplyListmobileController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/AgentApplyListmobileController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/controller/CustomApplymobileCreateCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/models/ApplymobileModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/applymobile/route.js"></script>
+
+
+<!--同事模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/colleague/controller/WorkController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/colleague/controller/MyColleagueController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/colleague/controller/ScoreboardController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/colleague/models/ColleagueModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/colleague/route.js"></script>
+
+
+<!--个人信息模块-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/personalInfo/controller/personalInfoController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/personalInfo/controller/SkillScoreController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/personalInfo/controller/VacationController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/personalInfo/route.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/personalInfo/models/userModel.js"></script>
+
+<!--消息列表-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/controller/ApprovalMsgController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/controller/ApplyMsgController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/controller/MeetingMsgController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/controller/TaskMsgController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/controller/ProjectMsgController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/controller/ReportMsgController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/route.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/msg/models/MsgModel.js"></script>
+
+<!--纳米云-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/nanoCloud/controller/nanoCloudSectionCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/nanoCloud/controller/nanoCloudRecycleCtrl.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/nanoCloud/models/NanoCloudModel.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/nanoCloud/route.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/lib/angular/ng-context-menu.min.js"></script>
+
+<!--假期管理-->
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/controller/VacationMgnController.js"></script>
+<script type="text/javascript" charset="utf-8" src="appnews/modules/attendance/models/VacationMgnModel.js"></script>
+
+<!--拖拽插件-->
+<script src="/appnews/lib/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+
+<!--alert-->
+<script src="/appnews/lib/alert/alertshowloading.js"></script>
+
+<script src="/appnews/lib/createform/showeditform.js"></script>
+
+<body>
+
+    <ui-view></ui-view>
+
+    <div id="alertshowloading"></div>
+
+</body>
+</html>

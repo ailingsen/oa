@@ -1,0 +1,53 @@
+<div id="flow-preview">
+    <div class="borderbor of porela xlefttitlebor ">
+        <span class="fl">发起次数限制：</span>
+        <span class="sp">
+                     <input type="text" class="number" ng-model="params.limit_num" disabled placeholder="(请输入)" />
+               </span>
+        <span class="sp">次 / </span>
+        <select ng-options="item.label for item in limitTypes" ng-model="params.limit_type" disabled></select>
+        <span class="poabso r20 pbcd1">(0代表次数不限)</span>
+    </div>
+
+    <!--审批流程开始-->
+
+    <div ng-repeat="group in params.groups track by $index">
+        <div class="borderbor porela xlefttitlebor hauto of">
+            <span class="fl">流程应用范围：</span>
+            <ul class="fl readul xslistbor inblock of">
+                    <li ng-repeat="item in group.selectedDeparts">
+                        <div class="fl" ng-bind="item.label"></div>
+                    </li>
+                    <li ng-repeat="item in group.selectedMembers" class="selected-members">
+                        <div class="fl" ng-bind="item.label"></div>
+                    </li>
+            </ul>
+        </div>
+
+        <div ng-class="['borderbor','of','porela','xlefttitlebor','rule',{'none':hideFilter}]">
+            <span class="wdspacing4">判 断 条 件：</span>
+            <select ng-options="item as item.label for item in selectTypes" ng-model="group.conditions.type" disabled >
+                  </select>
+            <select class="ml10" ng-options="item.label for item in selectExprs" ng-model="group.conditions.expression" disabled >
+                  </select>
+            <span class="line"></span>
+            <span class="pbc ml30 omit">
+                        <input type="text" class="numberday" placeholder="(请输入)" ng-model="group.conditions.value" disabled/>
+                  </span>
+            <!-- <span class="poabso r20 pbc">(天)</span> -->
+        </div> 
+
+        <!--多流循环-->
+        <div class="borderbor porela sprbor" ng-repeat="flow in group.flows">
+            <span>{{$index+1}}级审批流程 ： </span>
+            <span>审批人</span>
+            <div class="imgbor40 poabso" ng-repeat="auditor in flow.auditors">
+                <div class="imgbor fl">
+                    <img ng-src="{{auditor.avatar}}">
+                </div>
+                <div class="name omit fl pbc">{{auditor.label}}</div>
+            </div>
+        </div>
+    </div>
+    <!--审批流程结束-->
+</div>

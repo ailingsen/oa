@@ -1,0 +1,50 @@
+<div class="common-head pro-head">
+    <i class="iconfont">&#xe61c;</i>
+    <span class="f20">项目</span>
+    <span class="fr iconfont iconfont-small" ui-sref="main.project.myinvoepro">&#xe61d;</span>
+</div>
+<div class="pro-progress">
+    <div class="banner">
+        <ul>
+            <li class="fl" ng-repeat="item in index.project" data-ng-if="index.project.length>0" ui-sref="main.project.myinvoepro.prodetail({isInit:1,list_status:0,pro_id:item.pro_id})">
+                <div class="porela canvas-wrap">
+                    <div class="poabso canvasbg"></div>
+                    <canvas ng-bind="index.draw($index,100,item.degree.degree)" height="150" width="150"></canvas>
+                    <div class="poabso canvas-num">
+                        <span>{{item.degree.degree}}</span>
+                        <i class="f22">%</i>
+                    </div>
+                </div>
+                <p class="pro-til omit">{{item.pro_name}}</p>
+            </li>
+            <li class="fl" data-ng-if="index.project.length==0" style="margin-left:122px;">
+                <div class="porela canvas-wrap">
+                    <div class="poabso canvasbg"></div>
+                    <canvas ng-bind="index.draw(0,100,0)" height="150" width="150"></canvas>
+                    <div class="poabso canvas-num">
+                        <span>0</span>
+                        <i class="f22">%</i>
+                    </div>
+                </div>
+                <p class="pro-til"></p>
+            </li>
+        </ul>
+        <i class="iconfont banner-btnl poabso">&#xe616;</i>
+        <i class="iconfont banner-btnr poabso">&#xe62a;</i>
+        <P class="sign poabso"></P>
+    </div>
+</div>
+<div class="pro-sta f16">
+    <p>
+        未开始 <br/>
+        <span  ui-sref="main.project.myinvoepro({isInit:1,list_status:1})" class="sta-font">{{index.project_count.not_start}}</span>
+    </p>
+    <p>
+        进行中 <br/>
+        <span  ui-sref="main.project.myinvoepro({isInit:1,list_status:2})" class="sta-font">{{index.project_count.doing}}</span>
+    </p>
+    <p>
+        已完成 <br/>
+        <span  ui-sref="main.project.myinvoepro({isInit:1,list_status:3})" class="sta-font">{{index.project_count.finish}}</span>
+    </p>
+</div>

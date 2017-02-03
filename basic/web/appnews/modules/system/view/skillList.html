@@ -1,0 +1,94 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+		<span class="selected"><a ui-sref="main.system.skillList">技能管理</a></span>
+		<span><a  isperm pcode="SystemSkillLevel"  ui-sref="main.system.gradeSettingList">等级设置</a></span>
+	</em>
+	<a  isperm pcode="SystemSkillAddskill" href="javascript:;" class="add_staff btn_add" id="add_skill_type" data-ng-click="skill.addSkill(0)"><i>添加技能类型</i></a>
+</div>
+<div class="system_list clear">
+	<div class="add_skill_box" ng-repeat="skill_item in skill.skill_list">
+		<div class="add_language_box">
+			<!--开发语言-->
+			<div class="add_language_type f16">
+				<span>{{skill_item.skill_name}}</span>
+
+				<a  isperm pcode="SystemSkillDelskill" href="javascript:;" class="language_type_del" data-ng-click="skill.isDelSkill(skill_item.skill_id, skill_item.group_id)">删除</a>
+				<a  isperm pcode="SystemSkillEditeskill" href="javascript:;" class="language_type_edit" data-ng-click="skill.editeSkill(skill_item.skill_name,skill_item.skill_id,skill_item.group_id)">编辑</a>
+			</div>
+			<div class="add_language_container">
+				<div ng-repeat="skill_child in skill_item.children">
+					<em>
+						<a  isperm pcode="SystemSkillEditeskill" href="javascript:;" class="language_edit" ng-click="skill.editeSkill(skill_child.skill_name,skill_child.skill_id,skill_child.group_id)">编辑</a>
+						<a  isperm pcode="SystemSkillDelskill" href="javascript:;" class="language_del" ng-click="skill.isDelSkill(skill_child.skill_id,skill_child.group_id)">删除</a>
+					</em>
+					<span>{{skill_child.skill_name | cut:true:8:'...'}}</span>
+				</div>
+				<a  isperm pcode="SystemSkillAddskill"  href="javascript:;" class="add_skill_btn" ng-click="skill.addSkill(skill_item.skill_id)">
+					<img src="../../../../images/add_skill_type.png" />
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--------------------------------技能类型----------------------->
+<!--添加技能类型-弹出框-->
+<div class="addSkillType_popUp ng-scope" style="display: block" ng-show="skill.addSkillWin">
+	<div class="header f18 popUp_back" data-ng-if="skill_param.group_id==0">添加技能类型</div>
+	<div class="header f18 popUp_back" data-ng-if="skill_param.group_id>0">添加技能</div>
+	<div class="main">
+		<div class="type_name">
+			<label class="f16" data-ng-if="skill_param.group_id==0">
+					技能类型名称：<input type="text" placeholder="请输入技能类型名称" class="f16" data-ng-model="skill_param.skill_name"/>
+				</label>
+			<label class="f16" data-ng-if="skill_param.group_id>0">
+				技能名称：<input type="text" placeholder="请输入技能名称" class="f16" data-ng-model="skill_param.skill_name"/>
+			</label>
+		</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="skill.saveAdd()">确定</button>
+			<button class="btns gray" ng-click="skill.cancelAddSkill()">取消</button>
+		</div>
+	</div>
+</div>
+<!--编辑技能类型-弹出框-->
+<div class="addSkillType_popUp ng-scope" style="display: block" ng-show="skill.editeSkillWin">
+	<div class="header f18 popUp_back" data-ng-if="skill_param.group_id==0">编辑技能类型</div>
+	<div class="header f18 popUp_back" data-ng-if="skill_param.group_id>0">编辑技能</div>
+	<div class="main">
+		<div class="type_name">
+			<label class="f16" data-ng-if="skill_param.group_id==0">
+				类型名称：<input type="text" placeholder="请输入类型名称" class="f16"  data-ng-model="skill_param.skill_name"/>
+			</label>
+			<label class="f16" data-ng-if="skill_param.group_id>0">
+				技能名称：<input type="text" placeholder="请输入技能名称" class="f16"  data-ng-model="skill_param.skill_name"/>
+			</label>
+		</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="skill.saveEdite()">确定</button>
+			<button class="btns gray" ng-click="skill.cancelEditeSkill()">取消</button>
+		</div>
+	</div>
+</div>
+
+<!--删除弹框-->
+<div class="skill_del ng-scope ng-hide" style="display: block" ng-show="skill.delSkillWin">
+	<div class="header f18">提示</div>
+	<div class="main">
+		<div class="confirm_del f20" data-ng-if="skill_param.group_id==0">确认删除该技能类型？</div>
+		<div class="confirm_del f20" data-ng-if="skill_param.group_id>0">确认删除该技能？</div>
+		<div class="jurisdiction_del_btn">
+			<button class="btns" ng-click="skill.delSkill()">确定</button>
+			<button class="btns gray" ng-click="skill.cancelDelSkill()">取消</button>
+		</div>
+	</div>
+</div>
+<!--提示框-->
+<notice message="skill.noticeService.message" type="skill.noticeService.notice_type" gourl="skill.noticeService.gourl">></notice>
+
+	
+<!--空数据-->
+<div class="empty-icon" ng-if="skill.skill_list.length==0">
+    <i class="iconfont">&#xe618;</i>
+    <p>暂时没有相关数据</p>
+</div>

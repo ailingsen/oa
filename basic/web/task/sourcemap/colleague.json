@@ -1,0 +1,7 @@
+[
+    "appnews/modules/colleague/controller/WorkController.js",
+    "appnews/modules/colleague/controller/MyColleagueController.js",
+    "appnews/modules/colleague/controller/ScoreboardController.js",
+    "appnews/modules/colleague/models/ColleagueModel.js",
+    "appnews/modules/colleague/route.js"
+]

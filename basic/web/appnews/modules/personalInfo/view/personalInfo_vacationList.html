@@ -1,0 +1,44 @@
+<!--顶部切换-->
+<div class="w100 personalInfo_title_box">
+	<em class="personalInfo_title">
+	    <span><a ui-sref="main.personalInfo.myInfoList">我的信息</a></span>
+	    <span><a ui-sref="main.personalInfo.skillList">纳米币与技能</a></span>
+	    <span class="selected"><a ui-sref="main.personalInfo.vacationList">假期</a></span>
+   </em>
+	<div class="back_personalInfo ng-scope">
+		<a href="javascript:;" class="back_btn f16" data-ng-click="userInfo.back()">返回</a>
+		<span class="f16">个人信息</span>
+	</div>
+</div>
+<div class="myInfo_list_box">
+	<div class="myInfo_list_content">
+		<div class="info_img">
+			<img ng-src="{{userInfo.detail.head_img}}" />
+		</div>
+		<div class="info_box f16">
+			<div class="info_name omit">{{userInfo.detail.real_name}}</div>
+			<div class="info_bor omit">
+				<div>部门 : </div><span class="omit">{{userInfo.detail.org.org_name}}</span>
+			</div>
+			<div class="info_bor">
+				<div>职位 : </div><span class="omit">{{userInfo.detail.position}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="myInfo_content myInfo_skill_content f16">
+		<ul>
+			<li>
+				<em>调休假还剩：</em>
+				<span><i>{{vacation.over_time}}天</i></span>
+			</li>
+			<li>
+				<em>年假还剩：</em>
+				<span>{{vacation.annual_leave.normal_leave}}<i>天</i></span>
+			</li>
+            <li>
+                <em>顺延年假还剩：</em>
+                <span>{{vacation.annual_leave.delay_leave}}<i>天</i></span>
+            </li>
+		</ul>
+	</div>
+</div>

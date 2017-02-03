@@ -1,0 +1,93 @@
+<div class="ui-widget-winbor add_staff_details_box of">
+	<div class="toptitle add_staff_header">
+		<em>编辑员工</em>
+		<a class="close_addStaff" ng-click="employee.cancelBtn();">
+			<img src="../../../../images/close_btn.png" />
+		</a>
+	</div>
+	<div class="add_staff_details_content poabso" id="scroll">
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">姓名：</span>
+			<input type="text" class="fl project_title" placeholder="请输入真实姓名" ng-model="employee_param.real_name" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">邮箱：</span>
+			<input type="text" class="fl project_title" placeholder="请输入邮箱" ng-model="employee_param.email" autocomplete="off" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">密码：</span>
+			<input type="password" class="fl project_title" placeholder="请输入密码" ng-model="employee.pwd" maxlength="16" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">职位：</span>
+			<input type="text" class="fl project_title" placeholder="请输入职位" ng-model="employee_param.position" />
+		</div>
+		<div class="borderbor porela">
+			<span class="fl sign_btn">入职时间：</span>
+			<div class="porela inblock fl">
+				<input type="text" name="pro_datestart" id="pro_datestart" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="employee_param.entry_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+				<ul class="dropdown-menu" aria-labelledby="dLabel">
+					<datetimepicker ng-model="employee_param.entry_time" data-on-set-time="project.getWordDay()" data-datetimepicker-config="{ dropdownSelector: '#pro_datestart', startView: 'day', minView: 'day' }"></datetimepicker>
+				</ul>
+			</div>
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl sign_btn">转正状态：</span>
+			<select type="text" class="fl project_title regular_status" ng-model="employee_param.is_formal">
+				<option value="0">未转正</option>
+				<option value="1">已转正</option>
+			</select>
+		</div>
+		<div class="borderbor porela protitlebor">
+			<span class="fl sign_btn">所属部门：</span>
+			<!--<select type="text" class="fl project_title">
+					<option>湖南纳米娱乐网络科技有限公司</option>
+					<option>已转正</option>
+					<option>未转正</option>
+				</select>-->
+			<!--<div class="inblock minscroll porela nanoList">
+				<input class="submitter" type="text" placeholder="部门" ng-keyup="attend.searchOrgInfo()" ng-model="attend.search_org_name" />
+				<i class="pbiconfont poabso down-arrow" id="down_arrow" ng-click="attend.getSearchAllOrgInfo()">&#xe60f;</i>
+				<ul class="system_department poabso block" ng-if="attend.isOrgWin">
+					<li ng-repeat="item in attend.orgInfo" ng-click="attend.selectOrg(item)">
+						<a href="javascript:void(0);" class="omit">{{item.org_name}}</a>
+					</li>
+				</ul>
+			</div>-->
+            <depart-combo handle-select="attend.selectOrg(depart)" depart="depart"></depart-combo>
+		</div>
+        <div class="borderbor porela openstatebor" ng-if="!employee.isSetManager">
+            <span class="fl ml13">是否为部门负责人：</span>
+            <label class="pointer porela pbc"><input type="radio" value="0" ng-checked="employee_param.is_manager==0" ng-model="employee_param.is_manager" name="openstate" class="pointer ml20"> 否</label>
+            <label class="pointer porela pbc"><input type="radio" value="1" ng-checked="employee_param.is_manager==1" ng-model="employee_param.is_manager" name="openstate" class="pointer ml10"> 是</label>
+        </div>
+        <div class="borderbor porela openstatebor" ng-if="employee.isSetManager">
+            <span class="fl ml13">部门负责人：{{employee.manager_real_name}}</span>
+        </div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl ml13">员工编号：</span>
+			<input type="text" class="fl project_title" placeholder="请输入员工编号" ng-model="employee_param.card_no" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl ml13">电话：</span>
+			<input type="text" class="fl project_title" placeholder="请输入电话" ng-model="employee_param.phone" />
+		</div>
+		<div class="borderbor of porela protitlebor">
+			<span class="fl ml13">简历：</span>
+			<a ng-if="employee_param.resumeId.save_name" target="_blank" ng-click="employee.fileDownload(employee_param.resumeId)" href="javascript:void(0);">个人简历</a>
+			<div class="uploading_resume">
+				<upload-modalsingle upload-attrs="addFileBtn">点击上传</upload-modalsingle>
+			</div>
+		</div>
+	</div>
+	<div class="btnbor poabso nobor click_btn">
+		<div class="btnsbor">
+			<button class="btns" ng-click="employee.saveBtn(false);">保存</button>
+			<button isperm pcode="SystemPermissonSetperm" class="btns darkgreen" ng-click="employee.saveBtn(true);">保存并设置权限</button>
+			<button class="btns gray" ng-click="employee.cancelBtn();">取消</button>
+		</div>
+	</div>
+	<!--<div class="add_succeed">
+			<span>添加成功  !</span>
+		</div>-->
+</div>

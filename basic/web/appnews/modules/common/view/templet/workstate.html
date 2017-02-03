@@ -1,0 +1,25 @@
+<div class="common-head">
+    <i class="iconfont">&#xe629;</i>
+    <span class="f20">工作报告审阅</span>
+    <span class="fr" ui-sref="main.workStatement.checkTable">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="WorkstateApprove">
+        <li ng-repeat="item in index.workstate_approval">
+
+            <a ui-sref="main.workStatement.checkTable({work_id:item.work_id})">
+            <!--<a ui-sref="main.index.workdetail({work_id:item.work_id})">-->
+                <span data-ng-if="item.type==1">{{item.real_name|cut:true:5:'...'}}提交了日报{{item.cycle|cut:true:20:'...'}}</span>
+                <span data-ng-if="item.type==2">{{item.real_name|cut:true:5:'...'}}提交了周报{{item.cycle|cut:true:20:'...'}}</span>
+                <span class="col-gray fr">
+                    <span class="col-gray" data-ng-if="item.status==1">待审阅</span>
+                    <span class="col-blue" data-ng-if="item.status==2">已审阅</span>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.workstate_approval.length==0">
+        <img src="images/empty.png" alt=""/>
+        <p>您现在没有需要审阅的工作报告</p>
+    </div>
+</div>

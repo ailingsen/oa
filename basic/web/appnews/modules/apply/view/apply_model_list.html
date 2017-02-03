@@ -1,0 +1,38 @@
+<!--申请主页 开始-->
+<div class="applyindexbor">
+
+    <div class="applybox porela bg3" ng-repeat="item in applyApp.modelList">
+        <a href="#" ng-if="item.model_id == 1" ui-sref="main.apply.application.overtimecreate({model_id:item.model_id})">
+            <i class="pbiconfont poabso mt3">&#xe640;</i><!--加班申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+
+        <a href="#" ng-if="item.model_id == 2" ui-sref="main.apply.application.leaveapplycreate">
+            <i  class="pbiconfont poabso mt3">&#xe641;</i><!--请假申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+
+        <a href="#" ng-if="item.model_id == 3" ui-sref="main.apply.drainPunchApply">
+            <i class="pbiconfont poabso mt3">&#xe642;</i><!--忘打卡申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+
+        <a href="#" ng-if="item.model_id == 4" ui-sref="main.apply.flexibleWork">
+            <i class="pbiconfont poabso mt3">&#xe63e;</i><!--弹性上班-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+
+        <a href="#" ng-if="item.model_id == 5" ui-sref="main.apply.rankApply">
+            <i class="pbiconfont poabso mt3">&#xe643;</i><!--职级申请-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+
+        <a href="#" ng-if="item.modeltype == 0" ui-sref="main.apply.application.customcreate({model_id:item.model_id})">
+            <i class="pbiconfont poabso mt3">&#xe641;</i><!--自定义表单-->
+            <span class="poabso">{{item.title}}</span>
+        </a>
+    </div>
+
+    <div class="tip pbc t_center mt10">请选择需要使用的申请</div>
+</div>
+<!--申请主页 结束-->

@@ -1,0 +1,65 @@
+<!--表单展示【可提交数据】 开始-->
+<div id="formpresentation_edit" class="ui-widget-winbor formpresentation pbcreateformlib of block pfixed" style="z-index:201;">
+    <div class="toptitle porela">
+        <span class="formtitles ml0  "></span>
+        <!-- <i class="pbiconfont poabso closebtn pointer" ng-click="apply.cancel()">&#xe61d;</i> -->
+    </div>
+    <div id="scroll" class="scrollbor pfixed">
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns formsave">提交</button>
+            <!-- <button class="btns gray" ng-click="apply.cancel()">取消</button> -->
+        </div>
+    </div>
+</div>
+<!--表单展示【可提交数据】 结束-->
+
+<link rel="stylesheet" href="/css/font-awesome.css">
+
+<!-- 所需日期控件 -->
+<script src="/appnews/lib/bootstrap-datetimepicker/bootstrap-datetimepicker-applymobile.js"></script>
+<script src="/appnews/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- 所需日期控件 -->
+
+
+<depart-dialog-form selected-departs="selectedDeparts" update-departs="updateDeparts(departs)" cancel-attr="cancels" visble="group.departDialogVisble" ng-show="group.departDialogVisble"></depart-dialog-form>
+
+<member-dialog selected-members="selectedMembers" update-members="updateMembers(members)" cancel-attr="cancels" visble="group.memberDialogVisble" ng-show="group.memberDialogVisble"></member-dialog>
+
+
+<style type="text/css">
+.ui-widget-winbor .filesize{
+    display: none;
+}
+.formpresentation .borderbor[data-widget=Department] .rcontent, 
+.formpresentation .borderbor[data-widget=Employee] .rcontent, 
+.formeditpresentation .borderbor[data-widget=Department] .rcontent, 
+.formeditpresentation .borderbor[data-widget=Employee] .rcontent{
+  width: 77%;
+  margin-top: 10px;
+}
+
+#formpresentation_edit .borderbor[data-widget=Department] .porela, 
+#formpresentation_edit .borderbor[data-widget=Employee] .porela{
+  width: 95%;
+}
+.pbcreateformlib .borderbor .title:after{
+  right: auto;
+}
+
+#formpresentation_edit .borderbor[data-widget=DateInterval],
+#formpresentation_edit .borderbor[data-widget=DateComponent]{
+   overflow:visible !important;
+}
+
+#formpresentation_edit .borderbor[data-widget=DateInterval] .rcontent .dropdown-menu{
+   top:68px;
+}
+#formpresentation_edit .borderbor[data-widget=DateInterval] .rcontent .dropdown-menu:nth-child(5){
+   top:117px;
+}
+#formpresentation_edit .borderbor[data-widget=DateComponent] .dropdown-menu{
+    top:70px;
+}
+</style>

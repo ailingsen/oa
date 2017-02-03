@@ -1,0 +1,57 @@
+<!--工作报告已审阅开始-->
+<div class="workStatement_checked_box workStatement_checked_boxshadow check_details f16" ng-show="work.showCheckWin">
+	<div class="workStatement_head f16">
+		<span>
+	        	填写人：<i>{{work.work_detail.real_name}}</i>
+	        </span>
+			<span data-ng-if="work.work_detail.type==1">日报</span>
+			<span data-ng-if="work.work_detail.type==2">周报</span>
+			<span>
+	        	<a data-ng-click="work.back()" href="javascript:;"></a>
+	        </span>
+		</div>
+		<!--本日工作项-->
+		<div class="poabso scroll_box">
+			<div class="workStatement_project today_work">
+				<div class="same_style check_project f16">
+					<i class="work_icon" data-ng-if="work.work_detail.type==1">本日工作项</i>
+					<i class="work_icon" data-ng-if="work.work_detail.type==2">本周工作项</i>
+				</div>
+				<!--<ul class="check_details_ceontent check_details_week">-->
+				<!--<li ng-repeat="item in work.work_detail.tasks">-->
+				<!--<span>{{$index}}、{{item.content}}</span>-->
+				<!--<em class="complete" data-ng-if="item.status==1">未完成</em>-->
+				<!--<em class="complete" data-ng-if="item.status==2">已完成</em>-->
+				<!--</li>-->
+				<!--</ul>-->
+				<div class="job_content this_week_content MS_week_content">
+					<textarea cols="3" rows="10" class="f16" disabled>{{work.work}}</textarea>
+				</div>
+			</div>
+			<!--明日工作计划-->
+			<div class="workStatement_project tomorrow_work">
+				<div class="same_style check_project f16">
+					<i class="work_icon" data-ng-if="work.work_detail.type==1">明日工作计划</i>
+					<i class="work_icon" data-ng-if="work.work_detail.type==2">下周工作计划</i>
+				</div>
+				<!--<ul class="check_details_ceontent check_details_next">-->
+				<!--<li ng-repeat="item in work.work_detail.plan">-->
+				<!--<span>{{item.content}}</span>-->
+				<!--</li>-->
+				<!--</ul>-->
+				<div class="job_content this_week_content MS_next_content">
+					<textarea cols="3" rows="10" class="f16" disabled>{{work.plan}}</textarea>
+				</div>
+				<!--已审阅图片-->
+				<div class="already_checked" ng-if="work.work_detail.status==2">
+					<img src="../../../../images/checked.png" />
+				</div>
+			</div>
+		</div>
+		<!--已审阅按钮-->
+			<div class="checked_btn">
+				<button isperm pcode="WorkstateApproveCheck" class="btns f16" data-ng-click="work.approve()" ng-if="work.work_detail.status==1">审阅</button>
+			</div>
+	</div>
+</div>
+<!--工作报告已审阅结束-->

@@ -1,0 +1,23 @@
+<div class="common-head">
+    <i class="iconfont">&#xe617;</i>
+    <span class="f20">我的申请</span>
+    <span class="fr" ui-sref="main.apply.mine">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="ApplyMyapply">
+        <li ng-repeat="item in index.my_apply">
+            <a ui-sref="main.apply.mine({apply_id:item.apply_id,model_id:item.model_id})">
+            <!--<a ui-sref="main.index.applydetail({apply_id:item.apply_id,model_id:item.model_id})">-->
+                <span>{{item.title|cut:true:24:' ...'}}</span>&nbsp;&nbsp;
+                <span class="fr" data-ng-if="item.status==0"><span class="col-gray">当前处理人：</span><span>{{item.real_name}}</span></span>
+                <span class="col-green fr" data-ng-if="item.status==1">已审批通过</span>
+                <span class="col-red fr" data-ng-if="item.status==2">已审批驳回</span>
+                <span class="col-green fr" data-ng-if="item.status==3">已撤回</span>
+            </a>
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.my_apply.length==0">
+        <img src="images/empty.png" alt=""/>
+        <p>您现在没有新的申请动态</p>
+    </div>
+</div>

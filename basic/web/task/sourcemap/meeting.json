@@ -1,0 +1,6 @@
+[
+    "appnews/modules/meeting/controller/Reserve.js",
+    "appnews/modules/meeting/controller/ReserveManage.js",
+    "appnews/modules/meeting/models/ConferenceRoomModel.js",
+    "appnews/modules/meeting/route.js"
+]

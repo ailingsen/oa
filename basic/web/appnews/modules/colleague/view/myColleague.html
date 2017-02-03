@@ -1,0 +1,265 @@
+<!--左侧导航开始-->
+<div class="colleague-nav colleague-common fl">
+    <div class="nav-wrap">
+        <div class="nav-common nav-mycol col-active" ng-click="colleague.getMyGroup($event)">
+            我的团队 <span class="member-num smember-num">{{colleague.myTeamNubSum}}</span>
+        </div>
+        <div class="nav-common nav-allcol">
+        <span data-ng-click="colleague.getGroup(2,$event)">
+            <i class="icon-trigon firicon">&#xe60f;</i>
+            纳米娱乐 <span class="member-num smember-num">{{colleague.companyNubSum }}</span>
+        </span>
+            <i isperm pcode="WorkmateMymateCreate" class="icon-trigon add-dep fr" ng-click="colleague.showCreatePart()">&#xe60d;</i>
+        </div>
+    </div>
+</div>
+<!--左侧导航结束-->
+
+<!--右侧人员展示开始-->
+<div class="colleague-content porela">
+    <div class="mem">
+        <ul ng-repeat="item in myTeamList.list">
+            <li class="fl">
+                <!--个人信息主体开始-->
+                <div style="overflow: hidden; cursor: pointer; " ng-click="colleague.drop(1,$index, $event)">
+                    <div class="mem-pic fl">
+                        <img ng-src="{{item.head_img}}" alt=""/>
+                    </div>
+                    <div class="mem-msg fl">
+                        <h1 class="f16">{{item.real_name}} &nbsp;&nbsp;<span class="f14" data-ng-if="item.is_manager==1&&colleague.isLeader==item.org_id">负责人</span> <i isperm pcode="WorkmateMymateDelete" class="icon-trigon add-dep fr" ng-click="colleague.transferDepartmentMemCtr(item.org_u_id,item.u_id)">&#xe60e;</i></h1>
+                        <p>部门：<span>{{item.org_info | cut:true:38:'...'}}</span></p>
+                        <p>职位：<span>{{item.position}}</span></p>
+                        <p>手机：<span>{{item.phone}}</span></p>
+                        <p>邮箱：<span>{{item.email |cut:true:30:'...'}}</span></p>
+                    </div>
+                </div>
+                <!--个人信息主体结束-->
+
+                <!--下拉框开始-->
+                <div class="msg-detail" style="display: block" ng-show="item.isShow">
+                    <div class="msg-select">
+                        <span ng-class="{selectCurrent:colleague.isselected}" ng-click="colleague.selectMsg(0, $event)">技能与积分</span><span ng-class="{selectCurrent:!colleague.isselected}" ng-click="colleague.selectMsg(1, $event)">工作信息</span>
+                    </div>
+                    <!--技能与积分信息开始-->
+                    <div ng-if="colleague.isselected">
+                            <div class="skill" data-ng-if="item.skills.length>0">
+                                <span>技能：
+                                        <span ng-repeat="skill in item.skills">{{skill.skill_name}}<i ng-hide="$index==item.skills.length-1">、</i></span>
+                                </span>
+                            </div>
+                            <div class="skill" data-ng-if="item.skills.length==0">
+                                技能：<span ng-repeat="skill in item.skills"></span>
+                            </div>
+                            <div class="skill">
+                                纳米币：<span>{{item.points}}</span>
+                            </div>
+
+
+                    </div>
+                    <!--技能与积分信息结束-->
+                    <!--工作信息开始-->
+                    <div class="work-msg" ng-if="!colleague.isselected">
+                        <div>
+                            <p>参与项目数</p>
+                            <p class="pre-num">{{item.project_count}}</p>
+                        </div>
+                        <div>
+                            <p>总任务数</p>
+                            <p class="task-num">{{item.pCount}}</p>
+                        </div>
+                        <div>
+                            <p>待完成任务数</p>
+                            <p class="nottask-num">{{item.unfinished}}</p>
+                        </div>
+                    </div>
+                    <!--工作信息结束-->
+                    <p class="pack-up">
+                    <span ng-click="colleague.drop(2,$index, $event)">
+                        <i class="icon-trigon">&#xe608;</i> 收起
+                    </span>
+                    </p>
+                </div>
+                <!--下拉框结束-->
+            </li>
+        </ul>
+    </div>
+
+    <!--分页开始-->
+    <div paging page-object="page" click-function="taskPaging" ></div>
+    <!--分页结束-->
+
+    <div class="empty-icon" ng-if="myTeamList.list.length==0">
+        <i class="iconfont">&#xe62d;</i>
+        <p>暂时没有相关数据</p>
+    </div>
+</div>
+<!--右侧人员展示结束-->
+
+<!--创建部门弹出框开始-->
+<div class="reserve-pop addMeeting" ng-if="colleague.createPart">
+    <div class="reserve-pop-head f16">创建部门</div>
+    <div>
+        <p class="porela">
+            <i class="iconfont star">&#xe613;</i>上 级 部 门&nbsp;&nbsp;&nbsp;<input data-ng-model="colleague.departmentNameSearch" type="text" class="reserve-common create-part" placeholder="{{colleague.orgName}}" ng-keyup="colleague.departmentInputCtr()"/><i class="iconfont down-trigon" data-ng-click="colleague.departmentShowCtr()">&#xe60b;</i>
+            <ul class="department f16 createPart-select" ng-show="colleague.departmentCtr">
+                <li ng-repeat="item in orgNameList" ng-click="colleague.selectDepartment(item.org_name,item.org_id)">
+                    <a href="javascript:void(0);" class="omit">{{item.org_name}}</a>
+                </li>
+            </ul>
+        </p>
+        <p>
+            <i class="iconfont star">&#xe613;</i>部 门 名 称&nbsp;&nbsp;&nbsp;<input type="text" data-ng-model="colleague.departmentName" placeholder="请输入部门名称" class="reserve-common create-part"/>
+        </p>
+    </div>
+    <div class="addMeeting-sure create-sure">
+        <button class="btns blue sure" data-ng-click="colleague.addDepartment()">确认</button>&nbsp;&nbsp;
+        <button class="btns gray cancel" ng-click="colleague.HideCreatePart()">取消</button>
+    </div>
+</div>
+<!--创建部门弹出框结束-->
+
+
+<!--部门设置弹出框开始-->
+<div class="reserve-pop addMeeting" ng-if="colleague.isShowPartSet">
+
+    <div class="reserve-pop-head f16">部门设置</div>
+    <div>
+        <p class="porela">
+            <i class="iconfont star">&#xe613;</i>上 级 部 门&nbsp;&nbsp;&nbsp;<input type="text" class="reserve-common create-part" data-ng-model="colleague.sectorSuperiorDepName" ng-keyup="colleague.selectDepName()"/><i class="iconfont down-trigon" data-ng-click="colleague.SectorDepartmentPoupeCtr()">&#xe60b;</i>
+            <ul class="department f16 createPart-select" ng-show="colleague.departmentCtr">
+                <li ng-repeat="item in orgNameList" ng-click="colleague.selectSectorDepartment(item.org_name,item.org_id)">
+                    <a href="javascript:void(0);" class="omit">{{item.org_name}}</a>
+                </li>
+            </ul>
+        </p>
+        <p>
+            <i class="iconfont star">&#xe613;</i>部 门 名 称&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入部门名称" class="reserve-common create-part" data-ng-model="colleague.sectorDepName"/>
+        </p>
+        <p class="part-principal" isperm pcode="WorkmateMymateSetleader">
+            <i class="iconfont star">&#xe613;</i>部门负责人 <i class="iconfont-add" ng-click="colleague.setSectorLeaderPopup(colleague.sectorDepOrgId)">&#xe60a;</i> <span >{{colleague.sectorDepLeader}}</span>
+        </p>
+    </div>
+    <div class="addMeeting-sure create-sure">
+        <button isperm pcode="WorkmateMymateDissolve"  class="btns green sure" ng-click="colleague.isShowDismiss=true">解散部门</button>&nbsp;&nbsp;
+        <button class="btns blue sure" data-ng-click="colleague.setDepartment()">确定</button>&nbsp;&nbsp;
+        <button class="btns gray cancel" ng-click="colleague.HidePartSet()">取消</button>
+    </div>
+
+    <!--确认解散该部门？开始-->
+    <div class="reserve-pop dismiss" ng-if="colleague.isShowDismiss">
+        <div class="reserve-pop-head f16">提示</div>
+        <p class="msg-dismiss f16">确认解散该部门？</p>
+        <div class="addMeeting-sure">
+            <button class="btns blue sure" data-ng-click="colleague.divisionDissolution()">确定</button>&nbsp;&nbsp;
+            <button class="btns gray cancel" ng-click="colleague.isShowDismiss=false">取消</button>
+        </div>
+    </div>
+    <!--确认解散该部门？结束-->
+
+    <!--添加负责人开始-->
+    <div class="reserve-pop add-prin" ng-if="colleague.isShowAddPrin">
+        <div class="reserve-pop-head add-prin-head f16">添加负责人 <i class="icon-trigon" ng-click="colleague.isShowAddPrin = false">&#xe603;</i></div>
+        <div class="search-part porela">
+            <i class="iconfont icon-search poabso">&#xe612;</i><input type="text" placeholder="搜索" ng-keyup="colleague.searchLeader()" data-ng-model="colleague.sectorSearchName"/>
+        </div>
+        <div class="memPartPop-data mem-data">
+            <ul ng-repeat="item in colleague.sectorMemberList">
+                <li>
+                    <img ng-src="{{item.head_img}}" alt="" class="memHead-img"/>
+                    <span>{{item.real_name}}</span>
+                    <span class="fr addPrin-btn" data-ng-click="colleague.getSelectLeader(item.org_u_id,item.real_name)">添加</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--添加负责人结束-->
+</div>
+<!--部门设置弹出框结束-->
+
+<!--部门转移开始-->
+<div class="memPartPop poabso pof" ng-show="colleague.isShowTransfer" style="height: 415px;">
+    <div class="memPartPop-header">
+        <span>部门转移</span>
+        <i class="iconfont" ng-click="colleague.HideTransfer()">&#xe603;</i>
+    </div>
+    <div class="transfer-msg">
+        <p>原部门： <span>{{colleague.originalDep}}</span></p>
+        <p>转移到：{{colleague.sectorSuperiorDepName}}</p>
+    </div>
+    <div class="memPartPop-search">
+        <i class="iconMemPart">&#xe612;</i>
+        <input type="text" placeholder="搜索" data-ng-model="colleague.sectorSuperiorDepName" ng-keyup="colleague.selectDepName()"/>
+    </div>
+    <div class="memPartPop-data">
+        <ul>
+            <li ng-repeat="item in orgNameList">
+                <input type="radio" name="part" class="chbStyle" ng-click="colleague.selectSectorDepartment(item.org_name,item.org_id)"/>
+                <span>{{item.org_name}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="memPartPop-bottom">
+        <button class="btns blue" data-ng-click="colleague.transferDepMemSub()">确定</button>
+        <button class="btns gray" ng-click="colleague.HideTransfer()">取消</button>
+    </div>
+</div>
+<!--部门转移结束-->
+
+<!--提示框-->
+<notice message="colleague.noticeService.message" type="colleague.noticeService.notice_type" gourl="colleague.noticeService.gourl"></notice>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

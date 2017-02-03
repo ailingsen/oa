@@ -1,0 +1,9 @@
+[
+    "appnews/modules/survey/controller/SurveyListController.js",
+    "appnews/modules/survey/controller/SurveyDetailController.js",
+    "appnews/modules/survey/controller/MyCreateListController.js",
+    "appnews/modules/survey/controller/MyCreateDetailController.js",
+    "appnews/modules/survey/controller/CreateSurveyController.js",
+    "appnews/modules/survey/models/SurveyModel.js",
+    "appnews/modules/survey/route.js"
+]

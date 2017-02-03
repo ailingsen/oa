@@ -1,0 +1,94 @@
+<!--工作笔记详情 开始-->
+<div class="notebor porela read of block"  data-ng-if="taskDetail.status==4 && (taskDetail.work_note != '' || taskDetail.workNoteFiles.length>0)">
+    <div class="fl notetitlebor">
+        <i class="pbiconfont poabso mt2 notebor_i">&#xe627;</i>
+        <span class="ml23 wdspacing2 poabso notebor_i_span" >工作笔记：</span>
+    </div>
+    <textarea name="textarea" disabled class="noborder fl" ng-if="taskDetail.work_note.length > 0">{{taskDetail.work_note}}</textarea>
+    <div class="upfilebor taskfilebor fl" data-ng-if="taskDetail.workNoteFiles.length > 0">
+        <ul>
+            <li class="porela" ng-repeat='item in taskDetail.workNoteFiles'>
+                <i class="poabso icon-{{item.file_type}}"></i>
+                <div class="filename fl omit"><a href="index.php?r=task/task/download&task_att_id={{item.task_att_id}}">{{item.real_name}}</a></div>
+                <div class="filesize fl omit">{{item.file_size}}kb</div>
+                <div class="name fl ml10 omit">{{taskDetail.real_name}}</div>
+                <div class="btn blue fr poabso inblock">
+                    <a href="index.php?r=task/task/download&task_att_id={{item.task_att_id}}">
+                        <i class="pbiconfont ">&#xe624;</i>
+                        <span>下载</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--工作笔记详情 结束-->
+<!--审核结果 开始-->
+<div class="porela borderbor reviewbor mt15" data-ng-if="taskDetail.status==4 && taskDetail.charger!=taskobj.cookieUid">
+    <div class="fl reviewtitlebor poabso">
+        <div class="left ml15 mt15 fl">
+            <i class="pbiconfont poabso mt2">&#xe626;</i>
+            <span class="ml23 wdspacing2">审核结果：</span>
+        </div>
+        <div class="fl ml15 mt15" >
+            <label class="porela pointer of fl" ng-class="{selected:taskDetail.reason=='' || taskDetail.reason=='null'}">
+                <i class="pbiconfont poabso mt2">&#xe62b;</i>
+                <i class="pbiconfont poabso mt2">&#xe62c;</i>
+                <span>审核通过</span>
+            </label>
+
+            <label class="porela pointer of fl" ng-class="{selected:taskDetail.reason!=''}">
+                <i class="pbiconfont poabso mt2">&#xe62b;</i>
+                <i class="pbiconfont poabso mt2">&#xe62c;</i>
+                <span>审核不通过</span>
+            </label>
+        </div>
+    </div>
+    <!--审核通过 开始-->
+    <div class="revieweditbor fl" data-ng-if="taskDetail.reason==''">
+        <div class="left fl">
+            <div class="zlbor fl">
+                <span class="fl">完成质量</span>
+                <ul id="qualityStar">
+                    <li ng-repeat="item in taskobj.starArr">
+                        <i class="pbiconfont poabso mt2" ng-class="{selected:$index<taskDetail.quality}">&#xe62d;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right fl">
+            <div class="zlbor fl">
+                <span class="fl">完成速度</span>
+                <ul id="speedStar">
+                    <li ng-repeat="item in taskobj.starArr">
+                        <i class="pbiconfont poabso mt2 " ng-class="{selected:$index<taskDetail.speed}">&#xe62d;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--审核通过 结束-->
+    <!--审核不通过[详情] 开始-->
+    <div class="revieweditbor fl " data-ng-if="taskDetail.reason!=''">
+        <div class="left fl">
+            <div class="nopassbor fl">
+                <span class="fl">原因：</span>
+                <textarea name="textarea" class="noborder poabso fl" disabled >{{taskDetail.reason}}</textarea>
+            </div>
+        </div>
+        <div class="right fl " data-ng-if="taskDetail.is_repoint==1">
+            <div class="nopassbor fl">
+                <span class="fl">重新分配给：</span>
+                <div class="imgbor40 poabso" >
+                    <div class="imgbor fl">
+                        <img ng-src="taskDetail.headImg">
+                    </div>
+                    <div class="name omit fl">{{taskDetail.real_name}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--审核不通过[详情] 结束-->
+</div>
+<!--审核结果 结束-->

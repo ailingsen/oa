@@ -1,0 +1,14 @@
+[
+    "appnews/modules/project/controller/ProListController.js",
+    "appnews/modules/project/controller/CreateProController.js",
+    "appnews/modules/project/controller/EditProController.js",
+    "appnews/modules/project/controller/ProDetailController.js",
+    "appnews/modules/project/controller/ProProgressHeadController.js",
+    "appnews/modules/project/controller/ProProgressListController.js",
+    "appnews/modules/project/controller/ProTaskListController.js",
+    "appnews/modules/project/controller/ProGanttController.js",
+    "appnews/modules/project/controller/ProDetailLogController.js",
+    "appnews/modules/project/controller/ProMemReportController.js",
+    "appnews/modules/project/models/ProjectModel.js",
+    "appnews/modules/project/route.js"
+]

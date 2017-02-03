@@ -1,0 +1,98 @@
+<!--忘打卡申请创建开始-->
+<div class="ui-widget-winbor uiwinabs pfixed formzindex" style="display:block;" ng-show="apply.drainDetailPopup">
+    <div class="toptitle porela">
+        忘打卡申请
+        {{apply.rankDetail}}
+        <i class="pbiconfont poabso closebtn pointer" ng-click="apply.drainDetailPopup=false; apply.customHideWin();">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor porela xlefttitlebor timesbor">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="fl ml23">忘打卡时间：</span>
+
+            <div class="porela inblock fl">
+
+                <input type="text" name="wdk_datestart" id="wdk_datestart"  myform-date-format class="inputtext timesw noborder" ng-model="apply.beginTime" onfocus="this.blur()" readonly="readonly">
+                <!--<ul class="dropdown-menu" aria-labelledby="dLabel">-->
+                    <!--<datetimepicker ng-model="apply.beginTime" data-datetimepicker-config="{ dropdownSelector: '#wdk_datestart', startView: 'day', minView: 'day' }"></datetimepicker>-->
+                <!--</ul>-->
+
+            </div>
+
+            <span class="line"></span>
+            <div class="fl ml100 apmbor">
+                <label data-ng-if="apply.detail.data.is_am==1">
+                    <input  type="checkbox" checked disabled />上午
+                </label>
+                <label data-ng-if="apply.detail.data.is_am==2">
+                    <input  type="checkbox" checked disabled />下午
+                </label>
+            </div>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor " id="w5nums">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23">忘打卡说明：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入忘打卡说明(最多输入500个字)" data-ng-model="apply.drainDesc" disabled></textarea>
+        </div>
+
+        <div class="borderbor porela">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">申 请 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.applyer_name}}</div>
+            </div>
+        </div>
+        <!--当前审批人-->
+        <div class="borderbor porela" ng-if="apply.detail.handler_name">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">当前审批人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.handler_head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.handler_name}}</div>
+            </div>
+        </div>
+
+        <div class="borderbor porela nomb applyprogress hauto" data-ng-if="apply.detail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+
+            <ul>
+                <!--同意-->
+                <li class="porela" ng-repeat="itemVerRed in apply.detail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img ng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.detail.is_applyer == 1">
+        <div class="btnsbor">
+            <button class="btns " data-ng-if="apply.detail.status == 0" data-ng-click="apply.revoke(apply.detail.apply_id)">撤回</button>
+            <button class="btns " data-ng-if="apply.detail.is_press == 0 && apply.detail.status == 0" data-ng-click="apply.press(apply.detail.apply_id)">催办</button>
+            <button class="btns " data-ng-if="apply.detail.status == 3 || apply.detail.status == 2 " ng-click="apply.editPopupCtr('7')">编辑</button>
+            <button class="btns red" data-ng-if="apply.detail.status == 2 || apply.detail.status==3" data-ng-click="apply.delApply(apply.detail.apply_id)">删除</button>
+            <!--<button class="btns gray" data-ng-click="apply.editPopupCtr('3');apply.customHideWin();">取消</button>-->
+        </div>
+    </div>
+</div>
+<!--忘打卡申请创建结束-->

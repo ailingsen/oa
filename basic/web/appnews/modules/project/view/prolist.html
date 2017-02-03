@@ -1,0 +1,148 @@
+<!--顶部搜索-->
+<div class="w100">
+	<div class="pbsearchbor mycreateprolistbor">
+
+         <div class="selectbor porela">
+	        <span ng-click="project.statusWinButton()" id="status">状态</span>
+	        <i ng-click="project.statusWinButton()" class="pbiconfont poabso">&#xe60f;</i>
+	        <ul class="listbor poabso"   id="projectInfo">
+	        	<li ng-repeat="item in project.arrSearchStatus" ng-click="project.selectSearchStatus(item)"><a href="javascript:void(0);">{{item.statusstr}}</a></li>
+	        </ul>
+	     </div>
+
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="task_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="project.search_begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="project.search_begin_time" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+         <span class="timeline inblock">—</span>
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="project.search_end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="project.search_end_time" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+
+	     <div class="searchbor porela inblock">
+	     	  <div class="searchbors poabso">
+		     	  <i class="pbiconfont poabso">&#xe610;</i>
+	              <input type="text"  ng-model="project.search_pro_name" class="inputtext noborder searchinputtext fl" placeholder="请输入项目标题" />
+	              <div class="btn blue fl" ng-click="project.searchButton()">查询</div>
+	          </div>
+	     </div>
+
+	     <div class="changei porela pbcd fr">
+            <a class="poabso pointer selected" ng-click="project.switchButton(1)"><i class="pbiconfont">&#xe634;</i></a>
+            <a class="poabso pointer" ng-click="project.switchButton(2)"><i class="pbiconfont">&#xe637;</i></a>
+	     </div>
+
+	</div>
+</div>
+<!--顶部搜索-->
+
+<!--无数据提示-->
+<div class="tasknodata poabso" ng-if="project.projectlist.length==0">
+     <i class="pbiconfont poabso">&#xe621;</i>
+     <div class="f20 bold title1">您还没有负责参与的项目哦！</div>
+     <div class="f16 title2">更好的完成工作，体验团队合作的快乐，创建一个项目吧！</div>
+</div>
+<!--无数据提示-->
+
+<!--1未开始    2进行中-正常   3进行中-超时   4已完成-->
+<!--图表  开始-->
+<div class="propiebor" ng-if="param_project.type==1">
+     
+     <ul class="porela">
+         <li ng-repeat="itemPro in project.projectlist">
+             <div class="top of porela">
+                  <div class="title omit f16">
+                  	   <a >{{itemPro.pro_name}}</a>
+                  </div>
+                 <span ng-if="itemPro.status==2" class="tips poabso pbcb">进行中</span>
+                 <span ng-if="itemPro.status==1" class="tips poabso pbcd1">未开始</span>
+                 <span ng-if="itemPro.status==4" class="tips poabso pbcg">已完成</span>
+                 <span ng-if="itemPro.status==3" class="tips poabso pbcb">进行中 <span>(已超时)</span></span>
+             </div>
+             <div class="center porela pointer" ng-click="project.goProgress(itemPro.pro_id)">
+
+                  <div class="over procanvas poabso">
+                       <div>已完成任务数</div>
+                       <span class="omit">{{itemPro.degree.fcount}}</span>
+                  </div>
+
+                  <div class="over procanvas poabso">
+                       <div>未完成任务数</div>
+                       <span class="omit">{{itemPro.degree.count-itemPro.degree.fcount}}</span>
+                  </div>
+
+                  <div class="roundbor procanvas porela">
+                       <div class="roundbg poabso of"></div>
+                       <canvas ng-bind="project.draw($index,100,itemPro.degree.degree)" height="235" width="235"></canvas>
+                       <div class="number poabso">
+                            <span>{{itemPro.degree.degree}}</span>
+                            <i>%</i>
+                       </div>
+                  </div>
+
+                  <div class="cycle procanvas poabso">
+                       项目周期 : ( <span>{{itemPro.begin_time_f}}</span> —— <span>{{itemPro.end_time_f}}</span> )
+                  </div>
+
+             </div>
+             <div class="bottom of">
+                  <div class="left fl porela">
+                  	   <a href="javascript:;" ng-click="project.goGantt(itemPro.pro_id)">
+	                       <i class="pbiconfont poabso pointer">&#xe62f;</i>
+	                       <span>查看项目进展</span>
+                       </a>
+                  </div>
+                  <div class="right fr porela">
+                  	   <a href="javascript:;" ng-click="project.goDetail(itemPro.pro_id)">
+	                       <i class="pbiconfont poabso pointer">&#xe630;</i>
+	                       <span>查看项目详情</span>
+	                   </a>
+                  </div>
+             </div>
+         </li>
+     </ul>
+
+</div>
+<!--图表  结束-->
+
+<!--列表  开始-->
+<ul class="listWrap clear prolistbor" ng-if="param_project.type!=1">
+    <li ng-repeat="itemPro in project.projectlist">
+        <a href="javascript:void(0);" class="porela" ng-click="project.goDetail(itemPro.pro_id)">
+            <div class="title omit fl">
+                <span class="ordinal">{{$index+1}}</span>
+                <span>{{itemPro.pro_name}}</span>
+                <span ng-if="itemPro.status==2" class="tips  pbcb ml10">进行中</span>
+                <span ng-if="itemPro.status==1" class="tips  pbcd1 ml10">未开始</span>
+                <span ng-if="itemPro.status==4" class="tips  pbcg ml10">已完成</span>
+                <span ng-if="itemPro.status==3" class="tips  pbcb ml10">进行中 <span>(已超时)</span></span>
+            </div>
+            <div class="progresbor fl ml10">
+                <div class="progresbg of">
+                    <div class="progresactive" style="width: {{itemPro.degree.degree}}%;"><span></span></div>
+                </div>
+            </div>
+            <div class="fl pbcd1 ml10">
+                进度: <span>{{itemPro.degree.degree}}</span><span class="pbc">%</span> ( 已完成: {{itemPro.degree.fcount}}, 未完成：<span class="pbc">{{itemPro.degree.count-itemPro.degree.fcount}}</span> )
+            </div>
+            <div class="prod fr pbcd1">
+                项目周期：<span>{{itemPro.begin_time_f}}</span> ~ <span>{{itemPro.end_time_f}}</span>
+            </div>
+        </a>
+    </li>
+</ul>
+<!--列表  开始-->
+
+<!-- 分页 -->
+<div paging page-object="page" click-function="page_fun" ></div>
+
+
+
+
+
+

@@ -1,0 +1,238 @@
+/*upload file wz 2015.12.21*/
+
+@font-face {
+  font-family: 'iconfont2';
+  src: url('http://at.alicdn.com/t/font_1450409275_106875.eot'); /* IE9*/
+  src: url('http://at.alicdn.com/t/font_1450409275_106875.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('http://at.alicdn.com/t/font_1450409275_106875.woff') format('woff'), /* chromeã€firefox */
+  url('http://at.alicdn.com/t/font_1450409275_106875.ttf') format('truetype'), /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+*/
+  url('http://at.alicdn.com/t/font_1450409275_106875.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+                    
+.clear{
+    clear: both;
+}
+.upload-dialog{
+    width: 740px;
+    height: auto;
+    box-sizing:border-box;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border:1px solid #b7b7b7;
+    border-bottom: 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -370px;
+    font-family: 'å¾®è½¯é›…é»‘';
+    background: white;
+    z-index: 2000;
+}
+
+
+.upload-dialog .upload-dialog-title{
+    width: 100%;
+    height: 48px;
+    background: #f5f6fa;
+    line-height: 48px;
+    box-sizing:border-box;
+    /*padding:0 3%;*/
+}
+.upload-dialog .upload-dialog-title-l{
+    width: 90%;
+    height: 48px;
+    float: left;
+}
+.upload-dialog .upload-dialog-title-l > p{
+    color: #656766;
+    font-size: 13px;
+    margin: 0;
+    text-indent: 1.6em;
+}
+.upload-dialog .upload-dialog-title-r{
+    width: 10%;
+    height: 48px;
+    float: right;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+.upload-dialog .upload-dialog-title-r:before{
+    content: '';
+    height: 30px;
+    width: 1px;
+    background: #b7b7b7;
+    position: absolute;
+    left: 0;
+    top: 9px;
+}
+.upload-dialog .iconfont-btnToggle{
+    font-family:"iconfont2";
+    font-size:26px;
+    font-style:normal;
+    color: #379fe6;
+}
+/*ä¸­é—´åˆ—è¡¨éƒ¨åˆ†*/
+.upload-dialog .upload-dialog-main{
+    width: 100%;
+    height: auto;
+}
+.upload-dialog .list-container{
+    width: 100%;
+    /*max-height: 348px;*/
+    /*height: auto;*/
+    height: 227px;
+    
+    background: white;
+}
+.upload-dialog .list-container .list-bar-first{
+    width: 100%;
+    height: 43px;
+    box-sizing:border-box;
+    border-bottom: 1px solid #dbdbdb;
+    line-height: 42px;
+    text-indent: .4em;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+.width1{
+    width: 34%;
+    float: left;
+    text-align: left;
+    text-indent: 1.2em;
+
+}
+.width2{
+    width: 18%;
+    float: left;
+}
+.width3{
+    width: 16%;
+    float: left;
+}
+.width4{
+    width: 32%;
+    float: left;
+}
+.upload-dialog .list-container .list-bar-wrap{
+    width: 100%;
+    height: 188px;
+    overflow-y:auto;
+}
+.upload-dialog .list-container .list-bar{
+    width: 100%;
+    height: 47px;
+    border-bottom: 1px solid #dbdbdb;
+    position:relative;
+    line-height: 46px;
+}
+.upload-dialog .list-container .list-bar-inner{
+    width: 100%;
+    height: 100%;   
+    text-align: center;
+    color: #676767;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.upload-dialog .list-container .list-bar-inner .file-name{
+    margin: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.upload-dialog .list-container .list-bar-inner .try-again{
+    height: 16px;
+    line-height: 16px;
+    color: red;
+    font-size: 12px;
+    margin:0;
+    text-indent: 48px;
+}
+.upload-dialog .list-container .list-bar .rate-bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 46px;
+    z-index: 1;
+    bottom: 0;
+    background: #c8e8ff;
+    /*z-index: -1;*/
+}
+.upload-dialog .list-container .list-bar .iconfont-file{
+    font-family:"iconfont2";
+    font-size:26px;
+    font-style:normal;
+    color: #fbd743;
+    margin-right: 8px;
+}
+.upload-dialog .list-container .list-bar .iconfont-delete{
+    font-family:"iconfont2";
+    font-size:26px;
+    font-style:normal;
+    /*color: #fbd743;   */
+    cursor: pointer;
+}
+.upload-dialog .list-container .list-bar .iconfont-upload-success{
+    font-family:"iconfont2";
+    font-size:26px;
+    font-style:normal;
+    color: #61c823;     
+}
+.upload-dialog .list-container .list-bar .iconfont-upload-fail{
+    font-family:"iconfont2";
+    font-size:26px;
+    font-style:normal;
+    color: #fe0002;
+}
+.upload-dialog .upload-dialog-footer{
+    width: 100%;
+    height: 70px;
+    background: #f4f4f4;
+    position: relative;
+}
+.upload-dialog .upload-dialog-footer .finish{
+    width:120px;
+    height: 40px; 
+    line-height: 30px;
+    background:#1990e4;
+    border:none;
+    line-height: 40px;
+    color: white;
+    font-size: 18px;
+    border-radius: 4px;
+    position: absolute;
+    top: 15px;
+    right: 5%;
+    cursor: pointer;
+}
+.upload-dialog .upload-dialog-footer .finish:hover{
+    background: #1985d1;
+}
+.upload-dialog .upload-dialog-footer .cancel{
+    width:120px;
+    height: 40px; 
+    line-height: 30px;
+    background: white;
+    border:none;
+    line-height: 40px;
+    color: black;
+    font-size: 18px;
+    border-radius: 4px;
+    position: absolute;
+    top: 15px;
+    right: 5%;
+    cursor: pointer;
+}
+.upload-dialog .upload-dialog-footer .cancel:hover{
+    color: #555
+}

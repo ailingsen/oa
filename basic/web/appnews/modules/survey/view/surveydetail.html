@@ -1,0 +1,35 @@
+<div class="back_box">
+	<a href="javascript:;" ng-click="survey.returnGo()" class="back_btn f16">返回</a>
+	<span class="f16">调研详情</span>
+</div>
+<!--问题收集-->
+<div class="userResearch_box">
+    <ul class="userResearch_content">
+        <li>
+            <div class="issue_collect_box">
+                <div class="issue_collect">
+                    <a href="javascript:;" class="f16"><span>{{survey.surveyInfo.title}}</span></a>
+                    <p class="status">
+                        <button ng-if="survey.surveyInfo.status==1" class="underway_btn f16">进行中</button>
+                        <button ng-if="survey.surveyInfo.status==2" class="ended_btn f16">已结束</button>
+                    </p>
+                </div>
+                <div class="describe">
+                    <p class="describe_title f16">{{survey.surveyInfo.explain}}</p>
+                    <p ng-bind-html="survey.surveyInfo.content" class="describe_title_content"></p>
+                </div>
+            </div>
+            <div class="create_box f16">
+                <span>创建时间：<i>{{survey.surveyInfo.create_time_f}}</i></span>
+                <span>创建者：<i>{{survey.surveyInfo.real_name}}</i></span>
+            </div>
+        </li>
+    </ul>
+	 <div class="editor" ng-if="survey.surveyInfo.status==1">
+     	<textarea ng-model="survey_param.reply_content" placeholder="回复内容" rows="10" class="f16"></textarea>
+         <!--<div class="ueditor" config="config" ng-model="survey_param.reply_content"></div>-->
+     </div>
+	<div class="btnsbor center_btn" ng-if="survey.surveyInfo.status==1">
+       <button class="btns" ng-click="survey.replySurveyBtn();">提交</button>
+    </div>
+</div>

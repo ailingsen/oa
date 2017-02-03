@@ -1,0 +1,11 @@
+<div class="memPartPop pfixed apply-member-pop ">
+    <div class="memPartPop-header"><span>部门选择</span><i class="iconMemPart" ng-click="cancel()">&#xe603;</i></div>
+    <div ng-transclude></div>
+    <div class="memPartPop-search"><i class="iconMemPart">&#xe612;</i><input type="text" placeholder="搜索" ng-model="keyword" ng-change="search()" /></div>
+    <div class="memPartPop-data">
+        <ul>
+            <li ng-repeat="item in departs"><input type="checkbox" name="depart-{{$index}}" ng-click="selectDepart(item,$index)" ng-checked="item.selected" class="chbStyle" /><span>{{item.label}}</span></li>
+        </ul>
+    </div>
+    <div class="memPartPop-bottom depart-dialog-btns"><button class="btns blue" ng-click="submit()">确定</button><button class="btns gray" ng-click="cancel()">取消</button></div>
+</div>

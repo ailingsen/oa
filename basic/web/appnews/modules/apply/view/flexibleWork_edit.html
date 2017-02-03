@@ -1,0 +1,76 @@
+<div class="ui-widget-winbor uiwinabs pfixed formzindex isrequired" style="display: block" ng-show="apply.flexibleWorkPopup">
+    <div class="toptitle porela">
+        弹性工作编辑
+        <i class="pbiconfont poabso closebtn pointer" ng-click="apply.flexibleWorkPopup=false; apply.customHideWin(); ">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor porela timesbor">
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">申请时间 :</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="apply.beginTime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="apply.beginTime" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="fl">——</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="apply.endTime" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <datetimepicker ng-model="apply.endTime"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+            <span class="clear">&nbsp;</span>
+        </div>
+
+        <div class="borderbor of porela xlefttitlebor addworktimeselectbor" ng-if="apply.flexibleWorkDetailList.status == 3 || apply.flexibleWorkDetailList.status == 2">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">加班时间：</span>
+            <select class="fl" data-ng-model="apply.flexibleWork" ng-options="option.timeOutData for option in apply.timePoint">
+            </select>
+        </div>
+        <div class="borderbor of porela xlefttitlebor addworktimeselectbor" ng-if="apply.flexibleWorkDetailList.status ==0 || apply.flexibleWorkDetailList.status == 1">
+            <i class="pbiconfont poabso mt2">&#xe611;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="fl ml23">加班时间：</span>
+            <span class="pbc">{{apply.workTimePoint}}</span>
+        </div>
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23">详细说明：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入详细说明(最多输入100个字)" data-ng-model="apply.desc "></textarea>
+        </div>
+
+        <div class="borderbor porela pbfilebor hauto ">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <!-- <span class="widget-required" style="display: inline;">*</span> -->
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in apply.files'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a target="_blank" href="{{apply.file_root}}/{{item.file_path}}/{{item.real_name}}">{{item.file_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size/1024 | number:2}}kb</div>
+                    <div class="del fr" ng-click="apply.delFlexibleFiles($index)">删除</div>
+                </li>
+            </ul>
+
+            <div class="btn blue fr poabso"><upload-modal upload-attrs="addFlexibleBtn" att-object="att">添加附件</upload-modal></div>
+        </div>
+
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.flexibleWorkDetailList.status == 3 || apply.flexibleWorkDetailList.status == 2">
+        <div class="btnsbor">
+            <button class="btns " data-ng-click="apply.submitFlexibleWorkInfo()">提交</button>
+            <button class="btns gray" ng-click="apply.flexibleWorkPopup=false;apply.customHideWin();">取消</button>
+        </div>
+    </div>
+</div>

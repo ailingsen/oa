@@ -1,0 +1,21 @@
+<div class="common-head">
+    <i class="iconfont">&#xe601;</i>
+    <span class="f20">审批待办</span>
+    <span class="fr"  ui-sref="main.apply.agent">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="ApplyMyapprove">
+        <li ng-repeat="item in index.my_approval">
+            <a ui-sref="main.apply.agent({apply_id:item.apply_id,model_id:item.model_id,model_type:item.modeltype})">
+            <!--<a ui-sref="main.index.agentdetail({apply_id:item.apply_id,model_id:item.model_id,model_type:item.model_type})">-->
+                <span>{{item.real_name|cut:true:5:' ...'}}提交了{{item.title|cut:true:20:' ...'}}</span>
+                <span class="col-gray fr" data-ng-if="item.status==0">待审批</span>
+                <span class="col-sgreen fr" data-ng-if="item.status==1">已审批</span>
+            </a>
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.my_approval.length==0">
+        <img src="images/empty.png" alt=""/>
+        <p>您现在没有需要待办的申请</p>
+    </div>
+</div>

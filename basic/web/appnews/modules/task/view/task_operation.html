@@ -1,0 +1,38 @@
+<!--任务操作日志列表 弹窗 开始-->
+<div class="ui-widget-winbor tablelistwin of minscroll loglistwin " style="display: block" ng-show="taskobj.operationLog">
+    <div class="toptitle porela">
+        <div class="gobackbtn pointer fl" ng-click="taskobj.operationLog=false">
+            <i class="pbiconfont poabso">&#xe60d;</i>
+            <span>返回</span>
+        </div>
+        <span>任务操作日志列表</span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="taskobj.operationLog=false">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso mintable">
+        <div class="top">
+            <div class="time fl">时间</div>
+            <div class="person fl">操作人</div>
+            <div class="detail fl">操作日志</div>
+        </div>
+        <ul>
+            <li ng-repeat="item in taskobj.operationLogList">
+                <div class="time fl">{{item.create_time*1000  | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="person fl porela">
+                    <div class="img40bor poabso">
+                        <img ng-src="{{item.head_img}}">
+                    </div>
+                    <div class="name omit">
+                        {{item.real_name}}
+                    </div>
+                </div>
+                <div class="detail fl break">{{item.content}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="emptyBg" ng-if="taskobj.operationLogList.length == 0">
+        <img src="images/empty.png" alt=""/>
+        <p>您现在没有新的操作记录</p>
+    </div>
+</div>
+<!--任务操作日志列表 弹窗 结束-->
+

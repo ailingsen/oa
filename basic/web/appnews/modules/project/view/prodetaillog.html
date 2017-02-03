@@ -1,0 +1,34 @@
+<!--项目操作日志列表 弹窗 开始-->
+<div class="ui-widget-winbor tablelistwin of minscroll loglistwin">
+    <div class="toptitle porela">
+        <div class="gobackbtn pointer fl" ng-click="project.returnGo()">
+            <i class="pbiconfont poabso">&#xe60d;</i>
+            <span>返回</span>
+        </div>
+        <span>项目操作日志列表</span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click="project.returnGo()">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso mintable bgf">
+        <div class="top">
+            <div class="time fl">时间</div>
+            <div class="person fl">操作人</div>
+            <div class="detail fl">操作日志</div>
+        </div>
+        <ul  ng-repeat="item in project.proLog">
+            <li ng-repeat="itemsub in item.subCon">
+                <div class="time fl" ng-if="$index==0">{{item.date}} {{item.week}} {{itemsub.time}}</div>
+                <div class="time fl" ng-if="$index!=0">{{itemsub.time}}</div>
+                    <div class="person fl porela">
+                        <div class="img40bor poabso">
+                            <img ng-src="{{itemsub.head_img_path}}">
+                        </div>
+                        <div class="name omit">
+                            {{itemsub.real_name}}
+                        </div>
+                    </div>
+                    <div class="detail fl break">{{itemsub.content}}</div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--项目操作日志列表 弹窗 结束-->

@@ -1,0 +1,751 @@
+<!--创建任务开始-->
+<div class="ui-widget-winbor jurisdiction_setting_box">
+	<div class="jurisdiction_setting_content">
+		<div class="jurisdiction_header f16">
+			<a class="back_btn">返回</a>
+			<span>权限设置</span>
+			<a class="close_btn">
+				<img src="../../../../images/close_btn.png" />
+			</a>
+		</div>
+		<div class="staff_info">
+			<ul>
+				<li>
+					员工姓名：<span>张三</span>
+				</li>
+				<li>
+					所属部门：<span>研发中心</span>
+				</li>
+				<li>
+					职位：<span>研发工程师</span>
+				</li>
+			</ul>
+		</div>
+		<div class="borderbor of porela sel_role f16">
+			<span class="fl">请选择角色：</span>
+			<select class="fl texttitle">
+				<option>普通员工</option>
+				<option>部门主管</option>
+			</select>
+		</div>
+		<div class="jurisdiction_table_container poabso" id="scroll">
+			<!--任务-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<caption class="f16">员工权限:</caption>
+					<tbody>
+						<tr>
+							<th rowspan="3">
+								<label>
+									<input type="checkbox" />任务
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我接受的任务
+								</label>
+							</th>
+							<td colspan="1">
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />编辑
+								</label>
+								<label>
+									<input type="checkbox" />删除
+								</label>
+								<label>
+									<input type="checkbox" />审核
+								</label>
+								<label>
+									<input type="checkbox" />
+									延期
+								</label>
+								<label>
+									<input type="checkbox" />关闭
+								</label>
+								<label>
+									<input type="checkbox" />确认
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我接受的任务
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />接受
+								</label>
+								<label>
+									<input type="checkbox" />拒绝
+								</label>
+								<label>
+									<input type="checkbox" />分解
+								</label>
+								<label>
+									<input type="checkbox" />提交
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />创建的任务
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />创建指派任务
+								</label>
+								<label>
+									<input type="checkbox" />创建悬赏任务
+								</label>
+								<label>
+									<input type="checkbox" />指派
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--项目-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="3">
+								<label>
+									<input type="checkbox" />项目
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我发布的项目
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />编辑
+								</label>
+								<label>
+									<input type="checkbox" />删除
+								</label>
+								<label>
+									<input type="checkbox" />延时
+								</label>
+								<label>
+									<input type="checkbox" />归档
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我参与的项目
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />编辑
+								</label>
+								<label>
+									<input type="checkbox" />删除
+								</label>
+								<label>
+									<input type="checkbox" />延时
+								</label>
+								<label>
+									<input type="checkbox" />归档
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />创建项目
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />创建
+								</label>
+								<label>
+									<input type="checkbox" />设置公开状态
+								</label>
+								<label>
+									<input type="checkbox" />添加成员
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--考勤-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="3">
+								<label>
+									<input type="checkbox" />考勤
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我的考勤
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />员工考勤
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看所有员工考勤
+								</label>
+								<label>
+									<input type="checkbox" />查看下属员工股考勤
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />加班统计
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />统计所有员工考勤
+								</label>
+								<label>
+									<input type="checkbox" />统计下属员工考勤
+								</label>
+								<label>
+									<input type="checkbox" />修改员工休假
+								</label>
+								<label>
+									<input type="checkbox" />查看员工休假变更记录
+								</label>
+								<label>
+									<input type="checkbox" />导出excel表
+								</label>
+								<label>
+									<input type="checkbox" />工作日设定
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--公告-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="3">
+								<label>
+									<input type="checkbox" />公告
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />公告查看
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />下载附件
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />公告管理
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />删除公告
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />创建公告
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />创建
+								</label>
+								<label>
+									<input type="checkbox" />上传附件
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--申请-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="4">
+								<label>
+									<input type="checkbox" />申请
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我的申请
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />编辑
+								</label>
+								<label>
+									<input type="checkbox" />删除
+								</label>
+								<label>
+									<input type="checkbox" />下载附件
+								</label>
+							</td>
+						</tr>	
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我的审批
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />下载附件
+								</label>
+								<label>
+									<input type="checkbox" />同意
+								</label>
+								<label>
+									<input type="checkbox" />驳回
+								</label>
+								<label>
+									<input type="checkbox" />批量同意
+								</label>
+								<label>
+									<input type="checkbox" />批量驳回
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />申请
+								</label>
+							</th>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />审批单管理
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />新增表单
+								</label>
+								<label>
+									<input type="checkbox" />编辑表单
+								</label>
+								<label>
+									<input type="checkbox" />编辑流程
+								</label>
+								<label>
+									<input type="checkbox" />停用流程
+								</label>
+								<label>
+									<input type="checkbox" />删除表单
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--会议室预定-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="2"  class="td_one">
+								<label>
+									<input type="checkbox" />会议室预定
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />会议室预定
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />新增会议室
+								</label>
+								<label>
+									<input type="checkbox" />编辑会议室
+								</label>
+								<label>
+									<input type="checkbox" />删除会议室
+								</label>
+								<label>
+									<input type="checkbox" />预定
+								</label>
+								<label>
+									<input type="checkbox" />取消预定
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我的预定
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--同事-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="3">
+								<label>
+									<input type="checkbox" />同事
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />工作情况
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看全体员工工作情况
+								</label>
+								<label>
+									<input type="checkbox" />查看下属员工工作情况
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+							</td>
+						</tr>	
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我的同事
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />创建部门
+								</label>
+								<label>
+									<input type="checkbox" />编辑部门
+								</label>
+								<label>
+									<input type="checkbox" />解散部门
+								</label>
+								<label>
+									<input type="checkbox" />设置部门负责人
+								</label>
+								<label>
+									<input type="checkbox" />添加部门成员
+								</label>
+								<label>
+									<input type="checkbox" />移除部门成员
+								</label>
+								<label>
+									<input type="checkbox" />添加团队成员
+								</label>
+								<label>
+									<input type="checkbox" />移除团队成员
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />积分榜
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--工作报告-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="2"  class="td_one">
+								<label>
+									<input type="checkbox" />工作报告
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />工作报告审阅
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />查看所有员工报告
+								</label>
+								<label>
+									<input type="checkbox" />查看下属员工报告
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />审阅
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />我的工作报告
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />编辑
+								</label>
+								<label>
+									<input type="checkbox" />提交
+								</label>
+								<label>
+									<input type="checkbox" />查看
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--wiki-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="2"  class="td_one">
+								<label>
+									<input type="checkbox" />wiki
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />wiki词条
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />创建词条
+								</label>
+								<label>
+									<input type="checkbox" />编辑词条
+								</label>
+								<label>
+									<input type="checkbox" />查看词条
+								</label>
+								<label>
+									<input type="checkbox" />查看历史版本
+								</label>
+								<label>
+									<input type="checkbox" />版本对比
+								</label>
+								<label>
+									<input type="checkbox" />查询
+								</label>
+								<label>
+									<input type="checkbox" />个人中心
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />词条管理
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />增加词条类型
+								</label>
+								<label>
+									<input type="checkbox" />编辑词条类型
+								</label>
+								<label>
+									<input type="checkbox" />删除词条类型
+								</label>
+								<label>
+									<input type="checkbox" />审核词条
+								</label>
+								<label>
+									<input type="checkbox" />删除词条
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--管理-->
+			<div class="jurisdiction_table_box">
+				<table class="jurisdiction_table">
+					<tbody>
+						<tr>
+							<th rowspan="2"  class="td_one">
+								<label>
+									<input type="checkbox" />管理
+								</label>
+							</th>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />权限管理
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />添加员工
+								</label>
+								<label>
+									<input type="checkbox" />编辑员工
+								</label>
+								<label>
+									<input type="checkbox" />删除员工
+								</label>
+								<label>
+									<input type="checkbox" />停用员工账号
+								</label>
+								<label>
+									<input type="checkbox" />设置员工权限
+								</label>
+								<label>
+									<input type="checkbox" />添加角色
+								</label>
+								<label>
+									<input type="checkbox" />编辑角色
+								</label>
+								<label>
+									<input type="checkbox" />删除角色
+								</label>
+								<label>
+									<input type="checkbox" />设置角色权限
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="td_one">
+								<label>
+									<input type="checkbox" />技能积分
+								</label>
+							</th>
+							<td>
+								<label>
+									<input type="checkbox" />添加技能
+								</label>
+								<label>
+									<input type="checkbox" />编辑技能
+								</label>
+								<label>
+									<input type="checkbox" />删除技能
+								</label>
+								<label>
+									<input type="checkbox" />追加积分
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="jurisdiction_sub_btn">
+		<div class="btnsbor">
+			<button class="btns">确定</button>
+			<button class="btns gray">取消</button>
+		</div>
+	</div>
+</div>

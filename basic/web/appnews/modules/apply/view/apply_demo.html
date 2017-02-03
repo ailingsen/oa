@@ -1,0 +1,2764 @@
+<!--01申请-我的审批 -->
+<!-- 申请 我的审批 顶部搜索-->
+<div class="w100 none">
+	<div class="pbsearchbor">
+
+	     <div class="selectbor porela minscroll">
+	        <span >状态</span>
+	        <i class="pbiconfont poabso">&#xe60f;</i>
+	        <ul class="listbor poabso" id="projectInfo">
+	            <li><a href="javascript:void(0);" class="omit">待审核</a></li>
+	            <li><a href="javascript:void(0);" class="omit">已审批</a></li>
+	            <li><a href="javascript:void(0);" class="omit">已拒绝</a></li> 
+	            <!-- <li><a href="javascript:void(0);" class="omit">已撤回</a></li>  -->
+	        </ul>
+	     </div>
+
+	     <div class="selectbor porela minscroll">
+	        <span>审批单名称</span>
+	        <i class="pbiconfont poabso">&#xe60f;</i>
+	        <ul class="listbor poabso"  id="applyType">
+	        	<li><a href="javascript:void(0);" class="omit">请假单</a></li>
+	            <li><a href="javascript:void(0);" class="omit">报销单</a></li>
+	            <li><a href="javascript:void(0);" class="omit">职级申请</a></li>
+	            <li><a href="javascript:void(0);" class="omit">忘记打卡</a></li>
+	        </ul>
+	     </div>
+
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="apply_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="applyobj.searchstarttime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="applyobj.searchstarttime" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+         <span class="timeline inblock">—</span>
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="applyobj.searchendtime" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="applyobj.searchendtime" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+
+	     <div class="searchbor porela inblock">
+	     	  <div class="searchbors poabso">
+		     	  <i class="pbiconfont poabso">&#xe610;</i>
+	              <input type="text"  ng-model="applyobj.applyTitle" class="inputtext noborder searchinputtext fl" placeholder="请输入姓名" />
+	              <div class="btn blue fl" ng-click="applyobj.applySearch()">查询</div>
+	          </div>
+	     </div>
+
+	</div>
+</div>
+<!--顶部搜索-->
+
+
+<div class="applytablelistbor none">
+     
+     <div class="pbtbtop pbcd1 flex t_center">
+          <span class="w10">
+                <input type="checkbox" />
+          </span>
+          <span class="w35">审批单名称</span>
+          <span class="w10">审批状态</span>
+          <span class="w15">申请时间</span>
+          <span class="w15">申请人</span>
+          <span class="w15">操作</span>
+     </div>
+
+     <ul>
+          <li class="pblistli flex t_center" ng-repeat="item in [1,2,3,4,5,6,7,8,9]">
+               <span class="w10 omit">
+                     <i class="pbiconfont poabso resetcheckbox">&#xe64b;</i>
+               </span>
+	           <span class="w35 omit porela applyname">
+	           	     <a href="#">
+	           	     	<span class="omit">实得分实得分所发生的发是的是的</span>
+	           	     	<i class="pbiconfont poabso filetips">&#xe63b;</i>
+	           	     </a>
+	           </span>
+	           <span class="w10 omit">
+	           	     <span class="texttip bluegreen">待审批</span> 
+	           	     <span class="texttip red">已拒绝</span> 
+	           	     <span class="texttip gray">已撤回</span> 
+	           	     <span class="texttip green">已审批</span> 
+	           </span>
+	           <span class="w15 omit pbcd1">
+	           	  2016-12-12 12:12:12
+	           </span>
+	           <span class="w15 omit">
+	           	  张三
+	           </span>
+	           <span class="w15 omit seeprogress">
+                     <a href="#">去审批</a>
+                     <a href="#">查看进度</a>
+	           </span>
+          </li>
+     </ul>
+
+     <!-- <div paging page-object="page" click-function="page_fun" ></div> -->
+
+     <div class="pbbtnbor btnbor nobor clear">
+	        <div class="btnsbor">
+		            <button class="btns">批量同意</button>
+		            <button class="btns gray">批量拒绝</button>
+	        </div>
+     </div>
+     
+</div>
+<!--01申请-我的审批 结束 -->
+
+
+ 
+<!--01申请-我的申请 列表开始 【头部搜索共用】 -->
+<div class="applytablelistbor none">
+     
+     <div class="pbtbtop pbcd1 flex t_center">
+          <span class="w10">
+                序号
+          </span>
+          <span class="w50">审批单名称</span>
+          <span class="w10">审批状态</span>
+          <span class="w15">申请时间</span>
+           
+          <span class="w15">操作</span>
+     </div>
+
+     <ul>
+          <li class="pblistli flex t_center" ng-repeat="item in [1,2]">
+               <span class="w10 omit">
+                     10
+               </span>
+	           <span class="w50 omit porela applyname">
+	           	     <a href="#">
+	           	     	<span class="omit">实得分实得分所发生的发是的是的</span>
+	           	     	<i class="pbiconfont poabso filetips">&#xe63b;</i>
+	           	     </a>
+	           </span>
+	           <span class="w10 omit">
+	           	     <span class="texttip bluegreen">待审批</span> 
+	           	     <span class="texttip red">已拒绝</span> 
+	           	     <span class="texttip gray">已撤回</span> 
+	           	     <span class="texttip green">已审批</span> 
+	           </span>
+	           <span class="w15 omit pbcd1">
+	           	  2016-12-12 12:12:12
+	           </span>
+	          
+	           <span class="w15 omit seeprogress">
+                     <a href="#">撤回</a>
+                     <a href="#">催办</a>
+	           </span>
+          </li>
+          <li class="pblistli flex t_center" ng-repeat="item in [1,2]">
+               <span class="w10 omit">
+                     10
+               </span>
+	           <span class="w50 omit porela applyname">
+	           	     <a href="#">
+	           	     	<span class="omit">实得分实得分所发生的发是的是的</span>
+	           	     	<i class="pbiconfont poabso filetips">&#xe63b;</i>
+	           	     </a>
+	           </span>
+	           <span class="w10 omit">
+	           	     <span class="texttip bluegreen">待审批</span> 
+	           	     <span class="texttip red">已拒绝</span> 
+	           	     <span class="texttip gray">已撤回</span> 
+	           	     <span class="texttip green">已审批</span> 
+	           </span>
+	           <span class="w15 omit pbcd1">
+	           	  2016-12-12 12:12:12
+	           </span>
+	          
+	           <span class="w15 omit seeprogress">
+                     <a href="#">编辑</a>
+                     <a href="#" class="del">删除</a>
+	           </span>
+          </li>
+          <li class="pblistli flex t_center" ng-repeat="item in [1,2]">
+               <span class="w10 omit">
+                     10
+               </span>
+	           <span class="w50 omit porela applyname">
+	           	     <a href="#">
+	           	     	<span class="omit">实得分实得分所发生的发是的是的</span>
+	           	     	<i class="pbiconfont poabso filetips">&#xe63b;</i>
+	           	     </a>
+	           </span>
+	           <span class="w10 omit">
+	           	     <span class="texttip bluegreen">待审批</span> 
+	           	     <span class="texttip red">已拒绝</span> 
+	           	     <span class="texttip gray">已撤回</span> 
+	           	     <span class="texttip green">已审批</span> 
+	           </span>
+	           <span class="w15 omit pbcd1">
+	           	  2016-12-12 12:12:12
+	           </span>
+	          
+	           <span class="w15 omit seeprogress">
+                     <a href="#">查看进度</a> 
+	           </span>
+          </li>
+     </ul>
+
+     <!-- <div paging page-object="page" click-function="page_fun" ></div> -->
+     
+</div>
+<!--01申请-我的申请 列表结束【头部搜索共用】 -->
+
+
+
+<!-- 01申请a-我的审批g-弹窗（通用同意）开始 -->
+<div class="ui-widget-winbor refusewin of none">
+     <div class="toptitle">
+          同意
+     </div>
+     <div class="tipstitle pbc">
+          请填写同意原因：
+     </div>
+     <textarea name="textarea" class="noborder fl" placeholder="非必填，最多输入50个字"></textarea>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">同意</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!-- 01申请a-我的审批g-弹窗（通用同意）结束 -->
+
+
+
+<!-- 01申请a-我的审批g-弹窗（通用拒绝）开始 -->
+<div class="ui-widget-winbor refusewin of none">
+     <div class="toptitle">
+          拒绝
+     </div>
+     <div class="tipstitle pbc">
+          请填写拒绝原因：
+     </div>
+     <textarea name="textarea" class="noborder fl" placeholder="必填，最多输入50个字"></textarea>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">拒绝</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!-- 01申请a-我的审批g-弹窗（通用拒绝）结束 -->
+
+
+
+<!-- 01申请a-我的审批g-弹窗（同意加班）开始 -->
+<div class="ui-widget-winbor refusewin agreeAddwork  none  ">
+     <div class="toptitle">
+          同意
+     </div>
+     <div class="tipstitle pbc mt30">
+          打卡时间：
+ 
+         <div class="selecttimebor porela inblock">
+	         <input type="text" name="apply_searchtime2" id="searchstarttime2" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="applyobj.searchstarttime2" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="applyobj.searchstarttime2" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime2', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+         <span class="timeline inblock">—</span>
+	     <div class="selecttimebor porela inblock">
+	         <input type="text" name="searchendtime2" id="searchendtime2" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="applyobj.searchendtime2" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+	         <ul class="dropdown-menu" aria-labelledby="dLabel">
+	             <datetimepicker ng-model="applyobj.searchendtime2" data-datetimepicker-config="{ dropdownSelector: '#searchendtime2', startView: 'day', minView: 'minute' }"></datetimepicker>
+	         </ul>
+	     </div>
+
+     </div>
+     <div class="tipstitle pbc mt30">
+          合计时长： 
+          <input type="text" class="inputtext noborder totallength"/> 小时
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">同意</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!-- 01申请a-我的审批g-弹窗（同意加班）结束 -->
+ 
+
+
+<!--我的申请f-撤回弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要撤回此申请单吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--我的申请f-撤回弹窗 结束-->
+
+
+
+<!--我的申请f-删除弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要删除此申请单吗?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--我的申请f-删除弹窗 结束-->
+
+
+
+
+<!--我的申请 - 保存表单 是否马上去设置表单审批流程 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          提示
+     </div>
+     <div class="tipstitle pbc f16">
+          保存表单成功,是否马上去设置表单审批流程?
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--我的申请 - 保存表单 是否马上去设置表单审批流程 结束-->
+
+
+
+
+<!--申请主页 开始-->
+<div class="applyindexbor none">
+
+	 <div class="applybox porela bg1">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe641;</i>
+	          <span class="poabso">请假申请</span>
+          </a>
+	 </div>
+
+	 <div class="applybox porela bg2">
+	 	  <a href="#">
+          <i class="pbiconfont poabso mt3">&#xe640;</i>
+          <span class="poabso">加班申请</span>
+          </a>
+	 </div>
+
+	 <div class="applybox porela bg3">
+	 	  <a href="#">
+          <i class="pbiconfont poabso mt3">&#xe642;</i>
+          <span class="poabso">忘打卡申请</span>
+          </a>
+	 </div>
+
+	 <div class="applybox porela bg2">
+	 	  <a href="#">
+          <i class="pbiconfont poabso mt3">&#xe63e;</i>
+          <span class="poabso">出差申请</span>
+          </a>
+	 </div>
+
+	 <div class="applybox porela bg3">
+	 	  <a href="#">
+          <i class="pbiconfont poabso mt3">&#xe644;</i>
+          <span class="poabso">报销申请</span>
+          </a>
+	 </div>
+
+	 <div class="applybox porela bg1">
+	 	  <a href="#">
+          <i class="pbiconfont poabso mt3">&#xe643;</i>
+          <span class="poabso">职级申请</span>
+          </a>
+	 </div>
+     
+     <div class="tip pbc t_center mt10">请选择需要使用的申请</div>
+</div>
+<!--申请主页 结束-->
+
+
+
+<!--请假申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          请假申请
+     </div>
+     <div class="scrollbor poabso">
+
+     	  <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">请假类型：</span>
+               <select class="fl">
+                      <option value="调休">调休</option>
+                      <option selected="" value="请选择">请选择</option>
+                      <option value="年假">年假</option>
+                      <option value="事假">事假</option>
+                      <option value="带薪病假">带薪病假</option>
+                      <option value="病假">病假</option>
+                      <option value="哺乳假">哺乳假</option>
+                      <option value="婚假">婚假</option>
+                      <option value="产假">产假</option>
+                      <option value="陪产假">陪产假</option>
+                      <option value="丧假">丧假</option>
+                      <option value="弹性上班">弹性上班</option>
+               </select>
+               <div class="fl ml10">
+                    当前可用调休 <span>1</span> 小时
+               </div>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入详细说明(最多输入500个字)"></textarea>
+          </div>
+
+          <div class="borderbor porela pbfilebor hauto nomb">
+	          <i class="pbiconfont poabso mt2">&#xe619;</i>
+	          <span class="ml23 wdspacing2 poabso">附 件：</span>
+	          <ul>
+	              <li class="porela" ng-repeat='item in task.files'>
+	                  <i class="poabso filesiconmin"></i>
+	                  <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+	                  <div class="filesize fl omit">{{item.file_size}}</div>
+	                  <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+	              </li>
+	          </ul>
+	          <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+	      </div>
+          
+     </div>
+
+
+
+    <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--请假申请创建结束-->
+
+
+
+<!--加班申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          加班申请
+     </div>
+     <div class="scrollbor poabso">
+
+     	  <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">加班类型：</span>
+               <select class="fl">
+                      <option value="工作日加班">工作日加班</option>
+                      <option value="节假日加班">节假日加班</option>
+                      <option selected="" value="请选择">请选择</option>       
+               </select>
+               <div class="fl ml10">
+                    当前可用调休 <span>1</span> 小时
+               </div>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">工作说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入工作说明(最多输入500个字)"></textarea>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--加班申请创建结束-->
+
+
+
+<!--忘打卡申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          忘打卡申请
+     </div>
+     <div class="scrollbor poabso">
+
+     	  <div class="borderbor porela xlefttitlebor timesbor">
+           	   <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">忘打卡时间：</span>
+               
+               <div class="porela inblock fl">
+
+                     <input type="text" name="wdk_datestart" id="wdk_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#wdk_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+               </div>
+
+               <span class="line"></span>
+
+               <div class="fl ml10 apmbor">
+                    <label>
+                         <input type="checkbox" />上午
+                    </label>
+                    <label class="ml20">
+                         <input type="checkbox" />下午
+                    </label>
+               </div>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb" id="w5nums">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">忘打卡说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入忘打卡说明(最多输入500个字)"></textarea>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--忘打卡申请创建结束-->
+
+
+
+<!--出差申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          出差申请
+     </div>
+     <div class="scrollbor poabso">
+
+     	    <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe647;</i>
+               <span class="fl ml23">出差地点：</span>
+               <input type="text" class="fl texttitle" placeholder="请输入出差地点(最多输入50个字)"/>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">出差时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe63f;</i>
+               <span class="fl ml23">出差天数：</span>
+               <input type="text" class="fl texttitle" placeholder="请输入出差天数"/>
+               <span class="poabso r20 pbc">(天)</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">出差事由：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入出差事由(最多输入500个字)"></textarea>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--出差申请创建结束-->
+
+
+
+<!--报销申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          报销申请
+     </div>
+     <div class="scrollbor poabso">
+
+     	  <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe645;</i>
+               <span class="fl ml23">报销类型：</span>
+               <select class="fl">
+                      <option selected="" value="请选择">请选择</option>
+                      <option value="差旅费">差旅费</option>
+                      <option value="加班餐费">加班餐费</option>
+                      <option value="加班打车费">加班打车费</option>
+                      <option value="部门团建活动费">部门团建活动费</option>
+                      <option value="其他">其他</option>    
+               </select>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe63f;</i>
+               <span class="fl ml23">报销金额：</span>
+               <input type="text" class="fl texttitle" placeholder="请输入报销金额"/>
+               <span class="poabso r20 pbc">(元)</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">报销说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入报销说明(最多输入500个字)"></textarea>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--报销申请创建结束-->
+
+
+
+<!--职级申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          职级申请
+     </div>
+     <div class="scrollbor poabso">
+ 
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23 wdspacing2">内 容：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入内容(最多输入500个字)"></textarea>
+          </div>
+
+          <div class="borderbor porela pbfilebor hauto nomb">
+	          <i class="pbiconfont poabso mt2">&#xe619;</i>
+	          <span class="ml23 wdspacing2 poabso">附 件：</span>
+	          <ul>
+	              <li class="porela" ng-repeat='item in task.files'>
+	                  <i class="poabso filesiconmin"></i>
+	                  <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+	                  <div class="filesize fl omit">{{item.file_size}}</div>
+	                  <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+	              </li>
+	          </ul>
+	          <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+	      </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--职级申请创建结束-->
+
+
+
+<!--弹性上班申请创建开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="toptitle">
+          弹性上班申请
+     </div>
+     <div class="scrollbor poabso">
+ 
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">申请时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+           	   <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">加班时间：</span>
+               <select class="fl">
+                        <option value="2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)">2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)</option>
+                      <option selected="" value="2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)">2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)</option>
+               </select>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入详细说明(最多输入500个字)"></textarea>
+          </div>
+
+          <div class="borderbor porela pbfilebor hauto nomb">
+	          <i class="pbiconfont poabso mt2">&#xe619;</i>
+	          <span class="ml23 wdspacing2 poabso">附 件：</span>
+	          <ul>
+	              <li class="porela" ng-repeat='item in task.files'>
+	                  <i class="poabso filesiconmin"></i>
+	                  <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+	                  <div class="filesize fl omit">{{item.file_size}}</div>
+	                  <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+	              </li>
+	          </ul>
+	          <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+	      </div>
+          
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--弹性上班申请创建结束-->
+
+
+
+<!--审批单管理 开始--> 
+<div class="applyindexeditbor none">
+
+	 <div class="applyboxedit porela of bg1 one">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe646;</i>
+	          <span class="poabso">新增</span>
+          </a>
+          <div class="editbor addform">
+               <a href="#">新建一个表单</a> 
+          </div>
+	 </div>
+
+	 <div class="applyboxedit porela of bg3">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe640;</i>
+	          <span class="poabso break">加班申请</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+          </div>
+	 </div> 
+
+	 <div class="applyboxedit porela of bg3">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe641;</i>
+	          <span class="poabso break">请假申请</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+          </div>
+	 </div> 
+
+	 <div class="applyboxedit porela of bg3">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe63e;</i>
+	          <span class="poabso break">出差申请</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+          </div>
+	 </div>
+
+	 <div class="applyboxedit porela of bg3">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe63d;</i>
+	          <span class="poabso break">费用报销</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+          </div>
+	 </div>
+
+	 <div class="applyboxedit porela of bg3">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe643;</i>
+	          <span class="poabso break">职级申请</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+          </div>
+	 </div>
+
+	 <div class="applyboxedit porela of bg3">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe642;</i>
+	          <span class="poabso break">忘打卡申请</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+          </div>
+	 </div>
+
+	  <div class="applyboxedit porela of bg2">
+	 	  <a href="#">
+	          <i class="pbiconfont poabso mt3">&#xe648;</i>
+	          <span class="poabso break">自定义表单1</span>
+          </a>
+          <div class="editbor addform flex">
+               <a href="#">修改名称</a>
+               <a href="#">编辑流程</a> 
+               <a href="#">停用流程</a> 
+               <a href="#">删除</a> 
+          </div>
+	 </div>
+
+</div> 
+<!--审批单管理 结束-->
+
+
+
+
+<!--修改审批单名称弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          修改审批单名称
+     </div>
+     <div class="tipstitle pbc f16">
+          <input type="text" class="maxtextbor" placeholder="请输入审批单名称" />
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--修改审批单名称弹窗 结束-->
+
+
+
+
+<!--停用流程弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          停用流程
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要停用"<span class="spantip red">自定义表单1</span>"的审批流程吗？
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--停用流程弹窗 结束-->
+
+
+
+
+<!--删除审批单弹窗 开始-->
+<div class="ui-widget-winbor surewin of none">
+     <div class="toptitle">
+          删除审批单
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要删除"<span class="spantip red">自定义表单1</span>"吗？
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--删除审批单弹窗 结束-->
+
+
+
+
+<!--请假未审批 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of readwin none">
+     <div class="toptitle porela">
+          请假申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso">
+
+        <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">请假类型：</span>
+               <span class="sp">调休</span>
+               <span class="ml10">
+                    当前可用调休 <span>1</span> 小时
+               </span>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl ml5 pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的
+                </textarea>
+          </div>
+
+          <div class="borderbor porela taskfilebor read hauto">
+                <i class="pbiconfont poabso mt2">&#xe619;</i>
+                <span class="ml23 wdspacing2 poabso">附 件：</span>
+                <ul>
+                    <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                        <i class="poabso filesiconmin"></i>
+                        <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                        <div class="filesize fl omit">12.18KB</div>
+                        <div class="time fl ml10">2016-12-12</div>
+                        <div class="name fl ml10 omit">张三李四</div>
+                        <div class="btn blue fr poabso">下载</div>
+                    </li>
+                </ul>
+           </div>
+
+           <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">请 假 人：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor nomb">
+               <i class="pbiconfont poabso mt2">&#xe614;</i>
+               <span class="fl ml23">申请时间：</span>
+               <span class="sp">2016-12-12 12:12</span>
+          </div>
+          
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <!-- 未审批按钮 -->
+               <button class="btns ">同意</button>
+               <button class="btns gray">拒绝</button>
+               
+               <!-- 待审批按钮
+               <button class="btns ">撤回</button>
+               <button class="btns gray">催办</button>
+               -->
+          </div>
+     </div>
+</div>
+<!--请假未审批 可读详情 结束-->
+
+
+
+
+<!--加班未审批 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs of pfixed none ">
+     <div class="toptitle porela">
+          加班申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso">
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">加班类型：</span>
+               <span class="sp">调休</span>
+               <span class="ml10">
+                    当前可用调休 <span>1</span> 小时
+               </span>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">工作说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的
+                </textarea>
+          </div>
+
+          <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">申 请 人：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor nomb">
+               <i class="pbiconfont poabso mt2">&#xe614;</i>
+               <span class="fl ml23">申请时间：</span>
+               <span class="sp">2016-12-12 12:12</span>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">同意</button>
+               <button class="btns gray">拒绝</button>
+          </div>
+     </div>
+</div>
+<!--加班未审批 可读详情 结束-->
+
+
+
+
+<!--职级未审批 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of readwin none">
+     <div class="toptitle porela">
+          职级申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso">
+ 
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23 wdspacing2">内 容：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的
+                </textarea>
+          </div>
+
+          <div class="borderbor porela taskfilebor read hauto">
+                <i class="pbiconfont poabso mt2">&#xe619;</i>
+                <span class="ml23 wdspacing2 poabso">附 件：</span>
+                <ul>
+                    <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                        <i class="poabso filesiconmin"></i>
+                        <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                        <div class="filesize fl omit">12.18KB</div>
+                        <div class="time fl ml10">2016-12-12</div>
+                        <div class="name fl ml10 omit">张三李四</div>
+                        <div class="btn blue fr poabso">下载</div>
+                    </li>
+                </ul>
+           </div>
+
+           <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">申 请 人：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor nomb">
+               <i class="pbiconfont poabso mt2">&#xe614;</i>
+               <span class="fl ml23">申请时间：</span>
+               <span class="sp">2016-12-12 12:12</span>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">同意</button>
+               <button class="btns gray">拒绝</button>
+          </div>
+     </div>
+</div>
+<!--职级未审批 可读详情 结束-->
+
+
+
+
+<!--忘打卡 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs pfixed of readwin none">
+     <div class="toptitle porela">
+          忘打卡申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso">
+
+        <div class="borderbor porela xlefttitlebor timesbor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">忘打卡时间：</span>
+               
+               <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+               </div>
+
+               <span class="line"></span>
+
+               <div class="fl ml100 apmbor">
+                    <label>
+                         <input type="checkbox" checked disabled />上午
+                    </label>
+               </div>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor" id="w5nums">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">忘打卡说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的
+                </textarea>
+          </div>
+
+          <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">申 请 人：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor nomb">
+               <i class="pbiconfont poabso mt2">&#xe614;</i>
+               <span class="fl ml23">申请时间：</span>
+               <span class="sp">2016-12-12 12:12</span>
+          </div>
+
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">同意</button>
+               <button class="btns gray">拒绝</button>
+          </div>
+     </div>
+</div>
+<!--忘打卡 可读详情 结束-->
+
+
+
+
+<!--弹性上班 可读详情 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of readwin none">
+     <div class="toptitle porela">
+          弹性上班申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso">
+ 
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">申请时间 : </span>
+                <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">加班时间：</span>
+               <span class="pbc">2016-06-20 18:00~2016-06-20 21:00 (弹性时长：2小时)</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的
+                </textarea>
+          </div>
+
+           <div class="borderbor porela taskfilebor read hauto">
+                <i class="pbiconfont poabso mt2">&#xe619;</i>
+                <span class="ml23 wdspacing2 poabso">附 件：</span>
+                <ul>
+                    <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                        <i class="poabso filesiconmin"></i>
+                        <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                        <div class="filesize fl omit">12.18KB</div>
+                        <div class="time fl ml10">2016-12-12</div>
+                        <div class="name fl ml10 omit">张三李四</div>
+                        <div class="btn blue fr poabso">下载</div>
+                    </li>
+                </ul>
+           </div>
+
+           <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">申 请 人：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor nomb">
+               <i class="pbiconfont poabso mt2">&#xe614;</i>
+               <span class="fl ml23">申请时间：</span>
+               <span class="sp">2016-12-12 12:12</span>
+          </div>
+          
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">同意</button>
+               <button class="btns gray">拒绝</button>
+          </div>
+     </div>
+</div>
+<!--弹性上班 可读详情 结束-->
+
+
+
+
+<!--请假未审批 可读详情 查看进度 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of readwin none">
+     <div class="toptitle porela">
+          请假申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div class="scrollbor poabso" id="lookprogressdetial">
+
+        <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">请假类型：</span>
+               <span class="sp">调休</span>
+               <span class="ml10">
+                    当前可用调休 <span>1</span> 小时
+               </span>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl ml5 pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl pbc">
+
+                     2016-12-12 12:12
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" disabled>实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的实得分事事是的是的分第三节课是的两节课塞德里克克里斯丁发克鲁斯的了开发商快乐发克里斯丁是的是是的
+                </textarea>
+          </div>
+
+          <div class="borderbor porela taskfilebor read hauto">
+                <i class="pbiconfont poabso mt2">&#xe619;</i>
+                <span class="ml23 wdspacing2 poabso">附 件：</span>
+                <ul>
+                    <li class="porela" ng-repeat='item in [1,2,3,4,5]'>
+                        <i class="poabso filesiconmin"></i>
+                        <div class="filename fl omit"><a href="#">产品功能文档.pdf</a></div>
+                        <div class="filesize fl omit">12.18KB</div>
+                        <div class="time fl ml10">2016-12-12</div>
+                        <div class="name fl ml10 omit">张三李四</div>
+                        <div class="btn blue fr poabso">下载</div>
+                    </li>
+                </ul>
+           </div>
+
+           <div class="borderbor porela">
+                <i class="pbiconfont poabso mt2">&#xe616;</i>
+                <span class="ml23 wdspacing">请 假 人：</span>
+                <div class="imgbor40 poabso">
+                      <div class="imgbor fl">
+                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                      </div>
+                      <div class="name omit fl pbc">张三李四</div>
+                </div>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor ">
+               <i class="pbiconfont poabso mt2">&#xe614;</i>
+               <span class="fl ml23">申请时间：</span>
+               <span class="sp">2016-12-12 12:12</span>
+          </div>
+
+          <div class="borderbor porela nomb applyprogress hauto">
+               <div class="title poabso">
+                    <i class="pbiconfont poabso mt2">&#xe626;</i>
+                    <span class="ml23 poabso wdspacing2">申请进度</span>
+               </div>
+                     
+               <ul>
+                    <!--同意-->
+                    <li class="porela" ng-repeat="item in [1,2]">
+                        <div class="imgbor40 fl">
+                              <div class="imgbor fl">
+                                   <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                              </div>
+                              <div class="name omit fl pbc">张三李四</div>
+                        </div>
+                        <div class="agree fl center">同意</div>
+                        <div class="time fl pbcd1">2016-12-12 12:12</div>
+                    </li>
+                    <!--拒绝-->
+                    <li class="porela">
+                        <div class="imgbor40 fl">
+                              <div class="imgbor fl">
+                                   <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                              </div>
+                              <div class="name omit fl pbc">张三李四</div>
+                        </div>
+                        <div class="agree fl center red">拒绝</div>
+                        <div class="time fl pbcd1">2016-12-12 12:12</div>
+                        <div class="porela jjbor">
+                             拒绝原因：
+                             <span class="break">是的的身份都是是的是的是多少是的的身份都是是的是的是多少是的的身份都是是的是的是多少是的的身份都是是的是的是多少是的的身份都是是的是的是多少</span>  
+                        </div>
+                    </li>
+               </ul>
+
+          </div> 
+
+     </div>
+</div>
+<!--请假未审批 可读详情 查看进度 结束-->
+
+
+
+
+
+<!--弹性 表单预览开始-->
+<div class="ui-widget-winbor uiwinabs of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          弹性上班申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+ 
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">申请时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">加班时间：</span>
+               <select class="fl">
+                        <option value="2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)">2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)</option>
+                      <option selected="" value="2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)">2016-06-20 18:00~2016-06-20 21:00(弹性时长：2小时)</option>
+               </select>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入详细说明(最多输入500个字)"></textarea>
+          </div>
+
+          <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso filesiconmin"></i>
+                    <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size}}</div>
+                    <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+        </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+
+
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--弹性 表单预览 结束-->
+
+
+
+
+<!--请假 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          请假申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+
+        <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">请假类型：</span>
+               <select class="fl">
+                      <option value="调休">调休</option>
+                      <option selected="" value="请选择">请选择</option>
+                      <option value="年假">年假</option>
+                      <option value="事假">事假</option>
+                      <option value="带薪病假">带薪病假</option>
+                      <option value="病假">病假</option>
+                      <option value="哺乳假">哺乳假</option>
+                      <option value="婚假">婚假</option>
+                      <option value="产假">产假</option>
+                      <option value="陪产假">陪产假</option>
+                      <option value="丧假">丧假</option>
+                      <option value="弹性上班">弹性上班</option>
+               </select>
+               <div class="fl ml10">
+                    当前可用调休 <span>1</span> 小时
+               </div>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">详细说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入详细说明(最多输入500个字)"></textarea>
+          </div>
+
+          <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso filesiconmin"></i>
+                    <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size}}</div>
+                    <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+        </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+     
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+             
+          </div>
+     </div>
+</div>
+<!--请假 表单预览 结束-->
+
+
+
+
+<!--出差 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          出差申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe647;</i>
+               <span class="fl ml23">出差地点：</span>
+               <input type="text" class="fl texttitle" placeholder="请输入出差地点(最多输入50个字)"/>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">出差时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe63f;</i>
+               <span class="fl ml23">出差天数：</span>
+               <input type="text" class="fl texttitle" placeholder="请输入出差天数"/>
+               <span class="poabso r20 pbc">(天)</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">出差事由：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入出差事由(最多输入500个字)"></textarea>
+          </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+     
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+             
+          </div>
+     </div>
+</div>
+<!--出差 表单预览 结束-->
+
+
+
+
+<!--加班 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          加班申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">加班类型：</span>
+               <select class="fl">
+                      <option value="工作日加班">工作日加班</option>
+                      <option value="节假日加班">节假日加班</option>
+                      <option selected="" value="请选择">请选择</option>       
+               </select>
+               <div class="fl ml10">
+                    当前可用调休 <span>1</span> 小时
+               </div>
+          </div>
+
+          <div class="borderbor porela timesbor">
+                <i class="pbiconfont inblock">&#xe614;</i>
+                <span class="fl ml23">休假时间 :</span>
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_datestart" id="leave_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#leave_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="fl">——</span> 
+                <div class="porela inblock fl">
+
+                     <input type="text" name="leave_dateend" id="leave_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.end_time"  data-datetimepicker-config="{ dropdownSelector: '#leave_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+                </div>
+                <span class="clear">&nbsp;</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">工作说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入工作说明(最多输入500个字)"></textarea>
+          </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+     
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+             
+          </div>
+     </div>
+</div>
+<!--加班 表单预览 结束-->
+
+
+
+
+<!--忘打卡 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          忘打卡申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+
+           <div class="borderbor porela xlefttitlebor timesbor">
+               <i class="pbiconfont poabso mt2">&#xe611;</i>
+               <span class="fl ml23">忘打卡时间：</span>
+               
+               <div class="porela inblock fl">
+
+                     <input type="text" name="wdk_datestart" id="wdk_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext timesw noborder" ng-model="paramobj.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                     <ul class="dropdown-menu" aria-labelledby="dLabel">
+                         <datetimepicker ng-model="paramobj.begin_time" data-datetimepicker-config="{ dropdownSelector: '#wdk_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                     </ul>
+
+               </div>
+
+               <span class="line"></span>
+
+               <div class="fl ml10 apmbor">
+                    <label>
+                         <input type="checkbox" />上午
+                    </label>
+                    <label class="ml20">
+                         <input type="checkbox" />下午
+                    </label>
+               </div>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb" id="w5nums">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">忘打卡说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入忘打卡说明(最多输入500个字)"></textarea>
+          </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+     
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+             
+          </div>
+     </div>
+</div>
+<!--忘打卡 表单预览 结束-->
+
+
+
+
+<!--报销 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          报销申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe645;</i>
+               <span class="fl ml23">报销类型：</span>
+               <select class="fl">
+                      <option selected="" value="请选择">请选择</option>
+                      <option value="差旅费">差旅费</option>
+                      <option value="加班餐费">加班餐费</option>
+                      <option value="加班打车费">加班打车费</option>
+                      <option value="部门团建活动费">部门团建活动费</option>
+                      <option value="其他">其他</option>    
+               </select>
+          </div>
+
+          <div class="borderbor of porela xlefttitlebor">
+               <i class="pbiconfont poabso mt2">&#xe63f;</i>
+               <span class="fl ml23">报销金额：</span>
+               <input type="text" class="fl texttitle" placeholder="请输入报销金额"/>
+               <span class="poabso r20 pbc">(元)</span>
+          </div>
+
+          <div class="borderbor porela maxtextareasbor nomb">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23">报销说明：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入报销说明(最多输入500个字)"></textarea>
+          </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+     
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+             
+          </div>
+     </div>
+</div>
+<!--报销 表单预览 结束-->
+
+
+
+
+<!--职级 表单预览 开始-->
+<div class="ui-widget-winbor uiwinabs publicwin pfixed of none">
+     <div class="disabledbor poabso"></div>
+     <div class="toptitle porela">
+          职级申请
+          <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+          <div class="changebtn poabso pointer">
+               <span class="fl selected">表单</span>
+               <span class="fl ">流程</span>
+          </div>
+     </div>
+
+     <!--表单 区域 开始-->
+     <div class="scrollbor poabso formbor">
+
+           <div class="borderbor porela maxtextareasbor">
+                <i class="pbiconfont poabso mt2">&#xe63c;</i>
+                <span class="ml23 wdspacing2">内 容：</span>
+                <textarea name="textarea" id="textarea" class="pb_textareas noborder" placeholder="请输入内容(最多输入500个字)"></textarea>
+          </div>
+
+          <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso filesiconmin"></i>
+                    <div class="filename fl omit"><a href="#">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size}}</div>
+                    <div class="del fr" ng-click="task.delFiles(index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso"><upload-modalsingle upload-attrs="addFileBtn">添加附件</upload-modalsingle></div>
+        </div>
+          
+     </div>
+     <!--表单 区域 结束-->
+     
+     <!--流程 区域 开始-->
+     <div class="scrollbor poabso processbor none">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">5 </span>
+               <span class="sp">次 / </span> 
+               <span class="sp">年</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2,3]">
+
+              <div class="borderbor of porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <ul class="readul xslistbor inblock of fl">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">8</span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                    </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">提交</button>
+               <button class="btns gray">取消</button>
+             
+          </div>
+     </div>
+</div>
+<!--职级 表单预览 结束-->
+
+
+
+
+
+<!--设置审批流程 开始-->
+<div class="ui-widget-winbor pabso publicwin setprocessobr of ">
+     <div class="toptitle porela">
+          设置审批流程
+     </div>
+ 
+     <div class="scrollbor poabso processbor">
+          
+          <div class="borderbor of porela xlefttitlebor ">
+               <span class="fl">发起次数限制：</span>
+               <span class="sp">
+                     <input type="text" class="number" placeholder="(请输入)" />
+               </span>
+               <span class="sp">次 / </span> 
+               <select>
+                    <option selected="" value="年">年</option>
+                    <option value="月">月</option>
+                    <option value="周">周</option>
+                    <option value="日">日</option>
+              </select>
+              <span class="poabso r20 pbcd1">(0代表次数不限)</span>
+          </div>
+
+          <!--审批流程开始-->
+          <div class="processli" ng-repeat="item in [1,2]">
+
+              <div class="porela processbtnbor of">
+                   <div class="fr">
+                       <span class="spantip blue pointer">新增</span>
+                       <span class="spantip blue pointer">复制</span>
+                       <span class="spantip gray pointer">删除</span>
+                   </div>
+              </div>
+                           
+              <div class="borderbor porela xlefttitlebor hauto">
+                   <span class="fl">流程应用范围：</span>
+                   <select>
+                       <option selected="" value="指定部门">指定部门</option>
+                       <option value="指定人">指定人</option>
+                   </select>
+                   <!--指定人弹窗 开始-->
+                   <div class="menbersearchbor minscroll">
+                        <div class="searchbg of porela">
+                             <i class="pbiconfont poabso">&#xe610;</i>
+                             <input type="text" class="noborder" placeholder="搜索" ng-keyup="task.allott(1)" data-ng-model="task.searchMemberRealName"/>
+                        </div>
+                        <ul>
+                            <li class="pointer" >
+                                <div class="imgbor fl">
+                                     <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                                </div>
+                                <div class="name omit fl">
+                                     2343232
+                                </div>
+                            </li>
+                            <li class="pointer" ng-repeat='item in task.groupMembers' ng-click="task.selectMember(item)">
+                                <div class="imgbor fl">
+                                     <img ng-src="{{item.head_img}}">
+                                </div>
+                                <div class="name omit fl">
+                                     {{item.real_name}}
+                                </div>
+                            </li>
+                        </ul>
+                   </div>
+                   <!--指定人弹窗 结束-->
+
+                   <!--指定部门弹窗 开始-->
+                   <div class="offerbor poabso minscroll">
+                          <div class="titles">请选择悬赏范围</div>
+                          <div class="nbor">
+                                <div class="nbors" ng-repeat="groupTree in task.allGroupsTree">
+                                    <div class="title">
+                                        <label>
+                                            <input type="checkbox" class="cbox" data-ng-click="task.selectAllSubGroup($event,groupTree.org_id)" gname="{{groupTree.org_name}}" gid="{{groupTree.org_id}}"/>
+                                            <span>{{groupTree.org_name}}</span>
+                                        </label>
+                                        <span>
+                                            <!--默认向下-->
+                                            <i class="pbiconfont poabso" ng-if="groupTree.show==1" ng-click="task.showGroupList($index,0)">&#xe620;</i>
+                                            <!--点击向上-->
+                                            <i class="pbiconfont poabso" ng-if="groupTree.show==0" ng-click="task.showGroupList($index,1)">&#xe61f;</i>
+                                        </span>
+                                    </div>
+                                    <ul ng-if="groupTree.show==1">
+                                        <li ng-repeat="children in groupTree.children">
+                                            <label>
+                                                <input type="checkbox" class="cbox" data-ng-click="task.selectAllSubGroup2($event,children.org_id)" gname="{{children.org_name}}" gid="{{children.org_id}}"/>
+                                                <span>{{children.org_name}}</span>
+                                            </label>
+                                            <span>
+                                                  <ul>
+                                                      <li ng-repeat="secChild in children.children">
+                                                          <label>
+                                                              <input type="checkbox" class="cbox" data-ng-click="task.selectGroup($event)" gname="{{secChild.org_name}}" gid="{{secChild.org_id}}"/>
+                                                              <span> {{secChild.org_name}} </span>
+                                                          </label>
+                                                      </li>
+                                                  </ul>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                          </div>
+                   </div>
+                   <!--指定部门弹窗 结束 -->
+                   <ul class="readul xslistbor inblock of">
+                       <li ng-repeat="item in [1,2,3,4,5]">php4</li> 
+                   </ul>
+              </div>
+
+              <div class="borderbor of porela xlefttitlebor rule">
+                   <span class="wdspacing4">判 断 条 件：</span>
+                   <select>
+                      <option value="无">无</option>
+                      <option selected="" value="休假时间">休假时间</option>
+                      <option value="加班时间">加班时间</option>
+                  </select>
+                  <select class="ml10">
+                      <option value=">">&gt;</option>
+                      <option value="<">&lt;</option>
+                      <option value=">=">&gt;=</option>
+                      <option value="<=">&lt;=</option>
+                      <option value="=">=</option>
+                  </select>
+                  <span class="line"></span>
+                  <span class="pbc ml30 omit">
+                        <input type="text" class="numberday" placeholder="(请输入)" />
+                  </span>
+                  <span class="poabso r20 pbc">(天)</span>
+              </div>
+
+              <!--多流循环-->
+              <div class="borderbor porela sprbor" ng-repeat="item in [1,2,3]">
+                    <span>{{$index+1}}级审批流程 ： </span>
+                    <span >审批人</span>
+                    <div class="poabso addbtn1 fpgbtn">
+                         <div class="menbersearchbor minscroll">
+                              <div class="searchbg of porela">
+                                   <i class="pbiconfont poabso">&#xe610;</i>
+                                   <input type="text" class="noborder" placeholder="搜索" ng-keyup="apply.allott(1)" data-ng-model="apply.searchMemberRealName"/>
+                              </div>
+                              <ul>
+                                  <li class="pointer" >
+                                      <div class="imgbor fl">
+                                           <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                                      </div>
+                                      <div class="name omit fl">
+                                           2343232
+                                      </div>
+                                  </li>
+                                  <li class="pointer" ng-repeat='item in task.groupMembers' ng-click="task.selectMember(item)">
+                                      <div class="imgbor fl">
+                                           <img ng-src="{{item.head_img}}">
+                                      </div>
+                                      <div class="name omit fl">
+                                           {{item.real_name}}
+                                      </div>
+                                  </li>
+                              </ul>
+                         </div>
+                    </div>
+                    <div class="imgbor40 poabso">
+                          <div class="imgbor fl">
+                               <img src="http://www.w3chtml.com/uploadfile/201201/19/6011443968.jpg">
+                          </div>
+                          <div class="name omit fl pbc">张三李四</div>
+                          <i class="pbiconfont poabso pointer" ng-click="task.delmember();">&#xe61d;</i>
+                    </div>
+                    <i class="pbiconfont poabso r20 del pointer" ng-show="$index!=0">&#xe649;</i>
+              </div>
+
+              <div class="borderbor porela">
+                   <div class="addprocessbtn porela pointer">
+                       <i class="pbiconfont poabso pointer">&#xe646;</i>
+                       <span class="f16">新增审批流程</span>
+                   </div>
+              </div>
+          </div>
+          <!--审批流程结束-->
+
+     </div>
+     <!--流程 区域 开始-->
+
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               
+               <button class="btns ">完成</button>
+               <button class="btns gray">返回</button>
+             
+          </div>
+     </div>
+</div>
+<!--设置审批流程 结束-->
+
+
+
+
+
+
+
+
+
+
+<!--创建表单 ======================================-->
+<!--创建表单 ======================================-->
+<!--创建表单 开始-->
+<div class="w100 formindexbor">
+     <div class="f16">设计表单</div>
+     <ul class="mt10 changeform of" id="scroll">
+         <span class="pbcd1">选择模板：</span>
+         <li>
+              <label>
+                    <input type="radio" name="formname" checked ng-click="apply.changeforms(0)" />
+                    <span>无</span> 
+              </label>
+         </li>
+         <li>
+              <label>
+                    <input type="radio" name="formname" ng-click="apply.changeforms(1)" />
+                    <span>自定义表单1</span>
+              </label>
+         </li>
+         <li>
+              <label>
+                    <input type="radio" name="formname" ng-click="apply.changeforms(2)" />
+                    <span>自定义表单2</span>
+              </label>
+         </li>
+     </ul>
+</div>
+
+
+<div class="ui-widget-winbor createforms pbcreateformlib pabso of formindexbor">
+
+     <div class="borderbor of porela formstitle">
+          <div class="titlebor">
+              <span class="porela break inblock title">表单名称</span>
+              <div class="break pbc inblock rcontent">
+                   <input type="text" />
+              </div>
+          </div>
+     </div>
+
+     <div id="scroll" class="scrollbor poabso droppable">
+     </div>
+
+     <div class="btnbor poabso nobor w100">
+          <div class="btnsbor"> 
+               <button ng-click="apply.formPreview()" class="btns">预览表单</button>
+               <button id="saveForm" class="btns">保存表单</button>
+               <button ng-click="apply.formsavesetprocess()" class="btns darkgreen">保存并设置审核流程</button>
+          </div>
+     </div>
+</div>
+
+
+<div class="ui-widget-winbor formslibbor pabso formindexbor">
+     <div class="title">
+          <span class="f16">组件库</span>
+     </div>
+     <div class="ulbor">
+         <ul>
+             <li title="拖拽至页面中间区域" data-widget="Text" class="draggable">
+                  <i class="glyphicon glyphicon-text-color poabso"></i>
+                  <span>文本输入框</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="TextArea" class="draggable">
+                  <i class="glyphicon glyphicon-text-size poabso"></i>
+                  <span>多行文本框</span>
+             </li>       
+             <li title="拖拽至页面中间区域" data-widget="DateInterval" class="draggable">
+                  <i class="glyphicon glyphicon-calendar poabso"></i>
+                  <span>日期区间</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="RadioBox" class="draggable">
+                  <i class="glyphicon glyphicon-ok-circle poabso"></i>
+                  <span>单选按钮</span>
+             </li>
+     
+     
+             <li title="拖拽至页面中间区域" data-widget="CheckBox" class="draggable">
+                  <i class="glyphicon glyphicon-check poabso"></i>
+                  <span>复选框</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Money" class="draggable">
+                  <i class="glyphicon glyphicon-usd poabso"></i>
+                  <span>金额</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Mobile" class="draggable">
+                  <i class="glyphicon glyphicon-earphone poabso"></i>
+                  <span>手机</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Paragraph" class="draggable">
+                  <i class="glyphicon glyphicon-align-justify poabso"></i>
+                  <span>描述文字</span>
+             </li>
+
+
+             <li title="拖拽至页面中间区域" data-widget="FileComponent" class="draggable">
+                  <i class="glyphicon glyphicon-paperclip poabso"></i>
+                  <span>附件</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Department" class="draggable">
+                  <i class="glyphicon glyphicon-briefcase poabso"></i>
+                  <span>部门选择</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Phone" class="draggable">
+                  <i class="glyphicon glyphicon-phone-alt poabso"></i>
+                  <span>电话</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Select" class="draggable">
+                  <i class="glyphicon glyphicon-triangle-bottom poabso"></i>
+                  <span>下拉菜单</span>
+             </li>
+     
+
+             <li title="拖拽至页面中间区域" data-widget="ImageComponent" class="draggable">
+                  <i class="glyphicon glyphicon-picture poabso"></i>
+                  <span>图片</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="Email" class="draggable">
+                  <i class="glyphicon glyphicon-envelope poabso"></i>
+                  <span>邮箱</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="DateComponent" class="draggable">
+                  <i class="glyphicon glyphicon-calendar poabso"></i>
+                  <span>日期</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="NumberComponent" class="draggable"> 
+                  <i class="glyphicon glyphicon-sound-5-1 poabso"></i>
+                  <span>数字输入框</span>
+             </li>
+
+             <li title="拖拽至页面中间区域" data-widget="Employee" class="draggable">
+                  <i class="glyphicon glyphicon-user poabso"></i>
+                  <span>用户选择</span>
+             </li>
+             <li title="拖拽至页面中间区域" data-widget="DividingLine" class="draggable">
+                  <i class="glyphicon glyphicon-minus poabso"></i>
+                  <span>分割线</span>
+             </li>
+         </ul>
+     </div>
+</div>
+
+
+<div class="ui-widget-winbor formseditbor pbcreateformlib pabso of formindexbor">
+     <div class="title">
+          <span class="f16">组件编辑</span>
+     </div>
+     <div id="scroll" class="scrollbor poabso">
+     </div>
+</div>
+<!--创建表单 结束-->
+
+<!--创建表单 所需插件and模块 开始-->
+<script src="/appnews/lib/jqueryui/jquery.ui.widget.js"></script>
+<script src="/appnews/lib/ckeditor/ckeditor.js"></script>
+<script src="/appnews/lib/createform/editform.js"></script>
+<!--创建表单 所需插件and模块 结束-->
+
+<!--创建表单 删除字段 弹窗 开始-->
+<div class="ui-widget-winbor surewin winnone of delcreatefield">
+     <div class="toptitle">
+          移除当前字段 <span class="none"></span>
+     </div>
+     <div class="tipstitle pbc f16">
+          确定要移除当前字段吗？
+     </div>
+     <div class="btnbor poabso nobor" id="bgf">
+          <div class="btnsbor">
+               <button class="btns">确定</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--创建表单 删除字段 弹窗 结束-->
+
+<!--表单预览 开始-->
+<div class="ui-widget-winbor formPreview pbcreateformlib pfixed of">
+     <div class="toptitle porela">
+        <span class="formtitles"></span>
+        <i class="pbiconfont poabso closebtn pointer" ng-click=" apply.formPreviewClose();">&#xe61d;</i>
+     </div>
+     <div id="scroll" class="scrollbor poabso">
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns" ng-click=" apply.formPreviewClose();">退出预览</button> 
+          </div>
+     </div>
+</div>
+<!--表单预览 结束-->
+
+<!--创建表单 ======================================-->
+<!--创建表单 ======================================-->
+
+
+
+
+
+
+
+
+

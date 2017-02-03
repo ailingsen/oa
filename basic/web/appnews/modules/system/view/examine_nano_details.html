@@ -1,0 +1,51 @@
+<div class="ui-widget-winbor jurisdiction_setting_box">
+	<div class="jurisdiction_setting_content">
+		<div class="jurisdiction_header f16">
+			<span>变更记录</span>
+			<a class="close_btn" href="javascript:void(0)" data-ng-click="score.back()">
+				<img src="../../../../images/close_btn.png" />
+			</a>
+		</div>
+
+		<div class="nanoExamine_details_box">
+			<div class="nanoExamine_details_contaniner">
+				<ul class="nanoExamine_details_nav">
+					<li>时间</li>
+					<li>操作人</li>
+					<li>操作日志</li>
+				</ul>
+				<div class="nanoExamine_details_content_box" id="scroll">
+					<ul class="nanoExamine_details_content" ng-repeat="item in score.logList">
+						<li>
+							<div class="cur_time">
+								<span>{{item.create_time}}</span>
+								<em>{{item.weekday}}</em>
+							</div>
+						</li>
+						<li>
+							<div class="person_img">
+								<i><img ng-src="{{item.head_img}}" onerror="javascript:this.src='/static/head-img/defaultHead.png'"></i>
+								<em>{{item.real_name}}</em>
+							</div>
+						</li>
+						<li>
+							<div class="change_content">
+								<label>变更前：<span>{{item.score_before}}</span>纳米币</label>
+								<label>变更后：<span>{{item.score_after}}</span>纳米币</label>
+							</div>
+							<div class="change_cause">
+								{{item.content}}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="jurisdiction_sub_btn">-->
+	<!--<div class="btnsbor">-->
+	<!--<button class="btns">确定</button>-->
+	<!--<button class="btns gray">取消</button>-->
+	<!--</div>-->
+	<!--</div>-->
+</div>

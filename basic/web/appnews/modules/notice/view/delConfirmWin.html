@@ -1,0 +1,16 @@
+<!--删除确认 弹窗 开始-->
+<div class="ui-widget-winbor surewin of none block" ng-if="notice.isDelConfirmWin">
+    <div class="toptitle">
+        提示
+    </div>
+    <div class="tipstitle pbc f16">
+        是否确认删除？
+    </div>
+    <div class="btnbor poabso nobor" id="bgf">
+        <div class="btnsbor">
+            <button class="btns" ng-click="notice.delNotice(notice.delObj)">是</button>
+            <button class="btns gray" ng-click="notice.closeDelConfirmWin()">否</button>
+        </div>
+    </div>
+</div>
+<!--删除确认 弹窗 结束-->

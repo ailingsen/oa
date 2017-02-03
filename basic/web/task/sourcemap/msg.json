@@ -1,0 +1,10 @@
+[
+	"appnews/modules/msg/controller/ApprovalMsgController.js",
+	"appnews/modules/msg/controller/ApplyMsgController.js",
+	"appnews/modules/msg/controller/MeetingMsgController.js",
+	"appnews/modules/msg/controller/TaskMsgController.js",
+	"appnews/modules/msg/controller/ProjectMsgController.js",
+	"appnews/modules/msg/controller/ReportMsgController.js",
+	"appnews/modules/msg/route.js",
+	"appnews/modules/msg/models/MsgModel.js"
+]

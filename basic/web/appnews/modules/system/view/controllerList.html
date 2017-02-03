@@ -1,0 +1,71 @@
+<!--顶部切换-->
+<div class="w100 nav_jurisdictionList_box">
+	<em class="nav_jurisdictionList">
+	    <span><a ui-sref="main.system.jurisdictionList">员工管理</a></span>
+	    <span><a ui-sref="main.system.roleList">角色管理</a></span>
+	    <span class="selected"><a ui-sref="main.system.controllerList">控制器动作列表页</a></span>
+   </em>
+</div>
+<div class="no_fun_name">
+	<p>请优先添加没有方法名的控制器</p>
+</div>
+<div class="system_list clear">
+	<table class="controller_table f16">
+		<thead>
+			<tr>
+				<td>控制器</td>
+				<td>方法名</td>
+				<td>中文名</td>
+				<td>是否主方法/头</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody class="system_list_status">
+			<tr ng-repeat="perm in ctrlAction.action_list.ret">
+				<td>{{perm.controller}}</td>
+				<td>{{perm.action}}</td>
+				<td>{{perm.p_name}}</td>
+				<td>{{perm.is_contoller}}</td>
+				<!--<td data-ng-if="">-->
+					<!--<a href="javascript:;" class="operation_style apply_style">应用</a>-->
+				<!--</td>-->
+				<td>
+					<a href="javascript:;" class="edit_style">编辑</a>
+					<a href="javascript:;" class="operation_style del_style">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--分页开始-->
+	<div paging page-object="page" click-function="page_fun" ></div>
+	<!--分页结束-->
+</div>
+	<!--删除弹框-->
+	<div class="jurisdiction_del ng-scope ng-hide" style="display: block" ng-show="permission.isDelWin">
+		<div class="header f18">提示</div>
+		<div class="main">
+			<div class="confirm_del f20">确认删除？</div>
+			<div class="jurisdiction_del_btn">
+				<button class="btns">确定</button>
+				<button class="btns gray">取消</button>
+			</div>
+		</div>
+	</div>
+	<!--点击应用-->
+	<div class="apply_click ng-scope ng-hide" style="display: block" ng-show="permission.isApplyWin">
+		<div class="header f18">提示</div>
+		<div class="main">
+			<div class="controller_input">
+				<div>
+					<label>权限名称：<input type="text" value="申请"/></label>
+				</div>
+				<div>
+					<label>前端路由：<input type="text" value="前端路由"class="route"/></label>
+				</div>
+			</div>
+			<div class="jurisdiction_del_btn">
+				<button class="btns" ng-show="permission.add()">确定</button>
+				<button class="btns gray" ng-show="permission.isApplyWin=false">取消</button>
+			</div>
+		</div>
+	</div>

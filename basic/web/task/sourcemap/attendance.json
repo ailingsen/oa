@@ -1,0 +1,11 @@
+[
+    "appnews/modules/attendance/controller/MyAttendController.js",
+    "appnews/modules/attendance/controller/AllAttendController.js",
+    "appnews/modules/attendance/controller/AttendSetController.js",
+    "appnews/modules/attendance/controller/VacationStatController.js",
+    "appnews/modules/attendance/controller/AttendCountController.js",
+    "appnews/modules/attendance/models/AttendanceModel.js",
+    "appnews/modules/attendance/controller/VacationMgnController.js",
+    "appnews/modules/attendance/models/VacationMgnModel.js",
+    "appnews/modules/attendance/route.js"
+]

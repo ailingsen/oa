@@ -1,0 +1,28 @@
+<div class="common-head">
+    <i class="iconfont">&#xe61b;</i>
+    <span class="f20">我的任务</span>
+    <span class="fr" ui-sref="main.task.myTask">更多</span>
+</div>
+<div class="common-content">
+    <ul isperm pcode="TaskMytask">
+        <li ng-repeat="item in index.task">
+            <!--<a ui-sref="main.index.taskdetail({task_id:item.task_id})">-->
+            <a ui-sref="main.task.myTask({task_id:item.task_id})">
+                <span>{{item.task_title|cut:true:24:' ...'}}</span>&nbsp;&nbsp;
+                <span class="tips1 red inblock" data-ng-if="item.task_type==1">指派任务</span>
+                <span class="tips1 blue inblock" data-ng-if="item.task_type==2">悬赏任务</span>
+                <!--st1待接受，st2进行中-->
+                <span class="task-state st1 fr" data-ng-if="item.status==1">待接受</span>
+                <span class="task-state st2 fr" data-ng-if="item.status==2">进行中</span>
+                <span class="task-state st1 fr" data-ng-if="item.status==3">待审核</span>
+                <span class="task-state st1 fr" data-ng-if="item.status==4">已完成</span>
+                <span class="task-state st1 fr" data-ng-if="item.status==5">已关闭</span>
+                <span class="task-state st1 fr" data-ng-if="item.status==6">已拒绝</span>
+            </a>
+        </li>
+    </ul>
+    <div class="emptyBg" ng-if="index.task.length==0">
+        <img src="images/empty.png" alt=""/>
+        <p>您现在没有新的任务动态</p>
+    </div>
+</div>

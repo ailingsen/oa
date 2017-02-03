@@ -1,0 +1,10 @@
+[
+    "appnews/modules/login/controller/LoginController.js",
+    "appnews/modules/login/controller/ForgetPasswordController.js",
+    "appnews/modules/login/route.js",
+    "appnews/modules/main/controller/IndexController.js",
+    "appnews/modules/main/controller/HeadController.js",
+    "appnews/modules/main/route.js",
+    "appnews/modules/main/controller/IndexSetController.js",
+    "appnews/modules/main/model/deskModel.js"
+]

@@ -1,0 +1,38 @@
+<!--职级申请创建开始-->
+<div class="ui-widget-winbor uiwinabs block pfixed isrequired" style="display:block;">
+    <div class="toptitle">
+        职级申请
+    </div>
+    <div class="scrollbor pfixed">
+
+        <div class="borderbor porela maxtextareasbor ">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23 wdspacing2">内 容：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder jzsqtextarea" placeholder="请输入内容(最多输入500个字)" data-ng-model="rankApply.rankApplyDesc"></textarea>
+        </div>
+
+        <div class="borderbor porela pbfilebor hauto nomb">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="widget-required" style="display: inline;">*</span>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul style=" width: 100%;">
+                <li class="porela" ng-repeat='item in rankApply.files'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a target="_blank" href="{{rankApply.file_root}}/{{item.file_path}}/{{item.real_name}}">{{item.file_name}}</a></div>
+                    <!-- <div class="filesize fl omit">{{item.file_size/1024 | number:2}}kb</div> -->
+                    <div class="del fr" ng-click="rankApply.delFiles($index)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso"><upload-modal upload-attrs="addFileBtn" att-object="att">添加附件</upload-modal></div>
+        </div>
+
+    </div>
+    <div class="btnbor poabso nobor">
+        <div class="btnsbor">
+            <button class="btns " data-ng-click="rankApply.submitRankInfo()">提交</button>
+            <!-- <button class="btns gray" data-ng-click="rankApply.cancel()">取消</button> -->
+        </div>
+    </div>
+</div>
+<!--职级申请创建结束-->

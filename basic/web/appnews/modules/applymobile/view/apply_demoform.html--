@@ -1,0 +1,29 @@
+<!--表单展示【可提交数据】 开始-->
+<div  class="ui-widget-winbor formpresentation pbcreateformlib pabso of block">
+     <div class="toptitle porela">
+        <span class="formtitles ml0"></span>
+        <i class="pbiconfont poabso closebtn pointer">&#xe61d;</i>
+     </div>
+     <div id="scroll" class="scrollbor poabso">
+     </div>
+     <div class="btnbor poabso nobor">
+          <div class="btnsbor">
+               <button class="btns formsave">提交</button>
+               <button class="btns gray">取消</button>
+          </div>
+     </div>
+</div>
+<!--表单展示【可提交数据】 结束-->
+
+
+<!-- 所需日期控件 -->
+<script src="/appnews/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="/appnews/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- 所需日期控件 -->
+
+ 
+<depart-dialog-form selected-departs="selectedDeparts" update-departs="updateDeparts(departs)" cancel-attr="cancels" visble="group.departDialogVisble" ng-show="group.departDialogVisble"></depart-dialog-form>
+
+<member-dialog selected-members="selectedMembers" update-members="updateMembers(members)" cancel-attr="cancels" visble="group.memberDialogVisble" ng-show="group.memberDialogVisble"></member-dialog>
+
+ 

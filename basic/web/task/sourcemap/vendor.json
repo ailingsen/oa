@@ -1,0 +1,23 @@
+[
+    "appnews/lib/common/jquery.min.js",
+    "appnews/lib/angular/angular.min.js",
+    "appnews/lib/angular/angular-cookies.js",
+    "appnews/lib/angular/angular-sanitize.min.js",
+    "appnews/lib/angular/bootstrap.min.js",
+    "appnews/moment.js",
+    "appnews/lib/angular/angular-ui-router.js",
+    "appnews/lib/angular/angular-file-upload.min.js",
+    "appnews/lib/angular/ng-file-upload.min.js",
+    "appnews/lib/angular/datetimepicker.js",
+    "appnews/lib/angular/jQuery.md5.js",
+    "appnews/lib/factory/factory.js",
+    "appnews/lib/filters/filter.js",
+    "appnews/lib/angular-gantt/dist/angular-gantt.js",
+    "appnews/lib/angular-gantt/dist/angular-gantt-plugins.js",
+    "appnews/lib/angular-moment/angular-moment.js",
+    "appnews/lib/angular-ui-tree/dist/angular-ui-tree.js",
+    "appnews/lib/highcharts/highcharts-ng.min.js",
+    "appnews/lib/highcharts/highstock.src.js",
+    "appnews/lib/lodash.min.js",
+    "appnews/modules/common/common.js"
+]

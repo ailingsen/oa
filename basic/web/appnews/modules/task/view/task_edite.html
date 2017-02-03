@@ -1,0 +1,244 @@
+<!--编辑任务 弹窗 开始-->
+<!--悬赏范围选择器start-->
+<script type="text/ng-template" id="field_renderer.html">
+    <ul style="margin-left: 10px">
+        <li ng-repeat="children in children.children"  class="child_li">
+            <label>
+                <input type="checkbox" class="cbox" ng-checked="children.is_select" data-ng-click="taskFunc.selectAllSubGroup2($event,children.org_id)" gname="{{children.org_name}}" gid="{{children.org_id}}" >
+                <span>{{children.org_name}}</span>
+            </label>
+            <span ng-include="'field_renderer.html'"></span>
+        </li>
+    </ul>
+</script>
+<div class="ui-widget-winbor taskeditwin of block">
+    <div class="toptitle porela">
+        <div class="gobackbtn pointer fl" ng-click="taskFunc.back(task.task_id);">
+            <i class="pbiconfont poabso">&#xe60d;</i>
+            <span>返回</span>
+        </div>
+        <span>编辑任务</span>
+    </div>
+
+    <div class="scrollbor poabso scroll">
+
+        <div class="borderbor of porela">
+            <div class="fl porela titlecells">
+                <i class="pbiconfont">&#xe612;</i>
+                <span class="ml3">任务类型：</span>
+                <select ng-model='task.taskTypeDefaultSelect' disabled ng-options='values as values.label for values in task.taskType'></select>
+            </div>
+            <span class="line"></span>
+            <div class="fl porela titlecells ml15">
+                <i class="pbiconfont">&#xe617;</i>
+                任务级别：
+                <select ng-model='task.levelDefaultSelect'  ng-options='values as values.label for values in task.taskLevel'></select>
+            </div>
+        </div>
+
+        <div class="borderbor of porela taskprobor" ng-if="task.taskTypeDefaultSelect.nums == 1">
+            <i class="pbiconfont">&#xe611;</i>
+            <span class="ml3">所属项目：</span>
+            <select ng-model='task.taskProjectSelect' ng-change="taskFunc.setTaskTimeRange(values)"   ng-options='values as values.pro_name for values in task.allProject'></select>
+        </div>
+
+        <div class="borderbor of porela tasktitlebor">
+            <i class="pbiconfont fl poabso">&#xe613;</i>
+            <span class="fl ml23">任务标题：</span>
+            <input type="text" class="fl texttitle" ng-model="task.task_title" placeholder="输入任务标题(最多输入50个字)" maxlength="50"/>
+        </div>
+
+        <div class="borderbor porela tasktimebor">
+
+            <i class="pbiconfont inblock">&#xe614;</i>
+            <span class="fl ml23">开始时间：</span>
+            <div class="porela inblock fl">
+                <input type="text" name="task_datestart" id="task_datestart" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+                <ul class="dropdown-menu" aria-labelledby="dLabel" ng-if="task.status < 2 || task.status==6">
+                    <datetimepicker ng-model="task.begin_time" data-datetimepicker-config="{ dropdownSelector: '#task_datestart', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+            </div>
+            <span class="fl ml15">——</span>
+            <i class="pbiconfont inblock">&#xe615;</i>
+            <span class="fl ml30">结束时间：</span>
+            <div class="porela inblock fl">
+
+                <input type="text" name="task_dateend" id="task_dateend" placeholder="" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="task.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dLabel" ng-if="task.status < 2 || task.status==6">
+                    <datetimepicker ng-model="task.end_time" data-datetimepicker-config="{ dropdownSelector: '#task_dateend', startView: 'day', minView: 'minute' }"></datetimepicker>
+                </ul>
+
+            </div>
+
+            <span class="clear">&nbsp;</span>
+
+        </div>
+
+        <div class="borderbor porela taskxsbor" ng-if="task.taskTypeDefaultSelect == task.taskType[1] && task.status<2">
+            <i class="pbiconfont poabso mt2">&#xe61e;</i>
+            <span class="ml23 wdspacing2 poabso">悬赏范围：</span>
+            <div class="poabso addbtn2"  data-ng-click="taskFunc.openSelecteGroup()"  ng-mouseleave="taskFunc.closeSelecteGroup()">
+
+                <div class="offerbor poabso minscroll">
+                    <div class="titles">请选择悬赏范围</div>
+                    <div class="nbor">
+                        <!--<div class="nbors"> -->
+                        <!--<div class="title">-->
+                        <!--<label>-->
+                        <!--<input type="checkbox">-->
+                        <!--<span>全公司</span>-->
+                        <!--</label>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+
+                        <div class="nbors" ng-repeat="groupTree in task.allGroupsTree">
+                            <div class="title">
+                                <label>
+                                    <input type="checkbox" class="cbox" ng-checked="groupTree.is_select" data-ng-click="taskFunc.selectAllSubGroup($event,groupTree.org_id)" gname="{{groupTree.org_name}}" gid="{{groupTree.org_id}}"/>
+                                    <span>{{groupTree.org_name}}</span>
+                                </label>
+                                        <span>
+                                            <!--默认向下-->
+                                            <i class="pbiconfont poabso" ng-if="groupTree.show==1" ng-click="taskFunc.showGroupList($index,0)">&#xe620;</i>
+
+                                            <!--点击向上-->
+                                            <i class="pbiconfont poabso" ng-if="groupTree.show==0" ng-click="taskFunc.showGroupList($index,1)">&#xe61f;</i>
+                                        </span>
+                            </div>
+                            <ul ng-if="groupTree.show==1">
+                                <li ng-repeat="children in groupTree.children"  class="second_li">
+                                    <label>
+                                        <input type="checkbox" class="cbox" ng-checked="children.is_select" data-ng-click="taskFunc.selectAllSubGroup2($event,children.org_id)" gname="{{children.org_name}}" gid="{{children.org_id}}"/>
+                                        <span>{{children.org_name}}</span>
+                                    </label>
+                                    <span ng-include="'field_renderer.html'"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <ul class="xslistbor of">
+                <li ng-repeat="selectGroups in task.selectedGroup" ng-click="taskFunc.selectMember(selectGroups)">{{selectGroups.org_name}}</li>
+            </ul>
+        </div>
+
+
+        <div class="borderbor porela" ng-if="task.taskTypeDefaultSelect == task.taskType[0]">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">分 配 给：</span>
+            <div class="imgbor40 poabso" ng-show="task.selectedMember.u_id>0" style="left: 165px;">
+                <div class="imgbor fl">
+                    <img ng-src="{{task.selectedMember.head_img}}">
+                </div>
+                <div class="name omit fl" ng-bind="task.selectedMember.real_name"></div>
+                <i class="pbiconfont poabso pointer" ng-click="taskFunc.delmember();">&#xe61d;</i>
+            </div>
+            <div class="poabso addbtn1 fpgbtn" data-ng-click="taskFunc.openSelectedP()"  ng-mouseleave="taskFunc.closeSelectedP()">
+                <div class="menbersearchbor minscroll">
+                    <div class="searchbg of porela">
+                        <i class="pbiconfont poabso">&#xe610;</i>
+                        <input type="text" class="noborder" placeholder="搜索" ng-keyup="taskFunc.allott(1)" data-ng-model="task.searchMemberRealName"/>
+                    </div>
+                    <ul>
+                        <li class="pointer" ng-repeat='item in task.groupMembers' ng-click="taskFunc.selectMember(item)">
+                            <div class="imgbor fl">
+                                <img ng-src="{{item.head_img}}">
+                            </div>
+                            <div class="name omit fl">
+                                {{item.real_name}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="borderbor porela tasktextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe618;</i>
+            <span class="ml23">任务描述：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" ng-model="task.task_desc" placeholder="请输入任务描述(最多输入500个字)" maxlength="500"></textarea>
+        </div>
+
+
+        <div class="borderbor porela taskfilebor">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in task.files'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a href="index.php?r=task/task/download&task_att_id={{item.task_att_id}}">{{item.real_name}}</a></div>
+                    <div class="filesize fl omit">{{(item.file_size/1024).toFixed(2)}}kb</div>
+                    <div class="del fr" ng-click="taskFunc.delFiles($index, item.task_att_id)">删除</div>
+                </li>
+            </ul>
+            <div class="btn blue fr poabso"><upload-modal upload-attrs="addFileBtn" att-object="task.files">添加附件</upload-modal></div>
+        </div>
+
+
+        <div class="borderbor porela taskjnbor">
+            <i class="pbiconfont poabso mt2">&#xe61b;</i>
+            <span class="ml23 wdspacing2 poabso">任务技能：</span>
+            <div class="poabso addbtn2" data-ng-click="taskFunc.openSelecteSkill()"  ng-mouseleave="taskFunc.closeSelecteSkill()">
+                <div class="skillbor poabso minscroll">
+                    <div class="titles">请选择技能</div>
+                    <div class="nbor">
+
+                        <div class="nbors" ng-repeat='item in task.skillList'>
+                            <div class="title">
+                                <label>{{item.skill_name}}</label>
+                                                <span>
+                                                    <!--默认向下-->
+                                                    <i class="pbiconfont poabso" ng-if="item.show==1" ng-click="taskFunc.showList($index,0)">&#xe620;</i>
+
+                                                    <!--点击向上-->
+                                                    <i class="pbiconfont poabso" ng-if="item.show==0" ng-click="taskFunc.showList($index,1)">&#xe61f;</i>
+                                                </span>
+                            </div>
+                            <ul id="skill{{item.skill_id}}" ng-if="item.show==1">
+                                <li ng-repeat='item2 in item.children'  class="second_li">
+                                    <label>
+                                        <input type="checkbox" id="item2.id" ng-checked="item2.is_select" ng-click="taskFunc.updateSelection($event, item2)">
+                                        <span>{{item2.skill_name}}</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <ul class="skilllistbor of">
+                <li ng-repeat='item in task.selecteSkill'>{{item.skill_name}}</li>
+            </ul>
+        </div>
+
+
+        <div class="borderbor porela taskpointbor">
+            <i class="pbiconfont poabso mt3">&#xe61a;</i>
+            <span class="ml23 wdspacing2">奖 励：</span>
+            <input type="text" class="inputtext taskpoint noborder" ng-model="task.point" ng-keyup="taskFunc.pointkeyup();" />
+            可分配纳米币
+            <!--<div class="surplus">( 剩余<span class="surplusPoint">{{user.leave_points+tempPoint}}</span>可分配纳米币 )</div>-->
+            <div class="surplus">( 剩余<span class="surplusPoint">{{leavePoints*1 + tempPoint*1}}</span>可分配纳米币 )</div>
+        </div>
+
+
+    </div>
+
+
+    <div class="btnbor poabso nobor">
+        <!--任务编辑-->
+        <div class="btnsbor">
+            <button class="btns " ng-click="taskFunc.saveTask(0);"  ng-disabled="isEdit">保存</button>
+            <button class="btns gray " ng-click="taskFunc.back(task.task_id);">返回</button>
+        </div>
+    </div>
+
+</div>
+<!--提示框-->
+<notice message="taskFunc.noticeService.message" type="taskFunc.noticeService.notice_type" gourl="taskFunc.noticeService.gourl">></notice>

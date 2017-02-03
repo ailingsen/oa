@@ -1,0 +1,19 @@
+
+<!--小模块开始-->
+    <ul class="module-small">
+        <li ng-repeat="item in index.smallTpl track by $index">
+            <a href="javascript:void(0);" ui-sref="{{item.url}}">
+                <p class="{{item.class}}">
+                    <i class="iconfont " data-ng-if="item.code=='s-workstate'">&#xe618;</i>
+                    <i class="iconfont " data-ng-if="item.code=='s-apply'">&#xe617;</i>
+                    <i class="iconfont " data-ng-if="item.code=='s-project'">&#xe60a;</i>
+                    <i class="iconfont " data-ng-if="item.code=='s-task'">&#xe60a;</i>
+                    <i class="iconfont " data-ng-if="item.code=='s-meeting'">&#xe605;</i>
+                    <i class="iconfont " data-ng-if="item.code=='s-workmate'">&#xe620;</i>
+                    {{item.title}}
+                </p>
+                <p>{{item.content}}</p>
+            </a>
+        </li>
+    </ul>
+<!--小模块结束-->

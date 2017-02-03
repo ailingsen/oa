@@ -1,0 +1,65 @@
+<div class="toptitle toptitlepb porela gtttopbors">
+     <div class="gobackbtn pointer fl" ng-click="project.returnGo()">
+          <i class="pbiconfont poabso pbc">&#xe60d;</i>
+          <span class="pbcd1">返回</span>
+     </div>
+     <div class="gttbor pbcd1">
+     	  <span class="omit pbc">项目成员工作报告</span>
+     </div>
+     
+     <div class="searchonebor">
+        
+          <span class="fl ml20 title pbcd1">请选择时间 : </span>
+          <div class="textbor porela inblock fl">
+
+               <i class="pbiconfont yqi poabso">&#xe614;</i>
+               <input type="text" name="delaytime" id="delaytime" data-toggle="dropdown" myform-date-format class="inputtext tasktime noborder" ng-model="param_project.date" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+               <ul class="dropdown-menu" aria-labelledby="dLabel">
+                   <datetimepicker ng-model="param_project.date" data-on-set-time="project.getReport()" data-datetimepicker-config="{ dropdownSelector: '#delaytime', startView: 'day', minView: 'day' }"></datetimepicker>
+               </ul>
+
+          </div>
+    
+     </div>
+
+</div>
+
+
+
+<div class="poabso proworklistbor">
+     <ul>
+         <li class="porela of" ng-repeat="item in project.reportInfo">
+              <div class="left poabso">
+                   <div class="imagebor of mt20">
+                        <img ng-src="{{item.head_img_path}}">
+                   </div>
+                   <div class="name pbc omit mt20">{{item.real_name}}</div>
+                   <div class="jobs pbcd1 omit">{{item.position}}</div>
+              </div>
+              <div class="right">
+                   <div class="top">日报</div>
+                   <div class="w50 fl worklists">
+                        <div class="title mt10 pbcd1"> > 本日工作项 : </div>
+                        <ul>
+                             <li ng-if="item.work_content"><div class="break">{{item.work_content}}</div><!-- <span class="spantip green" ng-if="itemtoday.status!=1">完成</span><span class="spantip red" ng-if="!(itemtoday.status!=1)">未完成</span>--> </li>
+ 
+                        </ul>
+                   </div>
+                   <div class="w50 fl worklists worklists2 porela">
+                        <div class="title mt10 pbcd1"> > 明日工作计划 : </div>
+                        <ul>
+                             <li ng-if="item.plan_content"><div class="break">{{item.plan_content}}</div></li>
+                        </ul>
+                   </div>
+              </div>
+         </li>
+     </ul>
+
+    <!-- 分页 -->
+    <div paging page-object="page" click-function="page_fun" ></div>
+</div>
+
+
+
+
+

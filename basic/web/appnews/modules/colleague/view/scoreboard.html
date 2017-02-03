@@ -1,0 +1,61 @@
+<div class="scoreboard poabso">
+    <div class="score-wrap fl porela">
+        <div class="nami-head porela">纳米币</div>
+        <div class="nami-content">
+            <div class="scroll-wrap">
+                <ul ng-repeat="item in scoreBoard.richIntegralList">
+                    <li class="bottom">
+                        <img ng-src="{{item.head_img}}" alt=""/>
+                        <p class="nami-msg porela">
+                            <span class="f18">{{item.real_name|cut:true:16:'...'}}</span><br/>
+                            <span>{{item.points}}</span>纳米币
+                        </p>
+                        <span class="rank fr porela" data-ng-if="$index==0">{{$index+1}}</span>
+                        <span class="rank fr porela opa8" data-ng-if="$index==1">{{$index+1}}</span>
+                        <span class="rank fr porela opa7" data-ng-if="$index==2">{{$index+1}}</span>
+                        <span class="rank fr porela opa6" data-ng-if="$index==3">{{$index+1}}</span>
+                        <span class="rank fr porela opa6" data-ng-if="$index!=0 && $index!=1 && $index!=2 && $index!=3">{{$index+1}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="empty-icon" ng-if="scoreBoard.richIntegralList.length==0">
+            <i class="iconfont">&#xe62d;</i>
+            <p>暂时没有相关数据</p>
+        </div>
+    </div>
+    <div class="score-wrap fr porela">
+        <div class="nami-head porela score-rank">积分晋升榜</div>
+        <div class="nami-content">
+            <div class="scroll-wrap">
+                <div class="rank-time f18">
+                    <span ng-class="{1: 'rank-time-active'}[scoreBoard.dataSelect]" data-ng-click="scoreBoard.dataSelectCtr(1,'week')">周</span><span ng-class="{2: 'rank-time-active'}[scoreBoard.dataSelect]" data-ng-click="scoreBoard.dataSelectCtr(2,'month')">月</span><span ng-class="{3: 'rank-time-active'}[scoreBoard.dataSelect]" data-ng-click="scoreBoard.dataSelectCtr(3,'quarter')">季度</span>
+                </div>
+                <ul>
+                    <li class="bottom" ng-repeat="it in scoreBoard.integral">
+                        <img ng-src="{{it.head_img}}" alt=""/>
+                        <p class="nami-msg porela">
+                            <span class="f18">{{it.real_name|cut:true:16:'...'}}</span><br/>
+                            共积分<span>{{it.points}}</span>
+                        </p>
+                        <p class="nami-msg porela" data-ng-if="it.points.length <= 0">
+                            <span class="f18">{{it.real_name}}</span><br/>
+                            共积分<span>0</span>
+                        </p>
+                        <span class="rank fr porela" data-ng-if="$index==0">{{$index+1}}</span>
+                        <span class="rank fr porela opa8" data-ng-if="$index==1">{{$index+1}}</span>
+                        <span class="rank fr porela opa7" data-ng-if="$index==2">{{$index+1}}</span>
+                        <span class="rank fr porela opa6" data-ng-if="$index==3">{{$index+1}}</span>
+                        <span class="rank fr porela opa6" data-ng-if="$index!=0 && $index!=1 && $index!=2 && $index!=3">{{$index+1}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="empty-icon" ng-if="scoreBoard.integral.length==0">
+            <i class="iconfont">&#xe62d;</i>
+            <p>暂时没有相关数据</p>
+        </div>
+    </div>
+</div>

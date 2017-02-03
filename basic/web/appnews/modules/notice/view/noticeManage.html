@@ -1,0 +1,75 @@
+<!--顶部开始-->
+<div class="w100">
+    <div class="pbsearchbor">
+        <div class="inblock pronames minscroll porela">
+            <span class="f16">公告标题：</span>
+            <input class="allattend-department notice-title" type="text" ng-model="notice.title"/>
+        </div>&nbsp;
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="task_searchtime" id="searchstarttime" placeholder="请输入开始时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="notice.begin_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="notice.begin_time" data-datetimepicker-config="{ dropdownSelector: '#searchstarttime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+        </div>
+        <span class="timeline inblock">—</span>
+        <div class="selecttimebor porela inblock">
+            <input type="text" name="searchendtime" id="searchendtime" placeholder="请输入结束时间" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" ng-model="notice.end_time" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="notice.end_time" data-datetimepicker-config="{ dropdownSelector: '#searchendtime', startView: 'day', minView: 'minute' }"></datetimepicker>
+            </ul>
+        </div>
+
+
+
+        <div class="inblock btn-query">
+            <button class="btn blue fl" ng-click="notice.searchButton()">查询</button>
+        </div>
+    </div>
+</div>
+<!--顶部结束-->
+
+<!--公告列表开始-->
+<div class="listWrap clear">
+    <table class="attend-table noticeManage-table">
+        <thead  >
+        <tr>
+            <td>序号</td>
+            <td>公告标题</td>
+            <td>发布日期</td>
+            <td>发布者</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in notice.noticelist">
+            <td>{{$index+1}}</td>
+            <td>{{item.title|cut:true:25:' ...'}} <i class="pbiconfont icon-hol" ng-if="item.isatt">&#xe619;</i></td>
+            <td>{{item.create_time_f}}</td>
+            <td>{{item.real_name}}</td>
+            <td>
+                <span class="btn-check" ng-click="notice.noticeDetailButton(item.notice_id)" href="">查看</span>
+                <span class="btn-delete" ng-click="notice.openDelConfirmWin(item,-1)">删除</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页开始-->
+    <div paging page-object="page" click-function="page_fun" ></div>
+    <!--分页结束-->
+
+</div>
+<!--公告列表结束-->
+
+<!--公告详情-->
+<ng-include src="'appnews/modules/notice/view/noticedetail.html'" ></ng-include>
+
+<ng-include src="'appnews/modules/notice/view/delConfirmWin.html'" ></ng-include>
+
+
+
+
+
+<div class="empty-icon" ng-if="notice.noticelist.length==0">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有相关数据</p>
+</div>

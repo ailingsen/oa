@@ -1,0 +1,45 @@
+<div class="back_box">
+	<a href="javascript:;" ng-click="survey.returnGo()" class="back_btn f16">返回</a>
+	<span class="f16">调研详情</span>
+</div>
+	<!--问题收集-->
+	<div class="userResearch_box">
+		<ul class="userResearch_content">
+			<li>
+				<div class="issue_collect_box">
+					<div class="issue_collect">
+						<a href="javascript:;" class="f16"><span>{{survey.surveyInfo.title}}</span></a>
+		        		<p class="status">
+		        			<button ng-if="survey.surveyInfo.status==1" class="underway_btn f16">进行中</button>
+                            <button ng-if="survey.surveyInfo.status==2" class="ended_btn f16">已结束</button>
+		        		</p>
+					</div>
+					<div class="describe">
+                        <p class="describe_title f16">{{survey.surveyInfo.explain}}</p>
+                        <p ng-bind-html="survey.surveyInfo.content" class="describe_title_content"></p>
+					</div>
+				</div>
+				<div class="create_box f16">
+					<span>创建时间：<i>{{survey.surveyInfo.create_time_f}}</i></span>
+					<span>创建者：<i>{{survey.surveyInfo.real_name}}</i></span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!--问题反馈-->
+	<div class="issue_feedback_box">
+		<ul class="issue_feedback_content">
+			<li ng-repeat="itemReply in survey.surveyReplayList">
+				<div class="issue_feedback_title">
+					<span class="feedback_name">反馈者：<em>{{itemReply.real_name}}（{{itemReply.org_name}}）</em></span>
+	        		<span class="feedback_time"><i>时间：{{itemReply.create_time_f}}</i></span>
+				</div>
+				<div class="issue_feedback_describe">
+					<p>{{itemReply.reply_content}}</p>
+				</div>
+			</li>
+		</ul>
+        <!--分页开始-->
+        <div paging page-object="page" click-function="page_fun" ></div>
+        <!--分页结束-->
+	</div>

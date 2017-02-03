@@ -1,0 +1,85 @@
+    <!--职级申请创建开始-->
+<div class="ui-widget-winbor uiwinabs pfixed formzindex" style="display:block;" ng-show="apply.rankPopup ">
+    <div class="toptitle porela">
+        职级申请
+        <i class="pbiconfont poabso closebtn pointer" ng-click="apply.rankPopup=false; apply.customHideWin();">&#xe61d;</i>
+    </div>
+    <div class="scrollbor poabso">
+
+        <div class="borderbor porela maxtextareasbor">
+            <i class="pbiconfont poabso mt2">&#xe63c;</i>
+            <span class="ml23 wdspacing2">内 容：</span>
+            <textarea name="textarea" id="textarea" class="pb_textareas noborder" data-ng-model="apply.rankApplyDesc" disabled></textarea>
+        </div>
+
+        <div class="borderbor porela taskfilebor read hauto ">
+            <i class="pbiconfont poabso mt2">&#xe619;</i>
+            <span class="ml23 wdspacing2 poabso">附 件：</span>
+            <ul>
+                <li class="porela" ng-repeat='item in apply.rankFiles'>
+                    <i class="poabso icon-{{item.file_type}}"></i>
+                    <div class="filename fl omit"><a target="_blank" href="{{apply.file_root}}/{{item.file_path}}/{{item.real_name}}">{{item.file_name}}</a></div>
+                    <div class="filesize fl omit">{{item.file_size/1024 | number:2}}kb</div>
+                    <div class="btn blue fr poabso" data-ng-click="apply.downFileBtn(item)">下载</div>
+                </li>
+            </ul>
+        </div>
+        <div class="borderbor porela">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">申 请 人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.applyer_name}}</div>
+            </div>
+        </div>
+        <!--当前审批人-->
+        <div class="borderbor porela" ng-if="apply.detail.handler_name">
+            <i class="pbiconfont poabso mt2">&#xe616;</i>
+            <span class="ml23 wdspacing">当前审批人：</span>
+            <div class="imgbor40 poabso">
+                <div class="imgbor fl">
+                    <img ng-src="{{apply.detail.handler_head_img}}">
+                </div>
+                <div class="name omit fl pbc">{{apply.detail.handler_name}}</div>
+            </div>
+        </div>
+        <div class="borderbor porela nomb applyprogress hauto" data-ng-if="apply.detail.verifyRecorders.length>0">
+            <div class="title poabso">
+                <i class="pbiconfont poabso mt2">&#xe626;</i>
+                <span class="ml23 poabso wdspacing2">申请进度</span>
+            </div>
+
+            <ul>
+                <!--同意-->
+                <li class="porela" ng-repeat="itemVerRed in apply.detail.verifyRecorders">
+                    <div class="imgbor40 fl">
+                        <div class="imgbor fl">
+                            <img ng-src="{{itemVerRed.head_img}}">
+                        </div>
+                        <div class="name omit fl pbc">{{itemVerRed.real_name}}</div>
+                    </div>
+                    <div class="agree fl center" ng-if="itemVerRed.status == 1">同意</div>
+                    <div class="agree fl center red" ng-if="itemVerRed.status == 2">拒绝</div>
+                    <div class="time fl pbcd1">{{itemVerRed.reply_time}}</div>
+                    <div class="porela jjbor">
+                        <span class="break">{{itemVerRed.comment}}</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="btnbor poabso nobor" ng-if="apply.detail.is_applyer == 1">
+        <div class="btnsbor">
+            <button class="btns " data-ng-if="apply.detail.status == 0" data-ng-click="apply.revoke(apply.detail.apply_id)">撤回</button>
+            <button class="btns " data-ng-if="apply.detail.is_press == 0 && apply.detail.status == 0" data-ng-click="apply.press(apply.detail.apply_id)">催办</button>
+            <button class="btns " data-ng-if="apply.detail.status == 3 || apply.detail.status == 2 " ng-click="apply.editPopupCtr('6')">编辑</button>
+            <button class="btns red" data-ng-if="apply.detail.status == 2 || apply.detail.status==3" data-ng-click="apply.delApply(apply.detail.apply_id)">删除</button>
+            <!--<button class="btns gray" data-ng-click="apply.editPopupCtr('5');apply.customHideWin();">取消</button>-->
+        </div>
+    </div>
+
+</div>
+<!--职级申请创建结束-->

@@ -1,0 +1,41 @@
+    <div class="attend-head">
+            <div class="fl f20">
+                <p ui-sref="main.attendance.myattend">我的考勤</p>
+            </div>
+        <div class="fl">
+            <p>
+                <i></i>
+                <span class="f22 bold">{{index.attendance.today}}</span>
+                <i></i>
+            </p>
+            <p>（今天）</p>
+        </div>
+    </div>
+    <div class="atten-time">
+        <p class="inblock">
+            上班打卡 <br/>
+            <span data-ng-if="index.attendance.onTime>0">{{index.attendance.onTime*1000 | date:'HH:mm'}}</span>
+            <span data-ng-if="index.attendance.onTime==0 || !index.attendance.onTime">--:--:--</span>
+        </p>
+        <p class="inblock">
+            下班打卡 <br/>
+            <span data-ng-if="index.attendance.offTime>0">{{index.attendance.offTime*1000 | date:'HH:mm'}}</span>
+            <span data-ng-if="index.attendance.offTime==0 || !index.attendance.offTime">--:--:--</span>
+        </p>
+        <div class="time-bar porela">
+            <b data-ng-if="index.attendance.onTime>0"></b>
+            <b data-ng-if="index.attendance.offTime>0"></b>
+        </div>
+    </div>
+    <div class="atten-bottom" data-ng-if="index.attendance.status==1">
+        <i class="iconfont">&#xe61e;</i>
+        <span>今天没有迟到哦，继续努力吧！</span>
+    </div>
+    <div class="atten-bottom" data-ng-if="index.attendance.status==0">
+        <i class="iconfont lateIcon">&#xe62b;</i>
+        <span>今天迟到了</span>
+    </div>
+    <div class="atten-bottom" data-ng-if="index.attendance.status==2">
+        <i class="iconfont">&#xe62b;</i>
+        <span>今天忘记打卡了</span>
+    </div>

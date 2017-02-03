@@ -1,0 +1,149 @@
+<div class="meeting">
+    <!--预订页面头部开始-->
+    <div class="meeting-header f16">
+        <span>请选择日期：</span>
+        <!--<div  class="date-pick">-->
+        <!--<b class="iconfont">&#xe604;</b>-->
+        <!--<input type="text" readonly />-->
+        <!--</div>-->
+        <div class="selecttimebor porela inblock date-pick">
+            <b class="iconfont">&#xe604;</b>
+            <input type="text"  ng-model="conferenceRoom.searchTime" id="searchTime" data-toggle="dropdown" myform-date-format class="inputtext noborder searchinputtext" onfocus="this.blur()" readonly="readonly" aria-expanded="false" >
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <datetimepicker ng-model="conferenceRoom.searchTime" ng-change="conferenceRoom.searchTimeRoom()" data-datetimepicker-config="{ dropdownSelector: '#searchTime', startView: 'day', minView: 'day' }"></datetimepicker>
+            </ul>
+        </div>
+        <i class="selecte-pic canreverse"></i><span>可预订</span>
+        <i class="selected"></i><span>已选</span>
+        <i class="reversed"></i><span>已预订</span>
+        <i class="myreverse"></i><span>我的预订</span>
+    </div>
+    <!--预订页面头部结束-->
+    <!--预订页面主体开始-->
+    <div class="section-wrap">
+        <div class="meeting-section porela">
+            <!--预订页面时间选择条开始-->
+            <div class="reserve-bar" ng-repeat="item in conferenceRoomList">
+                <div class="reserve-bar-head">
+                    <div class="fl">
+                        <i class="iconfont-big">&#xe605;</i>
+                    </div>
+                    <p class="fr">
+                    <span>
+                        <b class="meeting-name">{{item.name|cut:true:23:'...'}}</b> <br/>
+                        <span class="meeting-msg">{{item.desc|cut:true:29:'...'}}</span>
+                    </span>
+                    </p>
+                </div>
+                <ul class="time-select">
+                    <li  class="porela" ng-class="{0:'reserve-white', 1:'reserve-gray relative',2:'reserve-blue'}[ir[2]]" timeId="{{$index}}" roomId="{{item.room_id}}" reserve_id="{{ir[3].res_id}}" ng-repeat="ir in conferenceRoom.reserveTimeArr[$index]" ng-mouseenter="conferenceRoom.mouseActionUpCtr($event)" ng-mouseleave="conferenceRoom.mouseActionDownCtr($event,item.name)" data-ng-click="conferenceRoom.getReserveId('',ir[3].res_id)">
+                        <div >
+                            <span>{{ir[0]}}</span><br/>
+                            <span>|</span><br/>
+                            <span>{{ir[1]}}</span>
+                        </div>
+
+                        <!--已预订人信息弹出框-->
+                        <p class="reserved-msg" data-ng-if="ir[2]==1" style="display: none">
+                        <span>{{ir[3].real_name}}
+                            <i>（{{ir[3].memInfo.org_name.data}}-{{ir[3].memInfo.position}}）</i> 于
+                            <i>{{ir[3].create_time*1000  | date:'yyyy-MM-dd HH:mm'}}</i>预订
+                        </span>
+                            <b></b>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!--预订页面时间选择条结束-->
+        </div>
+    </div>
+    <!--预订页面主体结束-->
+</div>
+
+<!--预订弹出框开始-->
+<div class="reserve-pop pof" ng-show="conferenceRoom.popupRoomCtr">
+    <div class="reserve-pop-head f16">预订会议室</div>
+    <div class="reserve-title">
+        <p class="f16">您正在预定 <span>{{conferenceRoom.bookRoom_name|cut:true:20:'...'}}</span></p>
+        <p class="f16 reserve-time">{{conferenceRoom.bookTime}}</p> </div>
+    <div class="reserve-msg">
+        <div>
+            会议名称：<input class="reserve-common" type="text" placeholder="请输入会议名称" data-ng-model="conferenceRoom.meetingName"/>
+        </div>
+        <div>
+            会议说明：<textarea class="reserve-common" placeholder="最多输入50个字" maxlength="50" data-ng-model="conferenceRoom.meetingDesc"></textarea>
+        </div>
+        <div>
+            <p class="attend porela">
+                与会人员：<span>已选（<i>{{conferenceRoom.selectMemberSum}}</i>）</span>
+                <a href="" data-ng-click="conferenceRoom.clearMember()">清空</a>
+                <i class="addmember" data-ng-click="conferenceRoom.memberListCtr()"></i>
+
+                <!--人员选择下拉框开始-->
+            <div class="menbersearchbor minscroll memselect" style="display: block" ng-show="conferenceRoom.memberDropCtr" ng-mouseleave="conferenceRoom.memMouseLeave()">
+                <div class="searchbg of porela">
+                    <i class="pbiconfont poabso">&#xe610;</i>
+                    <input type="text" class="noborder" ng-keyup="conferenceRoom.getInputMemberList()" placeholder="搜索" data-ng-model="conferenceRoom.searchMemberName"/>
+                </div>
+                <ul>
+                    <li class="pointer" ng-repeat="member in conferenceRoom.allMemberList" data-ng-click="conferenceRoom.selectMemberList(member.head_img,member.real_name,member.u_id)">
+                        <div class="imgbor fl">
+                            <img ng-src="{{member.head_img}}">
+                        </div>
+                        <div class="name omit fl">
+                            {{member.real_name}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--人员选择下拉框结束-->
+
+            </p>
+            <div class="meeting-member reserve-common">
+                <ul>
+                    <li ng-repeat="mb in conferenceRoom.allMemberPageList">
+                        <img ng-src="{{mb.headImg}}" alt="" class="headImgSmall"/>
+                        <span>{{mb.realName}}</span> <i class="iconfont member-del" data-ng-click="conferenceRoom.delMember($index)">&#xe603;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sure-reserve">
+        <button class="btns blue sure" data-ng-click="conferenceRoom.sureReserve($event)">确认预订</button>&nbsp;&nbsp;
+        <button class="btns gray cancel" data-ng-click="conferenceRoom.cancelBookRoom()">取消</button>
+        <div class="packUp f10">
+            <i class="iconfont">&#xe609;</i> <span>编辑会议室详情</span>
+        </div>
+    </div>
+</div>
+<!--预订弹出框结束-->
+
+<!--取消预订提示框开始-->
+<div class="reserve-pop cancel-reserve" style="display: block" ng-show="conferenceRoom.popupStatusCtr">
+    <div class="reserve-pop-head f16">提示</div>
+    <div class="reserve-title">
+        <p class="f16">确认取消预订 <span>{{conferenceRoom.bookRoom_name|cut:true:20:'...'}}</span>？</p>
+        <p class="f16 reserve-time">{{conferenceRoom.bookTime}}</p>
+    </div>
+    <div class="sure-reserve">
+        <button class="btns blue sure" data-ng-click="conferenceRoom.cancelReserve()">确认取消</button>&nbsp;&nbsp;
+        <button class="btns gray cancel" data-ng-click="conferenceRoom.cancelBookMt()">取消</button>
+    </div>
+</div>
+<!--取消预订提示框结束-->
+
+<!--鼠标滑动选择引导动画开始-->
+<div class="poabso mousemove" ng-show="conferenceRoom.isShowGuid">
+    <img src="images/mousemove.gif" alt=""/><br/>
+    <span ng-click="conferenceRoom.hideGuid()">不再显示</span>
+</div>
+<!--鼠标滑动选择引导动画结束-->
+
+
+<div class="empty-icon" ng-if="conferenceRoomList.length==0">
+    <i class="iconfont">&#xe62d;</i>
+    <p>暂时没有可预定的会议室</p>
+</div>
+
+
